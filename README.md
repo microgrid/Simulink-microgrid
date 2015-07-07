@@ -12,21 +12,16 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 
 The simulation is a complete model of a microgrid including the power sources, their power electronics, a load and mains model using MatLab and Simulink.
 
+## To Do
 
-
-
-
-
-
-- [ ] Write about the feature of the simulation
-- [ ] Write about how to compile (what compiler is needed)
-- [ ] CHECK! and then write about supported operating systems
-- [ ] Usefull links (how to upload excel files)
-- [ ] Make a to-do for future work and improvements
-The final goal is to obtain a reliable 24h simulation for a PV microgrid, with the possibility to add another system whatever the king of ressource we have for this backup.
-To do:
-- Create a GUI in order to control and visualize the simulation
-- Implement the integration of a backup in the simulink
-- Run a complete simulation
-- Analyse the results
-- Create a Wiki 
+- [ ] Enhance the readme
+  * Explain how to run the simulation
+  * Write about compiling
+  * write about supported operating systems
+  * Add usefull links to prior knowledge for this simulation, such as using excel and matlab together.
+- [x] Create a GUI in order to control and cisualize the simulation
+- [ ] Make the GUI dynamic
+- [ ] Implement the integration of a backup in the simulink
+- [ ] Create a wiki
+- [ ] Testing
+  * Run a complete simulation and analyse the results.
