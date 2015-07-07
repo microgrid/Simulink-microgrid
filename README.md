@@ -6,9 +6,9 @@ The microgrid simulated use a group of electricity sources and loads to work dis
 
 ## Purpose of this simulation
 Design tools are needed to build the prototype PV-microgrid at the College of Science and Technology in Bhutan. This project will be supporting this Microgrid at CST by proposing a design tool that can
-* Identify optimal microgrid structure and composition
-* Give a full year simulation of the system, with measurements on load, production, voltage and frequency
-* Give methods for simplifying the planning and resource-assessment phase
+* Identify optimal microgrid structure and composition.
+* Give a full year simulation of the system, with measurements on load, production, voltage and frequency.
+* Give methods for simplifying the planning and resource-assessment phase.
 
 ## To Do
 
