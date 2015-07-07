@@ -1,12 +1,12 @@
 Model {
-  Name			  "Microgrid_24h_Bhutan"
+  Name			  "Microgrid_24h_Simulation"
   Version		  8.1
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.88"
+    ComputedModelVersion    "1.89"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,7 +31,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1616.0, 876.0]
+      Location		      [-8.0, 0.0, 1612.0, 876.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -56,7 +56,7 @@ Model {
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [0.8]
 	  Offset		  [0.0, 0.0]
 	}
@@ -65,7 +65,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2165"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -74,7 +74,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2191"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [1.4041613380114768, 44.0]
 	}
@@ -83,7 +83,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2166:15::129"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, -5.0]
 	}
@@ -92,7 +92,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "802"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [0.8]
 	  Offset		  [-275.06666666666626, 0.5]
 	}
@@ -109,9 +109,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 06 15:24:20 2015"
-  RTWModifiedTimeStamp	  358093840
-  ModelVersionFormat	  "1.%<AutoIncrement:88>"
+  LastModifiedDate	  "Tue Jul 07 22:24:27 2015"
+  RTWModifiedTimeStamp	  358208653
+  ModelVersionFormat	  "1.%<AutoIncrement:89>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1053,9 +1053,6 @@ Model {
       ZeroCross		      on
     }
     Block {
-      BlockType		      Stop
-    }
-    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -1114,8 +1111,8 @@ Model {
     }
   }
   System {
-    Name		    "Microgrid_24h_Bhutan"
-    Location		    [-8, 0, 1608, 876]
+    Name		    "Microgrid_24h_Simulation"
+    Location		    [-8, 0, 1604, 876]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1152,7 +1149,7 @@ Model {
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1608, 876]
+	Location		[-8, 0, 1604, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1987,7 +1984,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Power Demand 24h"
-	    Location		    [-8, 0, 1608, 876]
+	    Location		    [-8, 0, 1604, 876]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -5031,7 +5028,7 @@ Model {
 		  BlockType		  S-Function
 		  Name			  " SFunction "
 		  SID			  "618::34"
-		  Tag			  "Stateflow S-Function Microgrid_24h_Bhutan 3"
+		  Tag			  "Stateflow S-Function Microgrid_24h_Simulation 3"
 		  Ports			  [5, 5]
 		  Position		  [180, 100, 230, 220]
 		  ZOrder		  20
@@ -13653,7 +13650,7 @@ Model {
       }
       System {
 	Name			"PV Array"
-	Location		[-8, 0, 1608, 876]
+	Location		[-8, 0, 1604, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -14243,7 +14240,7 @@ Model {
 	      BlockType		      S-Function
 	      Name		      " SFunction "
 	      SID		      "2112::20"
-	      Tag		      "Stateflow S-Function Microgrid_24h_Bhutan 1"
+	      Tag		      "Stateflow S-Function Microgrid_24h_Simulation 1"
 	      Ports		      [3, 2]
 	      Position		      [180, 100, 230, 180]
 	      ZOrder		      1
@@ -15267,23 +15264,6 @@ Model {
 	  }
 	}
       }
-    }
-    Block {
-      BlockType		      S-Function
-      Name		      "S-Function"
-      SID		      "2611"
-      Ports		      [1, 1]
-      Position		      [395, 265, 455, 295]
-      ZOrder		      2
-      FunctionName	      "GUIStopFlag"
-      EnableBusSupport	      off
-    }
-    Block {
-      BlockType		      Stop
-      Name		      "Stop Simulation"
-      SID		      "2610"
-      Position		      [530, 262, 565, 298]
-      ZOrder		      1
     }
     Block {
       BlockType		      SubSystem
@@ -22993,12 +22973,6 @@ Model {
       DstBlock		      "Inverter"
       DstPort		      LConn1
     }
-    Line {
-      SrcBlock		      "S-Function"
-      SrcPort		      1
-      DstBlock		      "Stop Simulation"
-      DstPort		      1
-    }
     Annotation {
       SID		      "2563"
       Name		      "DC/AC HYBRID MICROGRID (24h)"
@@ -23045,7 +23019,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "Microgrid_24h_Bhutan"
+    name		    "Microgrid_24h_Simulation"
     created		    "24-Apr-2013 13:11:36"
     isLibrary		    0
     firstTarget		    25
