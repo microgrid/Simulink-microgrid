@@ -6,3 +6,4 @@
 - [ ] Write about how to compile (what compiler is needed)
 - [ ] CHECK! and then write about supported operating systems
 - [ ] Usefull links (how to upload excel files)
+- [ ] Make a to-do for future work and improvements
