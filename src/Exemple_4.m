@@ -1,0 +1,3 @@
+copyfile(fullfile(docroot, 'techdoc','creating_guis',...
+  'examples','simple_gui2*.*')), fileattrib('simple_gui2*.*', '+w');
+edit simple_gui2.m
