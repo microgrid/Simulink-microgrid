@@ -1,5 +1,5 @@
 # 24 hours simulation of a microgrid
-This model is based on Faisal Mohamed's master thesis, Microgrid Modelling and Simulation.
+This is a complete model of a microgrid including the power sources, their power electronics, a load and mains model using MatLab and Simulink. The model is based on Faisal Mohamed's master thesis, Microgrid Modelling and Simulation.
 
 ## What is a microgrid
 The microgrid simulated use a group of electricity sources and loads to work disconnected from any centralized grid (macrogrid) and function autonomously to provide power to its local area. The simulation models the microgrid at steady state to analyse their transient response to changing input. 
@@ -9,8 +9,6 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 * Identify optimal microgrid structure and composition
 * Give a full year simulation of the system, with measurements on load, production, voltage and frequency
 * Give methods for simplifying the planning and resource-assessment phase
-
-The simulation is a complete model of a microgrid including the power sources, their power electronics, a load and mains model using MatLab and Simulink.
 
 ## To Do
 
