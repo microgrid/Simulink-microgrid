@@ -1,8 +1,38 @@
 function Supervision
-      
+
+ % Execute MATLAB expression in specified workspace(Allow visibility for the GUI)
+Ins_M=evalin('caller','Ins_Monsoon');         
+Ins_I=evalin('caller',' Ins_Intermediate');   
+Ins_W=evalin('caller','Ins_Winter');          
+xdiscretized=evalin('caller','xdiscretized'); 
+ActivePower_dataALLMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataALLIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataALLWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataDMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataDIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataDWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataEMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataEIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataEWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataCMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataCIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataCWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataAMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataAIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataAWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataBMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataBIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataBWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataLHMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataLHIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataLHWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataRHMonsoon=evalin('caller','newyfitdiscretized');
+ActivePower_dataRHIntermediate=evalin('caller','newyfitdiscretized');
+ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
+
    %  Create and then hide the GUI as it is being constructed.
    f = figure('Visible','off','Position',[360,500,450,285]);
-
+   
    %  Construct the components.
    
    % Add "Monsoon" button to window
@@ -104,19 +134,18 @@ function Supervision
    imshow(jpg);
    title('Bhutan Project');
    
+     
+%    valeur_monsoon=get(hmonsoon,'Value');
+%    valeur_intermediate=get(hintermediate,'Value');
+%    valeur_winter=get(hwinter,'Value');
+   
    % Align elements in parameters 
    align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,txtbox1,txtbox2,hupdate,htextparameters,h7,hpopup],'Center','None');
    
    % Color 
    set(hrun,'BackgroundColor', [0 1 0]);
    set(hstop,'BackgroundColor', [1 0 0]);
-   
-   % Create the data insolation to plot.
-   
-   SampleTime=0.1;
-   xdiscretized=1:SampleTime:24;
-   Insolation_data = normpdf(xdiscretized,12,1.7); % Normal law
-   
+      
    % Initialize the GUI
    
    % Change units to normalized so components resize automatically.
@@ -127,7 +156,11 @@ function Supervision
    set(f, 'Units', 'Normalized', 'Position', [0 0 1 1]);
    
    % Initialize a plot in the axes.
-   plot(h1,xdiscretized,Insolation_data*3990,'m');
+    
+   SampleTime=0.1;
+   xdiscretized=1:SampleTime:24;
+    
+   plot(h1,xdiscretized,Ins_M,'m'); % Ins_Monsoon from DataBase.m
    xlabel(h1,'Time (Hours)');
    ylabel(h1,'Insolation (W/m²)');
    title(h1,'SEASON Monsoon');
@@ -150,73 +183,16 @@ function Supervision
    ylabel(h6,'SOC (%)');
    title(h6,'SOC');
    grid(h6,'on');
-   
-  
-% Import data from the files 
-
-    customerAllMonsoon=importdata('dataBase\PowerAllMonsoon.mat'); %  Data from excel Block All
-    customerAllIntermediate=importdata('dataBase\PowerAllIntermediate.mat'); %  Data from excel Block All
-    customerAllWinter=importdata('dataBase\PowerAllWinter.mat'); %  Data from excel Block All
-
-    customerDMonsoon=importdata('dataBase\PowerDMonsoon.mat'); %  Data from excel Block D
-    customerDIntermediate=importdata('dataBase\PowerDIntermediate.mat'); %  Data from excel Block D
-    customerDWinter=importdata('dataBase\PowerDWinter.mat'); %  Data from excel Block D
-
-    customerEMonsoon=importdata('dataBase\PowerEMonsoon.mat'); %  Data from excel Block E
-    customerEIntermediate=importdata('dataBase\PowerEIntermediate.mat'); %  Data from excel Block E
-    customerEWinter=importdata('dataBase\PowerEWinter.mat'); %  Data from excel Block E
-
-    customerCMonsoon=importdata('dataBase\PowerCMonsoon.mat'); %  Data from excel Block C
-    customerCIntermediate=importdata('dataBase\PowerCIntermediate.mat'); %  Data from excel Block C
-    customerCWinter=importdata('dataBase\PowerCWinter.mat'); %  Data from excel Block C
-
-    customerAMonsoon=importdata('dataBase\PowerAMonsoon.mat'); %  Data from excel Block A
-    customerAIntermediate=importdata('dataBase\PowerAIntermediate.mat'); %  Data from excel Block A
-    customerAWinter=importdata('dataBase\PowerAWinter.mat'); %  Data from excel Block A
-
-    customerBMonsoon=importdata('dataBase\PowerBMonsoon.mat'); %  Data from excel Block B
-    customerBIntermediate=importdata('dataBase\PowerBIntermediate.mat'); %  Data from excel Block B
-    customerBWinter=importdata('dataBase\PowerBWinter.mat'); %  Data from excel Block B
-
-    customerLHMonsoon=importdata('dataBase\PowerLHMonsoon.mat'); %  Data from excel Block LH
-    customerLHIntermediate=importdata('dataBase\PowerLHIntermediate.mat'); %  Data from excel Block LH
-    customerLHWinter=importdata('dataBase\PowerLHWinter.mat'); %  Data from excel Block LH
-
-    customerRHMonsoon=importdata('dataBase\PowerRHMonsoon.mat'); %  Data from excel Block RH
-    customerRHIntermediate=importdata('dataBase\PowerRHIntermediate.mat'); %  Data from excel Block RH
-    customerRHWinter=importdata('dataBase\PowerRHWinter.mat'); %  Data from excel Block RH
-
-    Time=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel  
-
-           
-% linear regression with a polynomial approach for the Active power of the load  
-    p = polyfit(Time,customerRHWinter,10); % Data choice from pushbutton SEASONS
-    yfit = polyval(p,Time);
-    yfitdiscretized=polyval(p,xdiscretized);
-
-  % Delete values below zero for the final curve for the Active power of the load
-    nrows = 1;
-    ncols = (23/SampleTime)+1;
-    newyfitdiscretized=yfitdiscretized;
-r=1;
-    for c = 1:ncols
-
-        if  yfitdiscretized(r,c)<0
-            newyfitdiscretized(r,c) = 0;
-        else
-   newyfitdiscretized(r,c)= yfitdiscretized(r,c);
-        end
-    end
-    
+      
     % Initialize curve for the Active power 
-    plot(h2,xdiscretized,newyfitdiscretized);
+    plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
     xlabel(h2,'Time (Hours)');
     ylabel(h2,'Active Power (kW)');
     title(h2,'Active Power All Blocks');
     
     % Initialize curve for the Reactive power (In our case we make an assumption, it is just the Active
     % power divided by 10).
-    plot(h3,xdiscretized,newyfitdiscretized/10,'r');
+    plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
     xlabel(h3,'Time (Hours)');
     ylabel(h3,'Reactive Power (kVAR)');
     title(h3,'Reactive Power All Blocks')
@@ -247,184 +223,175 @@ r=1;
                        
          % User selects All Blocks 
          case 'All Blocks' 
-         ActivePower_data=newyfitdiscretized/100;
+            
          message2 = msgbox('The simulation will run according the consumption of All Blocks');
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power All Blocks');
          xlabel(h2,'Time (Hours)');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power All Blocks')
          grid(h3,'on');
-         Block='All';
-         
+               
          % User selects Block D
          case 'Block D' 
-         ActivePower_data=newyfitdiscretized/2;
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block D');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block D');
          message2 = msgbox('The simulation will run according the consumption of the Block D');
          grid(h3,'on');
-         Block='D';
+         
          
          % User selects Block E
          case 'Block E' 
-         ActivePower_data=newyfitdiscretized/23;
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block E');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block E');
          message2 = msgbox('The simulation will run according the consumption of the Block E');
          grid(h3,'on');
-         Block='E';
+         
          
          % User selects Block C
          case 'Block C' 
-         ActivePower_data=newyfitdiscretized/5;
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block C');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block C');
          message2 = msgbox('The simulation will run according the consumption of the Block C');
          grid(h3,'on');
-         Block='C';
+         
          
          % User selects Block A
          case 'Block A' 
-         ActivePower_data=newyfitdiscretized/9;
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block A');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block A');
          message2 = msgbox('The simulation will run according the consumption of the Block A');
          grid(h3,'on');
-         Block='A';
+         
           
          % User selects Block B
          case 'Block B' 
-         ActivePower_data=newyfitdiscretized/7;
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block B');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block B');
          message2 = msgbox('The simulation will run according the consumption of the Block B');
          grid(h3,'on');
-         Block='B';
+         
           
          % User selects Block LH
          case 'Block LH' 
-         ActivePower_data=newyfitdiscretized/34;
-         plot(h2,xdiscretized,ActivePower_data);
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block LH');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_data/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block LH');
          message2 = msgbox('The simulation will run according the consumption of the Block LH');
          grid(h3,'on');
-         Block='LH';
+        
          
          % User selects Block RH
-         case 'Block RH' 
-         ActivePower_data=newyfitdiscretized/34;
-         plot(h2,xdiscretized,ActivePower_data);
+         case 'Block RH'
+         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power Block RH');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-          plot(h3,xdiscretized,ActivePower_data/10,'r');
+          plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block RH');
          message2 = msgbox('The simulation will run according the consumption of the Block RH');
          grid(h3,'on');
-         Block='RH';
-         
+        
          end
       end
   
    % Push button callbacks 
    
-   function monsoonbutton_Callback(source,eventdata) 
+   function monsoonbutton_Callback(source,eventdata,handles) 
    % Display monsoon season plot of the currently selected data.
-     plot(h1,xdiscretized,Insolation_data*3990,'m');
+     plot(h1,xdiscretized,Ins_M,'m'); % Ins_Monsoon from DataBase.m
      xlabel(h1,'Time (Hours)');
      ylabel(h1,'Insolation (W/m²)');
      title(h1,'SEASON Monsoon');
      grid(h1,'on');
      set(htext1, 'String', 'Temperature outside = 26.8°C');
      set(htext3, 'String', 'Temperature pannel = 46°C');
-     Season = guidata(hmonsoon_handle)
    end
  
-   function intermediatebutton_Callback(source,eventdata) 
+   function intermediatebutton_Callback(source,eventdata,handles) 
    % Display intermediate season plot of the currently selected data.
-      plot(h1,xdiscretized,Insolation_data*4583,'m');
+      plot(h1,xdiscretized,Ins_I,'m');% Ins_Intermediate from DataBase.m
       xlabel(h1,'Time (Hours)');
       ylabel(h1,'Insolation (W/m²)');
       title(h1,'SEASON Intermediate');
       grid(h1,'on');
       set(htext1, 'String', 'Temperature outside = 17.4°C');
       set(htext3, 'String', 'Temperature pannel = 46°C');
-      Season = guidata(hintermediate_handle)
    end
  
-   function winterbutton_Callback(source,eventdata) 
+   function winterbutton_Callback(source,eventdata,handles) 
    % Display winter season plot of the currently selected data.
-      plot(h1,xdiscretized,Insolation_data*4888,'m');
+      plot(h1,xdiscretized,Ins_W,'m');% Ins_Winter from DataBase.m
       xlabel(h1,'Time (Hours)');
       ylabel(h1,'Insolation (W/m²)');
       title(h1,'SEASON Winter');
       grid(h1,'on');
       set(htext1, 'String', 'Temperature outside = 23.4°C');
       set(htext3, 'String', 'Temperature pannel = 46°C');
-      Season = guidata(hwinter_handle)
    end 
 
   function runbutton_Callback(source,eventdata,handles) 
    % Run the simulation
-   options = simset('SrcWorkspace','current');
-   sim('Microgrid_24h_Bhutan',[],options);
-
-
- % Send the Power from the selected block to the simulink
 
    message1 = msgbox('Please wait ! This simulation will take few hours');
-   sim('Microgrid_24h_Bhutan');
+   Microgrid_24h_Bhutan = get(handles.Microgrid_24h_Bhutan, 'String');
+   stoptime = str2num(get(handles.simstoptime, 'String'));
+   sim(Microgrid_24h_Bhutan, [0 stoptime]);
    
   end
 
   function stopbutton_Callback(source,eventdata,handles) 
    % Stop the simulation
+   global GUIStopFlag;
+
+GUIStopFlag = 1;
 
   end
-
+ function updatebutton_Callback(source,eventdata) 
+   % 
+ message1 = msgbox('Update data');
+ end
  function quitbutton_Callback(source,eventdata) 
    % Quit the simulation
   f = gcf;
