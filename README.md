@@ -11,3 +11,10 @@
 - [ ] CHECK! and then write about supported operating systems
 - [ ] Usefull links (how to upload excel files)
 - [ ] Make a to-do for future work and improvements
+The final goal is to obtain a reliable 24h simulation for a PV microgrid, with the possibility to add another system whatever the king of ressource we have for this backup.
+To do:
+- Create a GUI in order to control and visualize the simulation
+- Implement the integration of a backup in the simulink
+- Run a complete simulation
+- Analyse the results
+- Create a Wiki 
