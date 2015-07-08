@@ -25,4 +25,4 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 - [ ] Create a wiki
 - [ ] Testing
   * Run a complete simulation and analyse the results.
-  * Add support for multi-core.
+- [ ] Add support for multi-core.
