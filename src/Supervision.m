@@ -141,8 +141,8 @@ jpg=evalin('caller','jpg');
    align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,htextparameters,h7,hpopup],'Center','None');
    
    % Color 
-   set(hrun,'BackgroundColor', [0 1 0]);
-   set(hstop,'BackgroundColor', [1 0 0]);
+   set(hrun,'BackgroundColor', [0.396 1 0.558]);
+   set(hstop,'BackgroundColor', [1 0.286 0.145]);
       
    % Initialize the GUI
    
