@@ -221,7 +221,7 @@ jpg=evalin('caller','jpg');
                        
          % User selects All Blocks 
          case 'All Blocks Monsoon'  
-         message2 = msgbox('The simulation will run according the consumption of All Blocks during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of All Blocks during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
          title(h2,'Active Power All Blocks during the Monsoon');
          xlabel(h2,'Time (Hours)');
@@ -234,7 +234,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'All Blocks Intermediate'  
-         message2 = msgbox('The simulation will run according the consumption of All Blocks during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of All Blocks during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataALLIntermediate);
          title(h2,'Active Power All Blocks during the Intermediate Season');
          xlabel(h2,'Time (Hours)');
@@ -247,7 +247,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
                
          case 'All Blocks Winter'  
-         message2 = msgbox('The simulation will run according the consumption of All Blocks during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of All Blocks during the Winter');
          plot(h2,xdiscretized,ActivePower_dataALLWinter);
          title(h2,'Active Power All Blocks during the Winter');
          xlabel(h2,'Time (Hours)');
@@ -261,7 +261,7 @@ jpg=evalin('caller','jpg');
          
          % User selects Block D
          case 'Block D Monsoon' 
-         message2 = msgbox('The simulation will run according the consumption of the Block D during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block D during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataDMonsoon);
          title(h2,'Active Power Block D during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -273,7 +273,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block D Intermediate' 
-         message2 = msgbox('The simulation will run according the consumption of the Block D during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block D during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataDIntermediate);
          title(h2,'Active Power Block D during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -285,7 +285,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block D Winter' 
-         message2 = msgbox('The simulation will run according the consumption of the Block D during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block D during the Winter');
          plot(h2,xdiscretized,ActivePower_dataDWinter);
          title(h2,'Active Power Block D during the Winter');
          ylabel(h2,'Active Power (kW)');
@@ -299,7 +299,7 @@ jpg=evalin('caller','jpg');
          
          % User selects Block E
          case 'Block E Monsoon' 
-         message2 = msgbox('The simulation will run according the consumption of the Block E during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block E during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataEMonsoon);
          title(h2,'Active Power Block E during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -311,7 +311,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block E Intermediate' 
-         message2 = msgbox('The simulation will run according the consumption of the Block E during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block E during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataEIntermediate);
          title(h2,'Active Power Block E during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -323,7 +323,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block E Winter' 
-         message2 = msgbox('The simulation will run according the consumption of the Block E during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block E during the Winter');
          plot(h2,xdiscretized,ActivePower_dataEWinter);
          title(h2,'Active Power Block E during the Winter');
          ylabel(h2,'Active Power (kW)');
@@ -337,7 +337,7 @@ jpg=evalin('caller','jpg');
          
          % User selects Block C
          case 'Block C Monsoon' 
-         message2 = msgbox('The simulation will run according the consumption of the Block C during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block C during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataCMonsoon);
          title(h2,'Active Power Block C during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -349,7 +349,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block C Intermediate' 
-         message2 = msgbox('The simulation will run according the consumption of the Block C during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block C during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataCIntermediate);
          title(h2,'Active Power Block C during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -361,7 +361,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block C Winter' 
-         message2 = msgbox('The simulation will run according the consumption of the Block C during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block C during the Winter');
          plot(h2,xdiscretized,ActivePower_dataCWinter);
          title(h2,'Active Power Block C during the Winter');
          ylabel(h2,'Active Power (kW)');
@@ -374,7 +374,7 @@ jpg=evalin('caller','jpg');
          
          % User selects Block A
          case 'Block A Monsoon' 
-         message2 = msgbox('The simulation will run according the consumption of the Block A during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block A during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataAMonsoon);
          title(h2,'Active Power Block A during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -386,7 +386,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block A Intermediate' 
-         message2 = msgbox('The simulation will run according the consumption of the Block A during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block A during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataAIntermediate);
          title(h2,'Active Power Block A during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -398,7 +398,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block A Winter' 
-         message2 = msgbox('The simulation will run according the consumption of the Block A during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block A during the Winter');
          plot(h2,xdiscretized,ActivePower_dataAWinter);
          title(h2,'Active Power Block A during the Winter');
          ylabel(h2,'Active Power (kW)');
@@ -412,7 +412,7 @@ jpg=evalin('caller','jpg');
           
          % User selects Block B
          case 'Block B Monsoon' 
-         message2 = msgbox('The simulation will run according the consumption of the Block B during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block B during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataBMonsoon);
          title(h2,'Active Power Block B during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -424,7 +424,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block B Intermediate' 
-         message2 = msgbox('The simulation will run according the consumption of the Block B during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block B during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataBIntermediate);
          title(h2,'Active Power Block B during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -436,7 +436,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block B Winter'
-         message2 = msgbox('The simulation will run according the consumption of the Block B during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block B during the Winter');
          plot(h2,xdiscretized,ActivePower_dataBWinter);
          title(h2,'Active Power Block B during the Winter');
          ylabel(h2,'Active Power (kW)');
@@ -450,7 +450,7 @@ jpg=evalin('caller','jpg');
           
          % User selects Block LH
          case 'Block LH Monsoon' 
-         message2 = msgbox('The simulation will run according the consumption of the Block LH during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block LH during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataLHMonsoon);
          title(h2,'Active Power Block LH during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -462,7 +462,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block LH Intermediate' 
-         message2 = msgbox('The simulation will run according the consumption of the Block LH during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block LH during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataLHIntermediate);
          title(h2,'Active Power Block LH during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -474,7 +474,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block LH Winter' 
-         message2 = msgbox('The simulation will run according the consumption of the Block LH during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block LH during the Winter');
          plot(h2,xdiscretized,ActivePower_dataLHWinter);
          title(h2,'Active Power Block LH during the Winter');
          ylabel(h2,'Active Power (kW)');
@@ -488,7 +488,7 @@ jpg=evalin('caller','jpg');
          
          % User selects Block RH
          case 'Block RH Monsoon'
-         message2 = msgbox('The simulation will run according the consumption of the Block RH during the Monsoon');
+%          message2 = msgbox('The simulation will run according the consumption of the Block RH during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataRHMonsoon);
          title(h2,'Active Power Block RH during the Monsoon');
          ylabel(h2,'Active Power (kW)');
@@ -500,7 +500,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block RH Intermediate'
-         message2 = msgbox('The simulation will run according the consumption of the Block RH during the Intermediate Season');
+%          message2 = msgbox('The simulation will run according the consumption of the Block RH during the Intermediate Season');
          plot(h2,xdiscretized,ActivePower_dataRHIntermediate);
          title(h2,'Active Power Block RH during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
@@ -512,7 +512,7 @@ jpg=evalin('caller','jpg');
          grid(h3,'on');
          
          case 'Block RH Winter'
-         message2 = msgbox('The simulation will run according the consumption of the Block RH during the Winter');
+%          message2 = msgbox('The simulation will run according the consumption of the Block RH during the Winter');
          plot(h2,xdiscretized,ActivePower_dataRHWinter);
          title(h2,'Active Power Block RH during the Winter');
          ylabel(h2,'Active Power (kW)');
