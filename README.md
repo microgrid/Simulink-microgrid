@@ -10,6 +10,8 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 * Give a full year simulation of the system, with measurements on load, production, voltage and frequency.
 * Give methods for simplifying the planning and resource-assessment phase.
 
+## How to run
+
 ## To Do
 
 - [ ] Enhance the readme
