@@ -1,6 +1,6 @@
 
 % Construct a questdlg with two options
-choice = questdlg('Hello, please choose your OS?', ...
+choice = questdlg('Hello, please choose your Operating System?', ...
 	'Operating System', ...
 	'Mac','Windows','');
 % Handle response
@@ -24,7 +24,7 @@ end
    VARins1 = [xdiscretized;Ins_Monsoon];
    VARins2 = [xdiscretized;Ins_Intermediate];
    VARins3 = [xdiscretized;Ins_Winter];
-   os
+  
    if os==1
 % Import data from the files for Mac
 
@@ -122,8 +122,7 @@ r=1;
    newyfitdiscretized(r,c)= yfitdiscretized(r,c);
         end
     end
-    
-     
+         
     % Block All (Intermediate)
      p = polyfit(Time,customerAllIntermediate,10); % Data choice from pushbutton SEASONS
     yfit = polyval(p,Time);

@@ -93,16 +93,12 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    % Add "'All Blocks','Block D','Block E','Block C', 'Block A','Block B','Block LH','Block RH" pop-up button to window
    hpopup = uicontrol('Style','popupmenu',...
           'Parent', f, ...
-          'String',{'All Blocks','Block D','Block E','Block C', 'Block A','Block B','Block LH','Block RH'},...
+          'String',{'All Blocks Monsoon','All Blocks Intermediate','All Blocks Winter','Block D Monsoon','Block D Intermediate','Block D Winter',...
+          'Block E Monsoon','Block E Intermediate','Block E Winter','Block C Monsoon','Block C Intermediate','Block C Winter','Block A Monsoon','Block A Intermediate',...
+          'Block A Winter','Block B Monsoon','Block B Intermediate','Block B Winter','Block LH Monsoon','Block LH Intermediate','Block LH Winter','Block RH Monsoon','Block RH Intermediate','Block RH Winter'},...
           'Position',[15,165,50,15],...
-          'Callback',{@popup_menu_Callback});
-   % Add "Stop" button to window
-   hupdate = uicontrol('Style','pushbutton',...
-          'Parent', f, ...
-          'String','Update',...
-          'Position',[15,125,30,10],...
-          'Callback',{@updatebutton_Callback}); 
-   % Add "Stop" button to window
+          'Callback',{@popup_menu_Callback}); 
+   % Add "Quit" button to window
    hquit = uicontrol('Style','pushbutton',...
           'Parent', f, ...
           'String','Quit',...
@@ -134,13 +130,9 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    imshow(jpg);
    title('Bhutan Project');
    
-     
-%    valeur_monsoon=get(hmonsoon,'Value');
-%    valeur_intermediate=get(hintermediate,'Value');
-%    valeur_winter=get(hwinter,'Value');
-   
+       
    % Align elements in parameters 
-   align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,txtbox1,txtbox2,hupdate,htextparameters,h7,hpopup],'Center','None');
+   align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,txtbox1,txtbox2,htextparameters,h7,hpopup],'Center','None');
    
    % Color 
    set(hrun,'BackgroundColor', [0 1 0]);
@@ -149,7 +141,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    % Initialize the GUI
    
    % Change units to normalized so components resize automatically.
-   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,hquit,htext1,hupdate,htext2,htext3,txtbox2,htext4,htext5,htext6,txtbox1,htextparameters,htextstability,htextpower,hpopup],...
+   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,hquit,htext1,htext2,htext3,txtbox2,htext4,htext5,htext6,txtbox1,htextparameters,htextstability,htextpower,hpopup],...
    'Units','normalized');
 
    % Full screen
@@ -163,7 +155,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    plot(h1,xdiscretized,Ins_M,'m'); % Ins_Monsoon from DataBase.m
    xlabel(h1,'Time (Hours)');
    ylabel(h1,'Insolation (W/m²)');
-   title(h1,'SEASON Monsoon');
+   title(h1,'Insolation during the Monsoon');
    grid(h1,'on');
    set(htext1, 'String', 'Temperature outside = 26.8°C');
    set(htext3, 'String', 'Temperature pannel = 46°C');
@@ -188,14 +180,14 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
     plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
     xlabel(h2,'Time (Hours)');
     ylabel(h2,'Active Power (kW)');
-    title(h2,'Active Power All Blocks');
+    title(h2,'Active Power All Blocks during Monsoon');
     
     % Initialize curve for the Reactive power (In our case we make an assumption, it is just the Active
     % power divided by 10).
     plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
     xlabel(h3,'Time (Hours)');
     ylabel(h3,'Reactive Power (kVAR)');
-    title(h3,'Reactive Power All Blocks')
+    title(h3,'Reactive Power All Blocks during Monsoon')
 
     % Initialize grid 
     grid(h2,'on');
@@ -222,115 +214,307 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
          switch str{val};           
                        
          % User selects All Blocks 
-         case 'All Blocks' 
-            
-         message2 = msgbox('The simulation will run according the consumption of All Blocks');
+         case 'All Blocks Monsoon'  
+         message2 = msgbox('The simulation will run according the consumption of All Blocks during the Monsoon');
          plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power All Blocks');
+         title(h2,'Active Power All Blocks during the Monsoon');
          xlabel(h2,'Time (Hours)');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
          plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power All Blocks')
+         title(h3,'Reactive Power All Blocks during the Monsoon')
          grid(h3,'on');
-               
-         % User selects Block D
-         case 'Block D' 
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block D');
+         
+         case 'All Blocks Intermediate'  
+         message2 = msgbox('The simulation will run according the consumption of All Blocks during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataALLIntermediate);
+         title(h2,'Active Power All Blocks during the Intermediate Season');
+         xlabel(h2,'Time (Hours)');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataALLIntermediate/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block D');
-         message2 = msgbox('The simulation will run according the consumption of the Block D');
+         title(h3,'Reactive Power All Blocks during the Intermediate Season')
+         grid(h3,'on');
+               
+         case 'All Blocks Winter'  
+         message2 = msgbox('The simulation will run according the consumption of All Blocks during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataALLWinter);
+         title(h2,'Active Power All Blocks during the Winter');
+         xlabel(h2,'Time (Hours)');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataALLWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power All Blocks during the Winter')
+         grid(h3,'on');
+         
+         % User selects Block D
+         case 'Block D Monsoon' 
+         message2 = msgbox('The simulation will run according the consumption of the Block D during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataDMonsoon);
+         title(h2,'Active Power Block D during the Monsoon');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataDMonsoon/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block D during the Monsoon');
+         grid(h3,'on');
+         
+         case 'Block D Intermediate' 
+         message2 = msgbox('The simulation will run according the consumption of the Block D during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataDIntermediate);
+         title(h2,'Active Power Block D during the Intermediate Season');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataDIntermediate/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block D during the Intermediate Season');
+         grid(h3,'on');
+         
+         case 'Block D Winter' 
+         message2 = msgbox('The simulation will run according the consumption of the Block D during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataDWinter);
+         title(h2,'Active Power Block D during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataDWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block D during the Winter');
          grid(h3,'on');
          
          
          % User selects Block E
-         case 'Block E' 
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block E');
+         case 'Block E Monsoon' 
+         message2 = msgbox('The simulation will run according the consumption of the Block E during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataEMonsoon);
+         title(h2,'Active Power Block E during the Monsoon');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataEMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block E');
-         message2 = msgbox('The simulation will run according the consumption of the Block E');
+         title(h3,'Reactive Power Block E during the Monsoon');
+         grid(h3,'on');
+         
+         case 'Block E Intermediate' 
+         message2 = msgbox('The simulation will run according the consumption of the Block E during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataEIntermediate);
+         title(h2,'Active Power Block E during the Intermediate Season');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataEIntermediate/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block E during the Intermediate Season')
+         grid(h3,'on');
+         
+         case 'Block E Winter' 
+         message2 = msgbox('The simulation will run according the consumption of the Block E during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataEWinter);
+         title(h2,'Active Power Block E during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataEWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block E during the Winter');
          grid(h3,'on');
          
          
          % User selects Block C
-         case 'Block C' 
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block C');
+         case 'Block C Monsoon' 
+         message2 = msgbox('The simulation will run according the consumption of the Block C during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataCMonsoon);
+         title(h2,'Active Power Block C during the Monsoon');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataCMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block C');
-         message2 = msgbox('The simulation will run according the consumption of the Block C');
+         title(h3,'Reactive Power Block C during the Monsoon');
          grid(h3,'on');
          
-         
-         % User selects Block A
-         case 'Block A' 
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block A');
+         case 'Block C Intermediate' 
+         message2 = msgbox('The simulation will run according the consumption of the Block C during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataCIntermediate);
+         title(h2,'Active Power Block C during the Intermediate Season');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataCIntermediate/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block A');
-         message2 = msgbox('The simulation will run according the consumption of the Block A');
+         title(h3,'Reactive Power Block C during the Intermediate Season');
+         grid(h3,'on');
+         
+         case 'Block C Winter' 
+         message2 = msgbox('The simulation will run according the consumption of the Block C during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataCWinter);
+         title(h2,'Active Power Block C during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataCWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block C during the Winter');
+         grid(h3,'on');
+         
+         % User selects Block A
+         case 'Block A Monsoon' 
+         message2 = msgbox('The simulation will run according the consumption of the Block A during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataAMonsoon);
+         title(h2,'Active Power Block A during the Monsoon');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataAMonsoon/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block A during the Monsoon');
+         grid(h3,'on');
+         
+         case 'Block A Intermediate' 
+         message2 = msgbox('The simulation will run according the consumption of the Block A during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataAIntermediate);
+         title(h2,'Active Power Block A during the Intermediate Season');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataAIntermediate/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block A during the Intermediate Season');
+         grid(h3,'on');
+         
+         case 'Block A Winter' 
+         message2 = msgbox('The simulation will run according the consumption of the Block A during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataAWinter);
+         title(h2,'Active Power Block A during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataAWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block A during the Winter');
          grid(h3,'on');
          
           
          % User selects Block B
-         case 'Block B' 
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block B');
+         case 'Block B Monsoon' 
+         message2 = msgbox('The simulation will run according the consumption of the Block B during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataBMonsoon);
+         title(h2,'Active Power Block B during the Monsoon');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataBMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block B');
-         message2 = msgbox('The simulation will run according the consumption of the Block B');
+         title(h3,'Reactive Power Block B during the Monsoon');
+         grid(h3,'on');
+         
+         case 'Block B Intermediate' 
+         message2 = msgbox('The simulation will run according the consumption of the Block B during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataBIntermediate);
+         title(h2,'Active Power Block B during the Intermediate Season');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataBIntermediate/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block B during the Intermediate Season');
+         grid(h3,'on');
+         
+         case 'Block B Winter'
+         message2 = msgbox('The simulation will run according the consumption of the Block B during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataBWinter);
+         title(h2,'Active Power Block B during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataBWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block B during the Winter');
          grid(h3,'on');
          
           
          % User selects Block LH
-         case 'Block LH' 
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block LH');
+         case 'Block LH Monsoon' 
+         message2 = msgbox('The simulation will run according the consumption of the Block LH during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataLHMonsoon);
+         title(h2,'Active Power Block LH during the Monsoon');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-         plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataLHMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block LH');
-         message2 = msgbox('The simulation will run according the consumption of the Block LH');
+         title(h3,'Reactive Power Block LH during the Monsoon');
+         grid(h3,'on');
+         
+         case 'Block LH Intermediate' 
+         message2 = msgbox('The simulation will run according the consumption of the Block LH during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataLHIntermediate);
+         title(h2,'Active Power Block LH during the Intermediate Season');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataLHIntermediate/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block LH during the Intermediate Season');
+         grid(h3,'on');
+         
+         case 'Block LH Winter' 
+         message2 = msgbox('The simulation will run according the consumption of the Block LH during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataLHWinter);
+         title(h2,'Active Power Block LH during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataLHWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block LH during the Winter');
          grid(h3,'on');
         
          
          % User selects Block RH
-         case 'Block RH'
-         plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
-         title(h2,'Active Power Block RH');
+         case 'Block RH Monsoon'
+         message2 = msgbox('The simulation will run according the consumption of the Block RH during the Monsoon');
+         plot(h2,xdiscretized,ActivePower_dataRHMonsoon);
+         title(h2,'Active Power Block RH during the Monsoon');
          ylabel(h2,'Active Power (kW)');
          grid(h2,'on');
-          plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+         plot(h3,xdiscretized,ActivePower_dataRHMonsoon/10,'r');
          xlabel(h3,'Time (Hours)');
          ylabel(h3,'Reactive Power (kVAR)');
-         title(h3,'Reactive Power Block RH');
-         message2 = msgbox('The simulation will run according the consumption of the Block RH');
+         title(h3,'Reactive Power Block RH during the Monsoon');
+         grid(h3,'on');
+         
+         case 'Block RH Intermediate'
+         message2 = msgbox('The simulation will run according the consumption of the Block RH during the Intermediate Season');
+         plot(h2,xdiscretized,ActivePower_dataRHIntermediate);
+         title(h2,'Active Power Block RH during the Intermediate Season');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+          plot(h3,xdiscretized,ActivePower_dataRHIntermediate/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block RH during the Intermediate Season');
+         grid(h3,'on');
+         
+         case 'Block RH Winter'
+         message2 = msgbox('The simulation will run according the consumption of the Block RH during the Winter');
+         plot(h2,xdiscretized,ActivePower_dataRHWinter);
+         title(h2,'Active Power Block RH during the Winter');
+         ylabel(h2,'Active Power (kW)');
+         grid(h2,'on');
+         plot(h3,xdiscretized,ActivePower_dataRHWinter/10,'r');
+         xlabel(h3,'Time (Hours)');
+         ylabel(h3,'Reactive Power (kVAR)');
+         title(h3,'Reactive Power Block RH during the Winter');
          grid(h3,'on');
         
          end
@@ -340,10 +524,10 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    
    function monsoonbutton_Callback(source,eventdata,handles) 
    % Display monsoon season plot of the currently selected data.
-     plot(h1,xdiscretized,Ins_M,'m'); % Ins_Monsoon from DataBase.m
+     plot(h1,xdiscretized,Ins_M,'r'); % Ins_Monsoon from DataBase.m
      xlabel(h1,'Time (Hours)');
      ylabel(h1,'Insolation (W/m²)');
-     title(h1,'SEASON Monsoon');
+     title(h1,'Insolation during the Monsoon');
      grid(h1,'on');
      set(htext1, 'String', 'Temperature outside = 26.8°C');
      set(htext3, 'String', 'Temperature pannel = 46°C');
@@ -354,7 +538,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
       plot(h1,xdiscretized,Ins_I,'m');% Ins_Intermediate from DataBase.m
       xlabel(h1,'Time (Hours)');
       ylabel(h1,'Insolation (W/m²)');
-      title(h1,'SEASON Intermediate');
+      title(h1,'Insolation during the Intermediate Season');
       grid(h1,'on');
       set(htext1, 'String', 'Temperature outside = 17.4°C');
       set(htext3, 'String', 'Temperature pannel = 46°C');
@@ -365,7 +549,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
       plot(h1,xdiscretized,Ins_W,'m');% Ins_Winter from DataBase.m
       xlabel(h1,'Time (Hours)');
       ylabel(h1,'Insolation (W/m²)');
-      title(h1,'SEASON Winter');
+      title(h1,'Insolation during the Winter');
       grid(h1,'on');
       set(htext1, 'String', 'Temperature outside = 23.4°C');
       set(htext3, 'String', 'Temperature pannel = 46°C');
