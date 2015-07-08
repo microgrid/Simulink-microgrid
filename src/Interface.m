@@ -4,7 +4,7 @@
 
 function gui_var_globales;
 
-% Définition de handles comme variables globales dans chaque fonction et sous-fonction
+% DÃ©finition de handles comme variables globales dans chaque fonction et sous-fonction
 % handles : identifiants des objets graphiques (vecteur)
 global handles
 
@@ -17,7 +17,7 @@ global handles
 % [1 1 1]white
 % [0 0 0]black
 
-% Création de l'objet Figure
+% CrÃ©ation de l'objet Figure
 handles(1)=figure('units','pixels',...
     'position',[250 250 500 500],...
     'color',[1 1 1],... % White
@@ -44,7 +44,7 @@ handles(3)=uicontrol('style','text',...
     'BackgroundColor',[0.15 0.90 0.1 ],...
     'tag','text2');
 
-% Création de l'objet Uicontrol Pushbutton Run
+% CrÃ©ation de l'objet Uicontrol Pushbutton Run
 handles(4)=uicontrol('style','pushbutton',...
     'units','normalized',...
     'position',[0.07 0.85 0.1 0.05],...
@@ -52,36 +52,36 @@ handles(4)=uicontrol('style','pushbutton',...
     'callback',@run,...
     'tag','Run');
 
-% Création de l'objet Uicontrol Popup menu Seasons
+% CrÃ©ation de l'objet Uicontrol Popup menu Seasons
 handles(5)=uicontrol('style','Popupmenu',...
     'units','normalized',...
     'position',[0.035 0.7 0.18 0.05],...
     'string','Monsoon|Intermediate|Winter');
 
-% Création de l'objet Uicontrol Text T°C Outside
+% CrÃ©ation de l'objet Uicontrol Text TÂ°C Outside
 handles(6)=uicontrol('style','text',...
     'units','normalized',...
     'position',[0 0.60 0.25 0.05],...
     'BackgroundColor',[0.15 0.90 0.1 ],...
-    'string','T° Outside',...
+    'string','TÂ° Outside',...
     'tag','text3');
 
-% Création de l'objet Uicontrol Text T°C Panel 
+% CrÃ©ation de l'objet Uicontrol Text TÂ°C Panel 
 handles(7)=uicontrol('style','text',...
     'units','normalized',...
     'position',[0 0.5 0.25 0.05],...
     'BackgroundColor',[0.15 0.90 0.1 ],...
-    'string','T° Panel',...
+    'string','TÂ° Panel',...
     'tag','text4');
 
 
-% Création de l'objet Uicontrol Popup menu Blocks
+% CrÃ©ation de l'objet Uicontrol Popup menu Blocks
 handles(8)=uicontrol('style','Popupmenu',...
     'units','normalized',...
     'position',[0.05 0.35 0.15 0.05],...
     'string','Block D|Block E|Block C|Block A|Block B|Block LH|Block RH');
 
-% Création de l'objet Picture Bhutan
+% CrÃ©ation de l'objet Picture Bhutan
 img = imread('Bhutan.jpg'); 
 
 %% SUPERVISION
@@ -188,18 +188,18 @@ handles(10)=uicontrol('style','text',...
  switch Seasons
     case 1 % Monsoon
        
-        set(handles(6),'string','T° Outside=26.8°C');
-        set(handles(7),'string','T° Panel=40°C');
+        set(handles(6),'string','TÂ° Outside=26.8Â°C');
+        set(handles(7),'string','TÂ° Panel=40Â°C');
         
     case 2 % Intermediate
        
-        set(handles(6),'string','T° Outside=17.4 °C');
-        set(handles(7),'string','T° Panel=0°C');
+        set(handles(6),'string','TÂ° Outside=17.4 Â°C');
+        set(handles(7),'string','TÂ° Panel=0Â°C');
         
     case 3 % Winter
       
-        set(handles(6),'string','T° Outside=23.4 °C');
-        set(handles(7),'string','T° Panel=0°C');
+        set(handles(6),'string','TÂ° Outside=23.4 Â°C');
+        set(handles(7),'string','TÂ° Panel=0Â°C');
         
 end 
 
@@ -244,6 +244,3 @@ end
 % Run
  Run=get(handles(4),'Value');
 % run ('Regression_Rev_1');
- 
- 
-
