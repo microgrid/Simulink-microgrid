@@ -2,7 +2,7 @@
 % Construct a questdlg with two options
 choice = questdlg('Hello, please choose your Operating System?', ...
 	'Operating System', ...
-	'Mac','Windows','');
+	'Mac','Windows','Linux','');
 % Handle response
 global os
 switch choice
@@ -10,6 +10,8 @@ switch choice
         os = 1;
     case 'Windows'
         os = 2;
+    case 'Linux'
+        os=1;  
 end
 
   % Create the data insolation to plot.
@@ -61,7 +63,8 @@ end
     customerRHWinter=importdata('dataBase/PowerRHWinter.mat'); %  Data from excel Block RH
 
     Time=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
-    
+    jpg=imread('img/bhutan.jpg');
+     
   % Import data from the files for Window  
   
    elseif os==2
@@ -99,6 +102,7 @@ end
     customerRHWinter=importdata('dataBase\PowerRHWinter.mat'); %  Data from excel Block RH
 
     Time=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
+    jpg=imread('img\bhutan.jpg');
     
    end
     

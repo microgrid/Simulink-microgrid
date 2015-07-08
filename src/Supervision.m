@@ -29,6 +29,7 @@ ActivePower_dataLHWinter=evalin('caller','newyfitdiscretized');
 ActivePower_dataRHMonsoon=evalin('caller','newyfitdiscretized');
 ActivePower_dataRHIntermediate=evalin('caller','newyfitdiscretized');
 ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
+jpg=evalin('caller','jpg');
 
    %  Create and then hide the GUI as it is being constructed.
    f = figure('Visible','off','Position',[360,500,450,285]);
@@ -105,11 +106,11 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
           'Position',[15,130,50,15],...
           'Callback',{@popup_menu_Callback}); 
    % Add "Quit" button to window
-   hquit = uicontrol('Style','pushbutton',...
-          'Parent', f, ...
-          'String','Quit',...
-          'Position',[415,260,30,10],...
-          'Callback',{@quitbutton_Callback});  
+%    hquit = uicontrol('Style','pushbutton',...
+%           'Parent', f, ...
+%           'String','Quit',...
+%           'Position',[415,260,30,10],...
+%           'Callback',{@quitbutton_Callback});  
    % Add "h1" axe to window (Insolation)
    h1 = axes('Units','Pixels','Position',[110,200,100,60]);
    % Add "h2" axe to window (Active power)
@@ -133,10 +134,9 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
 
    % Add picture to window
    h7 = axes('Units','Pixels','Position',[10,10,70,70]); 
-   jpg=imread('img\bhutan.jpg');
    imshow(jpg);
    title('Bhutan Project');
-   
+    
    % Align elements in parameters 
    align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,htextparameters,h7,hpopup],'Center','None');
    
@@ -147,7 +147,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    % Initialize the GUI
    
    % Change units to normalized so components resize automatically.
-   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,hquit,htext1, htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
+   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
    'Units','normalized');
 
    % Full screen
@@ -179,7 +179,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    
    xlabel(h6,'Time (Hours)');
    ylabel(h6,'SOC (%)');
-   title(h6,'SOC');
+   title(h6,'STATE OF CHARGE BATTERY');
    grid(h6,'on');
       
     % Initialize curve for the Active power 
@@ -578,17 +578,16 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
 GUIStopFlag = 1;
 
   end
- function updatebutton_Callback(source,eventdata) 
-   % 
- message1 = msgbox('Update data');
+%  function updatebutton_Callback(source,eventdata) 
+%    % 
+%  message1 = msgbox('Update data');
+%  end
+%  function quitbutton_Callback(source,eventdata) 
+%    % Quit the simulation
+%   f = gcf;
+%    quit_reply = questdlg('Really quit this simulation?');
+%    if strcmp(quit_reply,'Yes')
+%       close(f);
+%       % don't forget to stop the simulink
+%  end
  end
- function quitbutton_Callback(source,eventdata) 
-   % Quit the simulation
-  f = gcf;
-   quit_reply = questdlg('Really quit this simulation?');
-   if strcmp(quit_reply,'Yes')
-      close(f);
-      % don't forget to stop the simulink
- end
- end
-end 
