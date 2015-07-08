@@ -32,9 +32,9 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
 jpg=evalin('caller','jpg');
 
    %  Create and then hide the GUI as it is being constructed.
-   f = figure('Visible','off','Position',[360,500,450,285]);
-   
-   %  Construct the components.
+   f = figure('Visible','off','Position',[360,500,450,285],'String','Design of a Solar Microgrid');
+     
+   %  Construct the components
    
    % Add "Monsoon" button to window
    hmonsoon = uicontrol('Style','pushbutton','String','Monsoon',...
