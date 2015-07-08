@@ -33,7 +33,10 @@ jpg=evalin('caller','jpg');
 
    %  Create and then hide the GUI as it is being constructed.
    f = figure('Visible','off','Position',[360,500,450,285]);
-     
+   
+   % Change the name of the window
+   set(f,'Name','Design of a Solar Microgrid','NumberTitle','off')
+   
    %  Construct the components
    
    % Add "Monsoon" button to window
