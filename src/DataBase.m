@@ -587,4 +587,4 @@ VARTemp2 = [xdiscretized;Temp2];% Intermediate Season
 VARTemp3 = [xdiscretized;Temp3];% Winter
 
      
-run('Supervision_Rev3'); % Run the GUI
+run('Supervision'); % Run the GUI

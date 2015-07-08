@@ -65,28 +65,34 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
           'Callback',{@stopbutton_Callback}); 
    % Add "Temperature outside = °C" text to window
    htext1 = uicontrol('Style','text','String','Temperature outside = °C',...
-          'Position',[15,200,50,5]);
+          'Position',[15,210,50,5]);
    % Add "SUPERVISION" text to window
    htext2 = uicontrol('Style','text','String','SUPERVISION',...
           'Position',[0,275,450,10],'FontSize', 16); 
    % Add "Temperature pannel =  °C" text to window
    htext3 = uicontrol('Style','text','String','Temperature pannel =  °C',...
-          'Position',[15,190,50,5]); 
+          'Position',[15,200,50,5]); 
    % Add Vertical ligne to window
    htext4 = uicontrol('Style','text','String','',...
-          'Position',[90,0,1,275]);
+          'Position',[90,0,1,185]);
    % Add Vertical ligne to window
    htext5 = uicontrol('Style','text','String','',...
           'Position',[220,0,1,275]); 
    % Add Vertical ligne to window
    htext6 = uicontrol('Style','text','String','',...
           'Position',[350,0,1,275]);
+   % Add Horizontal ligne to window
+   htext7 = uicontrol('Style','text','String','',...
+          'Position',[0,185,220,1]);
+   % Add "provided sunshine" to window
+   htext8 = uicontrol('Style','text','String','PROVIDED SUNSHINE',...
+          'Position',[70,269,80,5]);
    % Add "PARAMETERS" text to window
    htextparameters = uicontrol('Style','text','String','PARAMETERS',...
-          'Position',[5,269,80,5]);
+          'Position',[5,179,80,5]);
    % Add "POWER" text to window
    htextpower = uicontrol('Style','text','String','POWER',...
-          'Position',[120,269,80,5]);
+          'Position',[120,179,80,5]);
    % Add "STABILITY OF THE GRID" text to window
    htextstability = uicontrol('Style','text','String','STABILITY OF THE GRID',...
           'Position',[250,269,80,5]);% Title    
@@ -96,7 +102,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
           'String',{'All Blocks Monsoon','All Blocks Intermediate','All Blocks Winter','Block D Monsoon','Block D Intermediate','Block D Winter',...
           'Block E Monsoon','Block E Intermediate','Block E Winter','Block C Monsoon','Block C Intermediate','Block C Winter','Block A Monsoon','Block A Intermediate',...
           'Block A Winter','Block B Monsoon','Block B Intermediate','Block B Winter','Block LH Monsoon','Block LH Intermediate','Block LH Winter','Block RH Monsoon','Block RH Intermediate','Block RH Winter'},...
-          'Position',[15,165,50,15],...
+          'Position',[15,130,50,15],...
           'Callback',{@popup_menu_Callback}); 
    % Add "Quit" button to window
    hquit = uicontrol('Style','pushbutton',...
@@ -116,23 +122,23 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    h5 = axes('Units','Pixels','Position',[240,110,100,60]);
    % Add "h6" axe to window (SOC)
    h6 = axes('Units','Pixels','Position',[240,20,100,60]);
-   % Add Text box to window 
-   txtbox1 = uicontrol(f,'Style','edit',...
-          'String','Number of pannel',...
-          'Position',[15 160 50 5]);
-   % Add Text box to window
-   txtbox2 = uicontrol(f,'Style','edit',...
-           'String','Number of battery',...
-           'Position',[15 150 50 5]);
+%    % Add Text box to window 
+%    txtbox1 = uicontrol(f,'Style','edit',...
+%           'String','Number of pannel',...
+%           'Position',[15 160 50 5]);
+%    % Add Text box to window
+%    txtbox2 = uicontrol(f,'Style','edit',...
+%            'String','Number of battery',...
+%            'Position',[15 150 50 5]);
+
    % Add picture to window
    h7 = axes('Units','Pixels','Position',[10,10,70,70]); 
    jpg=imread('img\bhutan.jpg');
    imshow(jpg);
    title('Bhutan Project');
    
-       
    % Align elements in parameters 
-   align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,txtbox1,txtbox2,htextparameters,h7,hpopup],'Center','None');
+   align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,htextparameters,h7,hpopup],'Center','None');
    
    % Color 
    set(hrun,'BackgroundColor', [0 1 0]);
@@ -141,7 +147,7 @@ ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
    % Initialize the GUI
    
    % Change units to normalized so components resize automatically.
-   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,hquit,htext1,htext2,htext3,txtbox2,htext4,htext5,htext6,txtbox1,htextparameters,htextstability,htextpower,hpopup],...
+   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,hquit,htext1, htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
    'Units','normalized');
 
    % Full screen
