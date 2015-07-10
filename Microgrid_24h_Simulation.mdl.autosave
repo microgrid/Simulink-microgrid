@@ -119,7 +119,7 @@ Model {
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Thu Jul 09 14:48:36 2015"
-  RTWModifiedTimeStamp	  358438381
+  RTWModifiedTimeStamp	  358439806
   ModelVersionFormat	  "1.%<AutoIncrement:90>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
