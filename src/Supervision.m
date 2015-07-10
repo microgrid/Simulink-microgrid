@@ -3,19 +3,10 @@
 % Initialize the GUI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     function Supervision
-    
-    modelName = 'Microgrid_24h_Simulation';
-% % Create the UI if one does not already exist.
-% % Bring the UI to the front if one does already exist.
-% f = findall(0,'Tag',mfilename);
-% if isempty(hf)
-%     % Create a UI
-%     hf = localCreateUI(modelName);
-% else
-%     % Bring it to the front
-%     figure(f);
-% end
-    
+  
+% Simulink model
+modelName = 'Microgrid_24h_Simulation';
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Read the parameters from the workspace
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,32 +14,35 @@
 % Execute MATLAB expression in specified workspace(Allow visibility for the GUI)
 Ins_M=evalin('caller','Ins_Monsoon');         
 Ins_I=evalin('caller',' Ins_Intermediate');   
-Ins_W=evalin('caller','Ins_Winter');          
+Ins_W=evalin('caller','Ins_Winter'); 
+Temp1=evalin('caller','Temp1');
+Temp2=evalin('caller','Temp2');
+Temp3=evalin('caller','Temp3');
 xdiscretized=evalin('caller','xdiscretized'); 
-ActivePower_dataALLMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataALLIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataALLWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataDMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataDIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataDWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataEMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataEIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataEWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataCMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataCIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataCWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataAMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataAIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataAWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataBMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataBIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataBWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataLHMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataLHIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataLHWinter=evalin('caller','newyfitdiscretized');
-ActivePower_dataRHMonsoon=evalin('caller','newyfitdiscretized');
-ActivePower_dataRHIntermediate=evalin('caller','newyfitdiscretized');
-ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized');
+ActivePower_dataALLMonsoon=evalin('caller','newyfitdiscretized1');
+ActivePower_dataALLIntermediate=evalin('caller','newyfitdiscretized2');
+ActivePower_dataALLWinter=evalin('caller','newyfitdiscretized3');
+ActivePower_dataDMonsoon=evalin('caller','newyfitdiscretized4');
+ActivePower_dataDIntermediate=evalin('caller','newyfitdiscretized5');
+ActivePower_dataDWinter=evalin('caller','newyfitdiscretized6');
+ActivePower_dataEMonsoon=evalin('caller','newyfitdiscretized7');
+ActivePower_dataEIntermediate=evalin('caller','newyfitdiscretized8');
+ActivePower_dataEWinter=evalin('caller','newyfitdiscretized9');
+ActivePower_dataCMonsoon=evalin('caller','newyfitdiscretized10');
+ActivePower_dataCIntermediate=evalin('caller','newyfitdiscretized11');
+ActivePower_dataCWinter=evalin('caller','newyfitdiscretized12');
+ActivePower_dataAMonsoon=evalin('caller','newyfitdiscretized13');
+ActivePower_dataAIntermediate=evalin('caller','newyfitdiscretized14');
+ActivePower_dataAWinter=evalin('caller','newyfitdiscretized15');
+ActivePower_dataBMonsoon=evalin('caller','newyfitdiscretized16');
+ActivePower_dataBIntermediate=evalin('caller','newyfitdiscretized17');
+ActivePower_dataBWinter=evalin('caller','newyfitdiscretized18');
+ActivePower_dataLHMonsoon=evalin('caller','newyfitdiscretized19');
+ActivePower_dataLHIntermediate=evalin('caller','newyfitdiscretized20');
+ActivePower_dataLHWinter=evalin('caller','newyfitdiscretized21');
+ActivePower_dataRHMonsoon=evalin('caller','newyfitdiscretized22');
+ActivePower_dataRHIntermediate=evalin('caller','newyfitdiscretized23');
+ActivePower_dataRHWinter=evalin('caller','newyfitdiscretized24');
 jpg=evalin('caller','jpg');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,6 +129,7 @@ jpg=evalin('caller','jpg');
           'Block E Monsoon','Block E Intermediate','Block E Winter','Block C Monsoon','Block C Intermediate','Block C Winter','Block A Monsoon','Block A Intermediate',...
           'Block A Winter','Block B Monsoon','Block B Intermediate','Block B Winter','Block LH Monsoon','Block LH Intermediate','Block LH Winter','Block RH Monsoon','Block RH Intermediate','Block RH Winter'},...
           'Position',[15,130,50,15],...
+          'Enable','on',...
           'Callback',{@popup_menu_Callback}); 
       
 
@@ -267,6 +262,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power All Blocks during the Monsoon')
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataALLMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataALLMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'All Blocks Intermediate'  
          plot(h2,xdiscretized,ActivePower_dataALLIntermediate);
@@ -279,7 +282,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power All Blocks during the Intermediate Season')
          grid(h3,'on');
-               
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataALLIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataALLIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
+         
          case 'All Blocks Winter'  
          plot(h2,xdiscretized,ActivePower_dataALLWinter);
          title(h2,'Active Power All Blocks during the Winter');
@@ -291,6 +302,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power All Blocks during the Winter')
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataALLWinter];
+         VARPQ= [xdiscretized;ActivePower_dataALLWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          % User selects Block D
          case 'Block D Monsoon' 
@@ -303,6 +322,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block D during the Monsoon');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataDMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataDMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block D Intermediate' 
          plot(h2,xdiscretized,ActivePower_dataDIntermediate);
@@ -314,6 +341,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block D during the Intermediate Season');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataDIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataDIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block D Winter' 
          plot(h2,xdiscretized,ActivePower_dataDWinter);
@@ -325,7 +360,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block D during the Winter');
          grid(h3,'on');
-         
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataDWinter];
+         VARPQ= [xdiscretized;ActivePower_dataDWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          % User selects Block E
          case 'Block E Monsoon' 
@@ -338,6 +380,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block E during the Monsoon');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_M];
+         VARTemp= [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataEMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataEMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block E Intermediate' 
          plot(h2,xdiscretized,ActivePower_dataEIntermediate);
@@ -349,6 +399,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block E during the Intermediate Season')
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataEIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataEIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block E Winter' 
          plot(h2,xdiscretized,ActivePower_dataEWinter);
@@ -360,7 +418,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block E during the Winter');
          grid(h3,'on');
-         
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataEWinter];
+         VARPQ= [xdiscretized;ActivePower_dataEWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          % User selects Block C
          case 'Block C Monsoon' 
@@ -373,6 +438,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block C during the Monsoon');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataCMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataCMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block C Intermediate' 
          plot(h2,xdiscretized,ActivePower_dataCIntermediate);
@@ -384,6 +457,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block C during the Intermediate Season');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataCIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataCIntermediate/10];
+        assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block C Winter' 
          plot(h2,xdiscretized,ActivePower_dataCWinter);
@@ -395,6 +476,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block C during the Winter');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataCWinter];
+         VARPQ= [xdiscretized;ActivePower_dataCWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          % User selects Block A
          case 'Block A Monsoon' 
@@ -407,7 +496,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block A during the Monsoon');
          grid(h3,'on');
-         
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataAMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataAMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
+          
          case 'Block A Intermediate' 
          plot(h2,xdiscretized,ActivePower_dataAIntermediate);
          title(h2,'Active Power Block A during the Intermediate Season');
@@ -418,6 +515,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block A during the Intermediate Season');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataAIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataAIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block A Winter' 
          plot(h2,xdiscretized,ActivePower_dataAWinter);
@@ -429,8 +534,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block A during the Winter');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataAWinter];
+         VARPQ= [xdiscretized;ActivePower_dataAWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
-          
          % User selects Block B
          case 'Block B Monsoon' 
          plot(h2,xdiscretized,ActivePower_dataBMonsoon);
@@ -442,7 +554,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block B during the Monsoon');
          grid(h3,'on');
-         
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataBMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataBMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
+          
          case 'Block B Intermediate' 
          plot(h2,xdiscretized,ActivePower_dataBIntermediate);
          title(h2,'Active Power Block B during the Intermediate Season');
@@ -453,6 +573,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block B during the Intermediate Season');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataBIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataBIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block B Winter'
          plot(h2,xdiscretized,ActivePower_dataBWinter);
@@ -464,8 +592,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block B during the Winter');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataBWinter];
+         VARPQ= [xdiscretized;ActivePower_dataBWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
-          
          % User selects Block LH
          case 'Block LH Monsoon' 
          plot(h2,xdiscretized,ActivePower_dataLHMonsoon);
@@ -477,7 +612,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block LH during the Monsoon');
          grid(h3,'on');
-         
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataLHMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataLHMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
+          
          case 'Block LH Intermediate' 
          plot(h2,xdiscretized,ActivePower_dataLHIntermediate);
          title(h2,'Active Power Block LH during the Intermediate Season');
@@ -488,6 +631,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block LH during the Intermediate Season');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataLHIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataLHIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block LH Winter' 
          plot(h2,xdiscretized,ActivePower_dataLHWinter);
@@ -499,7 +650,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block LH during the Winter');
          grid(h3,'on');
-        
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataLHWinter];
+         VARPQ= [xdiscretized;ActivePower_dataLHWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          % User selects Block RH
          case 'Block RH Monsoon'
@@ -512,6 +670,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block RH during the Monsoon');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_M];
+         VARTemp = [xdiscretized;Temp1];
+         VARPA= [xdiscretized;ActivePower_dataRHMonsoon];
+         VARPQ= [xdiscretized;ActivePower_dataRHMonsoon/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block RH Intermediate'
          plot(h2,xdiscretized,ActivePower_dataRHIntermediate);
@@ -523,6 +689,14 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block RH during the Intermediate Season');
          grid(h3,'on');
+         VARins = [xdiscretized;Ins_I];
+         VARTemp = [xdiscretized;Temp2];
+         VARPA= [xdiscretized;ActivePower_dataRHIntermediate];
+         VARPQ= [xdiscretized;ActivePower_dataRHIntermediate/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
          
          case 'Block RH Winter'
          plot(h2,xdiscretized,ActivePower_dataRHWinter);
@@ -534,7 +708,15 @@ jpg=evalin('caller','jpg');
          ylabel(h3,'Reactive Power (kVAR)');
          title(h3,'Reactive Power Block RH during the Winter');
          grid(h3,'on');
-        
+         VARins = [xdiscretized;Ins_W];
+         VARTemp = [xdiscretized;Temp3];
+         VARPA= [xdiscretized;ActivePower_dataRHWinter];
+         VARPQ= [xdiscretized;ActivePower_dataRHWinter/10];
+         assignin('base', 'VARins', VARins);
+         assignin('base', 'VARTemp', VARTemp);
+         assignin('base', 'VARPA', VARPA);
+         assignin('base', 'VARPQ', VARPQ);
+         
          end
       end
   
@@ -597,8 +779,11 @@ jpg=evalin('caller','jpg');
 set(hrun,'Enable','off');
 % Turn on the Stop button
 set(hstop,'Enable','on');
- % start the model
-        set_param(modelName,'SimulationCommand','start');
+% Turn off the popup menu
+set(hpopup,'Enable','off');
+
+% start the model
+set_param(modelName,'SimulationCommand','start');
 
   end
   
@@ -613,8 +798,11 @@ set(hstop,'Enable','on');
 set(hrun,'Enable','on');
 % Turn off the Stop button
 set(hstop,'Enable','off');
- % stop the model
-        set_param(modelName,'SimulationCommand','stop');
+% Turn on the popup menu
+set(hpopup,'Enable','on');
+
+% stop the model
+set_param(modelName,'SimulationCommand','stop');
 
   end
 
