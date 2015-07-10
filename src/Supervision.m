@@ -4,6 +4,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     function Supervision
     
+    modelName = 'Microgrid_24h_Simulation';
+% % Create the UI if one does not already exist.
+% % Bring the UI to the front if one does already exist.
+% f = findall(0,'Tag',mfilename);
+% if isempty(hf)
+%     % Create a UI
+%     hf = localCreateUI(modelName);
+% else
+%     % Bring it to the front
+%     figure(f);
+% end
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Read the parameters from the workspace
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,13 +83,17 @@ jpg=evalin('caller','jpg');
    hrun = uicontrol('Style','pushbutton',...
           'Parent', f, ...
           'String','Run',...
+          'Tag','run',...
+          'Enable','on',...
           'Position',[15,110,30,10],...
           'Callback',{@runbutton_Callback}); 
    % Add "Stop" button to window
    hstop = uicontrol('Style','pushbutton',...
           'Parent', f, ...
           'String','Stop',...
+          'Tag','stop',...
           'Position',[15,90,30,10],...
+          'Enable','off',...
           'Callback',{@stopbutton_Callback}); 
    % Add "Temperature outside = °C" text to window
    htext1 = uicontrol('Style','text','String','Temperature outside = °C',...
@@ -120,6 +136,8 @@ jpg=evalin('caller','jpg');
           'Block A Winter','Block B Monsoon','Block B Intermediate','Block B Winter','Block LH Monsoon','Block LH Intermediate','Block LH Winter','Block RH Monsoon','Block RH Intermediate','Block RH Winter'},...
           'Position',[15,130,50,15],...
           'Callback',{@popup_menu_Callback}); 
+      
+
    % Add "Quit" button to window
 %    hquit = uicontrol('Style','pushbutton',...
 %           'Parent', f, ...
@@ -153,16 +171,16 @@ jpg=evalin('caller','jpg');
    title('Bhutan Project');
     
    % Align elements in parameters 
-   align([hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext3,htextparameters,h7,hpopup],'Center','None');
+   align([hmonsoon,hintermediate,hwinter,hstop,hrun,htext1,htext3,htextparameters,h7,hpopup],'Center','None');
    
-   % Color 
+%    % Color 
    set(hrun,'BackgroundColor', [0.396 1 0.558]);
    set(hstop,'BackgroundColor', [1 0.286 0.145]);
       
    % Initialize the GUI
    
    % Change units to normalized so components resize automatically.
-   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hrun,hstop,htext1,htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
+   set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hstop,hrun,htext1,htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
    'Units','normalized');
 
    % Full screen
@@ -573,6 +591,14 @@ jpg=evalin('caller','jpg');
    % Run the simulation
 
    message1 = msgbox('Please wait ! This simulation will take few hours');
+   
+% toggle the buttons
+% Turn off the Start button
+set(hrun,'Enable','off');
+% Turn on the Stop button
+set(hstop,'Enable','on');
+ % start the model
+        set_param(modelName,'SimulationCommand','start');
 
   end
   
@@ -581,7 +607,15 @@ jpg=evalin('caller','jpg');
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   function stopbutton_Callback(source,eventdata,handles) 
    % Stop the simulation
-  
+   
+   % toggle the buttons
+% Turn on the Start button
+set(hrun,'Enable','on');
+% Turn off the Stop button
+set(hstop,'Enable','off');
+ % stop the model
+        set_param(modelName,'SimulationCommand','stop');
+
   end
 
     end
