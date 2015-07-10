@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.90"
+    ComputedModelVersion    "1.91"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,7 +31,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, -8.0, 1616.0, 876.0]
+      Location		      [-8.0, 0.0, 1616.0, 876.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,19 +53,19 @@ Model {
 	Dimension		6
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1566.0, 729.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [0.0, 5.0]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-307.91666666666674, -114.58333333333337]
 	}
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2165"
-	  Extents		  [1562.0, 729.0]
+	  Extents		  [1566.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -74,7 +74,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2191"
-	  Extents		  [1562.0, 729.0]
+	  Extents		  [1566.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [1.4041613380114768, 44.0]
 	}
@@ -83,7 +83,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2166:15::129"
-	  Extents		  [1562.0, 729.0]
+	  Extents		  [1566.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, -5.0]
 	}
@@ -92,13 +92,13 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "802"
-	  Extents		  [1562.0, 729.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [-275.06666666666626, 0.5]
+	  Extents		  [1566.0, 729.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-268.0166666666662, 164.84999999999991]
 	}
 	Object {
 	  $ObjectID		  10
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1362"
 	  Extents		  [1566.0, 729.0]
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 09 14:48:36 2015"
-  RTWModifiedTimeStamp	  358338864
-  ModelVersionFormat	  "1.%<AutoIncrement:90>"
+  LastModifiedDate	  "Fri Jul 10 16:04:20 2015"
+  RTWModifiedTimeStamp	  358445006
+  ModelVersionFormat	  "1.%<AutoIncrement:91>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -921,12 +921,6 @@ Model {
       ContinuousStateAttributes	"''"
     }
     Block {
-      BlockType		      ManualSwitch
-      CurrentSetting	      "1"
-      varsize		      off
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Memory
       X0		      "0"
       InheritSampleTime	      off
@@ -1121,7 +1115,7 @@ Model {
   }
   System {
     Name		    "Microgrid_24h_Simulation"
-    Location		    [-8, -8, 1608, 868]
+    Location		    [-8, 0, 1608, 876]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1133,9 +1127,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2613"
+    SIDHighWatermark	    "2614"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -1158,7 +1152,7 @@ Model {
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1604, 876]
+	Location		[-8, 0, 1608, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1993,7 +1987,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Power Demand 24h"
-	    Location		    [-8, 0, 1604, 876]
+	    Location		    [-8, 0, 1608, 876]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2012,7 +2006,7 @@ Model {
 	      SID		      "2589"
 	      Position		      [20, 58, 85, 82]
 	      ZOrder		      23
-	      VariableName	      "VAR1'"
+	      VariableName	      "VARPA'"
 	      SampleTime	      "0"
 	      ZeroCross		      on
 	    }
@@ -2022,7 +2016,7 @@ Model {
 	      SID		      "2590"
 	      Position		      [20, 148, 85, 172]
 	      ZOrder		      24
-	      VariableName	      "VAR2'"
+	      VariableName	      "VARPQ'"
 	      SampleTime	      "0"
 	      ZeroCross		      on
 	    }
@@ -13659,7 +13653,7 @@ Model {
       }
       System {
 	Name			"PV Array"
-	Location		[-8, 0, 1604, 876]
+	Location		[-8, 0, 1608, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -13671,13 +13665,13 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"80"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Cdc1"
 	  SID			  "803"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
-	  Position		  [1586, 590, 1614, 660]
+	  Position		  [1636, 590, 1664, 660]
 	  ZOrder		  -1
 	  BlockRotation		  270
 	  BlockMirror		  on
@@ -13705,7 +13699,7 @@ Model {
 	  Name			  "Current Measurement2"
 	  SID			  "804"
 	  Ports			  [0, 1, 0, 0, 0, 1, 1]
-	  Position		  [1380, 528, 1405, 552]
+	  Position		  [1430, 528, 1455, 552]
 	  ZOrder		  -2
 	  ShowName		  off
 	  LibraryVersion	  "1.2191"
@@ -13719,31 +13713,11 @@ Model {
 	}
 	Block {
 	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace"
-	  SID			  "2591"
-	  Position		  [20, 178, 85, 202]
-	  ZOrder		  24
-	  VariableName		  "VARins3'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
 	  Name			  "From\nWorkspace1"
 	  SID			  "2592"
-	  Position		  [20, 98, 85, 122]
+	  Position		  [20, 648, 85, 672]
 	  ZOrder		  26
-	  VariableName		  "VARins2'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace2"
-	  SID			  "2594"
-	  Position		  [20, 18, 85, 42]
-	  ZOrder		  28
-	  VariableName		  "VARins1'"
+	  VariableName		  "VARins'"
 	  SampleTime		  "0"
 	  ZeroCross		  on
 	}
@@ -13751,29 +13725,9 @@ Model {
 	  BlockType		  FromWorkspace
 	  Name			  "From\nWorkspace3"
 	  SID			  "2600"
-	  Position		  [20, 833, 85, 857]
+	  Position		  [215, 688, 280, 712]
 	  ZOrder		  33
-	  VariableName		  "VARTemp1'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace4"
-	  SID			  "2601"
-	  Position		  [20, 928, 85, 952]
-	  ZOrder		  34
-	  VariableName		  "VARTemp2'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace5"
-	  SID			  "2602"
-	  Position		  [20, 1018, 85, 1042]
-	  ZOrder		  35
-	  VariableName		  "VARTemp3'"
+	  VariableName		  "VARTemp'"
 	  SampleTime		  "0"
 	  ZeroCross		  on
 	}
@@ -13781,7 +13735,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From2"
 	  SID			  "805"
-	  Position		  [215, 576, 270, 604]
+	  Position		  [265, 576, 320, 604]
 	  ZOrder		  -9
 	  ShowName		  off
 	  GotoTag		  "Vpv"
@@ -13791,7 +13745,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto5"
 	  SID			  "808"
-	  Position		  [450, 665, 490, 695]
+	  Position		  [500, 665, 540, 695]
 	  ZOrder		  -18
 	  BlockMirror		  on
 	  ShowName		  off
@@ -13803,7 +13757,7 @@ Model {
 	  Name			  "Ia"
 	  SID			  "810"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [512, 575, 548, 620]
+	  Position		  [562, 575, 598, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13823,7 +13777,7 @@ Model {
 	  Name			  "Ia1"
 	  SID			  "811"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [572, 575, 608, 620]
+	  Position		  [622, 575, 658, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13843,7 +13797,7 @@ Model {
 	  Name			  "Ia10"
 	  SID			  "2410"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1137, 575, 1173, 620]
+	  Position		  [1187, 575, 1223, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13863,7 +13817,7 @@ Model {
 	  Name			  "Ia11"
 	  SID			  "2465"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1202, 575, 1238, 620]
+	  Position		  [1252, 575, 1288, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13883,7 +13837,7 @@ Model {
 	  Name			  "Ia12"
 	  SID			  "2466"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1267, 575, 1303, 620]
+	  Position		  [1317, 575, 1353, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13903,7 +13857,7 @@ Model {
 	  Name			  "Ia13"
 	  SID			  "2467"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1337, 575, 1373, 620]
+	  Position		  [1387, 575, 1423, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13923,7 +13877,7 @@ Model {
 	  Name			  "Ia2"
 	  SID			  "2402"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [637, 575, 673, 620]
+	  Position		  [687, 575, 723, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13943,7 +13897,7 @@ Model {
 	  Name			  "Ia3"
 	  SID			  "2403"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [697, 575, 733, 620]
+	  Position		  [747, 575, 783, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13963,7 +13917,7 @@ Model {
 	  Name			  "Ia4"
 	  SID			  "2404"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [757, 575, 793, 620]
+	  Position		  [807, 575, 843, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13983,7 +13937,7 @@ Model {
 	  Name			  "Ia5"
 	  SID			  "2405"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [817, 575, 853, 620]
+	  Position		  [867, 575, 903, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14003,7 +13957,7 @@ Model {
 	  Name			  "Ia6"
 	  SID			  "2406"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [877, 575, 913, 620]
+	  Position		  [927, 575, 963, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14023,7 +13977,7 @@ Model {
 	  Name			  "Ia7"
 	  SID			  "2407"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [942, 575, 978, 620]
+	  Position		  [992, 575, 1028, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14043,7 +13997,7 @@ Model {
 	  Name			  "Ia8"
 	  SID			  "2408"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1002, 575, 1038, 620]
+	  Position		  [1052, 575, 1088, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14063,7 +14017,7 @@ Model {
 	  Name			  "Ia9"
 	  SID			  "2409"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1067, 575, 1103, 620]
+	  Position		  [1117, 575, 1153, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14079,108 +14033,11 @@ Model {
 	  Measurements		  "None"
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Irradiance"
-	  SID			  "812"
-	  Position		  [20, 685, 50, 715]
-	  ZOrder		  -3
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Irradiance1"
-	  SID			  "2605"
-	  Position		  [35, 1120, 65, 1150]
-	  ZOrder		  38
-	  Value			  "20"
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch"
-	  SID			  "814"
-	  Position		  [115, 182, 145, 218]
-	  ZOrder		  -63
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch1"
-	  SID			  "2593"
-	  Position		  [115, 102, 145, 138]
-	  ZOrder		  25
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch2"
-	  SID			  "2595"
-	  Position		  [115, 22, 145, 58]
-	  ZOrder		  27
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch3"
-	  SID			  "2598"
-	  Position		  [185, 62, 215, 98]
-	  ZOrder		  31
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch4"
-	  SID			  "2599"
-	  Position		  [250, 172, 280, 208]
-	  ZOrder		  32
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch5"
-	  SID			  "2603"
-	  Position		  [135, 872, 165, 908]
-	  ZOrder		  36
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch6"
-	  SID			  "2604"
-	  Position		  [135, 967, 165, 1003]
-	  ZOrder		  37
-	  ShowName		  off
-	  CurrentSetting	  "0"
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch7"
-	  SID			  "2607"
-	  Position		  [135, 1062, 165, 1098]
-	  ZOrder		  40
-	  ShowName		  off
-	  CurrentSetting	  "0"
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch8"
-	  SID			  "2608"
-	  Position		  [210, 922, 240, 958]
-	  ZOrder		  41
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch9"
-	  SID			  "2609"
-	  Position		  [290, 1022, 320, 1058]
-	  ZOrder		  42
-	  ShowName		  off
-	}
-	Block {
 	  BlockType		  SubSystem
 	  Name			  "PV"
 	  SID			  "2112"
 	  Ports			  [3, 1]
-	  Position		  [290, 563, 420, 727]
+	  Position		  [340, 563, 470, 727]
 	  ZOrder		  -64
 	  LibraryVersion	  "1.32"
 	  ErrorFcn		  "Stateflow.Translate.translate"
@@ -14323,50 +14180,18 @@ Model {
 	  BlockType		  RateLimiter
 	  Name			  "Rate Limiter"
 	  SID			  "816"
-	  Position		  [185, 645, 215, 675]
+	  Position		  [235, 645, 265, 675]
 	  ZOrder		  -29
 	  ShowName		  off
 	  RisingSlewLimit	  "5"
 	  FallingSlewLimit	  "-5"
 	}
 	Block {
-	  BlockType		  Scope
-	  Name			  "Scope"
-	  SID			  "2596"
-	  Ports			  [1]
-	  Position		  [305, 289, 335, 321]
-	  ZOrder		  29
-	  Floating		  off
-	  Location		  [188, 390, 512, 629]
-	  Open			  off
-	  NumInputPorts		  "1"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "%<SignalLabel>"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  YMin			  "-2.7015e-06"
-	  YMax			  "-2.696e-06"
-	  SaveName		  "ScopeData9"
-	  DataFormat		  "StructureWithTime"
-	  SampleTime		  "0"
-	}
-	Block {
 	  BlockType		  SubSystem
 	  Name			  "Subsystem1"
 	  SID			  "1143"
 	  Ports			  [1]
-	  Position		  [1500, 606, 1535, 644]
+	  Position		  [1550, 606, 1585, 644]
 	  ZOrder		  -66
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -14471,7 +14296,7 @@ Model {
 	  Name			  "Subsystem2"
 	  SID			  "1147"
 	  Ports			  [1]
-	  Position		  [300, 371, 335, 409]
+	  Position		  [160, 571, 195, 609]
 	  ZOrder		  -67
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -14483,7 +14308,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem2"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [-8, 0, 1608, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -14562,7 +14387,7 @@ Model {
 	  Name			  "Subsystem4"
 	  SID			  "1139"
 	  Ports			  [1]
-	  Position		  [1440, 481, 1475, 519]
+	  Position		  [1490, 481, 1525, 519]
 	  ZOrder		  -68
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -14639,7 +14464,7 @@ Model {
 	  Name			  "Va"
 	  SID			  "818"
 	  Ports			  [0, 1, 0, 0, 0, 2]
-	  Position		  [1445, 613, 1470, 637]
+	  Position		  [1495, 613, 1520, 637]
 	  ZOrder		  -35
 	  ShowName		  off
 	  LibraryVersion	  "1.2191"
@@ -14655,7 +14480,7 @@ Model {
 	  BlockType		  PMIOPort
 	  Name			  "+"
 	  SID			  "819"
-	  Position		  [1645, 530, 1660, 560]
+	  Position		  [1695, 530, 1710, 560]
 	  ZOrder		  -71
 	  BlockMirror		  on
 	  Port			  "1"
@@ -14665,7 +14490,7 @@ Model {
 	  BlockType		  PMIOPort
 	  Name			  "-"
 	  SID			  "820"
-	  Position		  [1645, 700, 1660, 730]
+	  Position		  [1695, 700, 1710, 730]
 	  ZOrder		  -72
 	  BlockMirror		  on
 	  NamePlacement		  "alternate"
@@ -14788,61 +14613,41 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Irradiance"
-	  SrcPort		  1
-	  Points		  [45, 0; 0, -490]
-	  Branch {
-	    Points		    [0, -80]
-	    Branch {
-	      DstBlock		      "Manual Switch1"
-	      DstPort		      2
-	    }
-	    Branch {
-	      DstBlock		      "Manual Switch2"
-	      DstPort		      2
-	    }
-	  }
-	  Branch {
-	    DstBlock		    "Manual Switch"
-	    DstPort		    2
-	  }
-	}
-	Line {
 	  LineType		  "Connection"
-	  Points		  [1295, 720; 70, 0]
+	  Points		  [1345, 720; 70, 0]
 	  Branch {
 	    ConnectType		    "SRC_DEST"
-	    Points		    [1230, 720; 65, 0]
+	    Points		    [1280, 720; 65, 0]
 	    Branch {
 	      ConnectType	      "SRC_DEST"
-	      Points		      [1165, 720; 65, 0]
+	      Points		      [1215, 720; 65, 0]
 	      Branch {
 		ConnectType		"SRC_DEST"
-		Points			[1095, 720; 70, 0]
+		Points			[1145, 720; 70, 0]
 		Branch {
 		  ConnectType		  "SRC_DEST"
-		  Points		  [1030, 720; 65, 0]
+		  Points		  [1080, 720; 65, 0]
 		  Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [970, 720; 60, 0]
+		    Points		    [1020, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [905, 720; 65, 0]
+		    Points		    [955, 720; 65, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [845, 720; 60, 0]
+		    Points		    [895, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [785, 720; 60, 0]
+		    Points		    [835, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [725, 720; 60, 0]
+		    Points		    [775, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [665, 720; 60, 0]
+		    Points		    [715, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [600, 720; 65, 0]
+		    Points		    [650, 720; 65, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
 		    SrcBlock		    "Ia"
@@ -14930,7 +14735,7 @@ Model {
 	    }
 	    Branch {
 	      ConnectType	      "DEST_DEST"
-	      Points		      [1600, 720; -170, 0]
+	      Points		      [1650, 720; -170, 0]
 	      Branch {
 		ConnectType		"SRC_DEST"
 		SrcBlock		"Cdc1"
@@ -15130,146 +14935,23 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "From\nWorkspace"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace1"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace2"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch2"
-	  SrcPort		  1
-	  Points		  [15, 0; 0, 30]
-	  DstBlock		  "Manual Switch3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch1"
-	  SrcPort		  1
-	  Points		  [15, 0; 0, -30]
-	  DstBlock		  "Manual Switch3"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch3"
-	  SrcPort		  1
-	  Points		  [15, 0]
-	  DstBlock		  "Manual Switch4"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch4"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch4"
-	  SrcPort		  1
-	  Points		  [4, 0; 0, 48; -69, 0; 0, 67]
-	  Branch {
-	    Points		    [0, 85]
-	    Branch {
-	      Points		      [0, 106; -50, 0]
-	      DstBlock		      "Rate Limiter"
-	      DstPort		      1
-	    }
-	    Branch {
-	      DstBlock		      "Subsystem2"
-	      DstPort		      1
-	    }
-	  }
-	  Branch {
-	    DstBlock		    "Scope"
-	    DstPort		    1
-	  }
-	}
-	Line {
 	  SrcBlock		  "From\nWorkspace3"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, 35]
-	  DstBlock		  "Manual Switch5"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace4"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 35]
-	  DstBlock		  "Manual Switch6"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace5"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 40]
-	  DstBlock		  "Manual Switch7"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch5"
-	  SrcPort		  1
-	  Points		  [25, 0]
-	  DstBlock		  "Manual Switch8"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch6"
-	  SrcPort		  1
-	  Points		  [25, 0]
-	  DstBlock		  "Manual Switch8"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch7"
-	  SrcPort		  1
-	  Points		  [65, 0; 0, -30]
-	  DstBlock		  "Manual Switch9"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch8"
-	  SrcPort		  1
-	  Points		  [3, 0; 0, 90]
-	  DstBlock		  "Manual Switch9"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch9"
-	  SrcPort		  1
-	  Points		  [24, 0; 0, -87; -78, 0; 0, -253]
 	  DstBlock		  "PV"
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "Irradiance1"
+	  SrcBlock		  "From\nWorkspace1"
 	  SrcPort		  1
-	  Points		  [28, 0; 0, -45]
+	  Points		  [46, 0]
 	  Branch {
-	    DstBlock		    "Manual Switch7"
-	    DstPort		    2
+	    Points		    [0, -70]
+	    DstBlock		    "Subsystem2"
+	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, -95]
-	    Branch {
-	      DstBlock		      "Manual Switch6"
-	      DstPort		      2
-	    }
-	    Branch {
-	      Points		      [0, -95]
-	      DstBlock		      "Manual Switch5"
-	      DstPort		      2
-	    }
+	    DstBlock		    "Rate Limiter"
+	    DstPort		    1
 	  }
 	}
       }
@@ -15301,7 +14983,7 @@ Model {
       }
       System {
 	Name			"Subsystem"
-	Location		[-8, -8, 1608, 868]
+	Location		[-8, 0, 1608, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -23071,8 +22753,6 @@ Stateflow {
     created		    "24-Apr-2013 13:11:36"
     isLibrary		    0
     firstTarget		    25
-    debug {
-    }
     sfVersion		    76014001.0015
   }
   chart {
@@ -23085,10 +22765,7 @@ Stateflow {
     firstTransition	    9
     firstJunction	    8
     viewObj		    2
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -23273,10 +22950,7 @@ Stateflow {
     firstTransition	    23
     firstJunction	    22
     viewObj		    11
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    12
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
