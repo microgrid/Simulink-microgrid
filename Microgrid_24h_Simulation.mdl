@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.91"
+    ComputedModelVersion    "1.92"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,7 +31,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1616.0, 876.0]
+      Location		      [-8.0, 0.0, 1612.0, 876.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,28 +53,28 @@ Model {
 	Dimension		6
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1566.0, 729.0]
-	  ZoomFactor		  [0.6]
-	  Offset		  [-307.91666666666674, -114.58333333333337]
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "1726"
+	  Extents		  [1562.0, 729.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
 	}
 	Object {
 	  $ObjectID		  6
 	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "2165"
-	  Extents		  [1566.0, 729.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [0.0, 0.0]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1562.0, 729.0]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-307.91666666666674, -114.58333333333337]
 	}
 	Object {
 	  $ObjectID		  7
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2191"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [1.4041613380114768, 44.0]
 	}
@@ -83,7 +83,7 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2166:15::129"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, -5.0]
 	}
@@ -92,18 +92,18 @@ Model {
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "802"
-	  Extents		  [1566.0, 729.0]
+	  Extents		  [1562.0, 729.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [-268.0166666666662, 164.84999999999991]
 	}
 	Object {
 	  $ObjectID		  10
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1362"
-	  Extents		  [1566.0, 729.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [596.25000000000023, 22.666666666666657]
+	  Extents		  [1562.0, 729.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [-170.41666666666652, 15.666666666666345]
 	}
 	PropName		"EditorsInfo"
       }
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 10 16:04:20 2015"
-  RTWModifiedTimeStamp	  358445006
-  ModelVersionFormat	  "1.%<AutoIncrement:91>"
+  LastModifiedDate	  "Mon Jul 13 16:31:11 2015"
+  RTWModifiedTimeStamp	  358703787
+  ModelVersionFormat	  "1.%<AutoIncrement:92>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1115,7 +1115,7 @@ Model {
   }
   System {
     Name		    "Microgrid_24h_Simulation"
-    Location		    [-8, 0, 1608, 876]
+    Location		    [-8, 0, 1604, 876]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1152,8 +1152,8 @@ Model {
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1608, 876]
-	Open			on
+	Location		[-8, 0, 1604, 876]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1954,13 +1954,23 @@ Model {
 	  Position		  [995, 84, 1055, 166]
 	  ZOrder		  -19
 	  Floating		  off
-	  Location		  [534, 255, 1318, 1051]
+	  Location		  [534, 98, 1318, 894]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  ZoomMode		  "xonly"
 	  List {
 	    ListType		    AxesTitles
 	    axes1		    "Phase to Ground Load Voltages, Vabc (V)"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
 	  ShowLegends		  off
 	  TimeRange		  "1"
@@ -1987,7 +1997,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Power Demand 24h"
-	    Location		    [-8, 0, 1608, 876]
+	    Location		    [-8, 0, 1604, 876]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -13653,7 +13663,7 @@ Model {
       }
       System {
 	Name			"PV Array"
-	Location		[-8, 0, 1608, 876]
+	Location		[-8, 0, 1604, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -14983,7 +14993,7 @@ Model {
       }
       System {
 	Name			"Subsystem"
-	Location		[-8, 0, 1608, 876]
+	Location		[-8, 0, 1604, 876]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -14995,7 +15005,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"80"
 	Block {
 	  BlockType		  Scope
 	  Name			  "AC Load Measurements"
@@ -15004,7 +15014,7 @@ Model {
 	  Position		  [1310, 99, 1370, 181]
 	  ZOrder		  -19
 	  Floating		  off
-	  Location		  [5, 43, 1605, 894]
+	  Location		  [5, 47, 1601, 894]
 	  Open			  off
 	  NumInputPorts		  "2"
 	  ZoomMode		  "xonly"
@@ -19257,7 +19267,7 @@ Model {
 	  Position		  [1450, 49, 1480, 81]
 	  ZOrder		  1
 	  Floating		  off
-	  Location		  [1, 48, 1601, 859]
+	  Location		  [5, 48, 1601, 859]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  List {
@@ -19372,7 +19382,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem"
-	    Location		    [1123, 163, 1384, 479]
+	    Location		    [-8, 0, 1604, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -21810,7 +21820,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem7"
-	    Location		    [982, 630, 1260, 946]
+	    Location		    [-8, 0, 1604, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -21863,7 +21873,7 @@ Model {
 		DstPort			1
 	      }
 	      Branch {
-		Points			[0, 0; 0, 45]
+		Points			[0, 45]
 		DstBlock		"To Workspace1"
 		DstPort			1
 	      }
@@ -22010,8 +22020,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem9"
-	    Location		    [1146, 131, 1407, 447]
-	    Open		    off
+	    Location		    [-8, 0, 1604, 876]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -22576,7 +22586,7 @@ Model {
       SourceType	      "PSB option menu block"
       SimulationMode	      "Discrete"
       SolverType	      "Tustin"
-      SampleTime	      "0.1"
+      SampleTime	      "5e-6"
       frequency		      "60"
       SPID		      off
       DisableSnubberDevices   off

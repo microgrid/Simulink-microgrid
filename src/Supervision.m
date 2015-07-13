@@ -1,9 +1,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialize the GUI %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The GUI %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function Supervision
+function varargout= Supervision (varargin) 
+
 
 % Simulink model
 modelName = 'Microgrid_24h_Simulation';
@@ -904,6 +905,10 @@ set(hstop,'Enable','on');
 % Turn off the popup menu
 set(hpopup,'Enable','off');
 
+% update the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+set_param(modelName,'SimulationCommand','update');
+
 % start the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 set_param(modelName,'SimulationCommand','start');
@@ -927,6 +932,23 @@ set(hpopup,'Enable','on');
 % stop the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 set_param(modelName,'SimulationCommand','stop');
+
+end
+
+% create a run time object that can return the value of the block Vabc %%%
+
+if get_param(modelName,'RuntimeObject')==1
+%output and then put the value in a string.
+rto = get_param('Microgrid_24h_Simulation/Vab','RuntimeObject');
+% rto = get_param('Microgrid_24h_Simulation/f','RuntimeObject');
+% rto = get_param('Microgrid_24h_Simulation/SOC','RuntimeObject');
+str = num2str(rto.OutputPort(1).Data);
+
+%get a handle to the GUI's 'current state' window
+statestxt = get(handles.h4,'curState');
+
+%update the gui
+set(statestxt,'string',str);
 
 end
 
