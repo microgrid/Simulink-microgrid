@@ -221,6 +221,18 @@ title(h1,'Insolation during the Monsoon');
 grid(h1,'on');
 set(htext1, 'String', 'Temperature outside = 26.8°C');
 set(htext3, 'String', 'Temperature pannel = 46°C');
+% Vector Data for the Simulink (Insolation)
+ VARins = [xdiscretized;Ins_M];
+ % Vector Data for the Simulink (Temperature)
+ VARTemp = [xdiscretized;Temp1];
+ % Vector Data for the Simulink (Power)
+ VARPA= [xdiscretized;ActivePower_dataALLMonsoon];
+ VARPQ= [xdiscretized;ActivePower_dataALLMonsoon/10];
+ % Write Data vectors in the workspace for the Simulink 
+ assignin('base', 'VARins', VARins);
+ assignin('base', 'VARTemp', VARTemp);
+ assignin('base', 'VARPA', VARPA);
+ assignin('base', 'VARPQ', VARPQ);
 
 % Initialize axes h4,h5 and h6
 xlabel(h4,'Time (Hours)');
@@ -229,13 +241,13 @@ title(h4,'Voltage Grid');
 grid(h4,'on');
 
 xlabel(h5,'Time (Hours)');
-ylabel(h5,'Frequency (Hz)');
+ylabel(h5,'f (Hz)');
 title(h5,'Frequency');
 grid(h5,'on');
 
 xlabel(h6,'Time (Hours)');
 ylabel(h6,'SOC (%)');
-title(h6,'STATE OF CHARGE BATTERY');
+title(h6,'State of charge');
 grid(h6,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
@@ -945,27 +957,46 @@ set_param(modelName,'SimulationCommand','stop');
 end
 
 function updatebutton_Callback(source,eventdata,handles) 
-    
-% create a run time object that can return the value of the block Vabc %%%
 
-%output and then put the value in a string.
-% rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
-% rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
+% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SOC
+rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
+blockData1 = rto1.OutputPort(1).Data;
+
+% Frequency
+rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
+blockData2 = rto2.OutputPort(1).Data;
+
+% Voltage
 rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
-% blockData1 = rto1.OutputPort(1).Data;
-% blockData2 = rto2.OutputPort(1).Data;
 blockData3 = rto3.OutputPort(1).Data;
-% assignin('base', 'blockData1', blockData1);
-% assignin('base', 'blockData2', blockData2);
-assignin('base', 'blockData3', blockData3);
-hold on
-% plot(h4,blockData1);
-% plot(h5,blockData2);
-% grid(h4,'on');
-% grid(h5,'on');
+
+% Time
+rtoc = get_param('Microgrid_24h_Simulation/Subsystem/Clock','RuntimeObject');
+clock = rtoc.OutputPort(1).Data;
+
+% Execute MATLAB expression in specified workspace(Allow visibility for the GUI)
+assignin('base', 'clock', clock);
+
+plot(h6,clock*100,blockData1,'ro');
+xlabel(h6,'Time (Hours)');
+ylabel(h6,'SOC (%)');
+title(h6,'State of charge');
 grid(h6,'on');
+plot(h5,clock*100,blockData2,'ro');
+xlabel(h5,'Time (Hours)');
+ylabel(h5,'f (Hz)');
+title(h5,'Frequency');
+grid(h5,'on');
+plot(h4,clock*100,blockData3,'ro');
+xlabel(h4,'Time (Hours)');
+ylabel(h4,'Voltage (V)');
+title(h4,'Voltage Grid');
+grid(h4,'on');
 
 end
 
 end
+
 

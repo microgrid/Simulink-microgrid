@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.94"
+    ComputedModelVersion    "1.95"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -91,9 +91,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jul 14 10:42:21 2015"
-  RTWModifiedTimeStamp	  358771329
-  ModelVersionFormat	  "1.%<AutoIncrement:94>"
+  LastModifiedDate	  "Tue Jul 14 15:34:15 2015"
+  RTWModifiedTimeStamp	  358788325
+  ModelVersionFormat	  "1.%<AutoIncrement:95>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1102,7 +1102,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2621"
+    SIDHighWatermark	    "2622"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -15022,7 +15022,7 @@ Model {
 	  Position		  [295, 481, 385, 599]
 	  ZOrder		  -20
 	  Floating		  off
-	  Location		  [1, 48, 1601, 859]
+	  Location		  [5, 48, 1605, 859]
 	  Open			  off
 	  NumInputPorts		  "4"
 	  ZoomMode		  "yonly"
@@ -15408,6 +15408,16 @@ Model {
 	  SID			  "2621"
 	  Position		  [1345, 805, 1375, 835]
 	  ZOrder		  4
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain3"
+	  SID			  "2622"
+	  Position		  [1125, 105, 1155, 135]
+	  ZOrder		  5
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
@@ -22477,7 +22487,7 @@ Model {
 	Line {
 	  SrcBlock		  "Subsystem"
 	  SrcPort		  1
-	  DstBlock		  "AC Load Measurements"
+	  DstBlock		  "Gain3"
 	  DstPort		  1
 	}
 	Line {
@@ -22490,6 +22500,12 @@ Model {
 	  SrcBlock		  "Gain2"
 	  SrcPort		  1
 	  DstBlock		  "Subsystem10"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  DstBlock		  "AC Load Measurements"
 	  DstPort		  1
 	}
 	Annotation {
