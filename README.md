@@ -14,6 +14,7 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 
 ## To Do
 
+- [ ] The simulation crashes. 
 - [ ] Enhance the readme
   * Explain how to run the simulation
   * Write about compiling
