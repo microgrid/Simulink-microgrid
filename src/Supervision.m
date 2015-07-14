@@ -95,6 +95,15 @@ hstop = uicontrol('Style','pushbutton',...
       'Position',[15,90,30,10],...
       'Enable','off',...
       'Callback',{@stopbutton_Callback}); 
+  
+  % Add "Update" button to window
+hupdate = uicontrol('Style','pushbutton',...
+      'Parent', f, ...
+      'String','Update',...
+      'Tag','update',...
+      'Position',[15,125,30,8],...
+      'Enable','on',...
+      'Callback',{@updatebutton_Callback}); 
 
 % Add "Temperature outside = °C" text to window
 htext1 = uicontrol('Style','text','String','Temperature outside = °C',...
@@ -187,14 +196,14 @@ imshow(jpg);
 title('Bhutan Project');
 
 % Align elements in parameters 
-align([hmonsoon,hintermediate,hwinter,hstop,hrun,htext1,htext3,htextparameters,h7,hpopup],'Center','None');
+align([hmonsoon,hintermediate,hwinter,hstop,hrun,htext1,hupdate,htext3,htextparameters,h7,hpopup],'Center','None');
 
 % Color 
 set(hrun,'BackgroundColor', [0.396 1 0.558]);
 set(hstop,'BackgroundColor', [1 0.286 0.145]);
 
 % Change units to normalized so components resize automatically.
-set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hstop,hrun,htext1,htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
+set([f,h1,h2,h3,h4,h5,h6,h7,hmonsoon,hintermediate,hwinter,hstop,hrun,hupdate,htext1,htext8,htext2,htext3,htext7,htext4,htext5,htext6,htextparameters,htextstability,htextpower,hpopup],...
 'Units','normalized');
 
 % Full screen
@@ -935,20 +944,26 @@ set_param(modelName,'SimulationCommand','stop');
 
 end
 
+function updatebutton_Callback(source,eventdata,handles) 
+    
 % create a run time object that can return the value of the block Vabc %%%
 
-if get_param(modelName,'RuntimeObject')==1
 %output and then put the value in a string.
-rto = get_param('Microgrid_24h_Simulation/Vab','RuntimeObject');
-% rto = get_param('Microgrid_24h_Simulation/f','RuntimeObject');
-% rto = get_param('Microgrid_24h_Simulation/SOC','RuntimeObject');
-str = num2str(rto.OutputPort(1).Data);
-
-%get a handle to the GUI's 'current state' window
-statestxt = get(handles.h4,'curState');
-
-%update the gui
-set(statestxt,'string',str);
+% rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
+% rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
+rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
+% blockData1 = rto1.OutputPort(1).Data;
+% blockData2 = rto2.OutputPort(1).Data;
+blockData3 = rto3.OutputPort(1).Data;
+% assignin('base', 'blockData1', blockData1);
+% assignin('base', 'blockData2', blockData2);
+assignin('base', 'blockData3', blockData3);
+hold on
+% plot(h4,blockData1);
+% plot(h5,blockData2);
+% grid(h4,'on');
+% grid(h5,'on');
+grid(h6,'on');
 
 end
 
