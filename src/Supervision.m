@@ -4,7 +4,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function varargout= Supervision (varargin) 
-
+%  start=0;
+%     assignin('base', 'start', start);
 
 % Simulink model
 modelName = 'Microgrid_24h_Simulation';
@@ -279,7 +280,7 @@ set(f,'Visible','on');
 % Callback Function for the popup menu %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  function popup_menu_Callback(source,eventdata) 
+  function popup_menu_Callback(source, eventdata, handles)
 
      % Determine the selected data set.
      str = get(source, 'String');
@@ -865,7 +866,7 @@ set(f,'Visible','on');
 % Callback Function for the monsoon button %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function monsoonbutton_Callback(source,eventdata,handles) 
+function monsoonbutton_Callback(source, eventdata, handles) 
 
 % Plot monsoon season from dataBase
  plot(h1,xdiscretized,Ins_M,'r'); 
@@ -881,7 +882,7 @@ end
 % Callback Function for the intermediate button %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function intermediatebutton_Callback(source,eventdata,handles) 
+function intermediatebutton_Callback(source, eventdata, handles) 
 
 % Plot intemediate season from dataBase
   plot(h1,xdiscretized,Ins_I,'m');
@@ -897,7 +898,7 @@ end
 % Callback Function for the winter button %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function winterbutton_Callback(source,eventdata,handles) 
+function winterbutton_Callback(source, eventdata, handles) 
 
 % Plot winter season from dataBase
   plot(h1,xdiscretized,Ins_W,'m');
@@ -913,8 +914,9 @@ end
 % Callback Function for the run button %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function runbutton_Callback(source,eventdata,handles) 
-
+function runbutton_Callback(source, eventdata, handles)
+start=1;
+assignin('base', 'start', start);
 message1 = msgbox('Please wait ! This simulation will take few hours');
 
 % toggle the buttons %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -939,8 +941,11 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Callback Function for the stop button %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function stopbutton_Callback(source,eventdata,handles) 
+function stopbutton_Callback(source, eventdata, handles) 
 
+    start=0;
+    assignin('base', 'start', start);
+    
 % toggle the buttons %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Turn on the Start button
@@ -956,39 +961,50 @@ set_param(modelName,'SimulationCommand','stop');
 
 end
 
-function updatebutton_Callback(source,eventdata,handles) 
+function updatebutton_Callback(source, eventdata, handles)
+    
+%   if start==1     
 
 % Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % SOC
 rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
-blockData1 = rto1.OutputPort(1).Data;
+% blockData1 = rto1.OutputPort(1).Data;
+blockData1= rto1.OutputPort(1).Data;
 
 % Frequency
 rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
-blockData2 = rto2.OutputPort(1).Data;
+% blockData2 = rto2.OutputPort(1).Data;
+blockData2= rto2.OutputPort(1).Data;
 
 % Voltage
 rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
-blockData3 = rto3.OutputPort(1).Data;
+% blockData3 = rto3.OutputPort(1).Data;
+blockData3= rto3.OutputPort(1).Data;
 
 % Time
 rtoc = get_param('Microgrid_24h_Simulation/Subsystem/Clock','RuntimeObject');
-clock = rtoc.OutputPort(1).Data;
+% clock = rtoc.OutputPort(1).Data;
+clock= rtoc.OutputPort(1).Data;
 
 % Execute MATLAB expression in specified workspace(Allow visibility for the GUI)
 assignin('base', 'clock', clock);
+
 
 plot(h6,clock*100,blockData1,'ro');
 xlabel(h6,'Time (Hours)');
 ylabel(h6,'SOC (%)');
 title(h6,'State of charge');
 grid(h6,'on');
+
+
 plot(h5,clock*100,blockData2,'ro');
 xlabel(h5,'Time (Hours)');
 ylabel(h5,'f (Hz)');
 title(h5,'Frequency');
 grid(h5,'on');
+
+
 plot(h4,clock*100,blockData3,'ro');
 xlabel(h4,'Time (Hours)');
 ylabel(h4,'Voltage (V)');
@@ -997,6 +1013,8 @@ grid(h4,'on');
 
 end
 
+
 end
+
 
 
