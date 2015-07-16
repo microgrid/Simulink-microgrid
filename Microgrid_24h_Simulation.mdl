@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.95"
+    ComputedModelVersion    "1.97"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -72,11 +72,11 @@ Model {
 	Object {
 	  $ObjectID		  7
 	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "2191"
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
 	  Extents		  [1550.0, 729.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [1.4041613380114768, 44.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [0.0, 0.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -91,9 +91,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jul 14 15:34:15 2015"
-  RTWModifiedTimeStamp	  358788325
-  ModelVersionFormat	  "1.%<AutoIncrement:95>"
+  LastModifiedDate	  "Thu Jul 16 13:28:28 2015"
+  RTWModifiedTimeStamp	  358954103
+  ModelVersionFormat	  "1.%<AutoIncrement:97>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1089,7 +1089,7 @@ Model {
   System {
     Name		    "Microgrid_24h_Simulation"
     Location		    [0, 0, 1600, 876]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1102,7 +1102,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2622"
+    SIDHighWatermark	    "2624"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -1971,7 +1971,7 @@ Model {
 	  System {
 	    Name		    "Power Demand 24h"
 	    Location		    [0, 0, 1600, 876]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
