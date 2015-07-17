@@ -24,6 +24,7 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 - [ ] Make the GUI dynamic
 - [ ] Implement the integration of a backup in the simulink
 - [ ] Create a wiki
-- [ ] Testing
+- [x] Testing
   * Run a complete simulation and analyse the results.
+- [ ] Simulation crashed - find error
 - [ ] Add support for multi-core.
