@@ -28,3 +28,4 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
   * Run a complete simulation and analyse the results.
 - [ ] Simulation crashed - find error
 - [ ] Add support for multi-core.
+- [ ] Add OS X support
