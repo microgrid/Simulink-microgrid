@@ -21,6 +21,10 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
+  StartFcn		  "%The GUI handles are by default hidden, turn them on\nset(0,'ShowHiddenHandles','on');\n\n%Set up the a"
+  "rguments that will go into the gain block event callback listener\nblk = 'Microgrid_24h_Simulation/Subsystem/Clock';"
+  "\nevent = 'PostOutputs';\nlistener = @updategui;\n\n%Create the listener\nh = add_exec_event_listener(blk, event, li"
+  "stener);\n\n"
   UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -92,7 +96,7 @@ Model {
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Fri Jul 17 11:30:34 2015"
-  RTWModifiedTimeStamp	  358954103
+  RTWModifiedTimeStamp	  359300991
   ModelVersionFormat	  "1.%<AutoIncrement:97>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -699,6 +703,76 @@ Model {
 	    Cell		    "Name"
 	    PropName		    "DisabledProps"
 	  }
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    MECH.SimMechanicsCC {
+	      $ObjectID		      21
+	      Version		      "1.13.0"
+	      Name		      "SimMechanics"
+	      WarnOnRedundantConstraints on
+	      WarnOnSingularInitialAssembly off
+	      ShowCutJoints	      off
+	      VisOnUpdateDiagram      off
+	      VisDuringSimulation     off
+	      EnableVisSimulationTime on
+	      VisSampleTime	      "0"
+	      DisableBodyVisControl   off
+	      ShowCG		      on
+	      ShowCS		      on
+	      ShowOnlyPortCS	      off
+	      HighlightModel	      on
+	      FramesToBeSkipped	      "0"
+	      AnimationDelay	      "3"
+	      RecordAVI		      off
+	      CompressAVI	      on
+	      AutoFitVis	      "off"
+	      EnableSelection	      on
+	      LastVizWinPosition      "[-1 -1 -1 -1]"
+	      CamPosition	      "[0 0 0]"
+	      CamTarget		      "[0 0 -1]"
+	      CamUpVector	      "[0 1 0]"
+	      CamHeight		      "-1"
+	      CamViewAngle	      "0"
+	      VisBackgroundColor      "[0.9 0.9 0.95]"
+	      DefaultBodyColor	      "[1 0 0]"
+	      MDLBodyVisualizationType "Convex hull from body CS locations"
+	      OVRRIDBodyVisualizationType "NONE"
+	    }
+	    simmechanics.ConfigurationSet {
+	      $ObjectID		      22
+	      Version		      "1.13.0"
+	      Description	      "SimMechanics 2G"
+	      Array {
+		Type			"Handle"
+		Dimension		2
+		simmechanics.DiagnosticsConfigSet {
+		  $ObjectID		  23
+		  Version		  "1.13.0"
+		  Description		  "Diagnostics"
+		  Name			  "DiagnosticsConfigSet"
+		  SimMechanicsInvalidVisualProperty "warning"
+		  SimMechanicsCrossSectionNullEdge "warning"
+		  SimMechanicsUnconnectedFramePorts "warning"
+		  SimMechanicsRedundantBlock "warning"
+		  SimMechanicsConflictingReferenceFrames "warning"
+		  SimMechanicsRigidlyBoundBlock	"error"
+		  SimMechanicsUnsatisfiedHighPriorityTargets "warning"
+		  SimMechanicsJointTargetOverSpecification "error"
+		}
+		simmechanics.ExplorerConfigSet {
+		  $ObjectID		  24
+		  Version		  "1.13.0"
+		  Description		  "Explorer"
+		  Name			  "ExplorerConfigSet"
+		  SimMechanicsOpenEditorOnUpdate on
+		}
+		PropName		"Components"
+	      }
+	      Name		      "SimMechanics2G"
+	    }
+	    PropName		    "Components"
+	  }
 	  Name			  "Simscape"
 	  EditingMode		  "Full"
 	  ExplicitSolverDiagnosticOptions "warning"
@@ -724,7 +798,7 @@ Model {
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    25
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -859,6 +933,9 @@ Model {
       GotoTag		      "A"
       IconDisplay	      "Tag"
       TagVisibility	      "local"
+    }
+    Block {
+      BlockType		      Ground
     }
     Block {
       BlockType		      Inport
@@ -1119,7 +1196,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		26
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('Plug.bmp'))"
       }
@@ -2223,7 +2300,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		23
+	$ObjectID		27
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('Battery.bmp'))"
       }
@@ -2686,7 +2763,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		24
+	$ObjectID		28
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Bidirectional Converter') \n"
       }
@@ -4699,7 +4776,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		25
+	$ObjectID		29
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Boost Converter')"
       }
@@ -6155,7 +6232,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		26
+	$ObjectID		30
 	$ClassName		"Simulink.Mask"
 	Display			"disp('DC/AC Inverter')"
       }
@@ -13630,7 +13707,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		27
+	$ObjectID		31
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('photo.bmp'))"
       }
@@ -14960,7 +15037,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		28
+	$ObjectID		32
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Measurements')"
       }
@@ -15440,7 +15517,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    29
+	    $ObjectID		    33
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Inverter Control')"
 	  }
@@ -16936,7 +17013,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    30
+	    $ObjectID		    34
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Boost Converter Control')"
 	  }
@@ -17050,7 +17127,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    31
+	    $ObjectID		    35
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Bidirectional Converter Control')"
 	  }
@@ -17288,7 +17365,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    32
+	    $ObjectID		    36
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Frequency Measurement')"
 	  }
@@ -19702,7 +19779,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    33
+	    $ObjectID		    37
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Additional Load Meas.')"
 	  }
@@ -22552,62 +22629,1959 @@ Model {
       }
     }
     Block {
-      BlockType		      Reference
+      BlockType		      SubSystem
       Name		      "powergui"
       SID		      "13"
       Ports		      []
       Position		      [45, 30, 136, 81]
       ZOrder		      -38
       Priority		      "1"
+      AncestorBlock	      "powerlib/powergui"
       LibraryVersion	      "*1.2191"
       UserDataPersistent      on
       UserData		      "DataTag0"
+      CopyFcn		      "powergui( 'Copy_Callback' , gcb , 0 , [ ] );"
+      DeleteFcn		      "% see geck 675031 powergui( 'Copy_Callback' , gcb , 1 , [ ] );\n                              "
+      "                                \npowergui( 'CloseButton_Callback' , gcb , [ ] , [ ] );         \n              "
+      "                                                "
+      ModelCloseFcn	      "powergui( 'CloseButton_Callback' , gcb , [ ] , [ ] );"
+      PreSaveFcn	      "powergui( 'PreSaveFcn_Callback' , gcb , [ ] , [ ] ); \npowergui( 'CloseButton_Callback' , gcb "
+      ", [ ] , [ ] );"
+      InitFcn		      "powergui( 'InitFcn_Callback' , gcb , 0 , [ ] );"
+      StopFcn		      "powergui( 'StopFcn_Callback' , gcb , 0 , [ ] );"
+      NameChangeFcn	      "powergui( 'NameChangeFcn_Callback' , gcb , 0 , [ ] );"
+      OpenFcn		      "powergui(gcb,'Open')"
       FontName		      "Verdana"
-      SourceBlock	      "powerlib/powergui"
-      SourceType	      "PSB option menu block"
-      SimulationMode	      "Discrete"
-      SolverType	      "Tustin"
-      SampleTime	      "5e-6"
-      frequency		      "60"
-      SPID		      off
-      DisableSnubberDevices   off
-      DisableRonSwitches      off
-      DisableVfSwitches	      off
-      SwTol		      "0"
-      Interpol		      off
-      DisplayEquations	      off
-      frequencyindice	      "0"
-      Pbase		      "100e6"
-      ErrMax		      "1e-4"
-      Iterations	      "50"
-      UnitsV		      "kV"
-      UnitsW		      "MW"
-      FunctionMessages	      off
-      echomessages	      off
-      HookPort		      off
-      EnableUseOfTLC	      off
-      x0status		      "blocks"
-      RestoreLinks	      "warning"
-      ResistiveCurrentMeasurement off
-      Frange		      "[0:2:500]"
-      Ylog		      off
-      Xlog		      on
-      ShowGrid		      off
-      save		      off
-      variable		      "ZData"
-      structure		      "Vab_st"
-      ZoomFFT		      off
-      StartTime		      "7.5"
-      cycles		      "4"
-      DisplayStyle	      "1"
-      fundamental	      "50"
-      FreqAxis		      off
-      MaxFrequency	      "50000"
-      frequencyindicesteady   "1"
-      RmsSteady		      "1"
-      display		      off
-      Ts		      "0"
-      methode		      off
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		38
+	$ClassName		"Simulink.Mask"
+	Type			"PSB option menu block"
+	Description		"Set simulation type, simulation parameters, and preferences\n"
+	Help			"helpview(psbhelp)"
+	Initialization		"message = powergui('MaskInitialization',gcb,SimulationMode,SampleTime);"
+	SelfModifiable		"on"
+	Display			"color('blue'),disp(message)"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  43
+	  Object {
+	    $ObjectID		    39
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "Continuous"
+	      Cell		      "Discrete"
+	      Cell		      "Phasor"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "SimulationMode"
+	    Prompt		    "Simulation type:  "
+	    Value		    "Discrete"
+	    Callback		    "powergui('SimulationType',[],[],gcb);"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    40
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      2
+	      Cell		      "Tustin"
+	      Cell		      "Backward Euler"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "SolverType"
+	    Prompt		    "Solver type:"
+	    Value		    "Tustin"
+	    Evaluate		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    41
+	    Type		    "edit"
+	    Name		    "SampleTime"
+	    Prompt		    "Sample time (s):"
+	    Value		    "5e-6"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    42
+	    Type		    "edit"
+	    Name		    "frequency"
+	    Prompt		    "Phasor frequency (Hz):"
+	    Value		    "60"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    43
+	    Type		    "checkbox"
+	    Name		    "SPID"
+	    Prompt		    "Enable use of ideal switching devices"
+	    Value		    "off"
+	    Visible		    "off"
+	    Callback		    "powergui('SPID',[],[],gcb);"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    44
+	    Type		    "checkbox"
+	    Name		    "DisableSnubberDevices"
+	    Prompt		    "Disable snubbers in switching devices"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    45
+	    Type		    "checkbox"
+	    Name		    "DisableRonSwitches"
+	    Prompt		    "Disable On resistance in switching devices (Ron=0)"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    46
+	    Type		    "checkbox"
+	    Name		    "DisableVfSwitches"
+	    Prompt		    "Disable Forward voltage in switching devices (Vf=0)"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    47
+	    Type		    "edit"
+	    Name		    "SwTol"
+	    Prompt		    "Switch tolerance"
+	    Value		    "0"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    48
+	    Type		    "checkbox"
+	    Name		    "Interpol"
+	    Prompt		    "Interpolate"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    49
+	    Type		    "checkbox"
+	    Name		    "DisplayEquations"
+	    Prompt		    "Display circuit differential equations"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    50
+	    Type		    "edit"
+	    Name		    "frequencyindice"
+	    Prompt		    "Load flow frequency (Hz):"
+	    Value		    "0"
+	    TabName		    "Load Flow"
+	  }
+	  Object {
+	    $ObjectID		    51
+	    Type		    "edit"
+	    Name		    "Pbase"
+	    Prompt		    "Base power Pbase (VA):"
+	    Value		    "100e6"
+	    TabName		    "Load Flow"
+	  }
+	  Object {
+	    $ObjectID		    52
+	    Type		    "edit"
+	    Name		    "ErrMax"
+	    Prompt		    "PQ tolerance (pu):"
+	    Value		    "1e-4"
+	    TabName		    "Load Flow"
+	  }
+	  Object {
+	    $ObjectID		    53
+	    Type		    "edit"
+	    Name		    "Iterations"
+	    Prompt		    "Max iterations:"
+	    Value		    "50"
+	    TabName		    "Load Flow"
+	  }
+	  Object {
+	    $ObjectID		    54
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      2
+	      Cell		      "V"
+	      Cell		      "kV"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "UnitsV"
+	    Prompt		    "Voltage units"
+	    Value		    "kV"
+	    Evaluate		    "off"
+	    TabName		    "Load Flow"
+	  }
+	  Object {
+	    $ObjectID		    55
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "W"
+	      Cell		      "kW"
+	      Cell		      "MW"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "UnitsW"
+	    Prompt		    "Power units"
+	    Value		    "MW"
+	    Evaluate		    "off"
+	    TabName		    "Load Flow"
+	  }
+	  Object {
+	    $ObjectID		    56
+	    Type		    "checkbox"
+	    Name		    "FunctionMessages"
+	    Prompt		    "Disable SimPowerSystems warnings"
+	    Value		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    57
+	    Type		    "checkbox"
+	    Name		    "echomessages"
+	    Prompt		    "Display SimPowerSystems compilation messages"
+	    Value		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    58
+	    Type		    "checkbox"
+	    Name		    "HookPort"
+	    Prompt		    "Add a hook port to the powergui block"
+	    Value		    "off"
+	    Enabled		    "off"
+	    Visible		    "off"
+	    Callback		    "powergui('HookPort',[],[],gcb);"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    59
+	    Type		    "checkbox"
+	    Name		    "EnableUseOfTLC"
+	    Prompt		    "Use TLC file when in Accelerator Simulation Mode and for code generation"
+	    Value		    "off"
+	    Evaluate		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    60
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "blocks"
+	      Cell		      "steady"
+	      Cell		      "zero"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "x0status"
+	    Prompt		    "Start simulation with initial electrical states from:    "
+	    Value		    "blocks"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    61
+	    Type		    "popup"
+	    Array {
+	      Type		      "Cell"
+	      Dimension		      3
+	      Cell		      "yes"
+	      Cell		      "warning"
+	      Cell		      "no"
+	      PropName		      "TypeOptions"
+	    }
+	    Name		    "RestoreLinks"
+	    Prompt		    "Restore disabled links of SimPowerSystems blocks:"
+	    Value		    "warning"
+	    Evaluate		    "off"
+	    Enabled		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    62
+	    Type		    "checkbox"
+	    Name		    "ResistiveCurrentMeasurement"
+	    Prompt		    "Use non ideal current measurement blocks (1e-4Ohm internal resistance) "
+	    Value		    "off"
+	    Evaluate		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    63
+	    Type		    "edit"
+	    Name		    "Frange"
+	    Prompt		    "Frequency Range"
+	    Value		    "[0:2:500]"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    64
+	    Type		    "checkbox"
+	    Name		    "Ylog"
+	    Prompt		    "Log impedance"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    65
+	    Type		    "checkbox"
+	    Name		    "Xlog"
+	    Prompt		    "log Frequency"
+	    Value		    "on"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    66
+	    Type		    "checkbox"
+	    Name		    "ShowGrid"
+	    Prompt		    "grid"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    67
+	    Type		    "checkbox"
+	    Name		    "save"
+	    Prompt		    "Save Data To Workspace"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    68
+	    Type		    "edit"
+	    Name		    "variable"
+	    Prompt		    "Variable Name"
+	    Value		    "ZData"
+	    Evaluate		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    69
+	    Type		    "edit"
+	    Name		    "structure"
+	    Prompt		    "Structure Name (PSBFFTSCOPE)"
+	    Value		    "Vab_st"
+	    Evaluate		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    70
+	    Type		    "checkbox"
+	    Name		    "ZoomFFT"
+	    Prompt		    "ZoomFFT (PSBFFTSCOPE)"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    71
+	    Type		    "edit"
+	    Name		    "StartTime"
+	    Prompt		    "Start Time (PSBFFTSCOPE)"
+	    Value		    "7.5"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    72
+	    Type		    "edit"
+	    Name		    "cycles"
+	    Prompt		    "Cycles (PSBFFTSCOPE)"
+	    Value		    "4"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    73
+	    Type		    "edit"
+	    Name		    "DisplayStyle"
+	    Prompt		    "Display style (PSBFFTSCOPE)"
+	    Value		    "1"
+	    Evaluate		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    74
+	    Type		    "edit"
+	    Name		    "fundamental"
+	    Prompt		    "Fundamental (PSBFFTSCOPE)"
+	    Value		    "50"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    75
+	    Type		    "checkbox"
+	    Name		    "FreqAxis"
+	    Prompt		    "Frequency Axis (PSBFFTSCOPE)"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    76
+	    Type		    "edit"
+	    Name		    "MaxFrequency"
+	    Prompt		    "Max Frequency (PSBFFTSCOPE)"
+	    Value		    "50000"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    77
+	    Type		    "edit"
+	    Name		    "frequencyindicesteady"
+	    Prompt		    "Frequency indice (STEADYSTATE)"
+	    Value		    "1"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    78
+	    Type		    "edit"
+	    Name		    "RmsSteady"
+	    Prompt		    "RMS display (STEADYSTATE)"
+	    Value		    "1"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    79
+	    Type		    "checkbox"
+	    Name		    "display"
+	    Prompt		    "Display Results"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Preferences"
+	  }
+	  Object {
+	    $ObjectID		    80
+	    Type		    "edit"
+	    Name		    "Ts"
+	    Prompt		    "Old Ts setting (OBSOLETE)"
+	    Value		    "0"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  Object {
+	    $ObjectID		    81
+	    Type		    "checkbox"
+	    Name		    "methode"
+	    Prompt		    "Phasor simulation (OBSOLETE)"
+	    Value		    "off"
+	    Visible		    "off"
+	    TabName		    "Solver"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
+      System {
+	Name			"powergui"
+	Location		[137, 405, 682, 583]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"175"
+	SIDPrevWatermark	"87"
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "EquivalentModel1"
+	  SID			  "13:88"
+	  Ports			  []
+	  Position		  [15, 70, 143, 105]
+	  ZOrder		  1
+	  ShowName		  off
+	  FontName		  "Arial"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    82
+	    $ClassName		    "Simulink.Mask"
+	    Initialization	    "S  = GetDataForEquivalentModel('Discrete',gcbh);"
+	    Display		    "color('red')\ndisp('EQUIVALENT CIRCUIT\\nDiscrete')"
+	  }
+	  System {
+	    Name		    "EquivalentModel1"
+	    Location		    [277, 402, 960, 695]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "A4"
+	    PaperUnits		    "centimeters"
+	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Gates"
+	      SID		      "13:89"
+	      Ports		      [0, 1]
+	      Position		      [15, 112, 80, 138]
+	      ZOrder		      -1
+	      FontName		      "Arial"
+	      FontSize		      14
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Gates"
+		Location		[20, 127, 741, 886]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  From
+		  Name			  "From1"
+		  SID			  "13:109"
+		  Position		  [15, 21, 85, 49]
+		  ZOrder		  1
+		  GotoTag		  "tpcd76ef65_ab3a_4723_9402_739cf2064ec6"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From2"
+		  SID			  "13:110"
+		  Position		  [15, 66, 85, 94]
+		  ZOrder		  2
+		  GotoTag		  "tp619560d7_a20f_4c82_ad82_3dc2849c2a82"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From3"
+		  SID			  "13:111"
+		  Position		  [15, 111, 85, 139]
+		  ZOrder		  3
+		  GotoTag		  "tp4888fcca_6852_416a_994a_decd39935126"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From4"
+		  SID			  "13:112"
+		  Position		  [15, 156, 85, 184]
+		  ZOrder		  4
+		  GotoTag		  "tp8c15427e_c139_4fa3_bb16_6f2ab4c6444a"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From5"
+		  SID			  "13:113"
+		  Position		  [15, 201, 85, 229]
+		  ZOrder		  5
+		  GotoTag		  "tped7f8c40_eaa1_4b29_a77c_bce6cad38326"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Mux
+		  Name			  "Mux"
+		  SID			  "13:90"
+		  Ports			  [5, 1]
+		  Position		  [325, 270, 330, 610]
+		  ZOrder		  -1
+		  ShowName		  off
+		  Inputs		  "[1 1 1 1 6]"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "gates"
+		  SID			  "13:91"
+		  Position		  [390, 433, 420, 447]
+		  ZOrder		  -2
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Mux"
+		  SrcPort		  1
+		  DstBlock		  "gates"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "From1"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "From2"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "From3"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "From4"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "From5"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  5
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Sources"
+	      SID		      "13:92"
+	      Ports		      [0, 1]
+	      Position		      [15, 51, 80, 79]
+	      ZOrder		      -2
+	      FontName		      "Arial"
+	      FontSize		      14
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Sources"
+		Location		[20, 127, 741, 789]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  From
+		  Name			  "From1"
+		  SID			  "13:158"
+		  Position		  [15, 21, 85, 49]
+		  ZOrder		  1
+		  GotoTag		  "tpe826bda6_e17e_4cf4_9e94_fe1ac4b798a6"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From10"
+		  SID			  "13:167"
+		  Position		  [15, 426, 85, 454]
+		  ZOrder		  10
+		  GotoTag		  "tpe267113b_404c_43d2_8639_a1e9116f0150"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From11"
+		  SID			  "13:168"
+		  Position		  [15, 471, 85, 499]
+		  ZOrder		  11
+		  GotoTag		  "tpc6ac2505_23da_44ff_a9b6_af84aa16cdef"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From12"
+		  SID			  "13:169"
+		  Position		  [15, 516, 85, 544]
+		  ZOrder		  12
+		  GotoTag		  "tpa459c5b6_f739_48b1_bdaf_eea1780809ac"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From13"
+		  SID			  "13:170"
+		  Position		  [15, 561, 85, 589]
+		  ZOrder		  13
+		  GotoTag		  "tpd5087313_a358_4b22_bc9b_fbdb203f54be"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From14"
+		  SID			  "13:171"
+		  Position		  [15, 606, 85, 634]
+		  ZOrder		  14
+		  GotoTag		  "tpd8291a44_9ab9_423e_a372_a12e97235be6"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From15"
+		  SID			  "13:172"
+		  Position		  [15, 651, 85, 679]
+		  ZOrder		  15
+		  GotoTag		  "tp90e2926b_1131_46a0_9242_4bfd12632e85"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From16"
+		  SID			  "13:173"
+		  Position		  [15, 696, 85, 724]
+		  ZOrder		  16
+		  GotoTag		  "tpdf4b8cd0_cc4b_4338_a963_ab75292ee197"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From17"
+		  SID			  "13:174"
+		  Position		  [15, 741, 85, 769]
+		  ZOrder		  17
+		  GotoTag		  "tp20ba3c8d_4b3e_448f_a0fd_76b474b5c3f3"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From18"
+		  SID			  "13:175"
+		  Position		  [15, 786, 85, 814]
+		  ZOrder		  18
+		  GotoTag		  "tpd9a3de75_fe9d_498a_8f40_5323b07a244d"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From2"
+		  SID			  "13:159"
+		  Position		  [15, 66, 85, 94]
+		  ZOrder		  2
+		  GotoTag		  "tpf362f885_bfa0_4747_a1a4_0c5bf32aac2c"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From3"
+		  SID			  "13:160"
+		  Position		  [15, 111, 85, 139]
+		  ZOrder		  3
+		  GotoTag		  "tp53677ac7_51c3_420e_a1d7_994792d85c2a"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From4"
+		  SID			  "13:161"
+		  Position		  [15, 156, 85, 184]
+		  ZOrder		  4
+		  GotoTag		  "tpe6ddd51b_c720_4b16_a898_97ff97058804"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From5"
+		  SID			  "13:162"
+		  Position		  [15, 201, 85, 229]
+		  ZOrder		  5
+		  GotoTag		  "tpa8dd887e_5db5_4aee_8817_9d0be71f8147"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From6"
+		  SID			  "13:163"
+		  Position		  [15, 246, 85, 274]
+		  ZOrder		  6
+		  GotoTag		  "tp702be409_2355_450e_8092_3038c0f043f5"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From7"
+		  SID			  "13:164"
+		  Position		  [15, 291, 85, 319]
+		  ZOrder		  7
+		  GotoTag		  "tp11f0e2da_35a0_430d_b641_e6b3c3f592b8"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From8"
+		  SID			  "13:165"
+		  Position		  [15, 336, 85, 364]
+		  ZOrder		  8
+		  GotoTag		  "tp09f3d3a3_7516_480e_bc78_de667d4de3ea"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  From
+		  Name			  "From9"
+		  SID			  "13:166"
+		  Position		  [15, 381, 85, 409]
+		  ZOrder		  9
+		  GotoTag		  "tpcd5e226a_f8c4_4e8b_84e7_2611025d5c0e"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Mux
+		  Name			  "Mux"
+		  SID			  "13:93"
+		  Ports			  [18, 1]
+		  Position		  [325, 270, 330, 610]
+		  ZOrder		  -1
+		  ShowName		  off
+		  Inputs		  "[6 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Mux
+		  Name			  "Mux_u"
+		  SID			  "13:94"
+		  Ports			  [2, 1]
+		  Position		  [465, 374, 470, 461]
+		  ZOrder		  -2
+		  Inputs		  "[4 24]"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "SwitchCurrents"
+		  SID			  "13:95"
+		  Position		  [350, 379, 430, 411]
+		  ZOrder		  -3
+		  NamePlacement		  "alternate"
+		  Value			  "zeros(4,1)"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "u"
+		  SID			  "13:96"
+		  Position		  [505, 413, 535, 427]
+		  ZOrder		  -4
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Mux"
+		  SrcPort		  1
+		  DstBlock		  "Mux_u"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "SwitchCurrents"
+		  SrcPort		  1
+		  DstBlock		  "Mux_u"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Mux_u"
+		  SrcPort		  1
+		  DstBlock		  "u"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "From1"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "From2"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "From3"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "From4"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "From5"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  5
+		}
+		Line {
+		  SrcBlock		  "From6"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  6
+		}
+		Line {
+		  SrcBlock		  "From7"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  7
+		}
+		Line {
+		  SrcBlock		  "From8"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  8
+		}
+		Line {
+		  SrcBlock		  "From9"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  9
+		}
+		Line {
+		  SrcBlock		  "From10"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  10
+		}
+		Line {
+		  SrcBlock		  "From11"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  11
+		}
+		Line {
+		  SrcBlock		  "From12"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  12
+		}
+		Line {
+		  SrcBlock		  "From13"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  13
+		}
+		Line {
+		  SrcBlock		  "From14"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  14
+		}
+		Line {
+		  SrcBlock		  "From15"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  15
+		}
+		Line {
+		  SrcBlock		  "From16"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  16
+		}
+		Line {
+		  SrcBlock		  "From17"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  17
+		}
+		Line {
+		  SrcBlock		  "From18"
+		  SrcPort		  1
+		  DstBlock		  "Mux"
+		  DstPort		  18
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "State-Space"
+	      SID		      "13:97"
+	      Ports		      [2, 2]
+	      Position		      [115, 35, 245, 155]
+	      ZOrder		      -3
+	      FontName		      "Arial"
+	      FontSize		      14
+	      FunctionName	      "sfun_spssw_discc"
+	      Parameters	      "S.Ts,S.A, S.B, S.C, S.D, S.x0, S.EnableUseOfTLC,S.SwitchResistance ,S.SwitchType, S.SwitchGat"
+	      "eInitialValue, S.OutputsToResetToZero "
+	      EnableBusSupport	      off
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Status"
+	      SID		      "13:98"
+	      Ports		      [1]
+	      Position		      [280, 113, 345, 137]
+	      ZOrder		      -4
+	      FontName		      "Arial"
+	      FontSize		      14
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Status"
+		Location		[124, 85, 631, 971]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "status"
+		  SID			  "13:99"
+		  Position		  [15, 373, 45, 387]
+		  ZOrder		  -1
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux"
+		  SID			  "13:100"
+		  Ports			  [1, 5]
+		  Position		  [100, 191, 105, 569]
+		  ZOrder		  -2
+		  BackgroundColor	  "black"
+		  ShowName		  off
+		  Outputs		  "[1 1 1 1 6]"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto1"
+		  SID			  "13:104"
+		  Position		  [325, 21, 395, 49]
+		  ZOrder		  1
+		  GotoTag		  "tp5714a1eb_bba4_4896_9582_57d9fcc49f86"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto2"
+		  SID			  "13:105"
+		  Position		  [325, 66, 395, 94]
+		  ZOrder		  2
+		  GotoTag		  "tp9952d2a0_a4a3_46d5_ba68_1eee18f33642"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto3"
+		  SID			  "13:106"
+		  Position		  [325, 111, 395, 139]
+		  ZOrder		  3
+		  GotoTag		  "tpe58e1ab3_ff2b_4da4_b764_687d5c34458b"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto4"
+		  SID			  "13:107"
+		  Position		  [325, 156, 395, 184]
+		  ZOrder		  4
+		  GotoTag		  "tpd9ee202b_6b4a_4c63_8a43_c0dc06278e9c"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto5"
+		  SID			  "13:108"
+		  Position		  [325, 201, 395, 229]
+		  ZOrder		  5
+		  GotoTag		  "tp7e810e4c_ad81_44b7_b0fb_34575b5649f4"
+		  TagVisibility		  "global"
+		}
+		Line {
+		  SrcBlock		  "status"
+		  SrcPort		  1
+		  DstBlock		  "Demux"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  1
+		  DstBlock		  "Goto1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  2
+		  DstBlock		  "Goto2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  3
+		  DstBlock		  "Goto3"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  4
+		  DstBlock		  "Goto4"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  5
+		  DstBlock		  "Goto5"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Yout"
+	      SID		      "13:101"
+	      Ports		      [1]
+	      Position		      [280, 53, 345, 77]
+	      ZOrder		      -5
+	      FontName		      "Arial"
+	      FontSize		      14
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Yout"
+		Location		[124, 85, 631, 971]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"A4"
+		PaperUnits		"centimeters"
+		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "v,i"
+		  SID			  "13:102"
+		  Position		  [15, 373, 45, 387]
+		  ZOrder		  -1
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  "Demux"
+		  SID			  "13:103"
+		  Ports			  [1, 44]
+		  Position		  [100, 193, 105, 572]
+		  ZOrder		  -2
+		  BackgroundColor	  "black"
+		  ShowName		  off
+		  Outputs		  "[1 1 1 1 6 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]"
+		  DisplayOption		  "bar"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto1"
+		  SID			  "13:114"
+		  Position		  [325, 21, 395, 49]
+		  ZOrder		  1
+		  GotoTag		  "tp3518c420_5d0e_49d5_a572_028032dcea6b"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto10"
+		  SID			  "13:123"
+		  Position		  [325, 426, 395, 454]
+		  ZOrder		  10
+		  GotoTag		  "tp3093a655_ac5c_489d_b18a_b85f03797b49"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto11"
+		  SID			  "13:124"
+		  Position		  [325, 471, 395, 499]
+		  ZOrder		  11
+		  GotoTag		  "tpe21cab66_9cd7_4ea2_afe6_5d3899279f9f"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto12"
+		  SID			  "13:125"
+		  Position		  [325, 516, 395, 544]
+		  ZOrder		  12
+		  GotoTag		  "tp6ef158ce_9cf3_4b80_b40c_4c4e6cf60153"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto13"
+		  SID			  "13:126"
+		  Position		  [325, 561, 395, 589]
+		  ZOrder		  13
+		  GotoTag		  "tpf6330d8b_b43f_44ab_a5f5_a4f456329653"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto14"
+		  SID			  "13:127"
+		  Position		  [325, 606, 395, 634]
+		  ZOrder		  14
+		  GotoTag		  "tp241a599f_91a1_4eea_bd20_cbdf5c8f63a4"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto15"
+		  SID			  "13:128"
+		  Position		  [325, 651, 395, 679]
+		  ZOrder		  15
+		  GotoTag		  "tp6ca6f74a_55f4_4948_9de9_2cedf5846bb9"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto16"
+		  SID			  "13:129"
+		  Position		  [325, 696, 395, 724]
+		  ZOrder		  16
+		  GotoTag		  "tp5a919bf4_cefc_4fb3_88b5_b6cbdb6084fd"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto17"
+		  SID			  "13:130"
+		  Position		  [325, 741, 395, 769]
+		  ZOrder		  17
+		  GotoTag		  "tp20d91f2d_8948_499e_80da_7cae88d550ba"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto18"
+		  SID			  "13:131"
+		  Position		  [325, 786, 395, 814]
+		  ZOrder		  18
+		  GotoTag		  "tp5668f17b_3f22_48cc_a691_0f519442a28d"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto19"
+		  SID			  "13:132"
+		  Position		  [325, 831, 395, 859]
+		  ZOrder		  19
+		  GotoTag		  "tpef5e454e_de66_4ea8_be14_fdaf3eb548fa"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto2"
+		  SID			  "13:115"
+		  Position		  [325, 66, 395, 94]
+		  ZOrder		  2
+		  GotoTag		  "tp68275215_5ba0_4436_8b36_22b27448510f"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto20"
+		  SID			  "13:133"
+		  Position		  [325, 876, 395, 904]
+		  ZOrder		  20
+		  GotoTag		  "tp0417aa21_8272_40a5_91df_204b113beafd"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto21"
+		  SID			  "13:134"
+		  Position		  [325, 921, 395, 949]
+		  ZOrder		  21
+		  GotoTag		  "tp6ccd6759_26a8_416d_a3cb_6452ef40963a"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto22"
+		  SID			  "13:135"
+		  Position		  [325, 966, 395, 994]
+		  ZOrder		  22
+		  GotoTag		  "tp3a12958d_8e7c_4918_bc4a_5e549af6fd15"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto23"
+		  SID			  "13:136"
+		  Position		  [325, 1011, 395, 1039]
+		  ZOrder		  23
+		  GotoTag		  "tp8493d596_5a4e_4f95_82c7_3c0af02f38b9"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto24"
+		  SID			  "13:137"
+		  Position		  [325, 1056, 395, 1084]
+		  ZOrder		  24
+		  GotoTag		  "tp4bc643c1_eb41_465d_a05a_20a274ab339f"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto25"
+		  SID			  "13:138"
+		  Position		  [325, 1101, 395, 1129]
+		  ZOrder		  25
+		  GotoTag		  "tpe47d80f8_08f9_4f43_a33f_23080f785874"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto26"
+		  SID			  "13:139"
+		  Position		  [325, 1146, 395, 1174]
+		  ZOrder		  26
+		  GotoTag		  "tp4473708e_630d_4ba2_902b_dfacfe4c0b53"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto27"
+		  SID			  "13:140"
+		  Position		  [325, 1191, 395, 1219]
+		  ZOrder		  27
+		  GotoTag		  "tp1314c827_4bec_4b19_af01_b9d1eeb0b5f3"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto28"
+		  SID			  "13:141"
+		  Position		  [325, 1236, 395, 1264]
+		  ZOrder		  28
+		  GotoTag		  "tp4bb470a0_c822_41af_ac1a_20f28f4f256e"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto29"
+		  SID			  "13:142"
+		  Position		  [325, 1281, 395, 1309]
+		  ZOrder		  29
+		  GotoTag		  "tpd32f82c4_658f_4883_ae56_341feef66edd"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto3"
+		  SID			  "13:116"
+		  Position		  [325, 111, 395, 139]
+		  ZOrder		  3
+		  GotoTag		  "tp03bb5f69_d6fa_41a8_be9b_8a8d97254119"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto30"
+		  SID			  "13:143"
+		  Position		  [325, 1326, 395, 1354]
+		  ZOrder		  30
+		  GotoTag		  "tpe86a7d60_7ddf_4411_b77e_da973b1b057d"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto31"
+		  SID			  "13:144"
+		  Position		  [325, 1371, 395, 1399]
+		  ZOrder		  31
+		  GotoTag		  "tp473e0953_2c77_468a_a23b_ff5a2adf5f9e"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto32"
+		  SID			  "13:145"
+		  Position		  [325, 1416, 395, 1444]
+		  ZOrder		  32
+		  GotoTag		  "tp8ca29437_3e48_4928_be23_4e8281460136"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto33"
+		  SID			  "13:146"
+		  Position		  [325, 1461, 395, 1489]
+		  ZOrder		  33
+		  GotoTag		  "tpf22dc6d9_4ad9_49f5_9aec_90931919e71f"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto34"
+		  SID			  "13:147"
+		  Position		  [325, 1506, 395, 1534]
+		  ZOrder		  34
+		  GotoTag		  "tpe038f920_89aa_4538_bc16_8e0ef8fcbcbb"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto35"
+		  SID			  "13:148"
+		  Position		  [325, 1551, 395, 1579]
+		  ZOrder		  35
+		  GotoTag		  "tp19a982d7_fa2c_4854_be86_1cdfac715462"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto36"
+		  SID			  "13:149"
+		  Position		  [325, 1596, 395, 1624]
+		  ZOrder		  36
+		  GotoTag		  "tp6081a7d9_8b8e_4bce_af57_c93e1c04abf3"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto37"
+		  SID			  "13:150"
+		  Position		  [325, 1641, 395, 1669]
+		  ZOrder		  37
+		  GotoTag		  "tp8d501cd6_0640_4778_ae9d_f562995d8364"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto38"
+		  SID			  "13:151"
+		  Position		  [325, 1686, 395, 1714]
+		  ZOrder		  38
+		  GotoTag		  "tp356bac26_7910_4a47_b676_e8138e9a6232"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto39"
+		  SID			  "13:152"
+		  Position		  [325, 1731, 395, 1759]
+		  ZOrder		  39
+		  GotoTag		  "tp378da8b2_632b_4305_b786_c5801a20edb6"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto4"
+		  SID			  "13:117"
+		  Position		  [325, 156, 395, 184]
+		  ZOrder		  4
+		  GotoTag		  "tpaaad0086_22f2_4eab_9ade_819003ca2290"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto40"
+		  SID			  "13:153"
+		  Position		  [325, 1776, 395, 1804]
+		  ZOrder		  40
+		  GotoTag		  "tp217078af_e576_4e58_9863_2ccc2660e178"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto41"
+		  SID			  "13:154"
+		  Position		  [325, 1821, 395, 1849]
+		  ZOrder		  41
+		  GotoTag		  "tp0a8c93e0_6af5_4f3b_87c1_9c32f9950c09"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto42"
+		  SID			  "13:155"
+		  Position		  [325, 1866, 395, 1894]
+		  ZOrder		  42
+		  GotoTag		  "tpda04e646_9315_44f7_a8ea_f558dec99c31"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto43"
+		  SID			  "13:156"
+		  Position		  [325, 1911, 395, 1939]
+		  ZOrder		  43
+		  GotoTag		  "tp4f01289b_268d_4ed6_bca6_88406bc944f2"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto44"
+		  SID			  "13:157"
+		  Position		  [325, 1956, 395, 1984]
+		  ZOrder		  44
+		  GotoTag		  "tp99a01a85_dcb9_44e8_8e9c_8356f5dfe0e6"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto5"
+		  SID			  "13:118"
+		  Position		  [325, 201, 395, 229]
+		  ZOrder		  5
+		  GotoTag		  "tp30c23d4d_795c_455f_960c_e1b98402c36e"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto6"
+		  SID			  "13:119"
+		  Position		  [325, 246, 395, 274]
+		  ZOrder		  6
+		  GotoTag		  "tpe0bd259e_9c5e_4346_94c9_fa9b68a5ce5e"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto7"
+		  SID			  "13:120"
+		  Position		  [325, 291, 395, 319]
+		  ZOrder		  7
+		  GotoTag		  "tp5c946732_8d1b_4b80_9ffa_a885ddc9609f"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto8"
+		  SID			  "13:121"
+		  Position		  [325, 336, 395, 364]
+		  ZOrder		  8
+		  GotoTag		  "tp4c13794b_419e_4db1_8613_873934044975"
+		  TagVisibility		  "global"
+		}
+		Block {
+		  BlockType		  Goto
+		  Name			  "Goto9"
+		  SID			  "13:122"
+		  Position		  [325, 381, 395, 409]
+		  ZOrder		  9
+		  GotoTag		  "tp31c641ea_c658_42c8_9f42_970c80734078"
+		  TagVisibility		  "global"
+		}
+		Line {
+		  SrcBlock		  "v,i"
+		  SrcPort		  1
+		  Points		  [35, 0]
+		  DstBlock		  "Demux"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  1
+		  DstBlock		  "Goto1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  2
+		  DstBlock		  "Goto2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  3
+		  DstBlock		  "Goto3"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  4
+		  DstBlock		  "Goto4"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  5
+		  DstBlock		  "Goto5"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  6
+		  DstBlock		  "Goto6"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  7
+		  DstBlock		  "Goto7"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  8
+		  DstBlock		  "Goto8"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  9
+		  DstBlock		  "Goto9"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  10
+		  DstBlock		  "Goto10"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  11
+		  DstBlock		  "Goto11"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  12
+		  DstBlock		  "Goto12"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  13
+		  DstBlock		  "Goto13"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  14
+		  DstBlock		  "Goto14"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  15
+		  DstBlock		  "Goto15"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  16
+		  DstBlock		  "Goto16"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  17
+		  DstBlock		  "Goto17"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  18
+		  DstBlock		  "Goto18"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  19
+		  DstBlock		  "Goto19"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  20
+		  DstBlock		  "Goto20"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  21
+		  DstBlock		  "Goto21"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  22
+		  DstBlock		  "Goto22"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  23
+		  DstBlock		  "Goto23"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  24
+		  DstBlock		  "Goto24"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  25
+		  DstBlock		  "Goto25"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  26
+		  DstBlock		  "Goto26"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  27
+		  DstBlock		  "Goto27"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  28
+		  DstBlock		  "Goto28"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  29
+		  DstBlock		  "Goto29"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  30
+		  DstBlock		  "Goto30"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  31
+		  DstBlock		  "Goto31"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  32
+		  DstBlock		  "Goto32"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  33
+		  DstBlock		  "Goto33"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  34
+		  DstBlock		  "Goto34"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  35
+		  DstBlock		  "Goto35"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  36
+		  DstBlock		  "Goto36"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  37
+		  DstBlock		  "Goto37"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  38
+		  DstBlock		  "Goto38"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  39
+		  DstBlock		  "Goto39"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  40
+		  DstBlock		  "Goto40"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  41
+		  DstBlock		  "Goto41"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  42
+		  DstBlock		  "Goto42"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  43
+		  DstBlock		  "Goto43"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Demux"
+		  SrcPort		  44
+		  DstBlock		  "Goto44"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "State-Space"
+	      SrcPort		      1
+	      DstBlock		      "Yout"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "State-Space"
+	      SrcPort		      2
+	      DstBlock		      "Status"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sources"
+	      SrcPort		      1
+	      DstBlock		      "State-Space"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gates"
+	      SrcPort		      1
+	      DstBlock		      "State-Space"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Ground
+	  Name			  "Ground"
+	  SID			  "13:55"
+	  Position		  [315, 40, 335, 60]
+	  ZOrder		  -1
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "13:56"
+	  Position		  [355, 40, 375, 60]
+	  ZOrder		  -2
+	  ShowName		  off
+	}
+	Line {
+	  SrcBlock		  "Ground"
+	  SrcPort		  1
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Annotation {
+	  SID			  "13:57"
+	  Name			  "Graphical user interface for the analysis of  SimPowerSystems circuits. \nPlace the Powergui block in the"
+	  " top-level of your model and double-click\non it to open the GUI."
+	  Position		  [14, 29]
+	  HorizontalAlignment	  "left"
+	  ForegroundColor	  "blue"
+	  ZOrder		  -1
+	}
+      }
     }
     Line {
       LineType		      "Connection"
@@ -22756,7 +24730,10 @@ Stateflow {
     firstTransition	    9
     firstJunction	    8
     viewObj		    2
+    visible		    1
     machine		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

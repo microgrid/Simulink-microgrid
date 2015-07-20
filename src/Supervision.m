@@ -168,22 +168,22 @@ h2 = axes('Units','Pixels','Position',[107.5,110,95,60]);
 h3 = axes('Units','Pixels','Position',[107.5,20,95,60]); 
 
 % Add "h4" axe to window (Voltage)
-h4 = axes('Units','Pixels','Position',[227.5,200,95,60]); 
+h4 = axes('Units','Pixels','Position',[227.5,200,95,60],'Tag','newdata4'); 
 
 % Add "h5" axe to window (Frequency)
-h5 = axes('Units','Pixels','Position',[227.5,110,95,60]);
+h5 = axes('Units','Pixels','Position',[227.5,110,95,60],'Tag','newdata5');
 
 % Add "h6" axe to window (State of charge SOC)
-h6 = axes('Units','Pixels','Position',[227.5,20,95,60]);
+h6 = axes('Units','Pixels','Position',[227.5,20,95,60],'Tag','newdata6');
 
 % Add "h8" axe to window (State of charge SOC)
-h8 = axes('Units','Pixels','Position',[350,200,95,60]);
+h8 = axes('Units','Pixels','Position',[350,200,95,60],'Tag','newdata8');
 
 % Add "h9" axe to window (State of charge SOC)
-h9 = axes('Units','Pixels','Position',[350,110,95,60]);
+h9 = axes('Units','Pixels','Position',[350,110,95,60],'Tag','newdata9');
 
 % Add "h10" axe to window (State of charge SOC)
-h10 = axes('Units','Pixels','Position',[350,20,95,60]);
+h10 = axes('Units','Pixels','Position',[350,20,95,60],'Tag','newdata10');
 
 % Add text to window
 htexttxtbox1 = uicontrol('Style','text','String','Enter the number of pannel',...
@@ -961,8 +961,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function runbutton_Callback(source, eventdata, handles)
-start=1;
-assignin('base', 'start', start);
+      
 message1 = msgbox('Please wait ! This simulation will take few hours');
 
 % toggle the buttons %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -993,7 +992,7 @@ end
 % Callback Function for the stop button %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function stopbutton_Callback(source, eventdata, handles) 
-
+    
 % toggle the buttons %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Turn on the Start button
@@ -1012,60 +1011,11 @@ set(txtbox1,'Enable','on');
 
 set_param(modelName,'SimulationCommand','stop');
 
-end
-
-% function updatebutton_Callback(source, eventdata, handles)
-
-function updatebutton_Callback(hObject, eventdata, handles)      
-
-% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% SOC
-rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
-% blockData1 = rto1.OutputPort(1).Data;
-SOC= rto1.OutputPort(1).Data;
-
-% Time
-rtoc = get_param('Microgrid_24h_Simulation/Subsystem/Clock','RuntimeObject');
-% clock = rtoc.OutputPort(1).Data;
-clock= rtoc.OutputPort(1).Data;
-
-% Execute MATLAB expression in specified workspace(Allow visibility for the GUI)
-assignin('base', 'clock', clock);
-
-plot(h6,clock*100,SOC,'ro');
-xlabel(h6,'Time (Hours)');
-ylabel(h6,'SOC (%)');
-title(h6,'State of charge');
-grid(h6,'on');
-
-% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Frequency
-rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
-% blockData2 = rto2.OutputPort(1).Data;
-F= rto2.OutputPort(1).Data;
-
-plot(h5,clock*100,F,'ro');
-xlabel(h5,'Time (Hours)');
-ylabel(h5,'f (Hz)');
-title(h5,'Frequency');
-grid(h5,'on');
-
-% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Voltage
-rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
-% blockData3 = rto3.OutputPort(1).Data;
-V= rto3.OutputPort(1).Data;
-
-plot(h4,clock*100,V,'ro');
-xlabel(h4,'Time (Hours)');
-ylabel(h4,'Voltage (V)');
-title(h4,'Voltage Grid');
-grid(h4,'on');
+% Remove the listener on the Gain block in the model's StartFcn
+localRemoveEventListener;
 
 end
+
 end
 
 
