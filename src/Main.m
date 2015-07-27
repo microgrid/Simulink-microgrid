@@ -600,6 +600,10 @@ fidap = fopen('clocktxtap.txt','w');
 fprintf(fidap,' %i\n',clock);
 fclose(fidap)
 
+fidrap = fopen('clocktxtrap.txt','w');
+fprintf(fidrap,' %i\n',clock);
+fclose(fidrap)
+
 % % Intit file txtvoltage
 % voltage=0;
 % fid1 = fopen('voltagetxt.txt','w');
@@ -630,11 +634,11 @@ fid5 = fopen('activepowertxt.txt','w');
 fprintf(fid5,' %i\n',activepower);
 fclose(fid5)
 
-% % Intit file txtreactivepower
-% reactivepower=0;
-% fid6 = fopen('reactivepowertxt.txt','w');
-% fprintf(fid6,' %i\n',reactivepower);
-% fclose(fid6)
+% Intit file txtreactivepower
+reactivepower=0;
+fid6 = fopen('reactivepowertxt.txt','w');
+fprintf(fid6,' %i\n',reactivepower);
+fclose(fid6)
 
 % Run the GUI
 run('Supervision'); 

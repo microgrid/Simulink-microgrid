@@ -330,18 +330,18 @@ ylabel(h9,'Active Power (W)');
 title(h9,'Load Active Power');
 grid(h9,'on');
 
-% % Initialize axes h10 Load reactive power
-% Areactivepower = 0;
-% assignin('base','Areactivepower', Areactivepower);
-% Breactivepower = 0;
-% assignin('base','Breactivepower', Breactivepower);
-% H10=plot(h10,Aactivepower,Bactivepower,'ro');
-% set(H10,'XDataSource','Areactivepower')
-% set(H10,'YDataSource','Breactivepower')
-% xlabel(h10,'Time (Hours)');
-% ylabel(h10,'Reactive Power (kVAR)');
-% title(h10,'Load Reactive Power');
-% grid(h10,'on');
+% Initialize axes h10 Load reactive power
+Areactivepower = 0;
+assignin('base','Areactivepower', Areactivepower);
+Breactivepower = 0;
+assignin('base','Breactivepower', Breactivepower);
+H10=plot(h10,Aactivepower,Bactivepower,'r');
+set(H10,'XDataSource','Areactivepower')
+set(H10,'YDataSource','Breactivepower')
+xlabel(h10,'Time (Hours)');
+ylabel(h10,'Reactive Power (kVAR)');
+title(h10,'Load Reactive Power');
+grid(h10,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
 plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
@@ -1265,6 +1265,55 @@ Bactivepower=evalin('caller','Bactivepower');
     fclose(fidap); 
     end
      
+          % Dynamic upload of the data to the activepowertxt file for the plot Reactive power 
+
+Areactivepower=evalin('caller','Areactivepower');
+Breactivepower=evalin('caller','Breactivepower');
+
+    if size(Areactivepower)==size(Breactivepower)
+        
+    % Open and write the new value of clock in clocktxt  
+    fidrap = fopen('clocktxtrap.txt','a+');
+    fprintf(fidrap,' %i\n',clock);
+    fclose(fidrap)
+    % Update the plot
+    fidrap = fopen('clocktxtrap.txt','r');
+    Areactivepower = fscanf(fidrap,'%f');
+    assignin('base','Areactivepower', Areactivepower);
+    fclose(fidrap);
+    
+    % Open and write the new value of SOC in soctxt
+    fid5 = fopen('reactivepowertxt.txt','a+');
+    fprintf(fid5,' %i\n',reactivepower);
+    fclose(fid5)
+    fid5 = fopen('reactivepowertxt.txt','r');
+    Breactivepower = fscanf(fid5,'%f');
+    assignin('base','Breactivepower', Breactivepower);
+    fclose(fid5);
+
+    elseif size(Breactivepower)<size(Areactivepower)
+        
+    % Open and write the new value of SOC in soctxt
+    fid5 = fopen('reactivepowertxt.txt','a+');
+    fprintf(fid5,' %i\n',reactivepower);
+    fclose(fid5)
+    fid5 = fopen('reactivepowertxt.txt','r');
+    Breactivepower = fscanf(fid5,'%f');
+    assignin('base','Breactivepower', Breactivepower);
+    fclose(fid5);
+
+    elseif size(Breactivepower)>size(Areactivepower)
+        
+    % Open and write the new value of SOC in soctxt 
+    fidap = fopen('clocktxtrap.txt','a+');
+    fprintf(fidap,' %i\n',clock);
+    fclose(fidap)
+    fidap= fopen('clocktxtrap.txt','r');
+    Areactivepower = fscanf(fidap,'%f');
+    assignin('base','Areactivepower', Areactivepower);
+    fclose(fidap); 
+    end
+    
 %Updating Graphs with refreshdata
 refreshdata
 
