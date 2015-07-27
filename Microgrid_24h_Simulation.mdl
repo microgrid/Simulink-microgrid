@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.107"
+    ComputedModelVersion    "1.110"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -71,7 +71,7 @@ Model {
 	  LoadSaveID		  "1362"
 	  Extents		  [1550.0, 729.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [-170.41666666666652, 98.75]
+	  Offset		  [-357.84523916812145, 37.25]
 	}
 	Object {
 	  $ObjectID		  7
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 27 11:42:37 2015"
-  RTWModifiedTimeStamp	  359898139
-  ModelVersionFormat	  "1.%<AutoIncrement:107>"
+  LastModifiedDate	  "Mon Jul 27 20:50:35 2015"
+  RTWModifiedTimeStamp	  359931014
+  ModelVersionFormat	  "1.%<AutoIncrement:110>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1076,14 +1076,6 @@ Model {
       BlockType		      Terminator
     }
     Block {
-      BlockType		      ToFile
-      Filename		      "untitled.mat"
-      MatrixName	      "ans"
-      SaveFormat	      "Array"
-      Decimation	      "1"
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1114,7 +1106,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2627"
+    SIDHighWatermark	    "2630"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -15408,7 +15400,7 @@ Model {
 	  BlockType		  Gain
 	  Name			  "Gain1"
 	  SID			  "2620"
-	  Position		  [200, 480, 230, 510]
+	  Position		  [1145, 105, 1175, 135]
 	  ZOrder		  3
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -15428,8 +15420,38 @@ Model {
 	  BlockType		  Gain
 	  Name			  "Gain3"
 	  SID			  "2622"
-	  Position		  [1125, 105, 1155, 135]
+	  Position		  [190, 480, 220, 510]
 	  ZOrder		  5
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  SID			  "2628"
+	  Position		  [1080, 145, 1110, 175]
+	  ZOrder		  9
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain5"
+	  SID			  "2629"
+	  Position		  [1055, 245, 1085, 275]
+	  ZOrder		  10
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain6"
+	  SID			  "2630"
+	  Position		  [1120, 290, 1150, 320]
+	  ZOrder		  11
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
@@ -18466,7 +18488,7 @@ Model {
 	  Name			  "Load Power Calculation"
 	  SID			  "1495"
 	  Ports			  [0, 2]
-	  Position		  [1035, 239, 1155, 326]
+	  Position		  [885, 239, 1005, 326]
 	  ZOrder		  -61
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -19593,7 +19615,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem10"
-	    Location		    [982, 630, 1261, 993]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -22092,37 +22114,6 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  ToFile
-	  Name			  "To File"
-	  SID			  "2625"
-	  Ports			  [1]
-	  Position		  [1160, 180, 1220, 210]
-	  ZOrder		  6
-	  Filename		  "VS.mat"
-	  MatrixName		  "VS"
-	  SaveFormat		  "Timeseries"
-	}
-	Block {
-	  BlockType		  ToFile
-	  Name			  "To File1"
-	  SID			  "2626"
-	  Ports			  [1]
-	  Position		  [115, 820, 175, 850]
-	  ZOrder		  7
-	  Filename		  "Data1.mat"
-	  MatrixName		  "T"
-	}
-	Block {
-	  BlockType		  ToFile
-	  Name			  "To File2"
-	  SID			  "2627"
-	  Ports			  [1]
-	  Position		  [1525, 865, 1585, 895]
-	  ZOrder		  8
-	  Filename		  "Data2.mat"
-	  MatrixName		  "F"
-	}
-	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace"
 	  SID			  "1540"
@@ -22176,12 +22167,6 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "PV Array Measurements"
 	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "From6"
-	  SrcPort		  1
-	  DstBlock		  "Gain1"
-	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "From7"
@@ -22280,14 +22265,14 @@ Model {
 	Line {
 	  SrcBlock		  "Load Power Calculation"
 	  SrcPort		  1
-	  DstBlock		  "Load Powers"
+	  DstBlock		  "Gain5"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Load Power Calculation"
 	  SrcPort		  2
-	  DstBlock		  "Load Powers"
-	  DstPort		  2
+	  DstBlock		  "Gain6"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "From21"
@@ -22360,16 +22345,8 @@ Model {
 	Line {
 	  SrcBlock		  "Clock"
 	  SrcPort		  1
-	  Points		  [16, 0]
-	  Branch {
-	    Points		    [0, -70]
-	    DstBlock		    "To File1"
-	    DstPort		    1
-	  }
-	  Branch {
-	    DstBlock		    "To Workspace"
-	    DstPort		    1
-	  }
+	  DstBlock		  "To Workspace"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Product5"
@@ -22532,45 +22509,53 @@ Model {
 	Line {
 	  SrcBlock		  "Subsystem9"
 	  SrcPort		  1
-	  DstBlock		  "AC Load Measurements"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Subsystem"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  Branch {
-	    Points		    [0, 75]
-	    DstBlock		    "To File"
-	    DstPort		    1
-	  }
-	  Branch {
-	    DstBlock		    "Gain3"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Gain1"
-	  SrcPort		  1
-	  DstBlock		  "Battery Measurements"
+	  DstBlock		  "Gain4"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Gain2"
 	  SrcPort		  1
-	  Points		  [5, 0]
-	  Branch {
-	    Points		    [0, 60]
-	    DstBlock		    "To File2"
-	    DstPort		    1
-	  }
-	  Branch {
-	    DstBlock		    "Subsystem10"
-	    DstPort		    1
-	  }
+	  DstBlock		  "Subsystem10"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "AC Load Measurements"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain5"
+	  SrcPort		  1
+	  DstBlock		  "Load Powers"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain6"
+	  SrcPort		  1
+	  DstBlock		  "Load Powers"
+	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  DstBlock		  "Battery Measurements"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From6"
+	  SrcPort		  1
+	  DstBlock		  "Gain3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  1
+	  DstBlock		  "Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain1"
 	  SrcPort		  1
 	  DstBlock		  "AC Load Measurements"
 	  DstPort		  1

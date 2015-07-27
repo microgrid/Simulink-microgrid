@@ -586,18 +586,47 @@ Temp2(:,:)=17.4; % Set value into the matrix
 Temp3=zeros(1,(23/SampleTime)+1);% Creation matrix Temp3
 Temp3(:,:)=23.4; % Set value into the matrix
 
-% Intit file txt clock
+% Intit file txtclock
 clock=0;
-fid2 = fopen('test2.txt','w');
-fprintf(fid2,' %i\n',clock);
+fid = fopen('clocktxt.txt','w');
+fprintf(fid,' %i\n',clock);
+fclose(fid)
+
+% % Intit file txtvoltage
+% voltage=0;
+% fid1 = fopen('voltagetxt.txt','w');
+% fprintf(fid1,' %i\n',voltage);
+% fclose(fid1)
+
+% Intit file txtfrequency
+frequency=0;
+fid2 = fopen('frequencytxt.txt','w');
+fprintf(fid2,' %i\n',frequency);
 fclose(fid2)
 
-% Intit file txt Frequency
-F=0;
-fid1 = fopen('test.txt','w');
-fprintf(fid1,' %i\n',F);
-fclose(fid1)
+% % Intit file txtsoc
+% SOC=0;
+% fid3 = fopen('soctxt.txt','w');
+% fprintf(fid3,' %i\n',SOC);
+% fclose(fid3)
 
+% % Intit file txtcurrent
+% current=0;
+% fid4 = fopen('currenttxt.txt','w');
+% fprintf(fid4,' %i\n',current);
+% fclose(fid4)
+% 
+% % Intit file txtactivepower
+% activepower=0;
+% fid5 = fopen('activepowertxt.txt','w');
+% fprintf(fid5,' %i\n',activepower);
+% fclose(fid5)
+% 
+% % Intit file txtreactivepower
+% reactivepower=0;
+% fid6 = fopen('reactivepowertxt.txt','w');
+% fprintf(fid6,' %i\n',reactivepower);
+% fclose(fid6)
 
 % Run the GUI
 run('Supervision'); 

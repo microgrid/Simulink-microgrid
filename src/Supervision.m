@@ -266,71 +266,81 @@ assignin('base','clock', clock);
 superclock=[clock;clock;clock];
 assignin('base', 'superclock', superclock);
 
-% Initialize axes h4
-V=[0;0;0];
-assignin('base','V', V);
-H4=plot(h4,superclock,V,'ro');
-set(H4,'XDataSource','superclock')
-set(H4,'YDataSource','V')
-xlabel(h4,'Time (Hours)');
-ylabel(h4,'Load Voltage (V)');
-title(h4,'Voltage Grid');
-grid(h4,'on');
+% % Initialize axes h4 voltage
+% voltage=[0;0;0];
+% assignin('base','voltage', voltage);
+% H4=plot(h4,superclock,voltage,'ro');
+% set(H4,'XDataSource','superclock')
+% set(H4,'YDataSource','voltage')
+% xlabel(h4,'Time (Hours)');
+% ylabel(h4,'Load Voltage (V)');
+% title(h4,'Voltage Grid');
+% grid(h4,'on');
 
-%Initialize axes h5
-
-% fid1 = fopen('test.txt','a+');
-% fprintf(fid1,' %i\n',F);
-% fclose(fid1)
-% fid1 = fopen('test.txt','r');
+%Initialize axes h5 frequency
 Af = 0;
 assignin('base','Af', Af);
-% fclose(fid1);
-% 
-% fid2 = fopen('test2.txt','a+');
-% fprintf(fid2,' %i\n',clock);
-% fclose(fid2)
-% fid2 = fopen('test2.txt','r');
 Bf = 0;
 assignin('base','Bf', Bf);
-% fclose(fid2);
-% F=evalin('caller','F');
-H5=plot(h5,Bf,Af);
-set(H5,'XDataSource','Bf')
-set(H5,'YDataSource','Af')
+H5=plot(h5,Af,Bf);
+set(H5,'XDataSource','Af')
+set(H5,'YDataSource','Bf')
 xlabel(h5,'Time (Hours)');
 ylabel(h5,'f (Hz)');
 title(h5,'Frequency');
 grid(h5,'on');
 
-% Initialize axes h6
-SOC=0;
-assignin('base','SOC', SOC);
-H6=plot(h6,clock,SOC,'ro');
-set(H6,'XDataSource','clock')
-set(H6,'YDataSource','SOC')
+% Initialize axes h6 state of charge SOC
+Asoc = 0;
+assignin('base','Asoc', Asoc);
+Bsoc = 0;
+assignin('base','Bsoc', Bsoc);
+H6=plot(h6,Asoc,Bsoc,'m');
+set(H6,'XDataSource','Asoc')
+set(H6,'YDataSource','Bsoc')
 xlabel(h6,'Time (Hours)');
 ylabel(h6,'SOC (%)');
 title(h6,'State of charge');
 grid(h6,'on');
 
-% Initialize axes h8
-xlabel(h8,'Time (Hours)');
-ylabel(h8,'Current (A)');
-title(h8,'Load Current');
-grid(h8,'on');
+% % Initialize axes h8 Load current
+% Acurrent = 0;
+% assignin('base','Acurrent', Acurrent);
+% Bcurrent = 0;
+% assignin('base','Bcurrent', Bcurrent);
+% H8=plot(h8,Acurrent,Bcurrent,'ro');
+% set(H8,'XDataSource','Acurrent')
+% set(H8,'YDataSource','Bcurrent')
+% xlabel(h8,'Time (Hours)');
+% ylabel(h8,'Current (A)');
+% title(h8,'Load Current');
+% grid(h8,'on');
 
-% Initialize axes h9
-xlabel(h9,'Time (Hours)');
-ylabel(h9,'Active Power (W)');
-title(h9,'Load Active Power');
-grid(h9,'on');
+% % Initialize axes h9 Load active power
+% Aactivepower = 0;
+% assignin('base','Aactivepower', Aactivepower);
+% Bactivepower = 0;
+% assignin('base','Bactivepower', Bactivepower);
+% H9=plot(h9,Aactivepower,Bactivepower,'ro');
+% set(H9,'XDataSource','Aactivepower')
+% set(H9,'YDataSource','Bactivepower')
+% xlabel(h9,'Time (Hours)');
+% ylabel(h9,'Active Power (W)');
+% title(h9,'Load Active Power');
+% grid(h9,'on');
 
-% Initialize axes h10
-xlabel(h10,'Time (Hours)');
-ylabel(h10,'Reactive Power (kVAR)');
-title(h10,'Load Reactive Power');
-grid(h10,'on');
+% % Initialize axes h10 Load reactive power
+% Areactivepower = 0;
+% assignin('base','Areactivepower', Areactivepower);
+% Breactivepower = 0;
+% assignin('base','Breactivepower', Breactivepower);
+% H10=plot(h10,Aactivepower,Bactivepower,'ro');
+% set(H10,'XDataSource','Areactivepower')
+% set(H10,'YDataSource','Breactivepower')
+% xlabel(h10,'Time (Hours)');
+% ylabel(h10,'Reactive Power (kVAR)');
+% title(h10,'Load Reactive Power');
+% grid(h10,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
 plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
@@ -1083,139 +1093,124 @@ clock= rtoc.OutputPort(1).Data;
 superclock=[clock;clock;clock];
 assignin('base', 'clock', clock);
 assignin('base', 'superclock', superclock);
-
  
-% SOC
+% Voltage
 rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
-SOC= rto1.OutputPort(1).Data;
+voltage= rto1.OutputPort(1).Data;
+assignin('base','voltage', voltage);
+
+% Frequency
+rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
+frequency= rto2.OutputPort(1).Data;
+assignin('base','frequency', frequency);
+
+% SOC
+rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
+SOC= rto3.OutputPort(1).Data;
 assignin('base', 'SOC', SOC);
 save SOCfile SOC;
  
-% Execute MATLAB expression in specified workspace(Allow visibility for the workspace)
- 
-% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-% Frequency
-rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
-F= rto2.OutputPort(1).Data;
-assignin('base','F', F);
+% Load current
+rto4 = get_param('Microgrid_24h_Simulation/Subsystem/Gain4','RuntimeObject');
+current= rto4.OutputPort(1).Data;
+assignin('base','current', current);
 
+% Load active power
+rto5 = get_param('Microgrid_24h_Simulation/Subsystem/Gain5','RuntimeObject');
+activepower= rto5.OutputPort(1).Data;
+assignin('base','activepower', activepower);
 
-% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load reactive power
+rto6 = get_param('Microgrid_24h_Simulation/Subsystem/Gain6','RuntimeObject');
+reactivepower= rto6.OutputPort(1).Data;
+assignin('base','reactivepower', reactivepower);
 
-% Voltage
-rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
-V= rto3.OutputPort(1).Data;
-assignin('base','V', V);
-
-
-% assignin('base', 'ff', load('Data2.mat'));
-% load('Data1.mat');
-% load('Data2.mat');
+% Dynamic upload of the data to the txtfrequency file for the plot frequency 
 
 Af=evalin('caller','Af');
 Bf=evalin('caller','Bf');
 
     if size(Af)==size(Bf)
-    fid2 = fopen('test2.txt','a+');
-    fprintf(fid2,' %i\n',clock);
+    fid = fopen('clocktxt.txt','a+');
+    fprintf(fid,' %i\n',clock);
+    fclose(fid)
+    fid = fopen('clocktxt.txt','r');
+    Af = fscanf(fid,'%f');
+    assignin('base','Af', Af);
+    fclose(fid);
+
+    fid2 = fopen('frequencytxt.txt','a+');
+    fprintf(fid2,' %i\n',frequency);
     fclose(fid2)
-    fid2 = fopen('test2.txt','r');
+    fid2 = fopen('frequencytxt.txt','r');
     Bf = fscanf(fid2,'%f');
     assignin('base','Bf', Bf);
     fclose(fid2);
 
-    fid1 = fopen('test.txt','a+');
-    fprintf(fid1,' %i\n',F);
-    fclose(fid1)
-    fid1 = fopen('test.txt','r');
-    Af = fscanf(fid1,'%f');
-    assignin('base','Af', Af);
-    fclose(fid1);
-
-    elseif size(Af)<size(Bf)
-    fid1 = fopen('test.txt','a+');
-    fprintf(fid1,' %i\n',F);
-    fclose(fid1)
-    fid1 = fopen('test.txt','r');
-    Af = fscanf(fid1,'%f');
-    assignin('base','Af', Af);
-    fclose(fid1);
-
-    elseif size(Af)>size(Bf)
-    fid2 = fopen('test2.txt','a+');
-    fprintf(fid2,' %i\n',clock);
+    elseif size(Bf)<size(Af)
+    fid2 = fopen('frequencytxt.txt','a+');
+    fprintf(fid2,' %i\n',frequency);
     fclose(fid2)
-    fid2 = fopen('test2.txt','r');
+    fid2 = fopen('frequencytxt.txt','r');
     Bf = fscanf(fid2,'%f');
     assignin('base','Bf', Bf);
-    fclose(fid2); 
+    fclose(fid2);
+
+    elseif size(Bf)>size(Af)
+    fid = fopen('clocktxt.txt','a+');
+    fprintf(fid,' %i\n',clock);
+    fclose(fid)
+    fid = fopen('clocktxt.txt','r');
+    Af = fscanf(fid,'%f');
+    assignin('base','Af', Af);
+    fclose(fid); 
     end
     
+    % Dynamic upload of the data to the txtsoc file for the plot SOC 
+% 
+% Asoc=evalin('caller','Asoc');
+% Bsoc=evalin('caller','Bsoc');
+% 
+%     if size(Asoc)==size(Bsoc)
+%     fid = fopen('clocktxt.txt','a+');
+%     fprintf(fid,' %i\n',clock);
+%     fclose(fid)
+%     fid = fopen('clocktxt.txt','r');
+%     Asoc = fscanf(fid,'%f');
+%     assignin('base','Asoc', Asoc);
+%     fclose(fid);
+% 
+%     fid3 = fopen('soctxt.txt','a+');
+%     fprintf(fid3,' %i\n',SOC);
+%     fclose(fid3)
+%     fid3 = fopen('soctxt.txt','r');
+%     Bsoc = fscanf(fid3,'%f');
+%     assignin('base','Bsoc', Bsoc);
+%     fclose(fid3);
+% 
+%     elseif size(Bsoc)<size(Asoc)
+%     fid3 = fopen('test.txt','a+');
+%     fprintf(fid3,' %i\n',SOC);
+%     fclose(fid3)
+%     fid3 = fopen('test.txt','r');
+%     Bf = fscanf(fid3,'%f');
+%     assignin('base','Bsoc', Bsoc);
+%     fclose(fid3);
+% 
+%     elseif size(Bsoc)>size(Asoc)
+%     fid = fopen('test2.txt','a+');
+%     fprintf(fid,' %i\n',clock);
+%     fclose(fid)
+%     fid = fopen('test2.txt','r');
+%     Af = fscanf(fid,'%f');
+%     assignin('base','Asoc', Asoc);
+%     fclose(fid); 
+%     end
+     
 %Updating Graphs with refreshdata
 refreshdata
-end
-% if length(Af)<26 & length(Bf)<26
-% fid2 = fopen('test2.txt','a+');
-% fprintf(fid2,' %i\n',clock);
-% fclose(fid2)
-% fid2 = fopen('test2.txt','r');
-% assignin('base','Bf', Bf);
-% fclose(fid2);
-% 
-% fid1 = fopen('test.txt','a+');
-% fprintf(fid1,' %i\n',F);
-% fclose(fid1)
-% fid1 = fopen('test.txt','r');
-% Af = fscanf(fid1,'%f');
-% assignin('base','Af', Af);
-% fclose(fid1);
-%       
-% elseif size(Af)==size(Bf)
-% fid2 = fopen('test2.txt','a+');
-% fprintf(fid2,' %i\n',clock);
-% fclose(fid2)
-% fid2 = fopen('test2.txt','r');
-% Bf = fscanf(fid2,'%f');
-% assignin('base','Bf', Bf);
-% fclose(fid2);
-% 
-% fid1 = fopen('test.txt','a+');
-% fprintf(fid1,' %i\n',F);
-% fclose(fid1)
-% fid1 = fopen('test.txt','r');
-% Af = fscanf(fid1,'%f');
-% assignin('base','Af', Af);
-% fclose(fid1);
-% 
-% % Updating Graphs with refreshdata
-% refreshdata
-% 
-% elseif size(Af)<size(Bf)
-% fid1 = fopen('test.txt','a+');
-% fprintf(fid1,' %i\n',F);
-% fclose(fid1)
-% fid1 = fopen('test.txt','r');
-% Af = fscanf(fid1,'%f');
-% assignin('base','Af', Af);
-% fclose(fid1);
-% 
-% % Updating Graphs with refreshdata
-% refreshdata
-% 
-% elseif size(Af)>size(Bf)
-% fid2 = fopen('test2.txt','a+');
-% fprintf(fid2,' %i\n',clock);
-% fclose(fid2)
-% fid2 = fopen('test2.txt','r');
-% Bf = fscanf(fid2,'%f');
-% assignin('base','Bf', Bf);
-% fclose(fid2); 
-% 
-% % Updating Graphs with refreshdata
-% refreshdata
-% end
 
+end
 
 
 
