@@ -296,6 +296,7 @@ assignin('base','Asoc', Asoc);
 Bsoc = 0;
 assignin('base','Bsoc', Bsoc);
 H6=plot(h6,Asoc,Bsoc,'m');
+ylim(h6,[0 100]);
 set(H6,'XDataSource','Asoc')
 set(H6,'YDataSource','Bsoc')
 xlabel(h6,'Time (Hours)');
@@ -1167,45 +1168,53 @@ Bf=evalin('caller','Bf');
     end
     
     % Dynamic upload of the data to the txtsoc file for the plot SOC 
-% 
-% Asoc=evalin('caller','Asoc');
-% Bsoc=evalin('caller','Bsoc');
-% 
-%     if size(Asoc)==size(Bsoc)
-%     fid = fopen('clocktxt.txt','a+');
-%     fprintf(fid,' %i\n',clock);
-%     fclose(fid)
-%     fid = fopen('clocktxt.txt','r');
-%     Asoc = fscanf(fid,'%f');
-%     assignin('base','Asoc', Asoc);
-%     fclose(fid);
-% 
-%     fid3 = fopen('soctxt.txt','a+');
-%     fprintf(fid3,' %i\n',SOC);
-%     fclose(fid3)
-%     fid3 = fopen('soctxt.txt','r');
-%     Bsoc = fscanf(fid3,'%f');
-%     assignin('base','Bsoc', Bsoc);
-%     fclose(fid3);
-% 
-%     elseif size(Bsoc)<size(Asoc)
-%     fid3 = fopen('test.txt','a+');
-%     fprintf(fid3,' %i\n',SOC);
-%     fclose(fid3)
-%     fid3 = fopen('test.txt','r');
-%     Bf = fscanf(fid3,'%f');
-%     assignin('base','Bsoc', Bsoc);
-%     fclose(fid3);
-% 
-%     elseif size(Bsoc)>size(Asoc)
-%     fid = fopen('test2.txt','a+');
-%     fprintf(fid,' %i\n',clock);
-%     fclose(fid)
-%     fid = fopen('test2.txt','r');
-%     Af = fscanf(fid,'%f');
-%     assignin('base','Asoc', Asoc);
-%     fclose(fid); 
-%     end
+
+Asoc=evalin('caller','Asoc');
+Bsoc=evalin('caller','Bsoc');
+
+    if size(Asoc)==size(Bsoc)
+        
+    % Open and write the new value of clock in clocktxt  
+    fid0 = fopen('clocktxt2.txt','a+');
+    fprintf(fid0,' %i\n',clock);
+    fclose(fid0)
+    % Update the plot
+    fid0 = fopen('clocktxt2.txt','r');
+    Asoc = fscanf(fid0,'%f');
+    assignin('base','Asoc', Asoc);
+    fclose(fid0);
+    
+    % Open and write the new value of SOC in soctxt
+    fid3 = fopen('soctxt.txt','a+');
+    fprintf(fid3,' %i\n',SOC);
+    fclose(fid3)
+    fid3 = fopen('soctxt.txt','r');
+    Bsoc = fscanf(fid3,'%f');
+    assignin('base','Bsoc', Bsoc);
+    fclose(fid3);
+
+    elseif size(Bsoc)<size(Asoc)
+        
+    % Open and write the new value of SOC in soctxt
+    fid3 = fopen('soctxt.txt','a+');
+    fprintf(fid3,' %i\n',SOC);
+    fclose(fid3)
+    fid3 = fopen('soctxt.txt','r');
+    Bf = fscanf(fid3,'%f');
+    assignin('base','Bsoc', Bsoc);
+    fclose(fid3);
+
+    elseif size(Bsoc)>size(Asoc)
+        
+    % Open and write the new value of SOC in soctxt 
+    fid0 = fopen('clocktxt2.txt','a+');
+    fprintf(fid0,' %i\n',clock);
+    fclose(fid0)
+    fid0 = fopen('clocktxt2.txt','r');
+    Af = fscanf(fid0,'%f');
+    assignin('base','Asoc', Asoc);
+    fclose(fid0); 
+    end
      
 %Updating Graphs with refreshdata
 refreshdata

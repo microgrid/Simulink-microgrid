@@ -586,11 +586,15 @@ Temp2(:,:)=17.4; % Set value into the matrix
 Temp3=zeros(1,(23/SampleTime)+1);% Creation matrix Temp3
 Temp3(:,:)=23.4; % Set value into the matrix
 
-% Intit file txtclock
+% Intit file clocktxt
 clock=0;
 fid = fopen('clocktxt.txt','w');
 fprintf(fid,' %i\n',clock);
 fclose(fid)
+
+fid0 = fopen('clocktxt2.txt','w');
+fprintf(fid0,' %i\n',clock);
+fclose(fid0)
 
 % % Intit file txtvoltage
 % voltage=0;
@@ -604,11 +608,11 @@ fid2 = fopen('frequencytxt.txt','w');
 fprintf(fid2,' %i\n',frequency);
 fclose(fid2)
 
-% % Intit file txtsoc
-% SOC=0;
-% fid3 = fopen('soctxt.txt','w');
-% fprintf(fid3,' %i\n',SOC);
-% fclose(fid3)
+% Intit file txtsoc
+SOC=0;
+fid3 = fopen('soctxt.txt','w');
+fprintf(fid3,' %i\n',SOC);
+fclose(fid3)
 
 % % Intit file txtcurrent
 % current=0;
