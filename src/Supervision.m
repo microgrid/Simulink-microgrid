@@ -3,7 +3,7 @@
 % The GUI %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function varargout= Supervision (varargin) 
+function varargout =Supervision(varargin)
 
 % Simulink model
 modelName = 'Microgrid_24h_Simulation';
@@ -168,22 +168,34 @@ h2 = axes('Units','Pixels','Position',[107.5,110,95,60]);
 h3 = axes('Units','Pixels','Position',[107.5,20,95,60]); 
 
 % Add "h4" axe to window (Voltage)
-h4 = axes('Units','Pixels','Position',[227.5,200,95,60],'Tag','newdata4'); 
+h4 = axes('Parent', f, ...
+    'Tag','h4',...
+    'Units','Pixels','Position',[227.5,200,95,60],'Tag','newdata4');
 
 % Add "h5" axe to window (Frequency)
-h5 = axes('Units','Pixels','Position',[227.5,110,95,60],'Tag','newdata5');
+h5 = axes('Parent', f, ...
+    'Tag','h5',...
+    'Units','Pixels','Position',[227.5,110,95,60],'Tag','newdata5');
 
 % Add "h6" axe to window (State of charge SOC)
-h6 = axes('Units','Pixels','Position',[227.5,20,95,60],'Tag','newdata6');
+h6 = axes('Parent', f, ...
+    'Tag','h6',...
+    'Units','Pixels','Position',[227.5,20,95,60],'Tag','newdata6');
 
 % Add "h8" axe to window (State of charge SOC)
-h8 = axes('Units','Pixels','Position',[350,200,95,60],'Tag','newdata8');
+h8 = axes('Parent', f, ...
+    'Tag','h8',...
+    'Units','Pixels','Position',[350,200,95,60],'Tag','newdata8');
 
 % Add "h9" axe to window (State of charge SOC)
-h9 = axes('Units','Pixels','Position',[350,110,95,60],'Tag','newdata9');
+h9 = axes('Parent', f, ...
+    'Tag','h9',...
+    'Units','Pixels','Position',[350,110,95,60],'Tag','newdata9');
 
 % Add "h10" axe to window (State of charge SOC)
-h10 = axes('Units','Pixels','Position',[350,20,95,60],'Tag','newdata10');
+h10 = axes('Parent', f, ...
+    'Tag','h10',...
+    'Units','Pixels','Position',[350,20,95,60],'Tag','newdata10');
 
 % Add text to window
 htexttxtbox1 = uicontrol('Style','text','String','Enter the number of pannel',...
@@ -248,32 +260,70 @@ assignin('base', 'VARTemp', VARTemp);
 assignin('base', 'VARPA', VARPA);
 assignin('base', 'VARPQ', VARPQ);
 
-% Initialize axes h4,h5,h6,h8,h9,h10
+% Initialize variable clock generate by the simulink mandatory for the use of linkdata
+clock=0;
+assignin('base','clock', clock);
+superclock=[clock;clock;clock];
+assignin('base', 'superclock', superclock);
+
+% Initialize axes h4
+V=[0;0;0];
+assignin('base','V', V);
+H4=plot(h4,superclock,V,'ro');
+set(H4,'XDataSource','superclock')
+set(H4,'YDataSource','V')
 xlabel(h4,'Time (Hours)');
 ylabel(h4,'Load Voltage (V)');
 title(h4,'Voltage Grid');
 grid(h4,'on');
 
-xlabel(h5,'Time (Hours)');
-ylabel(h5,'f (Hz)');
-title(h5,'Frequency');
-grid(h5,'on');
+%Initialize axes h5
+% F=0;
+% assignin('base', 'F', F);
+% load('Data1.mat');
+% load('Data2.mat');
+% frequency=load('Data2.mat')
+assignin('base', 'ff', load('Data2.mat'));
+frequency=evalin('caller','frequency');
+assignin('base', 'FF', ff');
+% F=load('Data2.mat');
+% evalin('caller','T');
+% F=evalin('caller','F');
+% plot(h5,frequency.times,frequency.counts,':b');
+% plot(h5,F.time,F.signals.values,':b')
+% H5=plot(h5,frequency.F,':b');
+% % set(H5,'XDataSource','F.Time')
+% % set(H5,'YDataSource','F.data:1')
+% grid(h5,'on');
+% xlabel(h5,'Time (Hours)');
+% ylabel(h5,'f (Hz)');
+% title(h5,'Frequency');
+% grid(h5,'on');
 
+% Initialize axes h6
+SOC=0;
+assignin('base','SOC', SOC);
+H6=plot(h6,clock,SOC,'ro');
+set(H6,'XDataSource','clock')
+set(H6,'YDataSource','SOC')
 xlabel(h6,'Time (Hours)');
 ylabel(h6,'SOC (%)');
 title(h6,'State of charge');
 grid(h6,'on');
 
+% Initialize axes h8
 xlabel(h8,'Time (Hours)');
 ylabel(h8,'Current (A)');
 title(h8,'Load Current');
 grid(h8,'on');
 
+% Initialize axes h9
 xlabel(h9,'Time (Hours)');
 ylabel(h9,'Active Power (W)');
 title(h9,'Load Active Power');
 grid(h9,'on');
 
+% Initialize axes h10
 xlabel(h10,'Time (Hours)');
 ylabel(h10,'Reactive Power (kVAR)');
 title(h10,'Load Reactive Power');
@@ -291,7 +341,6 @@ xlabel(h3,'Time (Hours)');
 ylabel(h3,'Reactive Power (kVAR)');
 title(h3,'Reactive Power All Blocks during Monsoon')
 
-
 % Initialize grid 
 grid(h2,'on');
 grid(h3,'on');
@@ -304,6 +353,7 @@ movegui(f,'center');
 
 % Make the GUI visible.
 set(f,'Visible','on');
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Callback Function for the popup menu %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -979,8 +1029,8 @@ set(txtbox2,'Enable','off');
 set(txtbox1,'Enable','off');
 
 % update the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-set_param(modelName,'SimulationCommand','update');
+% 
+% set_param(modelName,'SimulationCommand','update');
 
 % start the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1011,10 +1061,58 @@ set(txtbox1,'Enable','on');
 
 set_param(modelName,'SimulationCommand','stop');
 
-% Remove the listener on the Gain block in the model's StartFcn
-localRemoveEventListener;
+end
+
+function updatebutton_Callback(source, eventdata, handles) 
+   
+end
 
 end
+
+
+function varargout = updategui(varargin)
+    
+% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Time
+rtoc = get_param('Microgrid_24h_Simulation/Subsystem/Clock','RuntimeObject');
+clock= rtoc.OutputPort(1).Data;
+superclock=[clock;clock;clock];
+assignin('base', 'clock', clock);
+assignin('base', 'superclock', superclock);
+
+ 
+% SOC
+rto1 = get_param('Microgrid_24h_Simulation/Subsystem/Gain1','RuntimeObject');
+SOC= rto1.OutputPort(1).Data;
+assignin('base', 'SOC', SOC);
+save SOCfile SOC;
+ 
+% Execute MATLAB expression in specified workspace(Allow visibility for the workspace)
+ 
+% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+% Frequency
+rto2 = get_param('Microgrid_24h_Simulation/Subsystem/Gain2','RuntimeObject');
+F= rto2.OutputPort(1).Data;
+assignin('base','F', F);
+
+
+% Take the data from the simulink %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Voltage
+rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
+V= rto3.OutputPort(1).Data;
+assignin('base','V', V);
+
+assignin('base', 'ff', load('Data2.mat'));
+% load('Data1.mat');
+% load('Data2.mat');
+% assignin('base', 'T', T);
+% assignin('base', 'F', F);
+
+% Updating Graphs with refreshdata
+refreshdata
 
 end
 

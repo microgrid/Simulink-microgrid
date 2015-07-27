@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.97"
+    ComputedModelVersion    "1.106"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -21,6 +21,10 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
+  StartFcn		  "%The GUI handles are by default hidden, turn them on\nset(0,'ShowHiddenHandles','on');\n\n%Set up the a"
+  "rguments that will go into the gain block event callback listener\nblk = 'Microgrid_24h_Simulation/Subsystem/Clock';"
+  "\nevent = 'PostOutputs';\nlistener = @updategui;\n\n%Create the listener\nh = add_exec_event_listener(blk, event, li"
+  "stener);\n\n"
   UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -76,7 +80,7 @@ Model {
 	  LoadSaveID		  "0"
 	  Extents		  [1550.0, 729.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [0.0, 0.0]
+	  Offset		  [0.0, 5.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -91,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 17 11:30:34 2015"
-  RTWModifiedTimeStamp	  358954103
-  ModelVersionFormat	  "1.%<AutoIncrement:97>"
+  LastModifiedDate	  "Sat Jul 25 17:17:34 2015"
+  RTWModifiedTimeStamp	  359743433
+  ModelVersionFormat	  "1.%<AutoIncrement:106>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1072,6 +1076,14 @@ Model {
       BlockType		      Terminator
     }
     Block {
+      BlockType		      ToFile
+      Filename		      "untitled.mat"
+      MatrixName	      "ans"
+      SaveFormat	      "Array"
+      Decimation	      "1"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1102,7 +1114,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2624"
+    SIDHighWatermark	    "2627"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -15427,7 +15439,7 @@ Model {
 	  Name			  "Inverter Control \nMeasurements"
 	  SID			  "1417"
 	  Ports			  []
-	  Position		  [1300, 865, 1463, 963]
+	  Position		  [1260, 895, 1423, 993]
 	  ZOrder		  -45
 	  NamePlacement		  "alternate"
 	  ShowName		  off
@@ -22080,6 +22092,39 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  ToFile
+	  Name			  "To File"
+	  SID			  "2625"
+	  Ports			  [1]
+	  Position		  [1160, 180, 1220, 210]
+	  ZOrder		  6
+	  Filename		  "VS.mat"
+	  MatrixName		  "VS"
+	  SaveFormat		  "Timeseries"
+	}
+	Block {
+	  BlockType		  ToFile
+	  Name			  "To File1"
+	  SID			  "2626"
+	  Ports			  [1]
+	  Position		  [115, 820, 175, 850]
+	  ZOrder		  7
+	  Filename		  "Data1.mat"
+	  MatrixName		  "T"
+	  SaveFormat		  "Timeseries"
+	}
+	Block {
+	  BlockType		  ToFile
+	  Name			  "To File2"
+	  SID			  "2627"
+	  Ports			  [1]
+	  Position		  [1525, 865, 1585, 895]
+	  ZOrder		  8
+	  Filename		  "Data2.mat"
+	  MatrixName		  "F"
+	  SaveFormat		  "Timeseries"
+	}
+	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace"
 	  SID			  "1540"
@@ -22317,8 +22362,16 @@ Model {
 	Line {
 	  SrcBlock		  "Clock"
 	  SrcPort		  1
-	  DstBlock		  "To Workspace"
-	  DstPort		  1
+	  Points		  [16, 0]
+	  Branch {
+	    Points		    [0, -70]
+	    DstBlock		    "To File1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "To Workspace"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "Product5"
@@ -22487,8 +22540,16 @@ Model {
 	Line {
 	  SrcBlock		  "Subsystem"
 	  SrcPort		  1
-	  DstBlock		  "Gain3"
-	  DstPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    Points		    [0, 75]
+	    DstBlock		    "To File"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Gain3"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "Gain1"
@@ -22499,8 +22560,16 @@ Model {
 	Line {
 	  SrcBlock		  "Gain2"
 	  SrcPort		  1
-	  DstBlock		  "Subsystem10"
-	  DstPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [0, 60]
+	    DstBlock		    "To File2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Subsystem10"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "Gain3"
