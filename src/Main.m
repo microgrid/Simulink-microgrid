@@ -596,6 +596,10 @@ fid0 = fopen('clocktxt2.txt','w');
 fprintf(fid0,' %i\n',clock);
 fclose(fid0)
 
+fidap = fopen('clocktxtap.txt','w');
+fprintf(fidap,' %i\n',clock);
+fclose(fidap)
+
 % % Intit file txtvoltage
 % voltage=0;
 % fid1 = fopen('voltagetxt.txt','w');
@@ -619,13 +623,13 @@ fclose(fid3)
 % fid4 = fopen('currenttxt.txt','w');
 % fprintf(fid4,' %i\n',current);
 % fclose(fid4)
-% 
-% % Intit file txtactivepower
-% activepower=0;
-% fid5 = fopen('activepowertxt.txt','w');
-% fprintf(fid5,' %i\n',activepower);
-% fclose(fid5)
-% 
+ 
+% Intit file txtactivepower
+activepower=0;
+fid5 = fopen('activepowertxt.txt','w');
+fprintf(fid5,' %i\n',activepower);
+fclose(fid5)
+
 % % Intit file txtreactivepower
 % reactivepower=0;
 % fid6 = fopen('reactivepowertxt.txt','w');

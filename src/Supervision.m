@@ -317,18 +317,18 @@ grid(h6,'on');
 % title(h8,'Load Current');
 % grid(h8,'on');
 
-% % Initialize axes h9 Load active power
-% Aactivepower = 0;
-% assignin('base','Aactivepower', Aactivepower);
-% Bactivepower = 0;
-% assignin('base','Bactivepower', Bactivepower);
-% H9=plot(h9,Aactivepower,Bactivepower,'ro');
-% set(H9,'XDataSource','Aactivepower')
-% set(H9,'YDataSource','Bactivepower')
-% xlabel(h9,'Time (Hours)');
-% ylabel(h9,'Active Power (W)');
-% title(h9,'Load Active Power');
-% grid(h9,'on');
+% Initialize axes h9 Load active power
+Aactivepower = 0;
+assignin('base','Aactivepower', Aactivepower);
+Bactivepower = 0;
+assignin('base','Bactivepower', Bactivepower);
+H9=plot(h9,Aactivepower,Bactivepower,'g');
+set(H9,'XDataSource','Aactivepower')
+set(H9,'YDataSource','Bactivepower')
+xlabel(h9,'Time (Hours)');
+ylabel(h9,'Active Power (W)');
+title(h9,'Load Active Power');
+grid(h9,'on');
 
 % % Initialize axes h10 Load reactive power
 % Areactivepower = 0;
@@ -1214,6 +1214,55 @@ Bsoc=evalin('caller','Bsoc');
     Af = fscanf(fid0,'%f');
     assignin('base','Asoc', Asoc);
     fclose(fid0); 
+    end
+    
+      % Dynamic upload of the data to the activepowertxt file for the plot Active power 
+
+Aactivepower=evalin('caller','Aactivepower');
+Bactivepower=evalin('caller','Bactivepower');
+
+    if size(Aactivepower)==size(Bactivepower)
+        
+    % Open and write the new value of clock in clocktxt  
+    fidap = fopen('clocktxtap.txt','a+');
+    fprintf(fidap,' %i\n',clock);
+    fclose(fidap)
+    % Update the plot
+    fidap = fopen('clocktxtap.txt','r');
+    Aactivepower = fscanf(fidap,'%f');
+    assignin('base','Aactivepower', Aactivepower);
+    fclose(fidap);
+    
+    % Open and write the new value of SOC in soctxt
+    fid5 = fopen('activepowertxt.txt','a+');
+    fprintf(fid5,' %i\n',activepower);
+    fclose(fid5)
+    fid5 = fopen('activepowertxt.txt','r');
+    Bactivepower = fscanf(fid5,'%f');
+    assignin('base','Bactivepower', Bactivepower);
+    fclose(fid5);
+
+    elseif size(Bactivepower)<size(Aactivepower)
+        
+    % Open and write the new value of SOC in soctxt
+    fid5 = fopen('activepowertxt.txt','a+');
+    fprintf(fid5,' %i\n',activepower);
+    fclose(fid5)
+    fid5 = fopen('activepowertxt.txt','r');
+    Bactivepower = fscanf(fid5,'%f');
+    assignin('base','Bactivepower', Bactivepower);
+    fclose(fid5);
+
+    elseif size(Bactivepower)>size(Aactivepower)
+        
+    % Open and write the new value of SOC in soctxt 
+    fidap = fopen('clocktxtap.txt','a+');
+    fprintf(fidap,' %i\n',clock);
+    fclose(fidap)
+    fidap= fopen('clocktxtap.txt','r');
+    Aactivepower = fscanf(fidap,'%f');
+    assignin('base','Aactivepower', Aactivepower);
+    fclose(fidap); 
     end
      
 %Updating Graphs with refreshdata
