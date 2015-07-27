@@ -278,23 +278,26 @@ title(h4,'Voltage Grid');
 grid(h4,'on');
 
 %Initialize axes h5
-F=0;
-assignin('base', 'F', F);
-% load('Data1.mat');
-% load('Data2.mat');
-% frequency=load('Data2.mat')
-% assignin('base', 'ff', load('Data2.mat'));
-% ff=evalin('caller','ff');
-% assignin('base', 'FF', ff');
-% F=load('Data2.mat');
-% evalin('caller','T');
+
+% fid1 = fopen('test.txt','a+');
+% fprintf(fid1,' %i\n',F);
+% fclose(fid1)
+% fid1 = fopen('test.txt','r');
+Af = 0;
+assignin('base','Af', Af);
+% fclose(fid1);
+% 
+% fid2 = fopen('test2.txt','a+');
+% fprintf(fid2,' %i\n',clock);
+% fclose(fid2)
+% fid2 = fopen('test2.txt','r');
+Bf = 0;
+assignin('base','Bf', Bf);
+% fclose(fid2);
 % F=evalin('caller','F');
-% plot(h5,frequency.times,frequency.counts,':b');
-% plot(h5,F.time,F.signals.values,':b')
-% H5=plot(h5,frequency.F,':b');
-H5=plot(h5,clock,F,'ro');
-set(H5,'XDataSource','clock')
-set(H5,'YDataSource','F')
+H5=plot(h5,Bf,Af);
+set(H5,'XDataSource','Bf')
+set(H5,'YDataSource','Af')
 xlabel(h5,'Time (Hours)');
 ylabel(h5,'f (Hz)');
 title(h5,'Frequency');
@@ -1105,15 +1108,114 @@ rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
 V= rto3.OutputPort(1).Data;
 assignin('base','V', V);
 
+
 % assignin('base', 'ff', load('Data2.mat'));
 % load('Data1.mat');
 % load('Data2.mat');
 
+Af=evalin('caller','Af');
+Bf=evalin('caller','Bf');
 
-% Updating Graphs with refreshdata
+    if size(Af)==size(Bf)
+    fid2 = fopen('test2.txt','a+');
+    fprintf(fid2,' %i\n',clock);
+    fclose(fid2)
+    fid2 = fopen('test2.txt','r');
+    Bf = fscanf(fid2,'%f');
+    assignin('base','Bf', Bf);
+    fclose(fid2);
+
+    fid1 = fopen('test.txt','a+');
+    fprintf(fid1,' %i\n',F);
+    fclose(fid1)
+    fid1 = fopen('test.txt','r');
+    Af = fscanf(fid1,'%f');
+    assignin('base','Af', Af);
+    fclose(fid1);
+
+    elseif size(Af)<size(Bf)
+    fid1 = fopen('test.txt','a+');
+    fprintf(fid1,' %i\n',F);
+    fclose(fid1)
+    fid1 = fopen('test.txt','r');
+    Af = fscanf(fid1,'%f');
+    assignin('base','Af', Af);
+    fclose(fid1);
+
+    elseif size(Af)>size(Bf)
+    fid2 = fopen('test2.txt','a+');
+    fprintf(fid2,' %i\n',clock);
+    fclose(fid2)
+    fid2 = fopen('test2.txt','r');
+    Bf = fscanf(fid2,'%f');
+    assignin('base','Bf', Bf);
+    fclose(fid2); 
+    end
+    
+%Updating Graphs with refreshdata
 refreshdata
-
 end
+% if length(Af)<26 & length(Bf)<26
+% fid2 = fopen('test2.txt','a+');
+% fprintf(fid2,' %i\n',clock);
+% fclose(fid2)
+% fid2 = fopen('test2.txt','r');
+% assignin('base','Bf', Bf);
+% fclose(fid2);
+% 
+% fid1 = fopen('test.txt','a+');
+% fprintf(fid1,' %i\n',F);
+% fclose(fid1)
+% fid1 = fopen('test.txt','r');
+% Af = fscanf(fid1,'%f');
+% assignin('base','Af', Af);
+% fclose(fid1);
+%       
+% elseif size(Af)==size(Bf)
+% fid2 = fopen('test2.txt','a+');
+% fprintf(fid2,' %i\n',clock);
+% fclose(fid2)
+% fid2 = fopen('test2.txt','r');
+% Bf = fscanf(fid2,'%f');
+% assignin('base','Bf', Bf);
+% fclose(fid2);
+% 
+% fid1 = fopen('test.txt','a+');
+% fprintf(fid1,' %i\n',F);
+% fclose(fid1)
+% fid1 = fopen('test.txt','r');
+% Af = fscanf(fid1,'%f');
+% assignin('base','Af', Af);
+% fclose(fid1);
+% 
+% % Updating Graphs with refreshdata
+% refreshdata
+% 
+% elseif size(Af)<size(Bf)
+% fid1 = fopen('test.txt','a+');
+% fprintf(fid1,' %i\n',F);
+% fclose(fid1)
+% fid1 = fopen('test.txt','r');
+% Af = fscanf(fid1,'%f');
+% assignin('base','Af', Af);
+% fclose(fid1);
+% 
+% % Updating Graphs with refreshdata
+% refreshdata
+% 
+% elseif size(Af)>size(Bf)
+% fid2 = fopen('test2.txt','a+');
+% fprintf(fid2,' %i\n',clock);
+% fclose(fid2)
+% fid2 = fopen('test2.txt','r');
+% Bf = fscanf(fid2,'%f');
+% assignin('base','Bf', Bf);
+% fclose(fid2); 
+% 
+% % Updating Graphs with refreshdata
+% refreshdata
+% end
+
 
 
 

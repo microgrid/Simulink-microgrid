@@ -586,5 +586,18 @@ Temp2(:,:)=17.4; % Set value into the matrix
 Temp3=zeros(1,(23/SampleTime)+1);% Creation matrix Temp3
 Temp3(:,:)=23.4; % Set value into the matrix
 
+% Intit file txt clock
+clock=0;
+fid2 = fopen('test2.txt','w');
+fprintf(fid2,' %i\n',clock);
+fclose(fid2)
+
+% Intit file txt Frequency
+F=0;
+fid1 = fopen('test.txt','w');
+fprintf(fid1,' %i\n',F);
+fclose(fid1)
+
+
 % Run the GUI
 run('Supervision'); 
