@@ -278,27 +278,27 @@ title(h4,'Voltage Grid');
 grid(h4,'on');
 
 %Initialize axes h5
-% F=0;
-% assignin('base', 'F', F);
+F=0;
+assignin('base', 'F', F);
 % load('Data1.mat');
 % load('Data2.mat');
 % frequency=load('Data2.mat')
-assignin('base', 'ff', load('Data2.mat'));
-frequency=evalin('caller','frequency');
-assignin('base', 'FF', ff');
+% assignin('base', 'ff', load('Data2.mat'));
+% ff=evalin('caller','ff');
+% assignin('base', 'FF', ff');
 % F=load('Data2.mat');
 % evalin('caller','T');
 % F=evalin('caller','F');
 % plot(h5,frequency.times,frequency.counts,':b');
 % plot(h5,F.time,F.signals.values,':b')
 % H5=plot(h5,frequency.F,':b');
-% % set(H5,'XDataSource','F.Time')
-% % set(H5,'YDataSource','F.data:1')
-% grid(h5,'on');
-% xlabel(h5,'Time (Hours)');
-% ylabel(h5,'f (Hz)');
-% title(h5,'Frequency');
-% grid(h5,'on');
+H5=plot(h5,clock,F,'ro');
+set(H5,'XDataSource','clock')
+set(H5,'YDataSource','F')
+xlabel(h5,'Time (Hours)');
+ylabel(h5,'f (Hz)');
+title(h5,'Frequency');
+grid(h5,'on');
 
 % Initialize axes h6
 SOC=0;
@@ -1105,11 +1105,10 @@ rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
 V= rto3.OutputPort(1).Data;
 assignin('base','V', V);
 
-assignin('base', 'ff', load('Data2.mat'));
+% assignin('base', 'ff', load('Data2.mat'));
 % load('Data1.mat');
 % load('Data2.mat');
-% assignin('base', 'T', T);
-% assignin('base', 'F', F);
+
 
 % Updating Graphs with refreshdata
 refreshdata

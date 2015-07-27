@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.106"
+    ComputedModelVersion    "1.107"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -71,7 +71,7 @@ Model {
 	  LoadSaveID		  "1362"
 	  Extents		  [1550.0, 729.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [-170.41666666666652, 68.75]
+	  Offset		  [-170.41666666666652, 98.75]
 	}
 	Object {
 	  $ObjectID		  7
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 25 17:17:34 2015"
-  RTWModifiedTimeStamp	  359743433
-  ModelVersionFormat	  "1.%<AutoIncrement:106>"
+  LastModifiedDate	  "Mon Jul 27 11:42:37 2015"
+  RTWModifiedTimeStamp	  359898139
+  ModelVersionFormat	  "1.%<AutoIncrement:107>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -22111,7 +22111,6 @@ Model {
 	  ZOrder		  7
 	  Filename		  "Data1.mat"
 	  MatrixName		  "T"
-	  SaveFormat		  "Timeseries"
 	}
 	Block {
 	  BlockType		  ToFile
@@ -22122,7 +22121,6 @@ Model {
 	  ZOrder		  8
 	  Filename		  "Data2.mat"
 	  MatrixName		  "F"
-	  SaveFormat		  "Timeseries"
 	}
 	Block {
 	  BlockType		  ToWorkspace
