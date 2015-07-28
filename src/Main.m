@@ -586,29 +586,45 @@ Temp2(:,:)=17.4; % Set value into the matrix
 Temp3=zeros(1,(23/SampleTime)+1);% Creation matrix Temp3
 Temp3(:,:)=23.4; % Set value into the matrix
 
-% Intit file clocktxt
+% Intit clock and superclock
 clock=0;
+superclock=[0;0;0];
+
+% Intit file clocktxt
 fid = fopen('clocktxt.txt','w');
 fprintf(fid,' %i\n',clock);
 fclose(fid)
 
-fid0 = fopen('clocktxt2.txt','w');
-fprintf(fid0,' %i\n',clock);
-fclose(fid0)
+% Intit file clocktxt
+fidsoc = fopen('clocktxtsoc.txt','w');
+fprintf(fidsoc,' %i\n',clock);
+fclose(fidsoc)
 
+% Intit file clocktxtvoltage
+fidv = fopen('clocktxtvoltage.txt','w');
+fprintf(fidv,' %i\n',superclock);
+fclose(fidv)
+
+% Intit file clocktxtap
 fidap = fopen('clocktxtap.txt','w');
 fprintf(fidap,' %i\n',clock);
 fclose(fidap)
 
+% Intit file clocktxtrap
 fidrap = fopen('clocktxtrap.txt','w');
 fprintf(fidrap,' %i\n',clock);
 fclose(fidrap)
 
-% % Intit file txtvoltage
-% voltage=0;
-% fid1 = fopen('voltagetxt.txt','w');
-% fprintf(fid1,' %i\n',voltage);
-% fclose(fid1)
+% Intit file clocktxtc
+fidc = fopen('clocktxtc.txt','w');
+fprintf(fidc,' %i\n',superclock);
+fclose(fidc)
+
+% Intit file txtvoltage
+voltage=[0;0;0];
+fid1 = fopen('voltagetxt.txt','w');
+fprintf(fid1,' %i\n',voltage);
+fclose(fid1)
 
 % Intit file txtfrequency
 frequency=0;
@@ -622,11 +638,11 @@ fid3 = fopen('soctxt.txt','w');
 fprintf(fid3,' %i\n',SOC);
 fclose(fid3)
 
-% % Intit file txtcurrent
-% current=0;
-% fid4 = fopen('currenttxt.txt','w');
-% fprintf(fid4,' %i\n',current);
-% fclose(fid4)
+% Intit file txtcurrent
+current=[0;0;0];
+fid4 = fopen('currenttxt.txt','w');
+fprintf(fid4,' %i\n',current);
+fclose(fid4)
  
 % Intit file txtactivepower
 activepower=0;

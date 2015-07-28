@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.110"
+    ComputedModelVersion    "1.111"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -66,21 +66,21 @@ Model {
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1362"
 	  Extents		  [1550.0, 729.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [-357.84523916812145, 37.25]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-72.566667739550439, 108.35476190476186]
 	}
 	Object {
 	  $ObjectID		  7
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1550.0, 729.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [0.0, 5.0]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-273.29999999999984, 7.1999999999999691]
 	}
 	PropName		"EditorsInfo"
       }
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jul 27 20:50:35 2015"
-  RTWModifiedTimeStamp	  359931014
-  ModelVersionFormat	  "1.%<AutoIncrement:110>"
+  LastModifiedDate	  "Tue Jul 28 13:02:17 2015"
+  RTWModifiedTimeStamp	  359989331
+  ModelVersionFormat	  "1.%<AutoIncrement:111>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -373,9 +373,9 @@ Model {
 	  InvalidFcnCallConnMsg	  "error"
 	  FcnCallInpInsideContextMsg "UseLocalSettings"
 	  SignalLabelMismatchMsg  "none"
-	  UnconnectedInputMsg	  "warning"
-	  UnconnectedOutputMsg	  "warning"
-	  UnconnectedLineMsg	  "warning"
+	  UnconnectedInputMsg	  "none"
+	  UnconnectedOutputMsg	  "none"
+	  UnconnectedLineMsg	  "none"
 	  SFcnCompatibilityMsg	  "none"
 	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
@@ -1104,7 +1104,7 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "2630"
     Block {
@@ -1189,7 +1189,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Measurements"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2233,7 +2233,7 @@ Model {
       }
       System {
 	Name			"Battery"
-	Location		[-8, 0, 1604, 876]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2696,7 +2696,7 @@ Model {
       }
       System {
 	Name			"Bidirectional DC/DC\n Converter"
-	Location		[-8, -8, 1608, 908]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4709,7 +4709,7 @@ Model {
       }
       System {
 	Name			"Boost"
-	Location		[-8, -8, 1608, 908]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4881,7 +4881,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Incremental Conductance MPPT"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6165,7 +6165,7 @@ Model {
       }
       System {
 	Name			"Inverter"
-	Location		[-8, -8, 1608, 908]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -6195,7 +6195,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "DC / AC Inverter"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -13640,7 +13640,7 @@ Model {
       }
       System {
 	Name			"PV Array"
-	Location		[-8, 0, 1604, 876]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -13652,7 +13652,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"80"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Cdc1"
@@ -14982,7 +14982,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"80"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Scope
 	  Name			  "AC Load Measurements"
@@ -18499,7 +18499,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Power Calculation"
-	    Location		    [496, 316, 1144, 918]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -22611,7 +22611,7 @@ Model {
       Position		      [45, 30, 136, 81]
       ZOrder		      -38
       Priority		      "1"
-      LibraryVersion	      "*1.2191"
+      LibraryVersion	      "1.2191"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
@@ -22808,7 +22808,10 @@ Stateflow {
     firstTransition	    9
     firstJunction	    8
     viewObj		    2
+    visible		    1
     machine		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -22993,7 +22996,10 @@ Stateflow {
     firstTransition	    23
     firstJunction	    22
     viewObj		    11
+    visible		    1
     machine		    1
+    subviewS {
+    }
     ssIdHighWaterMark	    12
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

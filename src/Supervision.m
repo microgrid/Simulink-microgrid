@@ -266,16 +266,19 @@ assignin('base','clock', clock);
 superclock=[clock;clock;clock];
 assignin('base', 'superclock', superclock);
 
-% % Initialize axes h4 voltage
-% voltage=[0;0;0];
-% assignin('base','voltage', voltage);
-% H4=plot(h4,superclock,voltage,'ro');
-% set(H4,'XDataSource','superclock')
-% set(H4,'YDataSource','voltage')
-% xlabel(h4,'Time (Hours)');
-% ylabel(h4,'Load Voltage (V)');
-% title(h4,'Voltage Grid');
-% grid(h4,'on');
+% Initialize axes h4 voltage
+Av =[0;0;0]
+assignin('base','Av', Av);
+Bv =[0;0;0];
+assignin('base','Bv', Bv);
+H4=plot(h4,Av,Bv);
+ylim(h4,[-500 500]);
+set(H4,'XDataSource','Av')
+set(H4,'YDataSource','Bv')
+xlabel(h4,'Time (Hours)');
+ylabel(h4,'Load Voltage (V)');
+title(h4,'Voltage Grid');
+grid(h4,'on');
 
 %Initialize axes h5 frequency
 Af = 0;
@@ -304,18 +307,18 @@ ylabel(h6,'SOC (%)');
 title(h6,'State of charge');
 grid(h6,'on');
 
-% % Initialize axes h8 Load current
-% Acurrent = 0;
-% assignin('base','Acurrent', Acurrent);
-% Bcurrent = 0;
-% assignin('base','Bcurrent', Bcurrent);
-% H8=plot(h8,Acurrent,Bcurrent,'ro');
-% set(H8,'XDataSource','Acurrent')
-% set(H8,'YDataSource','Bcurrent')
-% xlabel(h8,'Time (Hours)');
-% ylabel(h8,'Current (A)');
-% title(h8,'Load Current');
-% grid(h8,'on');
+% Initialize axes h8 Load current
+Acurrent = [0;0;0];
+assignin('base','Acurrent', Acurrent);
+Bcurrent = [0;0;0];
+assignin('base','Bcurrent', Bcurrent);
+H8=plot(h8,Acurrent,Bcurrent,'y');
+set(H8,'XDataSource','Acurrent')
+set(H8,'YDataSource','Bcurrent')
+xlabel(h8,'Time (Hours)');
+ylabel(h8,'Current (A)');
+title(h8,'Load Current');
+grid(h8,'on');
 
 % Initialize axes h9 Load active power
 Aactivepower = 0;
@@ -1126,12 +1129,16 @@ rto6 = get_param('Microgrid_24h_Simulation/Subsystem/Gain6','RuntimeObject');
 reactivepower= rto6.OutputPort(1).Data;
 assignin('base','reactivepower', reactivepower);
 
-% Dynamic upload of the data to the txtfrequency file for the plot frequency 
+
+
+% Dynamic upload of the data to files for the plot frequency 
 
 Af=evalin('caller','Af');
 Bf=evalin('caller','Bf');
 
     if size(Af)==size(Bf)
+        
+    % Open and write the new value of clock in clocktxt    
     fid = fopen('clocktxt.txt','a+');
     fprintf(fid,' %i\n',clock);
     fclose(fid)
@@ -1139,7 +1146,8 @@ Bf=evalin('caller','Bf');
     Af = fscanf(fid,'%f');
     assignin('base','Af', Af);
     fclose(fid);
-
+    
+    % Open and write the new value of frequency in frequencytxt
     fid2 = fopen('frequencytxt.txt','a+');
     fprintf(fid2,' %i\n',frequency);
     fclose(fid2)
@@ -1149,6 +1157,8 @@ Bf=evalin('caller','Bf');
     fclose(fid2);
 
     elseif size(Bf)<size(Af)
+        
+    % Open and write the new value of frequency in frequencytxt    
     fid2 = fopen('frequencytxt.txt','a+');
     fprintf(fid2,' %i\n',frequency);
     fclose(fid2)
@@ -1158,6 +1168,8 @@ Bf=evalin('caller','Bf');
     fclose(fid2);
 
     elseif size(Bf)>size(Af)
+        
+    % Open and write the new value of clock in clocktxt      
     fid = fopen('clocktxt.txt','a+');
     fprintf(fid,' %i\n',clock);
     fclose(fid)
@@ -1166,23 +1178,73 @@ Bf=evalin('caller','Bf');
     assignin('base','Af', Af);
     fclose(fid); 
     end
+
+
+% Dynamic upload of the data to files for the plot voltage %%%%%%%%%%%%%%% 
+
+Av=evalin('caller','Av');
+Bv=evalin('caller','Bv');
+
+    if size(Av)==size(Bv)
+        
+    % Open and write the new value of clock in clocktxtvoltage     
+    fidv = fopen('clocktxtvoltage.txt','a+');
+    fprintf(fidv,' %i\n',superclock);
+    fclose(fidv)
+    fidv = fopen('clocktxtvoltage.txt','r');
+    Av = fscanf(fidv,'%f');
+    assignin('base','Av', Av);
+    fclose(fidv);
     
-    % Dynamic upload of the data to the txtsoc file for the plot SOC 
+    % Open and write the new value of voltage in voltagetxt
+    fid1 = fopen('voltagetxt.txt','a+');
+    fprintf(fid1,' %i\n',voltage);
+    fclose(fid1)
+    fid1 = fopen('voltagetxt.txt','r');
+    Bv = fscanf(fid1,'%f');
+    assignin('base','Bv', Bv);
+    fclose(fid1);
+
+    elseif size(Bv)<size(Av)
+        
+    % Open and write the new value of voltage in voltagetxt    
+    fid1 = fopen('voltagetxt.txt','a+');
+    fprintf(fid1,' %i\n',voltage);
+    fclose(fid1)
+    fid1 = fopen('voltagetxt.txt','r');
+    Bv = fscanf(fid1,'%f');
+    assignin('base','Bv', Bv);
+    fclose(fid1);
+
+    elseif size(Bv)>size(Av)
+        
+    % Open and write the new value of clock in clocktxtvoltage   
+    fidv = fopen('clocktxtvoltage.txt','a+');
+    fprintf(fidv,' %i\n',superclock);
+    fclose(fidv)
+    fidv = fopen('clocktxtvoltage.txt','r');
+    Av = fscanf(fidv,'%f');
+    assignin('base','Av',Av);
+    fclose(fidv); 
+    
+    end
+    
+% Dynamic upload of the data for the plot SOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Asoc=evalin('caller','Asoc');
 Bsoc=evalin('caller','Bsoc');
 
     if size(Asoc)==size(Bsoc)
         
-    % Open and write the new value of clock in clocktxt  
-    fid0 = fopen('clocktxt2.txt','a+');
-    fprintf(fid0,' %i\n',clock);
-    fclose(fid0)
+    % Open and write the new value of clock in clocktxtsoc  
+    fidsoc = fopen('clocktxtsoc.txt','a+');
+    fprintf(fidsoc,' %i\n',clock);
+    fclose(fidsoc)
     % Update the plot
-    fid0 = fopen('clocktxt2.txt','r');
-    Asoc = fscanf(fid0,'%f');
+    fidsoc = fopen('clocktxtsoc.txt','r');
+    Asoc = fscanf(fidsoc,'%f');
     assignin('base','Asoc', Asoc);
-    fclose(fid0);
+    fclose(fidsoc);
     
     % Open and write the new value of SOC in soctxt
     fid3 = fopen('soctxt.txt','a+');
@@ -1207,23 +1269,72 @@ Bsoc=evalin('caller','Bsoc');
     elseif size(Bsoc)>size(Asoc)
         
     % Open and write the new value of SOC in soctxt 
-    fid0 = fopen('clocktxt2.txt','a+');
-    fprintf(fid0,' %i\n',clock);
-    fclose(fid0)
-    fid0 = fopen('clocktxt2.txt','r');
-    Af = fscanf(fid0,'%f');
+    fidsoc = fopen('clocktxtsoc.txt','a+');
+    fprintf(fidsoc,' %i\n',clock);
+    fclose(fidsoc)
+    fidsoc = fopen('clocktxtsoc.txt','r');
+    Af = fscanf(fidsoc,'%f');
     assignin('base','Asoc', Asoc);
-    fclose(fid0); 
+    fclose(fidsoc); 
     end
     
-      % Dynamic upload of the data to the activepowertxt file for the plot Active power 
+% Dynamic upload of the data to file for the plot current %%%%%%%%%%%%%%%%
+
+Acurrent=evalin('caller','Acurrent');
+Bcurrent=evalin('caller','Bcurrent');
+
+    if size(Acurrent)==size(Bcurrent)
+        
+    % Open and write the new value of clock in clocktxtc      
+    fidc = fopen('clocktxtc.txt','a+');
+    fprintf(fidc,' %i\n',superclock);
+    fclose(fidc)
+    fidc = fopen('clocktxtc.txt','r');
+    Acurrent = fscanf(fidc,'%f');
+    assignin('base','Acurrent', Acurrent);
+    fclose(fidc);
+    
+    % Open and write the new value of current in currenttxt
+    fid4 = fopen('currenttxt.txt','a+');
+    fprintf(fid4,' %i\n',current);
+    fclose(fid4)
+    fid4 = fopen('currenttxt.txt','r');
+    Bcurrent = fscanf(fid4,'%f');
+    assignin('base','Bcurrent', Bcurrent);
+    fclose(fid4);
+
+    elseif size(Bcurrent)<size(Acurrent)
+        
+    % Open and write the new value of current in currenttxt  
+    fid4 = fopen('currenttxt.txt','a+');
+    fprintf(fid4,' %i\n',current);
+    fclose(fid4)
+    fid4 = fopen('currenttxt.txt','r');
+    Bcurrent = fscanf(fid4,'%f');
+    assignin('base','Bcurrent', Bcurrent);
+    fclose(fid4);
+
+    elseif size(Bcurrent)>size(Acurrent)
+        
+    % Open and write the new value of clock in clocktxtc    
+    fidc = fopen('clocktxtc.txt','a+');
+    fprintf(fidc,' %i\n',superclock);
+    fclose(fidc)
+    fidc = fopen('clocktxtc.txt','r');
+    Acurrent = fscanf(fidc,'%f');
+    assignin('base','Acurrent',Acurrent);
+    fclose(fidc); 
+    
+    end
+    
+% Dynamic upload of the data to file for the plot Active power %%%%%%%%%%%
 
 Aactivepower=evalin('caller','Aactivepower');
 Bactivepower=evalin('caller','Bactivepower');
 
     if size(Aactivepower)==size(Bactivepower)
         
-    % Open and write the new value of clock in clocktxt  
+    % Open and write the new value of clock in clocktxtap  
     fidap = fopen('clocktxtap.txt','a+');
     fprintf(fidap,' %i\n',clock);
     fclose(fidap)
@@ -1255,7 +1366,7 @@ Bactivepower=evalin('caller','Bactivepower');
 
     elseif size(Bactivepower)>size(Aactivepower)
         
-    % Open and write the new value of SOC in soctxt 
+    % Open and write the new value of SOC in clocktxtap 
     fidap = fopen('clocktxtap.txt','a+');
     fprintf(fidap,' %i\n',clock);
     fclose(fidap)
@@ -1265,14 +1376,14 @@ Bactivepower=evalin('caller','Bactivepower');
     fclose(fidap); 
     end
      
-          % Dynamic upload of the data to the activepowertxt file for the plot Reactive power 
+% Dynamic upload of the data to file for the plot Reactive power %%%%%%%%%
 
 Areactivepower=evalin('caller','Areactivepower');
 Breactivepower=evalin('caller','Breactivepower');
 
     if size(Areactivepower)==size(Breactivepower)
         
-    % Open and write the new value of clock in clocktxt  
+    % Open and write the new value of clock in clocktxtrap  
     fidrap = fopen('clocktxtrap.txt','a+');
     fprintf(fidrap,' %i\n',clock);
     fclose(fidrap)
@@ -1282,7 +1393,7 @@ Breactivepower=evalin('caller','Breactivepower');
     assignin('base','Areactivepower', Areactivepower);
     fclose(fidrap);
     
-    % Open and write the new value of SOC in soctxt
+    % Open and write the new value of SOC in reactivepowertxt
     fid5 = fopen('reactivepowertxt.txt','a+');
     fprintf(fid5,' %i\n',reactivepower);
     fclose(fid5)
@@ -1293,7 +1404,7 @@ Breactivepower=evalin('caller','Breactivepower');
 
     elseif size(Breactivepower)<size(Areactivepower)
         
-    % Open and write the new value of SOC in soctxt
+    % Open and write the new value of SOC in reactivepowertxt
     fid5 = fopen('reactivepowertxt.txt','a+');
     fprintf(fid5,' %i\n',reactivepower);
     fclose(fid5)
@@ -1303,8 +1414,8 @@ Breactivepower=evalin('caller','Breactivepower');
     fclose(fid5);
 
     elseif size(Breactivepower)>size(Areactivepower)
-        
-    % Open and write the new value of SOC in soctxt 
+   
+    % Open and write the new value of SOC in clocktxtrap 
     fidap = fopen('clocktxtrap.txt','a+');
     fprintf(fidap,' %i\n',clock);
     fclose(fidap)
