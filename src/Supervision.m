@@ -1112,7 +1112,7 @@ assignin('base','frequency', frequency);
 rto3 = get_param('Microgrid_24h_Simulation/Subsystem/Gain3','RuntimeObject');
 SOC= rto3.OutputPort(1).Data;
 assignin('base', 'SOC', SOC);
-save SOCfile SOC;
+
  
 % Load current
 rto4 = get_param('Microgrid_24h_Simulation/Subsystem/Gain4','RuntimeObject');
