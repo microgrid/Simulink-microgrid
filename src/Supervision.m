@@ -236,8 +236,8 @@ set([f,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,hmonsoon,hintermediate,htextboxpopup,htext
 set(f, 'Units', 'Normalized', 'Position', [0 0 1 1]);
 
 % Initialize a plot in the axes
-SampleTime=0.1;
-xdiscretized=1:SampleTime:24;
+SampleTime=5e-6;
+xdiscretized=0.1:SampleTime:2.4;
 
 % Initialize the plot h1 with Ins_Monsoon from DataBase.m
 plot(h1,xdiscretized,Ins_M,'m'); 
@@ -347,13 +347,13 @@ title(h10,'Load Reactive Power');
 grid(h10,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
-plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
+plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
 xlabel(h2,'Time (Hours)');
 ylabel(h2,'Active Power (kW)');
 title(h2,'Active Power All Blocks during Monsoon');
 
 % Initialize plote h3 for the Reactive power (In our case we make an assumption, it is just the Active power divided by 10).
-plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
 xlabel(h3,'Time (Hours)');
 ylabel(h3,'Reactive Power (kVAR)');
 title(h3,'Reactive Power All Blocks during Monsoon')
@@ -393,7 +393,7 @@ function popup_menu_Callback(source, eventdata, handles)
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Monsoon')

@@ -20,9 +20,9 @@ case 'Linux'
 end
 
 % Create the data insolation to plot from excel
-SampleTime=0.1;
-xdiscretized=1:SampleTime:24;
-Insolation_data = normpdf(xdiscretized,12,1.7); % Normal law
+SampleTime=5e-6;
+xdiscretized=0.1:SampleTime:2.4;
+Insolation_data = normpdf(xdiscretized,1.2,0.17); % Normal law
 Ins_Monsoon=Insolation_data*3990;
 Ins_Intermediate=Insolation_data*4583;
 Ins_Winter=Insolation_data*4888;
@@ -65,7 +65,7 @@ customerRHMonsoon=importdata('dataBase/PowerRHMonsoon.mat'); %  Data from excel 
 customerRHIntermediate=importdata('dataBase/PowerRHIntermediate.mat'); %  Data from excel Block RH
 customerRHWinter=importdata('dataBase/PowerRHWinter.mat'); %  Data from excel Block RH
 
-Time=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
+Time1=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img/bhutan.jpg');
 
 elseif os==2
@@ -104,11 +104,12 @@ customerRHMonsoon=importdata('dataBase\PowerRHMonsoon.mat'); %  Data from excel 
 customerRHIntermediate=importdata('dataBase\PowerRHIntermediate.mat'); %  Data from excel Block RH
 customerRHWinter=importdata('dataBase\PowerRHWinter.mat'); %  Data from excel Block RH
 
-Time=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
+Time1=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img\bhutan.jpg');
 
 end
 
+Time=Time1/10
 % linear regression with a polynomial approach for the Active power of the load  
 
 % Block All (Monsoon)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,7 +120,7 @@ yfitdiscretized1=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized1=yfitdiscretized1;
 r=1;
 for c = 1:ncols
@@ -156,7 +157,7 @@ yfitdiscretized3=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized3=yfitdiscretized3;
 r=1;
 for c = 1:ncols
@@ -176,7 +177,7 @@ yfitdiscretized4=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized4=yfitdiscretized4;
 r=1;
 for c = 1:ncols
@@ -214,7 +215,7 @@ yfitdiscretized6=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized6=yfitdiscretized6;
 r=1;
 for c = 1:ncols
@@ -234,7 +235,7 @@ yfitdiscretized7=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized7=yfitdiscretized7;
 r=1;
 for c = 1:ncols
@@ -272,7 +273,7 @@ yfitdiscretized9=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized9=yfitdiscretized9;
 r=1;
 for c = 1:ncols
@@ -292,7 +293,7 @@ yfitdiscretized10=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized10=yfitdiscretized10;
 r=1;
 for c = 1:ncols
@@ -330,7 +331,7 @@ yfitdiscretized12=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized12=yfitdiscretized12;
 r=1;
 for c = 1:ncols
@@ -351,7 +352,7 @@ yfitdiscretized13=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized13=yfitdiscretized13;
 r=1;
 for c = 1:ncols
@@ -389,7 +390,7 @@ yfitdiscretized15=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized15=yfitdiscretized15;
 r=1;
 for c = 1:ncols
@@ -409,7 +410,7 @@ yfitdiscretized16=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized16=yfitdiscretized16;
 r=1;
 for c = 1:ncols
@@ -447,7 +448,7 @@ yfitdiscretized18=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized18=yfitdiscretized18;
 r=1;
 for c = 1:ncols
@@ -467,7 +468,7 @@ yfitdiscretized19=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized19=yfitdiscretized19;
 r=1;
 for c = 1:ncols
@@ -505,7 +506,7 @@ yfitdiscretized21=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized21=yfitdiscretized21;
 r=1;
 for c = 1:ncols
@@ -525,7 +526,7 @@ yfitdiscretized22=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized22=yfitdiscretized22;
 r=1;
 for c = 1:ncols
@@ -563,7 +564,7 @@ yfitdiscretized24=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = (23/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized24=yfitdiscretized24;
 r=1;
 for c = 1:ncols
@@ -577,13 +578,13 @@ end
 
 % Temperature for each seasons from the edit box
 
-Temp1=zeros(1,(23/SampleTime)+1);% Creation matrix Temp1
+Temp1=zeros(1,((2.3/SampleTime)+2));% Creation matrix Temp1
 Temp1(:,:)=26.8; % Set value into the matrix
 
-Temp2=zeros(1,(23/SampleTime)+1);% Creation matrix Temp2
+Temp2=zeros(1,((2.3/SampleTime)+2));% Creation matrix Temp2
 Temp2(:,:)=17.4; % Set value into the matrix
 
-Temp3=zeros(1,(23/SampleTime)+1);% Creation matrix Temp3
+Temp3=zeros(1,((2.3/SampleTime)+2));% Creation matrix Temp3
 Temp3(:,:)=23.4; % Set value into the matrix
 
 % Intit clock and superclock

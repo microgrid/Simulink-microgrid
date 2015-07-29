@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.111"
+    ComputedModelVersion    "1.115"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -70,8 +70,8 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1362"
 	  Extents		  [1550.0, 729.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-72.566667739550439, 108.35476190476186]
+	  ZoomFactor		  [0.8]
+	  Offset		  [-149.56666773955055, 2.6880952380952294]
 	}
 	Object {
 	  $ObjectID		  7
@@ -79,8 +79,8 @@ Model {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1550.0, 729.0]
-	  ZoomFactor		  [0.6]
-	  Offset		  [-273.29999999999984, 7.1999999999999691]
+	  ZoomFactor		  [1.0]
+	  Offset		  [182.0, 200.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jul 28 13:02:17 2015"
-  RTWModifiedTimeStamp	  359989331
-  ModelVersionFormat	  "1.%<AutoIncrement:111>"
+  LastModifiedDate	  "Wed Jul 29 13:36:35 2015"
+  RTWModifiedTimeStamp	  360077777
+  ModelVersionFormat	  "1.%<AutoIncrement:115>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -201,7 +201,7 @@ Model {
 	  $ObjectID		  10
 	  Version		  "1.13.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1"
+	  StopTime		  "2.4"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -1104,7 +1104,7 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "60"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "2630"
     Block {
@@ -2725,7 +2725,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Battery Converter\n Control"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2854,7 +2854,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"PI 1"
-		Location		[-8, -8, 1608, 908]
+		Location		[0, 0, 1600, 876]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -3005,7 +3005,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"PI 2"
-		Location		[-8, -8, 1608, 908]
+		Location		[0, 0, 1600, 876]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -6261,7 +6261,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"AC Load Measurements"
-		Location		[-8, -8, 1608, 908]
+		Location		[0, 0, 1600, 876]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -13702,7 +13702,7 @@ Model {
 	  BlockType		  FromWorkspace
 	  Name			  "From\nWorkspace1"
 	  SID			  "2592"
-	  Position		  [20, 648, 85, 672]
+	  Position		  [25, 633, 90, 657]
 	  ZOrder		  26
 	  VariableName		  "VARins'"
 	  SampleTime		  "0"
@@ -14167,7 +14167,7 @@ Model {
 	  BlockType		  RateLimiter
 	  Name			  "Rate Limiter"
 	  SID			  "816"
-	  Position		  [235, 645, 265, 675]
+	  Position		  [235, 630, 265, 660]
 	  ZOrder		  -29
 	  ShowName		  off
 	  RisingSlewLimit	  "5"
@@ -14884,7 +14884,6 @@ Model {
 	Line {
 	  SrcBlock		  "Rate Limiter"
 	  SrcPort		  1
-	  Points		  [32, 0; 0, -15]
 	  DstBlock		  "PV"
 	  DstPort		  2
 	}
@@ -14930,9 +14929,9 @@ Model {
 	Line {
 	  SrcBlock		  "From\nWorkspace1"
 	  SrcPort		  1
-	  Points		  [46, 0]
+	  Points		  [41, 0]
 	  Branch {
-	    Points		    [0, -70]
+	    Points		    [0, -55]
 	    DstBlock		    "Subsystem2"
 	    DstPort		    1
 	  }
@@ -14982,7 +14981,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"80"
 	Block {
 	  BlockType		  Scope
 	  Name			  "AC Load Measurements"
@@ -15012,8 +15011,8 @@ Model {
 	  }
 	  ShowLegends		  off
 	  TimeRange		  "1"
-	  YMin			  "-1100~-30"
-	  YMax			  "1100~30"
+	  YMin			  "-110~-0.35"
+	  YMax			  "110~0.35"
 	  SaveName		  "ScopeData11"
 	  LimitDataPoints	  off
 	  SampleTime		  "0"
@@ -22611,7 +22610,7 @@ Model {
       Position		      [45, 30, 136, 81]
       ZOrder		      -38
       Priority		      "1"
-      LibraryVersion	      "1.2191"
+      LibraryVersion	      "*1.2191"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
@@ -22808,10 +22807,7 @@ Stateflow {
     firstTransition	    9
     firstJunction	    8
     viewObj		    2
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -22996,10 +22992,7 @@ Stateflow {
     firstTransition	    23
     firstJunction	    22
     viewObj		    11
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    12
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
