@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.89"
+    ComputedModelVersion    "1.118"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -21,6 +21,10 @@ Model {
   MinMaxOverflowArchiveMode "Overwrite"
   FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
+  StartFcn		  "%The GUI handles are by default hidden, turn them on\nset(0,'ShowHiddenHandles','on');\n\n%Set up the a"
+  "rguments that will go into the gain block event callback listener\nblk = 'Microgrid_24h_Simulation/Subsystem/Clock';"
+  "\nevent = 'PostOutputs';\nlistener = @updategui;\n\n%Create the listener\nh = add_exec_event_listener(blk, event, li"
+  "stener);\n\n"
   UserBdParams		  "PhysicalModelingChecksum;PhysicalModelingParameterChecksum;PhysicalModelingProducts"
   Object {
     $PropName		    "BdWindowsInfo"
@@ -31,7 +35,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1612.0, 876.0]
+      Location		      [-8.0, -8.0, 1616.0, 916.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -50,22 +54,22 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		5
+	Dimension		3
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1562.0, 729.0]
-	  ZoomFactor		  [0.8]
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "1726"
+	  Extents		  [1550.0, 729.0]
+	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "2165"
-	  Extents		  [1562.0, 729.0]
+	  LoadSaveID		  "2191"
+	  Extents		  [1566.0, 769.0]
 	  ZoomFactor		  [1.0]
 	  Offset		  [0.0, 0.0]
 	}
@@ -73,28 +77,10 @@ Model {
 	  $ObjectID		  7
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "2191"
-	  Extents		  [1562.0, 729.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [1.4041613380114768, 44.0]
-	}
-	Object {
-	  $ObjectID		  8
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "2166:15::129"
-	  Extents		  [1562.0, 729.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [0.0, -5.0]
-	}
-	Object {
-	  $ObjectID		  9
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "802"
-	  Extents		  [1562.0, 729.0]
+	  Extents		  [1566.0, 769.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [-275.06666666666626, 0.5]
+	  Offset		  [0.0, 0.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -109,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jul 07 22:24:27 2015"
-  RTWModifiedTimeStamp	  358208653
-  ModelVersionFormat	  "1.%<AutoIncrement:89>"
+  LastModifiedDate	  "Thu Jul 30 14:28:28 2015"
+  RTWModifiedTimeStamp	  360167297
+  ModelVersionFormat	  "1.%<AutoIncrement:118>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -146,7 +132,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    10
+    $ObjectID		    8
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Dena_batea"
     signals_		    []
@@ -206,16 +192,16 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      11
+      $ObjectID		      9
       Version		      "1.13.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  12
+	  $ObjectID		  10
 	  Version		  "1.13.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1"
+	  StopTime		  "2.4"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -247,7 +233,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  13
+	  $ObjectID		  11
 	  Version		  "1.13.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -279,7 +265,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  14
+	  $ObjectID		  12
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -335,7 +321,7 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  15
+	  $ObjectID		  13
 	  Version		  "1.13.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -387,9 +373,9 @@ Model {
 	  InvalidFcnCallConnMsg	  "error"
 	  FcnCallInpInsideContextMsg "UseLocalSettings"
 	  SignalLabelMismatchMsg  "none"
-	  UnconnectedInputMsg	  "warning"
-	  UnconnectedOutputMsg	  "warning"
-	  UnconnectedLineMsg	  "warning"
+	  UnconnectedInputMsg	  "none"
+	  UnconnectedOutputMsg	  "none"
+	  UnconnectedLineMsg	  "none"
 	  SFcnCompatibilityMsg	  "none"
 	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
@@ -425,7 +411,7 @@ Model {
 	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  16
+	  $ObjectID		  14
 	  Version		  "1.13.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -466,7 +452,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  17
+	  $ObjectID		  15
 	  Version		  "1.13.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -481,7 +467,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  18
+	  $ObjectID		  16
 	  Version		  "1.13.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -496,7 +482,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  19
+	  $ObjectID		  17
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -559,7 +545,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      20
+	      $ObjectID		      18
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -626,7 +612,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      21
+	      $ObjectID		      19
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -709,7 +695,7 @@ Model {
 	  }
 	}
 	SSC.SimscapeCC {
-	  $ObjectID		  22
+	  $ObjectID		  20
 	  Version		  "1.0"
 	  Array {
 	    Type		    "Cell"
@@ -738,11 +724,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    11
+    $ObjectID		    9
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    23
+    $ObjectID		    21
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -910,12 +896,6 @@ Model {
       IgnoreLimit	      off
       ZeroCross		      on
       ContinuousStateAttributes	"''"
-    }
-    Block {
-      BlockType		      ManualSwitch
-      CurrentSetting	      "1"
-      varsize		      off
-      SampleTime	      "-1"
     }
     Block {
       BlockType		      Memory
@@ -1112,8 +1092,8 @@ Model {
   }
   System {
     Name		    "Microgrid_24h_Simulation"
-    Location		    [-8, 0, 1604, 876]
-    Open		    on
+    Location		    [-8, -8, 1608, 908]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1124,9 +1104,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2612"
+    SIDHighWatermark	    "2630"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -1143,14 +1123,14 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		24
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('Plug.bmp'))"
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1604, 876]
-	Open			on
+	Location		[-8, -8, 1608, 908]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1209,7 +1189,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Measurements"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1951,13 +1931,23 @@ Model {
 	  Position		  [995, 84, 1055, 166]
 	  ZOrder		  -19
 	  Floating		  off
-	  Location		  [534, 255, 1318, 1051]
+	  Location		  [534, 98, 1318, 894]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  ZoomMode		  "xonly"
 	  List {
 	    ListType		    AxesTitles
 	    axes1		    "Phase to Ground Load Voltages, Vabc (V)"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
 	  ShowLegends		  off
 	  TimeRange		  "1"
@@ -1984,7 +1974,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Power Demand 24h"
-	    Location		    [-8, 0, 1604, 876]
+	    Location		    [-8, -8, 1608, 908]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2003,9 +1993,11 @@ Model {
 	      SID		      "2589"
 	      Position		      [20, 58, 85, 82]
 	      ZOrder		      23
-	      VariableName	      "VAR1'"
-	      SampleTime	      "0"
-	      ZeroCross		      on
+	      VariableName	      "VARPA'"
+	      OutDataTypeStr	      "double"
+	      SampleTime	      "[5e-6,0]"
+	      Interpolate	      off
+	      OutputAfterFinalValue   "Setting to zero"
 	    }
 	    Block {
 	      BlockType		      FromWorkspace
@@ -2013,9 +2005,11 @@ Model {
 	      SID		      "2590"
 	      Position		      [20, 148, 85, 172]
 	      ZOrder		      24
-	      VariableName	      "VAR2'"
-	      SampleTime	      "0"
-	      ZeroCross		      on
+	      VariableName	      "VARPQ'"
+	      OutDataTypeStr	      "double"
+	      SampleTime	      "[5e-6,0]"
+	      Interpolate	      off
+	      OutputAfterFinalValue   "Setting to zero"
 	    }
 	    Block {
 	      BlockType		      Concatenate
@@ -2237,13 +2231,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		25
+	$ObjectID		23
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('Battery.bmp'))"
       }
       System {
 	Name			"Battery"
-	Location		[-8, 0, 1608, 916]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2541,7 +2535,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem5"
-	    Location		    [982, 630, 1231, 931]
+	    Location		    [-8, 0, 1604, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2590,7 +2584,7 @@ Model {
 	      SrcPort		      1
 	      Points		      [25, 0]
 	      Branch {
-		Points			[0, 0; 0, 45]
+		Points			[0, 45]
 		DstBlock		"To Workspace1"
 		DstPort			1
 	      }
@@ -2700,13 +2694,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		26
+	$ObjectID		24
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Bidirectional Converter') \n"
       }
       System {
 	Name			"Bidirectional DC/DC\n Converter"
-	Location		[-8, -8, 1608, 908]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2735,7 +2729,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Battery Converter\n Control"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2864,7 +2858,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"PI 1"
-		Location		[-8, -8, 1608, 908]
+		Location		[0, 0, 1600, 876]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -3015,7 +3009,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"PI 2"
-		Location		[-8, -8, 1608, 908]
+		Location		[0, 0, 1600, 876]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4713,13 +4707,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		27
+	$ObjectID		25
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Boost Converter')"
       }
       System {
 	Name			"Boost"
-	Location		[-8, -8, 1608, 908]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4891,7 +4885,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Incremental Conductance MPPT"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6169,13 +6163,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		28
+	$ObjectID		26
 	$ClassName		"Simulink.Mask"
 	Display			"disp('DC/AC Inverter')"
       }
       System {
 	Name			"Inverter"
-	Location		[-8, -8, 1608, 908]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -6205,7 +6199,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "DC / AC Inverter"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6271,7 +6265,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"AC Load Measurements"
-		Location		[-8, -8, 1608, 908]
+		Location		[0, 0, 1600, 876]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -13644,13 +13638,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		29
+	$ObjectID		27
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('photo.bmp'))"
       }
       System {
 	Name			"PV Array"
-	Location		[-8, 0, 1604, 876]
+	Location		[-8, -8, 1608, 908]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -13668,7 +13662,7 @@ Model {
 	  Name			  "Cdc1"
 	  SID			  "803"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
-	  Position		  [1586, 590, 1614, 660]
+	  Position		  [1636, 590, 1664, 660]
 	  ZOrder		  -1
 	  BlockRotation		  270
 	  BlockMirror		  on
@@ -13696,7 +13690,7 @@ Model {
 	  Name			  "Current Measurement2"
 	  SID			  "804"
 	  Ports			  [0, 1, 0, 0, 0, 1, 1]
-	  Position		  [1380, 528, 1405, 552]
+	  Position		  [1430, 528, 1455, 552]
 	  ZOrder		  -2
 	  ShowName		  off
 	  LibraryVersion	  "1.2191"
@@ -13710,69 +13704,33 @@ Model {
 	}
 	Block {
 	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace"
-	  SID			  "2591"
-	  Position		  [20, 178, 85, 202]
-	  ZOrder		  24
-	  VariableName		  "VARins3'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
 	  Name			  "From\nWorkspace1"
 	  SID			  "2592"
-	  Position		  [20, 98, 85, 122]
+	  Position		  [25, 633, 90, 657]
 	  ZOrder		  26
-	  VariableName		  "VARins2'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace2"
-	  SID			  "2594"
-	  Position		  [20, 18, 85, 42]
-	  ZOrder		  28
-	  VariableName		  "VARins1'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
+	  VariableName		  "VARins'"
+	  OutDataTypeStr	  "double"
+	  SampleTime		  "[5e-6,0]"
+	  Interpolate		  off
+	  OutputAfterFinalValue	  "Setting to zero"
 	}
 	Block {
 	  BlockType		  FromWorkspace
 	  Name			  "From\nWorkspace3"
 	  SID			  "2600"
-	  Position		  [20, 833, 85, 857]
+	  Position		  [215, 688, 280, 712]
 	  ZOrder		  33
-	  VariableName		  "VARTemp1'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace4"
-	  SID			  "2601"
-	  Position		  [20, 928, 85, 952]
-	  ZOrder		  34
-	  VariableName		  "VARTemp2'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
-	}
-	Block {
-	  BlockType		  FromWorkspace
-	  Name			  "From\nWorkspace5"
-	  SID			  "2602"
-	  Position		  [20, 1018, 85, 1042]
-	  ZOrder		  35
-	  VariableName		  "VARTemp3'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
+	  VariableName		  "VARTemp'"
+	  OutDataTypeStr	  "double"
+	  SampleTime		  "[5e-6,0]"
+	  Interpolate		  off
+	  OutputAfterFinalValue	  "Setting to zero"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "From2"
 	  SID			  "805"
-	  Position		  [215, 576, 270, 604]
+	  Position		  [265, 576, 320, 604]
 	  ZOrder		  -9
 	  ShowName		  off
 	  GotoTag		  "Vpv"
@@ -13782,7 +13740,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto5"
 	  SID			  "808"
-	  Position		  [450, 665, 490, 695]
+	  Position		  [500, 665, 540, 695]
 	  ZOrder		  -18
 	  BlockMirror		  on
 	  ShowName		  off
@@ -13794,7 +13752,7 @@ Model {
 	  Name			  "Ia"
 	  SID			  "810"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [512, 575, 548, 620]
+	  Position		  [562, 575, 598, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13814,7 +13772,7 @@ Model {
 	  Name			  "Ia1"
 	  SID			  "811"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [572, 575, 608, 620]
+	  Position		  [622, 575, 658, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13834,7 +13792,7 @@ Model {
 	  Name			  "Ia10"
 	  SID			  "2410"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1137, 575, 1173, 620]
+	  Position		  [1187, 575, 1223, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13854,7 +13812,7 @@ Model {
 	  Name			  "Ia11"
 	  SID			  "2465"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1202, 575, 1238, 620]
+	  Position		  [1252, 575, 1288, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13874,7 +13832,7 @@ Model {
 	  Name			  "Ia12"
 	  SID			  "2466"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1267, 575, 1303, 620]
+	  Position		  [1317, 575, 1353, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13894,7 +13852,7 @@ Model {
 	  Name			  "Ia13"
 	  SID			  "2467"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1337, 575, 1373, 620]
+	  Position		  [1387, 575, 1423, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13914,7 +13872,7 @@ Model {
 	  Name			  "Ia2"
 	  SID			  "2402"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [637, 575, 673, 620]
+	  Position		  [687, 575, 723, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13934,7 +13892,7 @@ Model {
 	  Name			  "Ia3"
 	  SID			  "2403"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [697, 575, 733, 620]
+	  Position		  [747, 575, 783, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13954,7 +13912,7 @@ Model {
 	  Name			  "Ia4"
 	  SID			  "2404"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [757, 575, 793, 620]
+	  Position		  [807, 575, 843, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13974,7 +13932,7 @@ Model {
 	  Name			  "Ia5"
 	  SID			  "2405"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [817, 575, 853, 620]
+	  Position		  [867, 575, 903, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -13994,7 +13952,7 @@ Model {
 	  Name			  "Ia6"
 	  SID			  "2406"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [877, 575, 913, 620]
+	  Position		  [927, 575, 963, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14014,7 +13972,7 @@ Model {
 	  Name			  "Ia7"
 	  SID			  "2407"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [942, 575, 978, 620]
+	  Position		  [992, 575, 1028, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14034,7 +13992,7 @@ Model {
 	  Name			  "Ia8"
 	  SID			  "2408"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1002, 575, 1038, 620]
+	  Position		  [1052, 575, 1088, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14054,7 +14012,7 @@ Model {
 	  Name			  "Ia9"
 	  SID			  "2409"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
-	  Position		  [1067, 575, 1103, 620]
+	  Position		  [1117, 575, 1153, 620]
 	  ZOrder		  -24
 	  BlockRotation		  270
 	  LibraryVersion	  "1.2191"
@@ -14070,108 +14028,11 @@ Model {
 	  Measurements		  "None"
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Irradiance"
-	  SID			  "812"
-	  Position		  [20, 685, 50, 715]
-	  ZOrder		  -3
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Irradiance1"
-	  SID			  "2605"
-	  Position		  [35, 1120, 65, 1150]
-	  ZOrder		  38
-	  Value			  "20"
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch"
-	  SID			  "814"
-	  Position		  [115, 182, 145, 218]
-	  ZOrder		  -63
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch1"
-	  SID			  "2593"
-	  Position		  [115, 102, 145, 138]
-	  ZOrder		  25
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch2"
-	  SID			  "2595"
-	  Position		  [115, 22, 145, 58]
-	  ZOrder		  27
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch3"
-	  SID			  "2598"
-	  Position		  [185, 62, 215, 98]
-	  ZOrder		  31
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch4"
-	  SID			  "2599"
-	  Position		  [250, 172, 280, 208]
-	  ZOrder		  32
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch5"
-	  SID			  "2603"
-	  Position		  [135, 872, 165, 908]
-	  ZOrder		  36
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch6"
-	  SID			  "2604"
-	  Position		  [135, 967, 165, 1003]
-	  ZOrder		  37
-	  ShowName		  off
-	  CurrentSetting	  "0"
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch7"
-	  SID			  "2607"
-	  Position		  [135, 1062, 165, 1098]
-	  ZOrder		  40
-	  ShowName		  off
-	  CurrentSetting	  "0"
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch8"
-	  SID			  "2608"
-	  Position		  [210, 922, 240, 958]
-	  ZOrder		  41
-	  ShowName		  off
-	}
-	Block {
-	  BlockType		  ManualSwitch
-	  Name			  "Manual Switch9"
-	  SID			  "2609"
-	  Position		  [290, 1022, 320, 1058]
-	  ZOrder		  42
-	  ShowName		  off
-	}
-	Block {
 	  BlockType		  SubSystem
 	  Name			  "PV"
 	  SID			  "2112"
 	  Ports			  [3, 1]
-	  Position		  [290, 563, 420, 727]
+	  Position		  [340, 563, 470, 727]
 	  ZOrder		  -64
 	  LibraryVersion	  "1.32"
 	  ErrorFcn		  "Stateflow.Translate.translate"
@@ -14314,50 +14175,18 @@ Model {
 	  BlockType		  RateLimiter
 	  Name			  "Rate Limiter"
 	  SID			  "816"
-	  Position		  [185, 645, 215, 675]
+	  Position		  [235, 630, 265, 660]
 	  ZOrder		  -29
 	  ShowName		  off
 	  RisingSlewLimit	  "5"
 	  FallingSlewLimit	  "-5"
 	}
 	Block {
-	  BlockType		  Scope
-	  Name			  "Scope"
-	  SID			  "2596"
-	  Ports			  [1]
-	  Position		  [305, 289, 335, 321]
-	  ZOrder		  29
-	  Floating		  off
-	  Location		  [188, 390, 512, 629]
-	  Open			  off
-	  NumInputPorts		  "1"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "%<SignalLabel>"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  YMin			  "-2.7015e-06"
-	  YMax			  "-2.696e-06"
-	  SaveName		  "ScopeData9"
-	  DataFormat		  "StructureWithTime"
-	  SampleTime		  "0"
-	}
-	Block {
 	  BlockType		  SubSystem
 	  Name			  "Subsystem1"
 	  SID			  "1143"
 	  Ports			  [1]
-	  Position		  [1500, 606, 1535, 644]
+	  Position		  [1550, 606, 1585, 644]
 	  ZOrder		  -66
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -14462,7 +14291,7 @@ Model {
 	  Name			  "Subsystem2"
 	  SID			  "1147"
 	  Ports			  [1]
-	  Position		  [300, 371, 335, 409]
+	  Position		  [160, 571, 195, 609]
 	  ZOrder		  -67
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -14474,7 +14303,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem2"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [-8, 0, 1608, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -14553,7 +14382,7 @@ Model {
 	  Name			  "Subsystem4"
 	  SID			  "1139"
 	  Ports			  [1]
-	  Position		  [1440, 481, 1475, 519]
+	  Position		  [1490, 481, 1525, 519]
 	  ZOrder		  -68
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -14630,7 +14459,7 @@ Model {
 	  Name			  "Va"
 	  SID			  "818"
 	  Ports			  [0, 1, 0, 0, 0, 2]
-	  Position		  [1445, 613, 1470, 637]
+	  Position		  [1495, 613, 1520, 637]
 	  ZOrder		  -35
 	  ShowName		  off
 	  LibraryVersion	  "1.2191"
@@ -14646,7 +14475,7 @@ Model {
 	  BlockType		  PMIOPort
 	  Name			  "+"
 	  SID			  "819"
-	  Position		  [1645, 530, 1660, 560]
+	  Position		  [1695, 530, 1710, 560]
 	  ZOrder		  -71
 	  BlockMirror		  on
 	  Port			  "1"
@@ -14656,7 +14485,7 @@ Model {
 	  BlockType		  PMIOPort
 	  Name			  "-"
 	  SID			  "820"
-	  Position		  [1645, 700, 1660, 730]
+	  Position		  [1695, 700, 1710, 730]
 	  ZOrder		  -72
 	  BlockMirror		  on
 	  NamePlacement		  "alternate"
@@ -14779,61 +14608,41 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Irradiance"
-	  SrcPort		  1
-	  Points		  [45, 0; 0, -490]
-	  Branch {
-	    Points		    [0, -80]
-	    Branch {
-	      DstBlock		      "Manual Switch1"
-	      DstPort		      2
-	    }
-	    Branch {
-	      DstBlock		      "Manual Switch2"
-	      DstPort		      2
-	    }
-	  }
-	  Branch {
-	    DstBlock		    "Manual Switch"
-	    DstPort		    2
-	  }
-	}
-	Line {
 	  LineType		  "Connection"
-	  Points		  [1295, 720; 70, 0]
+	  Points		  [1345, 720; 70, 0]
 	  Branch {
 	    ConnectType		    "SRC_DEST"
-	    Points		    [1230, 720; 65, 0]
+	    Points		    [1280, 720; 65, 0]
 	    Branch {
 	      ConnectType	      "SRC_DEST"
-	      Points		      [1165, 720; 65, 0]
+	      Points		      [1215, 720; 65, 0]
 	      Branch {
 		ConnectType		"SRC_DEST"
-		Points			[1095, 720; 70, 0]
+		Points			[1145, 720; 70, 0]
 		Branch {
 		  ConnectType		  "SRC_DEST"
-		  Points		  [1030, 720; 65, 0]
+		  Points		  [1080, 720; 65, 0]
 		  Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [970, 720; 60, 0]
+		    Points		    [1020, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [905, 720; 65, 0]
+		    Points		    [955, 720; 65, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [845, 720; 60, 0]
+		    Points		    [895, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [785, 720; 60, 0]
+		    Points		    [835, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [725, 720; 60, 0]
+		    Points		    [775, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [665, 720; 60, 0]
+		    Points		    [715, 720; 60, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
-		    Points		    [600, 720; 65, 0]
+		    Points		    [650, 720; 65, 0]
 		    Branch {
 		    ConnectType		    "SRC_DEST"
 		    SrcBlock		    "Ia"
@@ -14921,7 +14730,7 @@ Model {
 	    }
 	    Branch {
 	      ConnectType	      "DEST_DEST"
-	      Points		      [1600, 720; -170, 0]
+	      Points		      [1650, 720; -170, 0]
 	      Branch {
 		ConnectType		"SRC_DEST"
 		SrcBlock		"Cdc1"
@@ -15083,7 +14892,6 @@ Model {
 	Line {
 	  SrcBlock		  "Rate Limiter"
 	  SrcPort		  1
-	  Points		  [32, 0; 0, -15]
 	  DstBlock		  "PV"
 	  DstPort		  2
 	}
@@ -15121,146 +14929,23 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "From\nWorkspace"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace1"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace2"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch2"
-	  SrcPort		  1
-	  Points		  [15, 0; 0, 30]
-	  DstBlock		  "Manual Switch3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch1"
-	  SrcPort		  1
-	  Points		  [15, 0; 0, -30]
-	  DstBlock		  "Manual Switch3"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch3"
-	  SrcPort		  1
-	  Points		  [15, 0]
-	  DstBlock		  "Manual Switch4"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch"
-	  SrcPort		  1
-	  DstBlock		  "Manual Switch4"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch4"
-	  SrcPort		  1
-	  Points		  [4, 0; 0, 48; -69, 0; 0, 67]
-	  Branch {
-	    Points		    [0, 85]
-	    Branch {
-	      Points		      [0, 106; -50, 0]
-	      DstBlock		      "Rate Limiter"
-	      DstPort		      1
-	    }
-	    Branch {
-	      DstBlock		      "Subsystem2"
-	      DstPort		      1
-	    }
-	  }
-	  Branch {
-	    DstBlock		    "Scope"
-	    DstPort		    1
-	  }
-	}
-	Line {
 	  SrcBlock		  "From\nWorkspace3"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, 35]
-	  DstBlock		  "Manual Switch5"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace4"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 35]
-	  DstBlock		  "Manual Switch6"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From\nWorkspace5"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 40]
-	  DstBlock		  "Manual Switch7"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch5"
-	  SrcPort		  1
-	  Points		  [25, 0]
-	  DstBlock		  "Manual Switch8"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch6"
-	  SrcPort		  1
-	  Points		  [25, 0]
-	  DstBlock		  "Manual Switch8"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch7"
-	  SrcPort		  1
-	  Points		  [65, 0; 0, -30]
-	  DstBlock		  "Manual Switch9"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Manual Switch8"
-	  SrcPort		  1
-	  Points		  [3, 0; 0, 90]
-	  DstBlock		  "Manual Switch9"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Manual Switch9"
-	  SrcPort		  1
-	  Points		  [24, 0; 0, -87; -78, 0; 0, -253]
 	  DstBlock		  "PV"
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "Irradiance1"
+	  SrcBlock		  "From\nWorkspace1"
 	  SrcPort		  1
-	  Points		  [28, 0; 0, -45]
+	  Points		  [41, 0]
 	  Branch {
-	    DstBlock		    "Manual Switch7"
-	    DstPort		    2
+	    Points		    [0, -55]
+	    DstBlock		    "Subsystem2"
+	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, -95]
-	    Branch {
-	      DstBlock		      "Manual Switch6"
-	      DstPort		      2
-	    }
-	    Branch {
-	      Points		      [0, -95]
-	      DstBlock		      "Manual Switch5"
-	      DstPort		      2
-	    }
+	    DstBlock		    "Rate Limiter"
+	    DstPort		    1
 	  }
 	}
       }
@@ -15286,13 +14971,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		30
+	$ObjectID		28
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Measurements')"
       }
       System {
 	Name			"Subsystem"
-	Location		[-8, 0, 1608, 876]
+	Location		[0, 0, 1600, 876]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -15304,7 +14989,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"60"
+	ZoomFactor		"80"
 	Block {
 	  BlockType		  Scope
 	  Name			  "AC Load Measurements"
@@ -15313,7 +14998,7 @@ Model {
 	  Position		  [1310, 99, 1370, 181]
 	  ZOrder		  -19
 	  Floating		  off
-	  Location		  [5, 43, 1605, 894]
+	  Location		  [5, 47, 1601, 894]
 	  Open			  off
 	  NumInputPorts		  "2"
 	  ZoomMode		  "xonly"
@@ -15334,10 +15019,9 @@ Model {
 	  }
 	  ShowLegends		  off
 	  TimeRange		  "1"
-	  YMin			  "-1100~-30"
-	  YMax			  "1100~30"
+	  YMin			  "-110~-0.35"
+	  YMax			  "110~0.35"
 	  SaveName		  "ScopeData11"
-	  DataFormat		  "StructureWithTime"
 	  LimitDataPoints	  off
 	  SampleTime		  "0"
 	}
@@ -15349,7 +15033,7 @@ Model {
 	  Position		  [295, 481, 385, 599]
 	  ZOrder		  -20
 	  Floating		  off
-	  Location		  [1, 48, 1601, 859]
+	  Location		  [5, 48, 1605, 859]
 	  Open			  off
 	  NumInputPorts		  "4"
 	  ZoomMode		  "yonly"
@@ -15385,117 +15069,6 @@ Model {
 	  SID			  "1539"
 	  Position		  [55, 895, 75, 915]
 	  ZOrder		  -4
-	}
-	Block {
-	  BlockType		  Scope
-	  Name			  "DC Bus Measurements\nBATTERY SIDE"
-	  SID			  "1382"
-	  Ports			  [3]
-	  Position		  [825, 561, 900, 659]
-	  ZOrder		  -19
-	  Floating		  off
-	  Location		  [1, 485, 905, 899]
-	  Open			  off
-	  NumInputPorts		  "3"
-	  ZoomMode		  "yonly"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "DC Bus Voltage Battery Side, Vdc (V)"
-	    axes2		    "DC Bus Current Battery Side, Idc (A)"
-	    axes3		    "DC Bus Power Battery Side, Pdc (W)"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  TimeRange		  "1               "
-	  YMin			  "1129.2~-19.63~-22180"
-	  YMax			  "1130.8~-19.5775~-22130"
-	  SaveName		  "ScopeData14"
-	  DataFormat		  "StructureWithTime"
-	  LimitDataPoints	  off
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Scope
-	  Name			  "DC Bus Measurements\nINVERTER SIDE"
-	  SID			  "1542"
-	  Ports			  [3]
-	  Position		  [825, 756, 900, 854]
-	  ZOrder		  -19
-	  Floating		  off
-	  Location		  [5, 150, 1609, 1005]
-	  Open			  off
-	  NumInputPorts		  "3"
-	  ZoomMode		  "yonly"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "DC Bus Voltage Inverter Side, Vdcinv (V)"
-	    axes2		    "DC Bus Current Inverter Side, Idcinv (A)"
-	    axes3		    "DC Bus Power Inverter Side, Pdcinv (W)"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  TimeRange		  "5"
-	  YMin			  "300~-4.195073366439502~-5627.098354983158"
-	  YMax			  "1300~0.1451897988383877~791.6467936668632"
-	  SaveName		  "ScopeData8"
-	  DataFormat		  "StructureWithTime"
-	  LimitDataPoints	  off
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Scope
-	  Name			  "DC Bus Measurements\nPV SIDE"
-	  SID			  "1395"
-	  Ports			  [3]
-	  Position		  [825, 366, 900, 464]
-	  ZOrder		  -19
-	  Floating		  off
-	  Location		  [-70, 81, 1534, 936]
-	  Open			  off
-	  NumInputPorts		  "3"
-	  ZoomMode		  "yonly"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "DC Bus Voltage PV Side, Vbus (V)"
-	    axes2		    "DC Bus Current PV Side, Ibus (A)"
-	    axes3		    "DC Bus Power PV Side, Pbus (W)"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  TimeRange		  "9"
-	  YMin			  "0~-150~-60000"
-	  YMax			  "1600~150~80000"
-	  SaveName		  "ScopeData15"
-	  DataFormat		  "StructureWithTime"
-	  LimitDataPoints	  off
-	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  Scope
@@ -15535,16 +15108,6 @@ Model {
 	}
 	Block {
 	  BlockType		  From
-	  Name			  "From1"
-	  SID			  "1383"
-	  Position		  [565, 566, 630, 594]
-	  ZOrder		  -8
-	  ShowName		  off
-	  GotoTag		  "Vdc"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  From
 	  Name			  "From10"
 	  SID			  "1367"
 	  Position		  [55, 541, 120, 569]
@@ -15556,42 +15119,12 @@ Model {
 	}
 	Block {
 	  BlockType		  From
-	  Name			  "From11"
-	  SID			  "1544"
-	  Position		  [565, 791, 630, 819]
-	  ZOrder		  -8
-	  ShowName		  off
-	  GotoTag		  "Idcinv"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From12"
-	  SID			  "1385"
-	  Position		  [565, 596, 630, 624]
-	  ZOrder		  -8
-	  ShowName		  off
-	  GotoTag		  "Idc"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  From
 	  Name			  "From15"
 	  SID			  "2100"
 	  Position		  [1095, 706, 1160, 734]
 	  ZOrder		  -33
 	  ShowName		  off
 	  GotoTag		  "w_abc"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From2"
-	  SID			  "1396"
-	  Position		  [565, 371, 630, 399]
-	  ZOrder		  -8
-	  ShowName		  off
-	  GotoTag		  "Vbus"
 	  TagVisibility		  "global"
 	}
 	Block {
@@ -15612,16 +15145,6 @@ Model {
 	  ZOrder		  -8
 	  ShowName		  off
 	  GotoTag		  "Vload_a"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From3"
-	  SID			  "1397"
-	  Position		  [565, 401, 630, 429]
-	  ZOrder		  -8
-	  ShowName		  off
-	  GotoTag		  "Ibus"
 	  TagVisibility		  "global"
 	}
 	Block {
@@ -15682,16 +15205,6 @@ Model {
 	}
 	Block {
 	  BlockType		  From
-	  Name			  "From8"
-	  SID			  "1543"
-	  Position		  [565, 761, 630, 789]
-	  ZOrder		  -8
-	  ShowName		  off
-	  GotoTag		  "Vdcinv"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  From
 	  Name			  "From9"
 	  SID			  "243"
 	  Position		  [50, 186, 115, 214]
@@ -15720,11 +15233,71 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
+	  BlockType		  Gain
+	  Name			  "Gain1"
+	  SID			  "2620"
+	  Position		  [1145, 105, 1175, 135]
+	  ZOrder		  3
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain2"
+	  SID			  "2621"
+	  Position		  [1345, 805, 1375, 835]
+	  ZOrder		  4
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain3"
+	  SID			  "2622"
+	  Position		  [190, 480, 220, 510]
+	  ZOrder		  5
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  SID			  "2628"
+	  Position		  [1080, 145, 1110, 175]
+	  ZOrder		  9
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain5"
+	  SID			  "2629"
+	  Position		  [1055, 245, 1085, 275]
+	  ZOrder		  10
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain6"
+	  SID			  "2630"
+	  Position		  [1120, 290, 1150, 320]
+	  ZOrder		  11
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
 	  BlockType		  SubSystem
 	  Name			  "Inverter Control \nMeasurements"
 	  SID			  "1417"
 	  Ports			  []
-	  Position		  [1300, 865, 1463, 963]
+	  Position		  [690, 565, 853, 663]
 	  ZOrder		  -45
 	  NamePlacement		  "alternate"
 	  ShowName		  off
@@ -15737,13 +15310,13 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    31
+	    $ObjectID		    29
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Inverter Control')"
 	  }
 	  System {
 	    Name		    "Inverter Control \nMeasurements"
-	    Location		    [427, 66, 1548, 635]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -17233,13 +16806,13 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    32
+	    $ObjectID		    30
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Boost Converter Control')"
 	  }
 	  System {
 	    Name		    "Inverter Control \nMeasurements1"
-	    Location		    [427, 66, 837, 558]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -17347,7 +16920,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    33
+	    $ObjectID		    31
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Bidirectional Converter Control')"
 	  }
@@ -17572,7 +17145,7 @@ Model {
 	  Name			  "Inverter Control \nMeasurements3"
 	  SID			  "1974"
 	  Ports			  []
-	  Position		  [1085, 855, 1248, 953]
+	  Position		  [690, 685, 853, 783]
 	  ZOrder		  -48
 	  NamePlacement		  "alternate"
 	  ShowName		  off
@@ -17585,13 +17158,13 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    34
+	    $ObjectID		    32
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Frequency Measurement')"
 	  }
 	  System {
 	    Name		    "Inverter Control \nMeasurements3"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -18550,28 +18123,6 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "LPF vq1"
-	  SID			  "1790"
-	  Ports			  [1, 1]
-	  Position		  [655, 792, 685, 818]
-	  ZOrder		  -50
-	  ShowName		  off
-	  LibraryVersion	  "1.664"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	  SourceType		  "Discrete 1st-Order Filter"
-	  FilterType		  "Lowpass"
-	  Tc			  "10e-3"
-	  Ts			  "5e-6"
-	  Initialize		  off
-	  Vac_Init		  "[0.8 -25 60]"
-	  Vdc_Init		  "0"
-	  PlotResponse		  off
-	  param1		  "[1 100 0.1]"
-	}
-	Block {
-	  BlockType		  Reference
 	  Name			  "LPF vq10"
 	  SID			  "2102"
 	  Ports			  [1, 1]
@@ -18616,116 +18167,6 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "LPF vq3"
-	  SID			  "1791"
-	  Ports			  [1, 1]
-	  Position		  [655, 762, 685, 788]
-	  ZOrder		  -53
-	  ShowName		  off
-	  LibraryVersion	  "1.664"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	  SourceType		  "Discrete 1st-Order Filter"
-	  FilterType		  "Lowpass"
-	  Tc			  "10e-3"
-	  Ts			  "5e-6"
-	  Initialize		  off
-	  Vac_Init		  "[0.8 -25 60]"
-	  Vdc_Init		  "0"
-	  PlotResponse		  off
-	  param1		  "[1 100 0.1]"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "LPF vq4"
-	  SID			  "1792"
-	  Ports			  [1, 1]
-	  Position		  [655, 597, 685, 623]
-	  ZOrder		  -54
-	  ShowName		  off
-	  LibraryVersion	  "1.664"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	  SourceType		  "Discrete 1st-Order Filter"
-	  FilterType		  "Lowpass"
-	  Tc			  "10e-3"
-	  Ts			  "5e-6"
-	  Initialize		  off
-	  Vac_Init		  "[0.8 -25 60]"
-	  Vdc_Init		  "0"
-	  PlotResponse		  off
-	  param1		  "[1 100 0.1]"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "LPF vq5"
-	  SID			  "1793"
-	  Ports			  [1, 1]
-	  Position		  [655, 567, 685, 593]
-	  ZOrder		  -55
-	  ShowName		  off
-	  LibraryVersion	  "1.664"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	  SourceType		  "Discrete 1st-Order Filter"
-	  FilterType		  "Lowpass"
-	  Tc			  "10e-3"
-	  Ts			  "5e-6"
-	  Initialize		  off
-	  Vac_Init		  "[0.8 -25 60]"
-	  Vdc_Init		  "0"
-	  PlotResponse		  off
-	  param1		  "[1 100 0.1]"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "LPF vq6"
-	  SID			  "1794"
-	  Ports			  [1, 1]
-	  Position		  [655, 402, 685, 428]
-	  ZOrder		  -56
-	  ShowName		  off
-	  LibraryVersion	  "1.664"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	  SourceType		  "Discrete 1st-Order Filter"
-	  FilterType		  "Lowpass"
-	  Tc			  "10e-3"
-	  Ts			  "5e-6"
-	  Initialize		  off
-	  Vac_Init		  "[0.8 -25 60]"
-	  Vdc_Init		  "0"
-	  PlotResponse		  off
-	  param1		  "[1 100 0.1]"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "LPF vq7"
-	  SID			  "1795"
-	  Ports			  [1, 1]
-	  Position		  [655, 372, 685, 398]
-	  ZOrder		  -57
-	  ShowName		  off
-	  LibraryVersion	  "1.664"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	  SourceType		  "Discrete 1st-Order Filter"
-	  FilterType		  "Lowpass"
-	  Tc			  "10e-3"
-	  Ts			  "5e-6"
-	  Initialize		  off
-	  Vac_Init		  "[0.8 -25 60]"
-	  Vdc_Init		  "0"
-	  PlotResponse		  off
-	  param1		  "[1 100 0.1]"
-	}
-	Block {
-	  BlockType		  Reference
 	  Name			  "LPF1"
 	  SID			  "1493"
 	  Ports			  [1, 1]
@@ -18751,7 +18192,7 @@ Model {
 	  Name			  "Load Power Calculation"
 	  SID			  "1495"
 	  Ports			  [0, 2]
-	  Position		  [1035, 239, 1155, 326]
+	  Position		  [885, 239, 1005, 326]
 	  ZOrder		  -61
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -18762,7 +18203,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Power Calculation"
-	    Location		    [496, 316, 1144, 918]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -19440,7 +18881,7 @@ Model {
 	  Position		  [295, 112, 375, 213]
 	  ZOrder		  -63
 	  Floating		  off
-	  Location		  [1, 48, 1601, 859]
+	  Location		  [5, 48, 1605, 859]
 	  Open			  off
 	  NumInputPorts		  "4"
 	  ZoomMode		  "xonly"
@@ -19483,47 +18924,11 @@ Model {
 	}
 	Block {
 	  BlockType		  Product
-	  Name			  "Product1"
-	  SID			  "1399"
-	  Ports			  [2, 1]
-	  Position		  [750, 427, 780, 458]
-	  ZOrder		  -65
-	  ShowName		  off
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Product
-	  Name			  "Product2"
-	  SID			  "1390"
-	  Ports			  [2, 1]
-	  Position		  [750, 622, 780, 653]
-	  ZOrder		  -66
-	  ShowName		  off
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Product
 	  Name			  "Product4"
 	  SID			  "1376"
 	  Ports			  [2, 1]
 	  Position		  [190, 567, 220, 598]
 	  ZOrder		  -68
-	  ShowName		  off
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Product
-	  Name			  "Product5"
-	  SID			  "1546"
-	  Ports			  [2, 1]
-	  Position		  [750, 817, 780, 848]
-	  ZOrder		  -69
 	  ShowName		  off
 	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -19638,7 +19043,7 @@ Model {
 	  Name			  "Subsystem"
 	  SID			  "1724"
 	  Ports			  [0, 1]
-	  Position		  [1150, 103, 1205, 137]
+	  Position		  [980, 103, 1035, 137]
 	  ZOrder		  -74
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -19650,7 +19055,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem"
-	    Location		    [1123, 163, 1384, 479]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -19698,7 +19103,7 @@ Model {
 	      Name		      "Mux"
 	      SID		      "1716"
 	      Ports		      [3, 1]
-	      Position		      [120, 25, 125, 105]
+	      Position		      [270, 25, 275, 105]
 	      ZOrder		      -11
 	      ShowName		      off
 	      Inputs		      "3"
@@ -19708,9 +19113,15 @@ Model {
 	      BlockType		      Outport
 	      Name		      "Vabc"
 	      SID		      "1725"
-	      Position		      [150, 58, 180, 72]
+	      Position		      [380, 58, 410, 72]
 	      ZOrder		      -12
 	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Mux"
+	      SrcPort		      1
+	      DstBlock		      "Vabc"
+	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "From15"
@@ -19729,135 +19140,6 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      "Mux"
 	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "Mux"
-	      SrcPort		      1
-	      DstBlock		      "Vabc"
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "Subsystem1"
-	  SID			  "1400"
-	  Ports			  [1]
-	  Position		  [845, 501, 880, 539]
-	  ZOrder		  -75
-	  ShowName		  off
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "Subsystem1"
-	    Location		    [982, 630, 1259, 1002]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Pbus"
-	      SID		      "1401"
-	      Position		      [25, 38, 55, 52]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto2"
-	      SID		      "1402"
-	      Position		      [120, 31, 180, 59]
-	      ZOrder		      -20
-	      NamePlacement	      "alternate"
-	      ShowName		      off
-	      GotoTag		      "Pbus"
-	      TagVisibility	      "global"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "LPF vq11"
-	      SID		      "1787"
-	      Ports		      [1, 1]
-	      Position		      [100, 134, 130, 166]
-	      ZOrder		      -21
-	      ShowName		      off
-	      LibraryVersion	      "1.664"
-	      FontName		      "Verdana"
-	      FontSize		      11
-	      SourceBlock	      "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	      SourceType	      "Discrete 1st-Order Filter"
-	      FilterType	      "Lowpass"
-	      Tc		      "10e-3"
-	      Ts		      "5e-6"
-	      Initialize	      off
-	      Vac_Init		      "[0.8 -25 60]"
-	      Vdc_Init		      "0"
-	      PlotResponse	      off
-	      param1		      "[1 100 0.1]"
-	    }
-	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace1"
-	      SID		      "1403"
-	      Ports		      [1]
-	      Position		      [155, 75, 215, 105]
-	      ZOrder		      -22
-	      ShowName		      off
-	      VariableName	      "Pbus"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace2"
-	      SID		      "1786"
-	      Ports		      [1]
-	      Position		      [155, 135, 215, 165]
-	      ZOrder		      -23
-	      ShowName		      off
-	      VariableName	      "Pbus1"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	    }
-	    Line {
-	      SrcBlock		      "Pbus"
-	      SrcPort		      1
-	      Points		      [25, 0]
-	      Branch {
-		DstBlock		"Goto2"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[0, 45]
-		Branch {
-		  DstBlock		  "To Workspace1"
-		  DstPort		  1
-		}
-		Branch {
-		  DstBlock		  "LPF vq11"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "LPF vq11"
-	      SrcPort		      1
-	      DstBlock		      "To Workspace2"
-	      DstPort		      1
 	    }
 	  }
 	}
@@ -19878,7 +19160,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem10"
-	    Location		    [982, 630, 1261, 993]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -19999,7 +19281,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    35
+	    $ObjectID		    33
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Additional Load Meas.')"
 	  }
@@ -21626,130 +20908,6 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Subsystem3"
-	  SID			  "1391"
-	  Ports			  [1]
-	  Position		  [845, 686, 880, 724]
-	  ZOrder		  -79
-	  ShowName		  off
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "Subsystem3"
-	    Location		    [982, 630, 1261, 993]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Pdc"
-	      SID		      "1392"
-	      Position		      [25, 38, 55, 52]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto2"
-	      SID		      "1393"
-	      Position		      [120, 31, 180, 59]
-	      ZOrder		      -20
-	      NamePlacement	      "alternate"
-	      ShowName		      off
-	      GotoTag		      "Pdc"
-	      TagVisibility	      "global"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "LPF vq7"
-	      SID		      "1803"
-	      Ports		      [1, 1]
-	      Position		      [100, 137, 120, 163]
-	      ZOrder		      -21
-	      ShowName		      off
-	      LibraryVersion	      "1.664"
-	      FontName		      "Verdana"
-	      FontSize		      11
-	      SourceBlock	      "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	      SourceType	      "Discrete 1st-Order Filter"
-	      FilterType	      "Lowpass"
-	      Tc		      "10e-3"
-	      Ts		      "5e-6"
-	      Initialize	      off
-	      Vac_Init		      "[0.8 -25 60]"
-	      Vdc_Init		      "0"
-	      PlotResponse	      off
-	      param1		      "[1 100 0.1]"
-	    }
-	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace1"
-	      SID		      "1394"
-	      Ports		      [1]
-	      Position		      [120, 75, 180, 105]
-	      ZOrder		      -22
-	      ShowName		      off
-	      VariableName	      "Pdc"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace2"
-	      SID		      "1802"
-	      Ports		      [1]
-	      Position		      [140, 135, 200, 165]
-	      ZOrder		      -23
-	      ShowName		      off
-	      VariableName	      "Pdc1"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	    }
-	    Line {
-	      SrcBlock		      "Pdc"
-	      SrcPort		      1
-	      Points		      [25, 0]
-	      Branch {
-		DstBlock		"Goto2"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[0, 0; 0, 40]
-		Branch {
-		  Points		  [0, 5]
-		  DstBlock		  "To Workspace1"
-		  DstPort		  1
-		}
-		Branch {
-		  DstBlock		  "LPF vq7"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "LPF vq7"
-	      SrcPort		      1
-	      DstBlock		      "To Workspace2"
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
 	  Name			  "Subsystem4"
 	  SID			  "700"
 	  Ports			  [1]
@@ -21888,7 +21046,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem5"
-	    Location		    [982, 630, 1270, 992]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -22088,7 +21246,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem7"
-	    Location		    [982, 630, 1260, 946]
+	    Location		    [-8, 0, 1604, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -22141,7 +21299,7 @@ Model {
 		DstPort			1
 	      }
 	      Branch {
-		Points			[0, 0; 0, 45]
+		Points			[0, 45]
 		DstBlock		"To Workspace1"
 		DstPort			1
 	      }
@@ -22150,133 +21308,10 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Subsystem8"
-	  SID			  "1547"
-	  Ports			  [1]
-	  Position		  [845, 886, 880, 924]
-	  ZOrder		  -84
-	  ShowName		  off
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "Subsystem8"
-	    Location		    [982, 630, 1258, 991]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Pdcinv"
-	      SID		      "1548"
-	      Position		      [25, 38, 55, 52]
-	      ZOrder		      -1
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto2"
-	      SID		      "1549"
-	      Position		      [120, 31, 180, 59]
-	      ZOrder		      -20
-	      NamePlacement	      "alternate"
-	      ShowName		      off
-	      GotoTag		      "Pdcinv"
-	      TagVisibility	      "global"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "LPF vq7"
-	      SID		      "1805"
-	      Ports		      [1, 1]
-	      Position		      [100, 137, 125, 163]
-	      ZOrder		      -21
-	      ShowName		      off
-	      LibraryVersion	      "1.664"
-	      FontName		      "Verdana"
-	      FontSize		      11
-	      SourceBlock	      "powerlib_extras/Discrete \nControl Blocks/Discrete\n1st-Order\nFilter"
-	      SourceType	      "Discrete 1st-Order Filter"
-	      FilterType	      "Lowpass"
-	      Tc		      "10e-3"
-	      Ts		      "5e-6"
-	      Initialize	      off
-	      Vac_Init		      "[0.8 -25 60]"
-	      Vdc_Init		      "0"
-	      PlotResponse	      off
-	      param1		      "[1 100 0.1]"
-	    }
-	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace1"
-	      SID		      "1550"
-	      Ports		      [1]
-	      Position		      [120, 75, 180, 105]
-	      ZOrder		      -22
-	      ShowName		      off
-	      VariableName	      "Pdcinv"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      ToWorkspace
-	      Name		      "To Workspace2"
-	      SID		      "1804"
-	      Ports		      [1]
-	      Position		      [145, 135, 205, 165]
-	      ZOrder		      -23
-	      ShowName		      off
-	      VariableName	      "Pdcinv1"
-	      MaxDataPoints	      "inf"
-	      SampleTime	      "-1"
-	    }
-	    Line {
-	      SrcBlock		      "Pdcinv"
-	      SrcPort		      1
-	      Points		      [25, 0]
-	      Branch {
-		DstBlock		"Goto2"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[0, 0; 0, 45]
-		Branch {
-		  DstBlock		  "To Workspace1"
-		  DstPort		  1
-		}
-		Branch {
-		  DstBlock		  "LPF vq7"
-		  DstPort		  1
-		}
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "LPF vq7"
-	      SrcPort		      1
-	      DstBlock		      "To Workspace2"
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
 	  Name			  "Subsystem9"
 	  SID			  "1726"
 	  Ports			  [0, 1]
-	  Position		  [1150, 143, 1205, 177]
+	  Position		  [980, 143, 1035, 177]
 	  ZOrder		  -85
 	  ShowName		  off
 	  MinAlgLoopOccurrences	  off
@@ -22288,8 +21323,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem9"
-	    Location		    [1146, 131, 1407, 447]
-	    Open		    off
+	    Location		    [0, 0, 1600, 876]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -22432,12 +21467,6 @@ Model {
 	  DstPort		  4
 	}
 	Line {
-	  SrcBlock		  "From6"
-	  SrcPort		  1
-	  DstBlock		  "Battery Measurements"
-	  DstPort		  1
-	}
-	Line {
 	  SrcBlock		  "From7"
 	  SrcPort		  1
 	  Points		  [30, 0]
@@ -22480,80 +21509,16 @@ Model {
 	  }
 	}
 	Line {
-	  SrcBlock		  "From1"
-	  SrcPort		  1
-	  DstBlock		  "LPF vq5"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From12"
-	  SrcPort		  1
-	  DstBlock		  "LPF vq4"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Product2"
-	  SrcPort		  1
-	  Points		  [15, 0]
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nBATTERY SIDE"
-	    DstPort		    3
-	  }
-	  Branch {
-	    Points		    [0, 65]
-	    DstBlock		    "Subsystem3"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Product1"
-	  SrcPort		  1
-	  Points		  [10, 0]
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nPV SIDE"
-	    DstPort		    3
-	  }
-	  Branch {
-	    Points		    [0, 75]
-	    DstBlock		    "Subsystem1"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "From2"
-	  SrcPort		  1
-	  DstBlock		  "LPF vq7"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From3"
-	  SrcPort		  1
-	  DstBlock		  "LPF vq6"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Subsystem"
-	  SrcPort		  1
-	  DstBlock		  "AC Load Measurements"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Subsystem9"
-	  SrcPort		  1
-	  DstBlock		  "AC Load Measurements"
-	  DstPort		  2
-	}
-	Line {
 	  SrcBlock		  "Load Power Calculation"
 	  SrcPort		  1
-	  DstBlock		  "Load Powers"
+	  DstBlock		  "Gain5"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Load Power Calculation"
 	  SrcPort		  2
-	  DstBlock		  "Load Powers"
-	  DstPort		  2
+	  DstBlock		  "Gain6"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "From21"
@@ -22630,32 +21595,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Product5"
-	  SrcPort		  1
-	  Points		  [10, 0]
-	  Branch {
-	    Points		    [0, 70]
-	    DstBlock		    "Subsystem8"
-	    DstPort		    1
-	  }
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nINVERTER SIDE"
-	    DstPort		    3
-	  }
-	}
-	Line {
-	  SrcBlock		  "From8"
-	  SrcPort		  1
-	  DstBlock		  "LPF vq3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From11"
-	  SrcPort		  1
-	  DstBlock		  "LPF vq1"
-	  DstPort		  1
-	}
-	Line {
 	  Labels		  [0, 0]
 	  SrcBlock		  "LPF vq2"
 	  SrcPort		  1
@@ -22667,90 +21606,6 @@ Model {
 	  Branch {
 	    Points		    [0, 40]
 	    DstBlock		    "Product"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "LPF vq1"
-	  SrcPort		  1
-	  Points		  [25, 0]
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nINVERTER SIDE"
-	    DstPort		    2
-	  }
-	  Branch {
-	    Points		    [0, 35]
-	    DstBlock		    "Product5"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  SrcBlock		  "LPF vq3"
-	  SrcPort		  1
-	  Points		  [40, 0]
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nINVERTER SIDE"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 50]
-	    DstBlock		    "Product5"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "LPF vq4"
-	  SrcPort		  1
-	  Points		  [20, 0]
-	  Branch {
-	    Points		    [0, 35]
-	    DstBlock		    "Product2"
-	    DstPort		    2
-	  }
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nBATTERY SIDE"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  SrcBlock		  "LPF vq5"
-	  SrcPort		  1
-	  Points		  [35, 0]
-	  Branch {
-	    Points		    [0, 50]
-	    DstBlock		    "Product2"
-	    DstPort		    1
-	  }
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nBATTERY SIDE"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "LPF vq6"
-	  SrcPort		  1
-	  Points		  [20, 0]
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nPV SIDE"
-	    DstPort		    2
-	  }
-	  Branch {
-	    Points		    [0, 35]
-	    DstBlock		    "Product1"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  SrcBlock		  "LPF vq7"
-	  SrcPort		  1
-	  Points		  [35, 0]
-	  Branch {
-	    DstBlock		    "DC Bus Measurements\nPV SIDE"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 50]
-	    DstBlock		    "Product1"
 	    DstPort		    1
 	  }
 	}
@@ -22776,7 +21631,7 @@ Model {
 	    }
 	    Branch {
 	      Points		      [0, 60]
-	      DstBlock		      "Subsystem10"
+	      DstBlock		      "Gain2"
 	      DstPort		      1
 	    }
 	  }
@@ -22786,6 +21641,60 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Frequency"
 	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Subsystem9"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Subsystem10"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "AC Load Measurements"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain5"
+	  SrcPort		  1
+	  DstBlock		  "Load Powers"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain6"
+	  SrcPort		  1
+	  DstBlock		  "Load Powers"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  DstBlock		  "Battery Measurements"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "From6"
+	  SrcPort		  1
+	  DstBlock		  "Gain3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Subsystem"
+	  SrcPort		  1
+	  DstBlock		  "Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain1"
+	  SrcPort		  1
+	  DstBlock		  "AC Load Measurements"
+	  DstPort		  1
 	}
 	Annotation {
 	  SID			  "2557"
@@ -22811,15 +21720,6 @@ Model {
 	  FontWeight		  "bold"
 	}
 	Annotation {
-	  SID			  "2561"
-	  Name			  "DC Bus Measurements"
-	  Position		  [742, 313]
-	  ZOrder		  -5
-	  FontName		  "Arial Narrow"
-	  FontSize		  24
-	  FontWeight		  "bold"
-	}
-	Annotation {
 	  SID			  "2562"
 	  Name			  "AC Load Measurements"
 	  Position		  [1262, 48]
@@ -22838,7 +21738,7 @@ Model {
       Position		      [45, 30, 136, 81]
       ZOrder		      -38
       Priority		      "1"
-      LibraryVersion	      "1.2191"
+      LibraryVersion	      "*1.2191"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
