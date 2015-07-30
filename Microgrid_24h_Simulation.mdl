@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.116"
+    ComputedModelVersion    "1.118"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -35,7 +35,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [0.0, 0.0, 1600.0, 876.0]
+      Location		      [-8.0, -8.0, 1616.0, 916.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -68,19 +68,19 @@ Model {
 	  $ObjectID		  6
 	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1362"
-	  Extents		  [1550.0, 729.0]
-	  ZoomFactor		  [0.8]
-	  Offset		  [33.12142749854479, 15.264285714285649]
+	  LoadSaveID		  "2191"
+	  Extents		  [1566.0, 769.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
 	}
 	Object {
 	  $ObjectID		  7
 	  IsActive		  [0]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1550.0, 729.0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "802"
+	  Extents		  [1566.0, 769.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [-104.66666666666652, 24.916666666666629]
+	  Offset		  [0.0, 0.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jul 29 19:30:22 2015"
-  RTWModifiedTimeStamp	  360098964
-  ModelVersionFormat	  "1.%<AutoIncrement:116>"
+  LastModifiedDate	  "Thu Jul 30 14:28:28 2015"
+  RTWModifiedTimeStamp	  360167297
+  ModelVersionFormat	  "1.%<AutoIncrement:118>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1092,8 +1092,8 @@ Model {
   }
   System {
     Name		    "Microgrid_24h_Simulation"
-    Location		    [0, 0, 1600, 876]
-    Open		    on
+    Location		    [-8, -8, 1608, 908]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1104,7 +1104,7 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "80"
+    ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "2630"
     Block {
@@ -1129,7 +1129,7 @@ Model {
       }
       System {
 	Name			"AC Load"
-	Location		[0, 0, 1600, 876]
+	Location		[-8, -8, 1608, 908]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1974,8 +1974,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Power Demand 24h"
-	    Location		    [0, 0, 1600, 876]
-	    Open		    off
+	    Location		    [-8, -8, 1608, 908]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1994,8 +1994,10 @@ Model {
 	      Position		      [20, 58, 85, 82]
 	      ZOrder		      23
 	      VariableName	      "VARPA'"
-	      SampleTime	      "0"
-	      ZeroCross		      on
+	      OutDataTypeStr	      "double"
+	      SampleTime	      "[5e-6,0]"
+	      Interpolate	      off
+	      OutputAfterFinalValue   "Setting to zero"
 	    }
 	    Block {
 	      BlockType		      FromWorkspace
@@ -2004,8 +2006,10 @@ Model {
 	      Position		      [20, 148, 85, 172]
 	      ZOrder		      24
 	      VariableName	      "VARPQ'"
-	      SampleTime	      "0"
-	      ZeroCross		      on
+	      OutDataTypeStr	      "double"
+	      SampleTime	      "[5e-6,0]"
+	      Interpolate	      off
+	      OutputAfterFinalValue   "Setting to zero"
 	    }
 	    Block {
 	      BlockType		      Concatenate
@@ -13640,8 +13644,8 @@ Model {
       }
       System {
 	Name			"PV Array"
-	Location		[0, 0, 1600, 876]
-	Open			off
+	Location		[-8, -8, 1608, 908]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -13705,8 +13709,10 @@ Model {
 	  Position		  [25, 633, 90, 657]
 	  ZOrder		  26
 	  VariableName		  "VARins'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
+	  OutDataTypeStr	  "double"
+	  SampleTime		  "[5e-6,0]"
+	  Interpolate		  off
+	  OutputAfterFinalValue	  "Setting to zero"
 	}
 	Block {
 	  BlockType		  FromWorkspace
@@ -13715,8 +13721,10 @@ Model {
 	  Position		  [215, 688, 280, 712]
 	  ZOrder		  33
 	  VariableName		  "VARTemp'"
-	  SampleTime		  "0"
-	  ZeroCross		  on
+	  OutDataTypeStr	  "double"
+	  SampleTime		  "[5e-6,0]"
+	  Interpolate		  off
+	  OutputAfterFinalValue	  "Setting to zero"
 	}
 	Block {
 	  BlockType		  From
@@ -14970,7 +14978,7 @@ Model {
       System {
 	Name			"Subsystem"
 	Location		[0, 0, 1600, 876]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -15289,7 +15297,7 @@ Model {
 	  Name			  "Inverter Control \nMeasurements"
 	  SID			  "1417"
 	  Ports			  []
-	  Position		  [1260, 895, 1423, 993]
+	  Position		  [690, 565, 853, 663]
 	  ZOrder		  -45
 	  NamePlacement		  "alternate"
 	  ShowName		  off
@@ -15308,7 +15316,7 @@ Model {
 	  }
 	  System {
 	    Name		    "Inverter Control \nMeasurements"
-	    Location		    [427, 66, 1548, 635]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -16804,7 +16812,7 @@ Model {
 	  }
 	  System {
 	    Name		    "Inverter Control \nMeasurements1"
-	    Location		    [427, 66, 837, 558]
+	    Location		    [0, 0, 1600, 876]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -17137,7 +17145,7 @@ Model {
 	  Name			  "Inverter Control \nMeasurements3"
 	  SID			  "1974"
 	  Ports			  []
-	  Position		  [1085, 855, 1248, 953]
+	  Position		  [690, 685, 853, 783]
 	  ZOrder		  -48
 	  NamePlacement		  "alternate"
 	  ShowName		  off
