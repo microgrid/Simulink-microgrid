@@ -11,7 +11,7 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 * Give methods for simplifying the planning and resource-assessment phase.
 
 ## How to run
-Open the file simulink-microgrid then open the simulink file 'Microgrid_24h_Simulation.mdl' and in the subfile src open the file 'main.mat'. You can now, run the 'main.mat' file and follow the instructions (Be careful, you have to open the simulink before you can run the main file). 
+Open the folder simulink-microgrid then open the simulink file 'Microgrid_24h_Simulation.mdl' and in the subfolder src open the file 'main.mat'. You can now, run the 'main.mat' file and follow the instructions (Be careful, you have to open the simulink before you can run the main file). 
 
 ## Compiling
 The time of the compilation is greatly impacted by the performance of your computer.
