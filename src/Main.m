@@ -20,7 +20,7 @@ case 'Linux'
 end
 
 % Create the data insolation to plot from excel
-SampleTime=5e-6;
+SampleTime=0.1;
 xdiscretized=0.1:SampleTime:2.4;
 Insolation_data = normpdf(xdiscretized,1.2,0.17); % Normal law
 Ins_Monsoon=Insolation_data*3990;
@@ -65,7 +65,7 @@ customerRHMonsoon=importdata('dataBase/PowerRHMonsoon.mat'); %  Data from excel 
 customerRHIntermediate=importdata('dataBase/PowerRHIntermediate.mat'); %  Data from excel Block RH
 customerRHWinter=importdata('dataBase/PowerRHWinter.mat'); %  Data from excel Block RH
 
-Time1=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
+Time=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img/bhutan.jpg');
 
 elseif os==2
@@ -104,12 +104,11 @@ customerRHMonsoon=importdata('dataBase\PowerRHMonsoon.mat'); %  Data from excel 
 customerRHIntermediate=importdata('dataBase\PowerRHIntermediate.mat'); %  Data from excel Block RH
 customerRHWinter=importdata('dataBase\PowerRHWinter.mat'); %  Data from excel Block RH
 
-Time1=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
+Time=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img\bhutan.jpg');
 
 end
 
-Time=Time1/10
 % linear regression with a polynomial approach for the Active power of the load  
 
 % Block All (Monsoon)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,7 +119,7 @@ yfitdiscretized1=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized1=yfitdiscretized1;
 r=1;
 for c = 1:ncols
@@ -157,7 +156,7 @@ yfitdiscretized3=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized3=yfitdiscretized3;
 r=1;
 for c = 1:ncols
@@ -177,7 +176,7 @@ yfitdiscretized4=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized4=yfitdiscretized4;
 r=1;
 for c = 1:ncols
@@ -215,7 +214,7 @@ yfitdiscretized6=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized6=yfitdiscretized6;
 r=1;
 for c = 1:ncols
@@ -235,7 +234,7 @@ yfitdiscretized7=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized7=yfitdiscretized7;
 r=1;
 for c = 1:ncols
@@ -273,7 +272,7 @@ yfitdiscretized9=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized9=yfitdiscretized9;
 r=1;
 for c = 1:ncols
@@ -293,7 +292,7 @@ yfitdiscretized10=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized10=yfitdiscretized10;
 r=1;
 for c = 1:ncols
@@ -331,7 +330,7 @@ yfitdiscretized12=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized12=yfitdiscretized12;
 r=1;
 for c = 1:ncols
@@ -352,7 +351,7 @@ yfitdiscretized13=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized13=yfitdiscretized13;
 r=1;
 for c = 1:ncols
@@ -390,7 +389,7 @@ yfitdiscretized15=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized15=yfitdiscretized15;
 r=1;
 for c = 1:ncols
@@ -410,7 +409,7 @@ yfitdiscretized16=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized16=yfitdiscretized16;
 r=1;
 for c = 1:ncols
@@ -448,7 +447,7 @@ yfitdiscretized18=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized18=yfitdiscretized18;
 r=1;
 for c = 1:ncols
@@ -468,7 +467,7 @@ yfitdiscretized19=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized19=yfitdiscretized19;
 r=1;
 for c = 1:ncols
@@ -506,7 +505,7 @@ yfitdiscretized21=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized21=yfitdiscretized21;
 r=1;
 for c = 1:ncols
@@ -526,7 +525,7 @@ yfitdiscretized22=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized22=yfitdiscretized22;
 r=1;
 for c = 1:ncols
@@ -564,7 +563,7 @@ yfitdiscretized24=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
 nrows = 1;
-ncols = round(2.3/SampleTime)+1;
+ncols =(2.3/SampleTime)+1;
 newyfitdiscretized24=yfitdiscretized24;
 r=1;
 for c = 1:ncols
@@ -592,70 +591,75 @@ clock=0;
 superclock=[0;0;0];
 
 % Intit file clocktxt
-fid = fopen('clocktxt.txt','w');
+fid = fopen('dataBase/clocktxt.txt','w');
 fprintf(fid,' %i\n',clock);
 fclose(fid)
 
 % Intit file clocktxt
-fidsoc = fopen('clocktxtsoc.txt','w');
+fidsoc = fopen('dataBase/clocktxtsoc.txt','w');
 fprintf(fidsoc,' %i\n',clock);
 fclose(fidsoc)
 
 % Intit file clocktxtvoltage
-fidv = fopen('clocktxtvoltage.txt','w');
+fidv = fopen('dataBase/clocktxtvoltage.txt','w');
 fprintf(fidv,' %i\n',superclock);
 fclose(fidv)
 
 % Intit file clocktxtap
-fidap = fopen('clocktxtap.txt','w');
+fidap = fopen('dataBase/clocktxtap.txt','w');
 fprintf(fidap,' %i\n',clock);
 fclose(fidap)
 
 % Intit file clocktxtrap
-fidrap = fopen('clocktxtrap.txt','w');
+fidrap = fopen('dataBase/clocktxtrap.txt','w');
 fprintf(fidrap,' %i\n',clock);
 fclose(fidrap)
 
 % Intit file clocktxtc
-fidc = fopen('clocktxtc.txt','w');
+fidc = fopen('dataBase/clocktxtc.txt','w');
 fprintf(fidc,' %i\n',superclock);
 fclose(fidc)
 
 % Intit file txtvoltage
 voltage=[0;0;0];
-fid1 = fopen('voltagetxt.txt','w');
+fid1 = fopen('dataBase/voltagetxt.txt','w');
 fprintf(fid1,' %i\n',voltage);
 fclose(fid1)
 
 % Intit file txtfrequency
 frequency=0;
-fid2 = fopen('frequencytxt.txt','w');
+fid2 = fopen('dataBase/frequencytxt.txt','w');
 fprintf(fid2,' %i\n',frequency);
 fclose(fid2)
 
 % Intit file txtsoc
 SOC=0;
-fid3 = fopen('soctxt.txt','w');
+fid3 = fopen('dataBase/soctxt.txt','w');
 fprintf(fid3,' %i\n',SOC);
 fclose(fid3)
 
 % Intit file txtcurrent
 current=[0;0;0];
-fid4 = fopen('currenttxt.txt','w');
+fid4 = fopen('dataBase/currenttxt.txt','w');
 fprintf(fid4,' %i\n',current);
 fclose(fid4)
  
 % Intit file txtactivepower
 activepower=0;
-fid5 = fopen('activepowertxt.txt','w');
+fid5 = fopen('dataBase/activepowertxt.txt','w');
 fprintf(fid5,' %i\n',activepower);
 fclose(fid5)
 
 % Intit file txtreactivepower
 reactivepower=0;
-fid6 = fopen('reactivepowertxt.txt','w');
+fid6 = fopen('dataBase/reactivepowertxt.txt','w');
 fprintf(fid6,' %i\n',reactivepower);
 fclose(fid6)
 
-% Run the GUI
-run('Supervision'); 
+% % Run the GUI
+% run('Supervision'); 
+
+VARins = [xdiscretized;Ins_Monsoon];
+VARTemp = [xdiscretized;Temp1];
+VARPA= [xdiscretized;newyfitdiscretized4*100];
+VARPQ= [xdiscretized;newyfitdiscretized4];

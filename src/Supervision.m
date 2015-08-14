@@ -95,14 +95,6 @@ hstop = uicontrol('Style','pushbutton',...
   'Enable','off',...
   'Callback',{@stopbutton_Callback}); 
 
-% % Add "Update" button to window
-% hupdate = uicontrol('Style','pushbutton',...
-%   'Parent', f, ...
-%   'String','Update',...
-%   'Tag','update',...
-%   'Position',[15,115,30,8],...
-%   'Enable','off',...
-%   'Callback',{@updatebutton_Callback}); 
 
 % Add "Temperature outside = °C" text to window
 htext1 = uicontrol('Style','text','String','Temperature outside = °C',...
@@ -237,11 +229,11 @@ set([f,h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,hmonsoon,hintermediate,htextboxpopup,htext
 set(f, 'Units', 'Normalized', 'Position', [0 0 1 1]);
 
 % Initialize a plot in the axes
-SampleTime=5e-6;
+SampleTime=0.1;
 xdiscretized=0.1:SampleTime:2.4;
 
 % Initialize the plot h1 with Ins_Monsoon from DataBase.m
-plot(h1,xdiscretized*10,Ins_M,'m'); 
+plot(h1,xdiscretized,Ins_M,'m'); 
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Monsoon');
@@ -355,13 +347,13 @@ title(h10,'Load Reactive Power');
 grid(h10,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
-plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
+plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
 xlabel(h2,'Time (Hours)');
 ylabel(h2,'Active Power (kW)');
 title(h2,'Active Power All Blocks during Monsoon');
 
 % Initialize plote h3 for the Reactive power (In our case we make an assumption, it is just the Active power divided by 10).
-plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
+plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
 xlabel(h3,'Time (Hours)');
 ylabel(h3,'Reactive Power (kVAR)');
 title(h3,'Reactive Power All Blocks during Monsoon')
@@ -396,12 +388,12 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects All Blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'All Blocks Monsoon'  
- plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
  title(h2,'Active Power All Blocks during the Monsoon');
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Monsoon')
@@ -449,7 +441,7 @@ function popup_menu_Callback(source, eventdata, handles)
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataALLWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataALLWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Winter')
@@ -470,11 +462,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block D %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block D Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataDMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataDMonsoon);
  title(h2,'Active Power Block D during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataDMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataDMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Monsoon');
@@ -493,11 +485,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block D Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataDIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataDIntermediate);
  title(h2,'Active Power Block D during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataDIntermediate/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataDIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Intermediate Season');
@@ -516,11 +508,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block D Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataDWinter);
+ plot(h2,xdiscretized,ActivePower_dataDWinter);
  title(h2,'Active Power Block D during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataDWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataDWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Winter');
@@ -541,11 +533,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block E Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataEMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataEMonsoon);
  title(h2,'Active Power Block E during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataEMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataEMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Monsoon');
@@ -564,11 +556,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block E Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataEIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataEIntermediate);
  title(h2,'Active Power Block E during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataEIntermediate/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataEIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Intermediate Season')
@@ -587,11 +579,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block E Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataEWinter);
+ plot(h2,xdiscretized,ActivePower_dataEWinter);
  title(h2,'Active Power Block E during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataEWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataEWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Winter');
@@ -612,11 +604,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block C %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block C Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataCMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataCMonsoon);
  title(h2,'Active Power Block C during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataCMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataCMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Monsoon');
@@ -635,11 +627,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block C Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataCIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataCIntermediate);
  title(h2,'Active Power Block C during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataCIntermediate/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataCIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Intermediate Season');
@@ -658,11 +650,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block C Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataCWinter);
+ plot(h2,xdiscretized,ActivePower_dataCWinter);
  title(h2,'Active Power Block C during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataCWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataCWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Winter');
@@ -683,11 +675,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block A %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block A Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataAMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataAMonsoon);
  title(h2,'Active Power Block A during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataAMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataAMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Monsoon');
@@ -706,11 +698,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block A Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataAIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataAIntermediate);
  title(h2,'Active Power Block A during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataAIntermediate/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataAIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Intermediate Season');
@@ -729,11 +721,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block A Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataAWinter);
+ plot(h2,xdiscretized,ActivePower_dataAWinter);
  title(h2,'Active Power Block A during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataAWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataAWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Winter');
@@ -754,11 +746,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block B %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block B Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataBMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataBMonsoon);
  title(h2,'Active Power Block B during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataBMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataBMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Monsoon');
@@ -777,11 +769,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block B Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataBIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataBIntermediate);
  title(h2,'Active Power Block B during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataBIntermediate/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataBIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Intermediate Season');
@@ -800,11 +792,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block B Winter'
- plot(h2,xdiscretized*10,ActivePower_dataBWinter);
+ plot(h2,xdiscretized,ActivePower_dataBWinter);
  title(h2,'Active Power Block B during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataBWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataBWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Winter');
@@ -825,11 +817,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block LH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block LH Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataLHMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataLHMonsoon);
  title(h2,'Active Power Block LH during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataLHMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataLHMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Monsoon');
@@ -848,11 +840,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block LH Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataLHIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataLHIntermediate);
  title(h2,'Active Power Block LH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataLHIntermediate/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataLHIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Intermediate Season');
@@ -871,11 +863,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block LH Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataLHWinter);
+ plot(h2,xdiscretized,ActivePower_dataLHWinter);
  title(h2,'Active Power Block LH during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataLHWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataLHWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Winter');
@@ -896,11 +888,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block RH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block RH Monsoon'
- plot(h2,xdiscretized*10,ActivePower_dataRHMonsoon);
+ plot(h2,xdiscretized,ActivePower_dataRHMonsoon);
  title(h2,'Active Power Block RH during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataRHMonsoon/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataRHMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Monsoon');
@@ -919,11 +911,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block RH Intermediate'
- plot(h2,xdiscretized*10,ActivePower_dataRHIntermediate);
+ plot(h2,xdiscretized,ActivePower_dataRHIntermediate);
  title(h2,'Active Power Block RH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
-  plot(h3,xdiscretized*10,ActivePower_dataRHIntermediate/10,'r');
+  plot(h3,xdiscretized,ActivePower_dataRHIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Intermediate Season');
@@ -942,11 +934,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block RH Winter'
- plot(h2,xdiscretized*10,ActivePower_dataRHWinter);
+ plot(h2,xdiscretized,ActivePower_dataRHWinter);
  title(h2,'Active Power Block RH during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataRHWinter/10,'r');
+ plot(h3,xdiscretized,ActivePower_dataRHWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Winter');
@@ -973,7 +965,7 @@ end
 function monsoonbutton_Callback(source, eventdata, handles) 
 
 % Plot monsoon season from dataBase
-plot(h1,xdiscretized*10,Ins_M,'r'); 
+plot(h1,xdiscretized,Ins_M,'r'); 
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Monsoon');
@@ -994,7 +986,7 @@ end
 function intermediatebutton_Callback(source, eventdata, handles) 
 
 % Plot intemediate season from dataBase
-plot(h1,xdiscretized*10,Ins_I,'m');
+plot(h1,xdiscretized,Ins_I,'m');
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Intermediate Season');
@@ -1016,7 +1008,7 @@ end
 function winterbutton_Callback(source, eventdata, handles) 
 
 % Plot winter season from dataBase
-plot(h1,xdiscretized*10,Ins_W,'g');
+plot(h1,xdiscretized,Ins_W,'g');
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Winter');
@@ -1147,19 +1139,19 @@ Bf=evalin('caller','Bf');
     if size(Af)==size(Bf)
         
     % Open and write the new value of clock in clocktxt    
-    fid = fopen('clocktxt.txt','a+');
+    fid = fopen('dataBase/clocktxt.txt','a+');
     fprintf(fid,' %i\n',clock);
     fclose(fid)
-    fid = fopen('clocktxt.txt','r');
+    fid = fopen('dataBase/clocktxt.txt','r');
     Af = fscanf(fid,'%f');
     assignin('base','Af', Af);
     fclose(fid);
     
     % Open and write the new value of frequency in frequencytxt
-    fid2 = fopen('frequencytxt.txt','a+');
+    fid2 = fopen('dataBase/frequencytxt.txt','a+');
     fprintf(fid2,' %i\n',frequency);
     fclose(fid2)
-    fid2 = fopen('frequencytxt.txt','r');
+    fid2 = fopen('dataBase/frequencytxt.txt','r');
     Bf = fscanf(fid2,'%f');
     assignin('base','Bf', Bf);
     fclose(fid2);
@@ -1167,10 +1159,10 @@ Bf=evalin('caller','Bf');
     elseif size(Bf)<size(Af)
         
     % Open and write the new value of frequency in frequencytxt    
-    fid2 = fopen('frequencytxt.txt','a+');
+    fid2 = fopen('dataBase/frequencytxt.txt','a+');
     fprintf(fid2,' %i\n',frequency);
     fclose(fid2)
-    fid2 = fopen('frequencytxt.txt','r');
+    fid2 = fopen('dataBase/frequencytxt.txt','r');
     Bf = fscanf(fid2,'%f');
     assignin('base','Bf', Bf);
     fclose(fid2);
@@ -1178,10 +1170,10 @@ Bf=evalin('caller','Bf');
     elseif size(Bf)>size(Af)
         
     % Open and write the new value of clock in clocktxt      
-    fid = fopen('clocktxt.txt','a+');
+    fid = fopen('dataBase/clocktxt.txt','a+');
     fprintf(fid,' %i\n',clock);
     fclose(fid)
-    fid = fopen('clocktxt.txt','r');
+    fid = fopen('dataBase/clocktxt.txt','r');
     Af = fscanf(fid,'%f');
     assignin('base','Af', Af);
     fclose(fid); 
@@ -1196,19 +1188,19 @@ Bv=evalin('caller','Bv');
     if size(Av)==size(Bv)
         
     % Open and write the new value of clock in clocktxtvoltage     
-    fidv = fopen('clocktxtvoltage.txt','a+');
+    fidv = fopen('dataBase/clocktxtvoltage.txt','a+');
     fprintf(fidv,' %i\n',superclock);
     fclose(fidv)
-    fidv = fopen('clocktxtvoltage.txt','r');
+    fidv = fopen('dataBase/clocktxtvoltage.txt','r');
     Av = fscanf(fidv,'%f');
     assignin('base','Av', Av);
     fclose(fidv);
     
     % Open and write the new value of voltage in voltagetxt
-    fid1 = fopen('voltagetxt.txt','a+');
+    fid1 = fopen('dataBase/voltagetxt.txt','a+');
     fprintf(fid1,' %i\n',voltage);
     fclose(fid1)
-    fid1 = fopen('voltagetxt.txt','r');
+    fid1 = fopen('dataBase/voltagetxt.txt','r');
     Bv = fscanf(fid1,'%f');
     assignin('base','Bv', Bv);
     fclose(fid1);
@@ -1216,10 +1208,10 @@ Bv=evalin('caller','Bv');
     elseif size(Bv)<size(Av)
         
     % Open and write the new value of voltage in voltagetxt    
-    fid1 = fopen('voltagetxt.txt','a+');
+    fid1 = fopen('dataBase/voltagetxt.txt','a+');
     fprintf(fid1,' %i\n',voltage);
     fclose(fid1)
-    fid1 = fopen('voltagetxt.txt','r');
+    fid1 = fopen('dataBase/voltagetxt.txt','r');
     Bv = fscanf(fid1,'%f');
     assignin('base','Bv', Bv);
     fclose(fid1);
@@ -1227,10 +1219,10 @@ Bv=evalin('caller','Bv');
     elseif size(Bv)>size(Av)
         
     % Open and write the new value of clock in clocktxtvoltage   
-    fidv = fopen('clocktxtvoltage.txt','a+');
+    fidv = fopen('dataBase/clocktxtvoltage.txt','a+');
     fprintf(fidv,' %i\n',superclock);
     fclose(fidv)
-    fidv = fopen('clocktxtvoltage.txt','r');
+    fidv = fopen('dataBase/clocktxtvoltage.txt','r');
     Av = fscanf(fidv,'%f');
     assignin('base','Av',Av);
     fclose(fidv); 
@@ -1245,20 +1237,20 @@ Bsoc=evalin('caller','Bsoc');
     if size(Asoc)==size(Bsoc)
         
     % Open and write the new value of clock in clocktxtsoc  
-    fidsoc = fopen('clocktxtsoc.txt','a+');
+    fidsoc = fopen('dataBase/clocktxtsoc.txt','a+');
     fprintf(fidsoc,' %i\n',clock);
     fclose(fidsoc)
     % Update the plot
-    fidsoc = fopen('clocktxtsoc.txt','r');
+    fidsoc = fopen('dataBase/clocktxtsoc.txt','r');
     Asoc = fscanf(fidsoc,'%f');
     assignin('base','Asoc', Asoc);
     fclose(fidsoc);
     
     % Open and write the new value of SOC in soctxt
-    fid3 = fopen('soctxt.txt','a+');
+    fid3 = fopen('dataBase/soctxt.txt','a+');
     fprintf(fid3,' %i\n',SOC);
     fclose(fid3)
-    fid3 = fopen('soctxt.txt','r');
+    fid3 = fopen('dataBase/soctxt.txt','r');
     Bsoc = fscanf(fid3,'%f');
     assignin('base','Bsoc', Bsoc);
     fclose(fid3);
@@ -1266,10 +1258,10 @@ Bsoc=evalin('caller','Bsoc');
     elseif size(Bsoc)<size(Asoc)
         
     % Open and write the new value of SOC in soctxt
-    fid3 = fopen('soctxt.txt','a+');
+    fid3 = fopen('dataBase/soctxt.txt','a+');
     fprintf(fid3,' %i\n',SOC);
     fclose(fid3)
-    fid3 = fopen('soctxt.txt','r');
+    fid3 = fopen('dataBase/soctxt.txt','r');
     Bf = fscanf(fid3,'%f');
     assignin('base','Bsoc', Bsoc);
     fclose(fid3);
@@ -1277,10 +1269,10 @@ Bsoc=evalin('caller','Bsoc');
     elseif size(Bsoc)>size(Asoc)
         
     % Open and write the new value of SOC in soctxt 
-    fidsoc = fopen('clocktxtsoc.txt','a+');
+    fidsoc = fopen('dataBase/clocktxtsoc.txt','a+');
     fprintf(fidsoc,' %i\n',clock);
     fclose(fidsoc)
-    fidsoc = fopen('clocktxtsoc.txt','r');
+    fidsoc = fopen('dataBase/clocktxtsoc.txt','r');
     Af = fscanf(fidsoc,'%f');
     assignin('base','Asoc', Asoc);
     fclose(fidsoc); 
@@ -1294,19 +1286,19 @@ Bcurrent=evalin('caller','Bcurrent');
     if size(Acurrent)==size(Bcurrent)
         
     % Open and write the new value of clock in clocktxtc      
-    fidc = fopen('clocktxtc.txt','a+');
+    fidc = fopen('dataBase/clocktxtc.txt','a+');
     fprintf(fidc,' %i\n',superclock);
     fclose(fidc)
-    fidc = fopen('clocktxtc.txt','r');
+    fidc = fopen('dataBase/clocktxtc.txt','r');
     Acurrent = fscanf(fidc,'%f');
     assignin('base','Acurrent', Acurrent);
     fclose(fidc);
     
     % Open and write the new value of current in currenttxt
-    fid4 = fopen('currenttxt.txt','a+');
+    fid4 = fopen('dataBase/currenttxt.txt','a+');
     fprintf(fid4,' %i\n',current);
     fclose(fid4)
-    fid4 = fopen('currenttxt.txt','r');
+    fid4 = fopen('dataBase/currenttxt.txt','r');
     Bcurrent = fscanf(fid4,'%f');
     assignin('base','Bcurrent', Bcurrent);
     fclose(fid4);
@@ -1314,10 +1306,10 @@ Bcurrent=evalin('caller','Bcurrent');
     elseif size(Bcurrent)<size(Acurrent)
         
     % Open and write the new value of current in currenttxt  
-    fid4 = fopen('currenttxt.txt','a+');
+    fid4 = fopen('dataBase/currenttxt.txt','a+');
     fprintf(fid4,' %i\n',current);
     fclose(fid4)
-    fid4 = fopen('currenttxt.txt','r');
+    fid4 = fopen('dataBase/currenttxt.txt','r');
     Bcurrent = fscanf(fid4,'%f');
     assignin('base','Bcurrent', Bcurrent);
     fclose(fid4);
@@ -1325,10 +1317,10 @@ Bcurrent=evalin('caller','Bcurrent');
     elseif size(Bcurrent)>size(Acurrent)
         
     % Open and write the new value of clock in clocktxtc    
-    fidc = fopen('clocktxtc.txt','a+');
+    fidc = fopen('dataBase/clocktxtc.txt','a+');
     fprintf(fidc,' %i\n',superclock);
     fclose(fidc)
-    fidc = fopen('clocktxtc.txt','r');
+    fidc = fopen('dataBase/clocktxtc.txt','r');
     Acurrent = fscanf(fidc,'%f');
     assignin('base','Acurrent',Acurrent);
     fclose(fidc); 
@@ -1343,20 +1335,20 @@ Bactivepower=evalin('caller','Bactivepower');
     if size(Aactivepower)==size(Bactivepower)
         
     % Open and write the new value of clock in clocktxtap  
-    fidap = fopen('clocktxtap.txt','a+');
+    fidap = fopen('dataBase/clocktxtap.txt','a+');
     fprintf(fidap,' %i\n',clock);
     fclose(fidap)
     % Update the plot
-    fidap = fopen('clocktxtap.txt','r');
+    fidap = fopen('dataBase/clocktxtap.txt','r');
     Aactivepower = fscanf(fidap,'%f');
     assignin('base','Aactivepower', Aactivepower);
     fclose(fidap);
     
     % Open and write the new value of SOC in soctxt
-    fid5 = fopen('activepowertxt.txt','a+');
+    fid5 = fopen('dataBase/activepowertxt.txt','a+');
     fprintf(fid5,' %i\n',activepower);
     fclose(fid5)
-    fid5 = fopen('activepowertxt.txt','r');
+    fid5 = fopen('dataBase/activepowertxt.txt','r');
     Bactivepower = fscanf(fid5,'%f');
     assignin('base','Bactivepower', Bactivepower);
     fclose(fid5);
@@ -1364,10 +1356,10 @@ Bactivepower=evalin('caller','Bactivepower');
     elseif size(Bactivepower)<size(Aactivepower)
         
     % Open and write the new value of SOC in soctxt
-    fid5 = fopen('activepowertxt.txt','a+');
+    fid5 = fopen('dataBase/activepowertxt.txt','a+');
     fprintf(fid5,' %i\n',activepower);
     fclose(fid5)
-    fid5 = fopen('activepowertxt.txt','r');
+    fid5 = fopen('dataBase/activepowertxt.txt','r');
     Bactivepower = fscanf(fid5,'%f');
     assignin('base','Bactivepower', Bactivepower);
     fclose(fid5);
@@ -1375,10 +1367,10 @@ Bactivepower=evalin('caller','Bactivepower');
     elseif size(Bactivepower)>size(Aactivepower)
         
     % Open and write the new value of SOC in clocktxtap 
-    fidap = fopen('clocktxtap.txt','a+');
+    fidap = fopen('dataBase/clocktxtap.txt','a+');
     fprintf(fidap,' %i\n',clock);
     fclose(fidap)
-    fidap= fopen('clocktxtap.txt','r');
+    fidap= fopen('dataBase/clocktxtap.txt','r');
     Aactivepower = fscanf(fidap,'%f');
     assignin('base','Aactivepower', Aactivepower);
     fclose(fidap); 
@@ -1392,20 +1384,20 @@ Breactivepower=evalin('caller','Breactivepower');
     if size(Areactivepower)==size(Breactivepower)
         
     % Open and write the new value of clock in clocktxtrap  
-    fidrap = fopen('clocktxtrap.txt','a+');
+    fidrap = fopen('dataBase/clocktxtrap.txt','a+');
     fprintf(fidrap,' %i\n',clock);
     fclose(fidrap)
     % Update the plot
-    fidrap = fopen('clocktxtrap.txt','r');
+    fidrap = fopen('dataBase/clocktxtrap.txt','r');
     Areactivepower = fscanf(fidrap,'%f');
     assignin('base','Areactivepower', Areactivepower);
     fclose(fidrap);
     
     % Open and write the new value of SOC in reactivepowertxt
-    fid5 = fopen('reactivepowertxt.txt','a+');
+    fid5 = fopen('dataBase/reactivepowertxt.txt','a+');
     fprintf(fid5,' %i\n',reactivepower);
     fclose(fid5)
-    fid5 = fopen('reactivepowertxt.txt','r');
+    fid5 = fopen('dataBase/reactivepowertxt.txt','r');
     Breactivepower = fscanf(fid5,'%f');
     assignin('base','Breactivepower', Breactivepower);
     fclose(fid5);
@@ -1413,10 +1405,10 @@ Breactivepower=evalin('caller','Breactivepower');
     elseif size(Breactivepower)<size(Areactivepower)
         
     % Open and write the new value of SOC in reactivepowertxt
-    fid5 = fopen('reactivepowertxt.txt','a+');
+    fid5 = fopen('dataBase/reactivepowertxt.txt','a+');
     fprintf(fid5,' %i\n',reactivepower);
     fclose(fid5)
-    fid5 = fopen('reactivepowertxt.txt','r');
+    fid5 = fopen('dataBase/reactivepowertxt.txt','r');
     Breactivepower = fscanf(fid5,'%f');
     assignin('base','Breactivepower', Breactivepower);
     fclose(fid5);
@@ -1424,10 +1416,10 @@ Breactivepower=evalin('caller','Breactivepower');
     elseif size(Breactivepower)>size(Areactivepower)
    
     % Open and write the new value of SOC in clocktxtrap 
-    fidap = fopen('clocktxtrap.txt','a+');
+    fidap = fopen('dataBase/clocktxtrap.txt','a+');
     fprintf(fidap,' %i\n',clock);
     fclose(fidap)
-    fidap= fopen('clocktxtrap.txt','r');
+    fidap= fopen('dataBase/clocktxtrap.txt','r');
     Areactivepower = fscanf(fidap,'%f');
     assignin('base','Areactivepower', Areactivepower);
     fclose(fidap); 
