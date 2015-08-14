@@ -11,17 +11,26 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
 * Give methods for simplifying the planning and resource-assessment phase.
 
 ## How to run
-Open the file simulink-microgrid, open the simulink file 'Microgrid_24h_Simulation.mdl' and in the subfile src open the file 'main.mat'. Then run the 'main.mat' file and follow the instructions (Be careful, you have to open the simulink before you can run the main file). 
+Open the file simulink-microgrid then open the simulink file 'Microgrid_24h_Simulation.mdl' and in the subfile src open the file 'main.mat'. You can now, run the 'main.mat' file and follow the instructions (Be careful, you have to open the simulink before you can run the main file). 
+
+## Compiling
+The time of the compilation is greatly impacted by the performance of your computer.
+
+## Supported operating systems
+Windows, Linux and Mac are supported by this simulation. When you run the 'main.mat' file, a popup box let you choose between different OS.
+
+## Input Data of the simulink
+The different inputs data are located in the file simulink-microgrid/database.
 
 ## To Do
 
-- [ ] The simulation crashes. 
+- [x] The simulation crashes. 
 - [ ] Enhance the readme
   * Explain how to run the simulation
   * Write about compiling
   * write about supported operating systems
   * Add usefull links to prior knowledge for this simulation, such as using excel and matlab together.
-- [x] Create a GUI in order to control and cisualize the simulation
+- [x] Create a GUI in order to control and visualize the simulation
 - [x] Make the GUI dynamic
 - [ ] Implement the integration of a backup in the simulink
 - [ ] Create a wiki
@@ -31,3 +40,4 @@ Open the file simulink-microgrid, open the simulink file 'Microgrid_24h_Simulati
 - [ ] Add support for multi-core.
 - [x] Add OS X support
 - [ ] Run simulation on OS X
+- [ ] Check the name of the previous master thesis
