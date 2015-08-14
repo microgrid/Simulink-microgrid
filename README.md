@@ -21,12 +21,12 @@ Design tools are needed to build the prototype PV-microgrid at the College of Sc
   * write about supported operating systems
   * Add usefull links to prior knowledge for this simulation, such as using excel and matlab together.
 - [x] Create a GUI in order to control and cisualize the simulation
-- [ ] Make the GUI dynamic
+- [x] Make the GUI dynamic
 - [ ] Implement the integration of a backup in the simulink
 - [ ] Create a wiki
 - [x] Testing
   * Run a complete simulation and analyse the results.
-- [ ] Simulation crashed - find error
+- [x] Simulation crashed - find error
 - [ ] Add support for multi-core.
 - [x] Add OS X support
 - [ ] Run simulation on OS X
