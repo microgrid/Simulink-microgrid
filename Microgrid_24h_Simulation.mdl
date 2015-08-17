@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.198"
+    ComputedModelVersion    "1.203"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -35,7 +35,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1616.0, 916.0]
+      Location		      [-8.0, -8.0, 1616.0, 916.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -54,7 +54,7 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		2
+	Dimension		4
 	Object {
 	  $ObjectID		  5
 	  IsActive		  [0]
@@ -62,16 +62,34 @@ Model {
 	  LoadSaveID		  "1362"
 	  Extents		  [1566.0, 769.0]
 	  ZoomFactor		  [0.6]
-	  Offset		  [-32.673809523809723, -159.64999999999986]
+	  Offset		  [26.666666666666742, -102.14999999999986]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1566.0, 769.0]
 	  ZoomFactor		  [0.6]
-	  Offset		  [-247.5, -114.58333333333331]
+	  Offset		  [-247.5, -114.58333333333326]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "3018"
+	  Extents		  [1566.0, 769.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  8
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "429"
+	  Extents		  [1566.0, 769.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
 	}
 	PropName		"EditorsInfo"
       }
@@ -86,9 +104,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Aug 14 17:37:10 2015"
-  RTWModifiedTimeStamp	  361474108
-  ModelVersionFormat	  "1.%<AutoIncrement:198>"
+  LastModifiedDate	  "Mon Aug 17 12:23:44 2015"
+  RTWModifiedTimeStamp	  361715019
+  ModelVersionFormat	  "1.%<AutoIncrement:203>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -123,7 +141,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    7
+    $ObjectID		    9
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Dena_batea"
     signals_		    []
@@ -183,13 +201,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      8
+      $ObjectID		      10
       Version		      "1.13.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  9
+	  $ObjectID		  11
 	  Version		  "1.13.0"
 	  StartTime		  "0.0"
 	  StopTime		  "2.4"
@@ -224,7 +242,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  10
+	  $ObjectID		  12
 	  Version		  "1.13.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -256,7 +274,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  11
+	  $ObjectID		  13
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -312,7 +330,7 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  12
+	  $ObjectID		  14
 	  Version		  "1.13.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -402,7 +420,7 @@ Model {
 	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  13
+	  $ObjectID		  15
 	  Version		  "1.13.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -443,7 +461,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  14
+	  $ObjectID		  16
 	  Version		  "1.13.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -458,7 +476,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  15
+	  $ObjectID		  17
 	  Version		  "1.13.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -473,7 +491,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  16
+	  $ObjectID		  18
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -536,7 +554,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      17
+	      $ObjectID		      19
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -603,7 +621,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      18
+	      $ObjectID		      20
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -686,7 +704,7 @@ Model {
 	  }
 	}
 	SSC.SimscapeCC {
-	  $ObjectID		  19
+	  $ObjectID		  21
 	  Version		  "1.0"
 	  Array {
 	    Type		    "Cell"
@@ -715,11 +733,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    8
+    $ObjectID		    10
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    20
+    $ObjectID		    22
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1048,7 +1066,7 @@ Model {
   }
   System {
     Name		    "Microgrid_24h_Simulation"
-    Location		    [-8, 0, 1608, 916]
+    Location		    [-8, -8, 1608, 908]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1062,7 +1080,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "3026"
+    SIDHighWatermark	    "3029"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -1079,7 +1097,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		21
+	$ObjectID		23
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/Plug.bmp'))"
       }
@@ -2264,7 +2282,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		24
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/Battery.bmp'))"
       }
@@ -2302,12 +2320,12 @@ Model {
 	  NomQ			  "100"
 	  SOC			  "50"
 	  PresetModel		  on
-	  MaxQ			  "5208.3333"
+	  MaxQ			  "104.1667"
 	  FullV			  "1088.8158"
-	  Dis_rate		  "1000"
-	  R			  "0.002"
-	  Normal_OP		  "1551.3889"
-	  expZone		  "[1018.0921      16.666667]"
+	  Dis_rate		  "20"
+	  R			  "0.1"
+	  Normal_OP		  "31.0278"
+	  expZone		  "[1018.0921     0.33333333]"
 	  Dis_Char		  off
 	  current		  "[20 50 100]"
 	  Units			  "Time"
@@ -2710,6 +2728,7 @@ Model {
       BlockType		      SubSystem
       Name		      "Bidirectional DC/DC\n Converter"
       SID		      "429"
+      Tag		      "Bidirectional"
       Ports		      [0, 0, 0, 0, 0, 2, 2]
       Position		      [555, 700, 710, 840]
       ZOrder		      -3
@@ -2727,14 +2746,14 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		23
+	$ObjectID		25
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Bidirectional Converter') \n"
       }
       System {
 	Name			"Bidirectional DC/DC\n Converter"
 	Location		[-8, -8, 1608, 908]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2846,12 +2865,22 @@ Model {
 	  BlockType		  From
 	  Name			  "From4"
 	  SID			  "2660"
-	  Position		  [1010, 221, 1075, 249]
+	  Position		  [995, 221, 1070, 249]
 	  ZOrder		  1
 	  NamePlacement		  "alternate"
 	  ShowName		  off
 	  GotoTag		  "SOC"
 	  TagVisibility		  "global"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  "3028"
+	  Position		  [1325, 370, 1355, 400]
+	  ZOrder		  15
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Goto
@@ -2877,7 +2906,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto5"
 	  SID			  "2682"
-	  Position		  [1315, 270, 1390, 300]
+	  Position		  [1390, 270, 1465, 300]
 	  ZOrder		  3
 	  NamePlacement		  "alternate"
 	  ShowName		  off
@@ -3011,6 +3040,35 @@ Model {
 	      DstPort		      1
 	    }
 	  }
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "Scope"
+	  SID			  "3029"
+	  Ports			  [1]
+	  Position		  [1410, 369, 1440, 401]
+	  ZOrder		  41
+	  Floating		  off
+	  Location		  [1, 48, 1601, 899]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  ShowLegends		  off
+	  DataFormat		  "StructureWithTime"
+	  SampleTime		  "0"
 	}
 	Block {
 	  BlockType		  SubSystem
@@ -3398,15 +3456,23 @@ Model {
 	Line {
 	  SrcBlock		  "From4"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, 35]
+	  Points		  [25, 0; 0, 35]
 	  DstBlock		  "MATLAB Function"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "MATLAB Function"
 	  SrcPort		  1
-	  DstBlock		  "Goto5"
-	  DstPort		  1
+	  Points		  [16, 0]
+	  Branch {
+	    Points		    [0, 100]
+	    DstBlock		    "Gain"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Goto5"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  LineType		  "Connection"
@@ -3479,6 +3545,12 @@ Model {
 	  DstBlock		  "MATLAB Function"
 	  DstPort		  2
 	}
+	Line {
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  DstBlock		  "Scope"
+	  DstPort		  1
+	}
       }
     }
     Block {
@@ -3503,7 +3575,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		24
+	$ObjectID		26
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Boost Converter')"
       }
@@ -4979,7 +5051,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		25
+	$ObjectID		27
 	$ClassName		"Simulink.Mask"
 	Display			"disp('DC/AC Inverter')"
       }
@@ -7221,7 +7293,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		26
+	$ObjectID		28
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/photo.bmp'))"
       }
@@ -8553,13 +8625,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		27
+	$ObjectID		29
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Measurements')"
       }
       System {
 	Name			"Subsystem"
-	Location		[-8, 0, 1608, 916]
+	Location		[-8, -8, 1608, 908]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -9065,7 +9137,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    28
+	    $ObjectID		    30
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Boost Converter Control')"
 	  }
@@ -9179,7 +9251,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    29
+	    $ObjectID		    31
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Bidirectional Converter Control')"
 	  }
@@ -9412,7 +9484,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    30
+	    $ObjectID		    32
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Frequency Measurement')"
 	  }
@@ -10589,7 +10661,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Power Calculation"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [-8, 0, 1608, 916]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -11747,7 +11819,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Subsystem10"
-	    Location		    [0, 0, 1600, 876]
+	    Location		    [-8, -8, 1608, 908]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -11868,7 +11940,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    31
+	    $ObjectID		    33
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Additional Load Meas.')"
 	  }
@@ -14939,10 +15011,7 @@ Stateflow {
     firstTransition	    9
     firstJunction	    8
     viewObj		    2
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -15127,10 +15196,7 @@ Stateflow {
     firstTransition	    17
     firstJunction	    16
     viewObj		    11
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -15271,10 +15337,7 @@ Stateflow {
     firstTransition	    31
     firstJunction	    30
     viewObj		    19
-    visible		    1
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    12
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

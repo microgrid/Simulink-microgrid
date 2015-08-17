@@ -65,7 +65,7 @@ customerRHMonsoon=importdata('dataBase/PowerRHMonsoon.mat'); %  Data from excel 
 customerRHIntermediate=importdata('dataBase/PowerRHIntermediate.mat'); %  Data from excel Block RH
 customerRHWinter=importdata('dataBase/PowerRHWinter.mat'); %  Data from excel Block RH
 
-Time=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
+Time1=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img/bhutan.jpg');
 
 elseif os==2
@@ -104,10 +104,12 @@ customerRHMonsoon=importdata('dataBase\PowerRHMonsoon.mat'); %  Data from excel 
 customerRHIntermediate=importdata('dataBase\PowerRHIntermediate.mat'); %  Data from excel Block RH
 customerRHWinter=importdata('dataBase\PowerRHWinter.mat'); %  Data from excel Block RH
 
-Time=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
+Time1=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img\bhutan.jpg');
 
 end
+
+Time=Time1/10;
 
 % linear regression with a polynomial approach for the Active power of the load  
 
@@ -137,6 +139,8 @@ yfit2 = polyval(p,Time);
 yfitdiscretized2=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized2=yfitdiscretized2;
 r=1;
 for c = 1:ncols
@@ -195,6 +199,8 @@ yfit5 = polyval(p,Time);
 yfitdiscretized5=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized5=yfitdiscretized5;
 r=1;
 for c = 1:ncols
@@ -253,6 +259,8 @@ yfit8 = polyval(p,Time);
 yfitdiscretized8=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized8=yfitdiscretized8;
 r=1;
 for c = 1:ncols
@@ -370,6 +378,8 @@ yfit14 = polyval(p,Time);
 yfitdiscretized14=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized14=yfitdiscretized14;
 r=1;
 for c = 1:ncols
@@ -428,6 +438,8 @@ yfit17 = polyval(p,Time);
 yfitdiscretized17=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized17=yfitdiscretized17;
 r=1;
 for c = 1:ncols
@@ -486,6 +498,8 @@ yfit20 = polyval(p,Time);
 yfitdiscretized20=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 newyfitdiscretized20=yfitdiscretized20;
 r=1;
 for c = 1:ncols
@@ -544,7 +558,8 @@ yfit23 = polyval(p,Time);
 yfitdiscretized23=polyval(p,xdiscretized);
 
 % Delete values below zero for the final curve for the Active power of the load
-newyfitdiscretized23=yfitdiscretized23;
+nrows = 1;
+ncols = (2.3/SampleTime)+1;
 r=1;
 for c = 1:ncols
 
@@ -656,8 +671,9 @@ fid6 = fopen('dataBase/reactivepowertxt.txt','w');
 fprintf(fid6,' %i\n',reactivepower);
 fclose(fid6)
 
+
 % % Run the GUI
-% run('Supervision'); 
+%  run('Supervision'); 
 
 VARins = [xdiscretized;Ins_Monsoon];
 VARTemp = [xdiscretized;Temp1];

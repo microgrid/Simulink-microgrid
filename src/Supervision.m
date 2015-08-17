@@ -233,7 +233,7 @@ SampleTime=0.1;
 xdiscretized=0.1:SampleTime:2.4;
 
 % Initialize the plot h1 with Ins_Monsoon from DataBase.m
-plot(h1,xdiscretized,Ins_M,'m'); 
+plot(h1,xdiscretized*10,Ins_M,'m'); 
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Monsoon');
@@ -347,13 +347,13 @@ title(h10,'Load Reactive Power');
 grid(h10,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
-plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
+plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
 xlabel(h2,'Time (Hours)');
 ylabel(h2,'Active Power (kW)');
 title(h2,'Active Power All Blocks during Monsoon');
 
 % Initialize plote h3 for the Reactive power (In our case we make an assumption, it is just the Active power divided by 10).
-plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
 xlabel(h3,'Time (Hours)');
 ylabel(h3,'Reactive Power (kVAR)');
 title(h3,'Reactive Power All Blocks during Monsoon')
@@ -388,12 +388,12 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects All Blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'All Blocks Monsoon'  
- plot(h2,xdiscretized,ActivePower_dataALLMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
  title(h2,'Active Power All Blocks during the Monsoon');
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataALLMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Monsoon')
@@ -441,7 +441,7 @@ function popup_menu_Callback(source, eventdata, handles)
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataALLWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataALLWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Winter')
@@ -462,11 +462,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block D %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block D Monsoon' 
- plot(h2,xdiscretized,ActivePower_dataDMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataDMonsoon);
  title(h2,'Active Power Block D during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataDMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataDMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Monsoon');
@@ -485,11 +485,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block D Intermediate' 
- plot(h2,xdiscretized,ActivePower_dataDIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataDIntermediate);
  title(h2,'Active Power Block D during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataDIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataDIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Intermediate Season');
@@ -508,11 +508,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block D Winter' 
- plot(h2,xdiscretized,ActivePower_dataDWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataDWinter);
  title(h2,'Active Power Block D during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataDWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataDWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Winter');
@@ -533,11 +533,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block E Monsoon' 
- plot(h2,xdiscretized,ActivePower_dataEMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataEMonsoon);
  title(h2,'Active Power Block E during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataEMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataEMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Monsoon');
@@ -556,11 +556,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block E Intermediate' 
- plot(h2,xdiscretized,ActivePower_dataEIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataEIntermediate);
  title(h2,'Active Power Block E during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataEIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataEIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Intermediate Season')
@@ -579,11 +579,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block E Winter' 
- plot(h2,xdiscretized,ActivePower_dataEWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataEWinter);
  title(h2,'Active Power Block E during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataEWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataEWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Winter');
@@ -604,11 +604,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block C %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block C Monsoon' 
- plot(h2,xdiscretized,ActivePower_dataCMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataCMonsoon);
  title(h2,'Active Power Block C during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataCMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataCMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Monsoon');
@@ -627,11 +627,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block C Intermediate' 
- plot(h2,xdiscretized,ActivePower_dataCIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataCIntermediate);
  title(h2,'Active Power Block C during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataCIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataCIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Intermediate Season');
@@ -650,11 +650,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block C Winter' 
- plot(h2,xdiscretized,ActivePower_dataCWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataCWinter);
  title(h2,'Active Power Block C during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataCWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataCWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Winter');
@@ -675,11 +675,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block A %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block A Monsoon' 
- plot(h2,xdiscretized,ActivePower_dataAMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataAMonsoon);
  title(h2,'Active Power Block A during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataAMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataAMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Monsoon');
@@ -698,11 +698,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block A Intermediate' 
- plot(h2,xdiscretized,ActivePower_dataAIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataAIntermediate);
  title(h2,'Active Power Block A during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataAIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataAIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Intermediate Season');
@@ -721,11 +721,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block A Winter' 
- plot(h2,xdiscretized,ActivePower_dataAWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataAWinter);
  title(h2,'Active Power Block A during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataAWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataAWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Winter');
@@ -746,11 +746,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block B %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block B Monsoon' 
- plot(h2,xdiscretized,ActivePower_dataBMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataBMonsoon);
  title(h2,'Active Power Block B during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataBMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataBMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Monsoon');
@@ -769,11 +769,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block B Intermediate' 
- plot(h2,xdiscretized,ActivePower_dataBIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataBIntermediate);
  title(h2,'Active Power Block B during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataBIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataBIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Intermediate Season');
@@ -792,11 +792,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block B Winter'
- plot(h2,xdiscretized,ActivePower_dataBWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataBWinter);
  title(h2,'Active Power Block B during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataBWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataBWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Winter');
@@ -817,11 +817,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block LH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block LH Monsoon' 
- plot(h2,xdiscretized,ActivePower_dataLHMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataLHMonsoon);
  title(h2,'Active Power Block LH during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataLHMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataLHMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Monsoon');
@@ -840,11 +840,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block LH Intermediate' 
- plot(h2,xdiscretized,ActivePower_dataLHIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataLHIntermediate);
  title(h2,'Active Power Block LH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataLHIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataLHIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Intermediate Season');
@@ -863,11 +863,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block LH Winter' 
- plot(h2,xdiscretized,ActivePower_dataLHWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataLHWinter);
  title(h2,'Active Power Block LH during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataLHWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataLHWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Winter');
@@ -888,11 +888,11 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block RH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block RH Monsoon'
- plot(h2,xdiscretized,ActivePower_dataRHMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataRHMonsoon);
  title(h2,'Active Power Block RH during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataRHMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataRHMonsoon/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Monsoon');
@@ -911,11 +911,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block RH Intermediate'
- plot(h2,xdiscretized,ActivePower_dataRHIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataRHIntermediate);
  title(h2,'Active Power Block RH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
-  plot(h3,xdiscretized,ActivePower_dataRHIntermediate/10,'r');
+  plot(h3,xdiscretized*10,ActivePower_dataRHIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Intermediate Season');
@@ -934,11 +934,11 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block RH Winter'
- plot(h2,xdiscretized,ActivePower_dataRHWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataRHWinter);
  title(h2,'Active Power Block RH during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized,ActivePower_dataRHWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataRHWinter/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Winter');
@@ -965,7 +965,7 @@ end
 function monsoonbutton_Callback(source, eventdata, handles) 
 
 % Plot monsoon season from dataBase
-plot(h1,xdiscretized,Ins_M,'r'); 
+plot(h1,xdiscretized*10,Ins_M,'r'); 
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Monsoon');
@@ -986,7 +986,7 @@ end
 function intermediatebutton_Callback(source, eventdata, handles) 
 
 % Plot intemediate season from dataBase
-plot(h1,xdiscretized,Ins_I,'m');
+plot(h1,xdiscretized*10,Ins_I,'m');
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Intermediate Season');
@@ -1008,7 +1008,7 @@ end
 function winterbutton_Callback(source, eventdata, handles) 
 
 % Plot winter season from dataBase
-plot(h1,xdiscretized,Ins_W,'g');
+plot(h1,xdiscretized*10,Ins_W,'g');
 xlabel(h1,'Time (Hours)');
 ylabel(h1,'Insolation (W/m²)');
 title(h1,'Insolation during the Winter');
@@ -1424,8 +1424,9 @@ Breactivepower=evalin('caller','Breactivepower');
     assignin('base','Areactivepower', Areactivepower);
     fclose(fidap); 
     end
+   
     
-%Updating Graphs with refreshdata
+% Updating Graphs with refreshdata
 refreshdata
 
 end
