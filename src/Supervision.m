@@ -915,7 +915,7 @@ function popup_menu_Callback(source, eventdata, handles)
  title(h2,'Active Power Block RH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
-  plot(h3,xdiscretized*10,ActivePower_dataRHIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataRHIntermediate/10,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Intermediate Season');
@@ -1029,8 +1029,6 @@ end
 
 function runbutton_Callback(source, eventdata, handles)
       
-message1 = msgbox('Please wait ! This simulation will take few hours');
-
 % toggle the buttons %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Turn off the Start button
@@ -1044,10 +1042,6 @@ set(hpopup,'Enable','off');
 % Turn off  
 set(txtbox2,'Enable','off');
 set(txtbox1,'Enable','off');
-
-% update the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% set_param(modelName,'SimulationCommand','update');
 
 % start the model %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1079,10 +1073,6 @@ set(txtbox1,'Enable','on');
 set_param(modelName,'SimulationCommand','stop');
 
 end
-
-% function updatebutton_Callback(source, eventdata, handles) 
-%    
-% end
 
 end
 
