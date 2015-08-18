@@ -259,6 +259,9 @@ assignin('base','clock', clock);
 superclock=[clock;clock;clock];
 assignin('base', 'superclock', superclock);
 
+Achargecontrol=0;
+assignin('base', 'Achargecontrol', Achargecontrol);
+ 
 % Initialize axes h4 voltage
 Av =[0;0;0]
 assignin('base','Av', Av);
@@ -1119,7 +1122,10 @@ rto6 = get_param('Microgrid_24h_Simulation/Subsystem/Gain6','RuntimeObject');
 reactivepower= rto6.OutputPort(1).Data;
 assignin('base','reactivepower', reactivepower);
 
-
+% Load chargecontrol
+rto7 = get_param('Microgrid_24h_Simulation/Subsystem/Gain7','RuntimeObject');
+chargecontrol= rto7.OutputPort(1).Data;
+assignin('base','chargecontrol', chargecontrol);
 
 % Dynamic upload of the data to files for the plot frequency 
 
@@ -1414,6 +1420,19 @@ Breactivepower=evalin('caller','Breactivepower');
     assignin('base','Areactivepower', Areactivepower);
     fclose(fidap); 
     end
+
+% Dynamic upload of the data to file for the control charge %%%%%%%%%%%%%%
+    
+    Achargecontrol=evalin('caller','Achargecontrol');
+    
+     % Open and write the new value of controlcharge in chargecontroltxt 
+    fid7 = fopen('dataBase/chargecontroltxt.txt','a+');
+    fprintf(fid7,' %i\n',chargecontrol);
+    fclose(fid7)
+    fid7= fopen('dataBase/chargecontroltxt.txt','r');
+    Achargecontrol = fscanf(fid7,'%f');
+    assignin('base','Achargecontrol', Achargecontrol);
+    fclose(fid7); 
    
     
 % Updating Graphs with refreshdata
