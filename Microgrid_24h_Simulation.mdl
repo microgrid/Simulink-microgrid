@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.208"
+    ComputedModelVersion    "1.212"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -57,21 +57,21 @@ Model {
 	Dimension		3
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [1]
+	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "1362"
 	  Extents		  [1566.0, 769.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [309.66666666666629, -14.349999999999786]
+	  ZoomFactor		  [0.8]
+	  Offset		  [-22.433333333333735, 32.80000000000021]
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [0]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "2165"
 	  Extents		  [1566.0, 769.0]
-	  ZoomFactor		  [0.6]
-	  Offset		  [-247.5, -114.58333333333326]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
 	}
 	Object {
 	  $ObjectID		  7
@@ -86,8 +86,8 @@ Model {
       }
     }
   }
-  PhysicalModelingChecksum "3851408854"
-  PhysicalModelingParameterChecksum "1991397807"
+  PhysicalModelingChecksum "3070022155"
+  PhysicalModelingParameterChecksum "3653942329"
   PhysicalModelingProducts "Power_System_Blocks"
   Created		  "Sat Apr 20 11:36:48 2013"
   Creator		  "Student"
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Aug 18 09:23:00 2015"
-  RTWModifiedTimeStamp	  361790557
-  ModelVersionFormat	  "1.%<AutoIncrement:208>"
+  LastModifiedDate	  "Tue Aug 18 10:16:59 2015"
+  RTWModifiedTimeStamp	  361793814
+  ModelVersionFormat	  "1.%<AutoIncrement:212>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1059,7 +1059,7 @@ Model {
   System {
     Name		    "Microgrid_24h_Simulation"
     Location		    [-8, -8, 1608, 908]
-    Open		    on
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1072,7 +1072,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "3038"
+    SIDHighWatermark	    "3041"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -1096,7 +1096,7 @@ Model {
       System {
 	Name			"AC Load"
 	Location		[-8, -8, 1608, 908]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1168,6 +1168,38 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto"
+	      SID		      "3035"
+	      Position		      [900, 355, 960, 385]
+	      ZOrder		      30
+	      ShowName		      off
+	      GotoTag		      "RPower"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Goto
+	      Name		      "Goto1"
+	      SID		      "3041"
+	      Position		      [900, 280, 960, 310]
+	      ZOrder		      29
+	      ShowName		      off
+	      GotoTag		      "APower"
+	      TagVisibility	      "global"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Power\n(3ph, Instantaneous)"
+	      SID		      "3040"
+	      Ports		      [2, 2]
+	      Position		      [725, 315, 775, 355]
+	      ZOrder		      2
+	      LibraryVersion	      "1.31"
+	      FontName		      "Arial"
+	      SourceBlock	      "powerlib_meascontrol/Measurements/Power\n(3ph, Instantaneous)"
+	      SourceType	      "Power (3ph, Instantaneous)"
+	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Subsystem1"
@@ -1459,14 +1491,30 @@ Model {
 	    Line {
 	      SrcBlock		      "Three-Phase \nI Measurement"
 	      SrcPort		      1
-	      DstBlock		      "Subsystem2"
-	      DstPort		      1
+	      Points		      [7, 0]
+	      Branch {
+		Points			[0, 300]
+		DstBlock		"Power\n(3ph, Instantaneous)"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"Subsystem2"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      SrcBlock		      "Three-Phase\nV Measurement"
 	      SrcPort		      1
-	      DstBlock		      "Subsystem1"
-	      DstPort		      1
+	      Points		      [9, 0]
+	      Branch {
+		Points			[0, 265]
+		DstBlock		"Power\n(3ph, Instantaneous)"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Subsystem1"
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      LineType		      "Connection"
@@ -1510,382 +1558,19 @@ Model {
 	      DstBlock		      "C "
 	      DstPort		      RConn1
 	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "Load Measurements1"
-	  SID			  "2179"
-	  Ports			  [0, 0, 0, 0, 0, 3, 3]
-	  Position		  [165, 240, 305, 330]
-	  ZOrder		  -4
-	  BlockRotation		  270
-	  BlockMirror		  on
-	  NamePlacement		  "alternate"
-	  ShowName		  off
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "Load Measurements1"
-	    Location		    [-8, -8, 1608, 908]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "A4"
-	    PaperUnits		    "centimeters"
-	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      SubSystem
-	      Name		      "Subsystem1"
-	      SID		      "2356"
-	      Ports		      [1]
-	      Position		      [640, 41, 675, 79]
-	      ZOrder		      -1
-	      ShowName		      off
-	      MinAlgLoopOccurrences   off
-	      PropExecContextOutsideSubsystem off
-	      RTWSystemCode	      "Auto"
-	      FunctionWithSeparateData off
-	      Opaque		      off
-	      RequestExecContextInheritance off
-	      MaskHideContents	      off
-	      System {
-		Name			"Subsystem1"
-		Location		[982, 630, 1310, 932]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		Block {
-		  BlockType		  Inport
-		  Name			  "Vabc"
-		  SID			  "2357"
-		  Position		  [25, 38, 55, 52]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Goto
-		  Name			  "Goto2"
-		  SID			  "2358"
-		  Position		  [185, 31, 245, 59]
-		  ZOrder		  -20
-		  NamePlacement		  "alternate"
-		  ShowName		  off
-		  GotoTag		  "Vabc3"
-		  TagVisibility		  "global"
-		}
-		Block {
-		  BlockType		  ToWorkspace
-		  Name			  "To Workspace1"
-		  SID			  "2359"
-		  Ports			  [1]
-		  Position		  [185, 75, 245, 105]
-		  ZOrder		  -21
-		  ShowName		  off
-		  VariableName		  "Vabc3"
-		  MaxDataPoints		  "inf"
-		  SampleTime		  "-1"
-		}
-		Line {
-		  SrcBlock		  "Vabc"
-		  SrcPort		  1
-		  Points		  [55, 0]
-		  Branch {
-		    Points		    [0, 45]
-		    DstBlock		    "To Workspace1"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    "Goto2"
-		    DstPort		    1
-		  }
-		}
-	      }
-	    }
-	    Block {
-	      BlockType		      SubSystem
-	      Name		      "Subsystem2"
-	      SID		      "2360"
-	      Ports		      [1]
-	      Position		      [190, 26, 225, 64]
-	      ZOrder		      -2
-	      ShowName		      off
-	      MinAlgLoopOccurrences   off
-	      PropExecContextOutsideSubsystem off
-	      RTWSystemCode	      "Auto"
-	      FunctionWithSeparateData off
-	      Opaque		      off
-	      RequestExecContextInheritance off
-	      MaskHideContents	      off
-	      System {
-		Name			"Subsystem2"
-		Location		[982, 630, 1310, 932]
-		Open			off
-		ModelBrowserVisibility	off
-		ModelBrowserWidth	200
-		ScreenColor		"white"
-		PaperOrientation	"landscape"
-		PaperPositionMode	"auto"
-		PaperType		"A4"
-		PaperUnits		"centimeters"
-		TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-		TiledPageScale		1
-		ShowPageBoundaries	off
-		ZoomFactor		"100"
-		Block {
-		  BlockType		  Inport
-		  Name			  "Iabc3"
-		  SID			  "2361"
-		  Position		  [25, 38, 55, 52]
-		  ZOrder		  -1
-		  IconDisplay		  "Port number"
-		}
-		Block {
-		  BlockType		  Goto
-		  Name			  "Goto2"
-		  SID			  "2362"
-		  Position		  [185, 31, 245, 59]
-		  ZOrder		  -20
-		  NamePlacement		  "alternate"
-		  ShowName		  off
-		  GotoTag		  "Iabc3"
-		  TagVisibility		  "global"
-		}
-		Block {
-		  BlockType		  ToWorkspace
-		  Name			  "To Workspace1"
-		  SID			  "2363"
-		  Ports			  [1]
-		  Position		  [185, 75, 245, 105]
-		  ZOrder		  -21
-		  ShowName		  off
-		  VariableName		  "Iabc3"
-		  MaxDataPoints		  "inf"
-		  SampleTime		  "-1"
-		}
-		Line {
-		  SrcBlock		  "Iabc3"
-		  SrcPort		  1
-		  Points		  [55, 0]
-		  Branch {
-		    DstBlock		    "Goto2"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Points		    [0, 45]
-		    DstBlock		    "To Workspace1"
-		    DstPort		    1
-		  }
-		}
-	      }
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Three-Phase\nV Measurement"
-	      SID		      "2182"
-	      Ports		      [0, 1, 0, 0, 0, 3, 3]
-	      Position		      [525, 40, 610, 170]
-	      ZOrder		      -3
-	      LibraryVersion	      "1.2191"
-	      FontName		      "Verdana"
-	      FontSize		      11
-	      SourceBlock	      "powerlib/Measurements/Three-Phase\nV-I Measurement"
-	      SourceType	      "Three-Phase VI Measurement"
-	      VoltageMeasurement      "phase-to-ground"
-	      SetLabelV		      off
-	      LabelV		      "Vabc"
-	      Vpu		      off
-	      VpuLL		      off
-	      CurrentMeasurement      "no"
-	      SetLabelI		      off
-	      LabelI		      "Iabc"
-	      Ipu		      off
-	      Pbase		      "100e6"
-	      Vbase		      "500e3"
-	      OutputType	      "Complex"
-	      PhasorSimulation	      off
-	      PSBequivalent	      "0"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Three-Phase \nI Measurement"
-	      SID		      "2183"
-	      Ports		      [0, 1, 0, 0, 0, 3, 3]
-	      Position		      [80, 25, 165, 155]
-	      ZOrder		      -4
-	      LibraryVersion	      "1.2191"
-	      FontName		      "Verdana"
-	      FontSize		      11
-	      SourceBlock	      "powerlib/Measurements/Three-Phase\nV-I Measurement"
-	      SourceType	      "Three-Phase VI Measurement"
-	      VoltageMeasurement      "no"
-	      SetLabelV		      off
-	      LabelV		      "Vabc"
-	      Vpu		      off
-	      VpuLL		      off
-	      CurrentMeasurement      "yes"
-	      SetLabelI		      off
-	      LabelI		      "Iabc"
-	      Ipu		      off
-	      Pbase		      "100e6"
-	      Vbase		      "500e3"
-	      OutputType	      "Complex"
-	      PhasorSimulation	      off
-	      PSBequivalent	      "0"
-	    }
-	    Block {
-	      BlockType		      PMIOPort
-	      Name		      "a"
-	      SID		      "2184"
-	      Position		      [25, 38, 55, 52]
-	      ZOrder		      -5
-	      Port		      "1"
-	      Side		      "Left"
-	    }
-	    Block {
-	      BlockType		      PMIOPort
-	      Name		      "A "
-	      SID		      "2185"
-	      Position		      [835, 83, 865, 97]
-	      ZOrder		      -6
-	      BlockMirror	      on
-	      Port		      "2"
-	      Side		      "Right"
-	    }
-	    Block {
-	      BlockType		      PMIOPort
-	      Name		      "B"
-	      SID		      "2186"
-	      Position		      [25, 83, 55, 97]
-	      ZOrder		      -7
-	      Port		      "3"
-	      Side		      "Left"
-	    }
-	    Block {
-	      BlockType		      PMIOPort
-	      Name		      "B "
-	      SID		      "2187"
-	      Position		      [835, 113, 865, 127]
-	      ZOrder		      -8
-	      BlockMirror	      on
-	      Port		      "4"
-	      Side		      "Right"
-	    }
-	    Block {
-	      BlockType		      PMIOPort
-	      Name		      "C"
-	      SID		      "2188"
-	      Position		      [25, 128, 55, 142]
-	      ZOrder		      -9
-	      Port		      "5"
-	      Side		      "Left"
-	    }
-	    Block {
-	      BlockType		      PMIOPort
-	      Name		      "C "
-	      SID		      "2189"
-	      Position		      [835, 143, 865, 157]
-	      ZOrder		      -10
-	      BlockMirror	      on
-	      Port		      "6"
-	      Side		      "Right"
-	    }
 	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV Measurement"
-	      SrcPort		      RConn3
-	      DstBlock		      "C "
-	      DstPort		      RConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "C"
-	      SrcPort		      RConn1
-	      DstBlock		      "Three-Phase \nI Measurement"
-	      DstPort		      LConn3
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV Measurement"
-	      SrcPort		      RConn2
-	      DstBlock		      "B "
-	      DstPort		      RConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "B"
-	      SrcPort		      RConn1
-	      DstBlock		      "Three-Phase \nI Measurement"
-	      DstPort		      LConn2
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV Measurement"
-	      SrcPort		      RConn1
-	      DstBlock		      "A "
-	      DstPort		      RConn1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "a"
-	      SrcPort		      RConn1
-	      DstBlock		      "Three-Phase \nI Measurement"
-	      DstPort		      LConn1
-	    }
-	    Line {
-	      SrcBlock		      "Three-Phase\nV Measurement"
+	      SrcBlock		      "Power\n(3ph, Instantaneous)"
 	      SrcPort		      1
-	      DstBlock		      "Subsystem1"
+	      Points		      [57, 0; 0, -30]
+	      DstBlock		      "Goto1"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Three-Phase \nI Measurement"
-	      SrcPort		      1
-	      DstBlock		      "Subsystem2"
+	      SrcBlock		      "Power\n(3ph, Instantaneous)"
+	      SrcPort		      2
+	      Points		      [57, 0; 0, 25]
+	      DstBlock		      "Goto"
 	      DstPort		      1
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase \nI Measurement"
-	      SrcPort		      RConn3
-	      Points		      [70, 0; 0, 15]
-	      DstBlock		      "Three-Phase\nV Measurement"
-	      DstPort		      LConn3
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV Measurement"
-	      SrcPort		      LConn2
-	      DstBlock		      "Three-Phase \nI Measurement"
-	      DstPort		      RConn2
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Three-Phase\nV Measurement"
-	      SrcPort		      LConn1
-	      Points		      [-260, 0; 0, 15]
-	      DstBlock		      "Three-Phase \nI Measurement"
-	      DstPort		      RConn1
 	    }
 	  }
 	}
@@ -1978,26 +1663,6 @@ Model {
 	      OutputAfterFinalValue   "Setting to zero"
 	    }
 	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto"
-	      SID		      "3035"
-	      Position		      [230, 145, 290, 175]
-	      ZOrder		      27
-	      ShowName		      off
-	      GotoTag		      "RPower"
-	      TagVisibility	      "global"
-	    }
-	    Block {
-	      BlockType		      Goto
-	      Name		      "Goto1"
-	      SID		      "3036"
-	      Position		      [225, 10, 285, 40]
-	      ZOrder		      28
-	      ShowName		      off
-	      GotoTag		      "APower"
-	      TagVisibility	      "global"
-	    }
-	    Block {
 	      BlockType		      Concatenate
 	      Name		      "Vector\nConcatenate"
 	      SID		      "2585"
@@ -2024,58 +1689,17 @@ Model {
 	    Line {
 	      SrcBlock		      "From\nWorkspace"
 	      SrcPort		      1
-	      Points		      [53, 0]
-	      Branch {
-		Points			[0, -45]
-		DstBlock		"Goto1"
-		DstPort			1
-	      }
-	      Branch {
-		DstBlock		"Vector\nConcatenate"
-		DstPort			1
-	      }
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "From\nWorkspace1"
 	      SrcPort		      1
-	      Points		      [85, 0]
-	      Branch {
-		DstBlock		"Goto"
-		DstPort			1
-	      }
-	      Branch {
-		Points			[0, -70]
-		DstBlock		"Vector\nConcatenate"
-		DstPort			2
-	      }
+	      Points		      [85, 0; 0, -70]
+	      DstBlock		      "Vector\nConcatenate"
+	      DstPort		      2
 	    }
 	  }
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Three-Phase\nParallel RLC Load1"
-	  SID			  "2206"
-	  Ports			  [0, 0, 0, 0, 0, 3]
-	  Position		  [165, 410, 305, 575]
-	  ZOrder		  -21
-	  BlockRotation		  270
-	  BlockMirror		  on
-	  ShowName		  off
-	  AttributesFormatString  "\\n"
-	  LibraryVersion	  "1.2191"
-	  FontName		  "Verdana"
-	  FontSize		  11
-	  SourceBlock		  "powerlib/Elements/Three-Phase\nParallel RLC Load"
-	  SourceType		  "Three-Phase Parallel RLC Load"
-	  LConnTagsString	  "A|B|C"
-	  Configuration		  "Y (grounded)"
-	  NominalVoltage	  "400"
-	  NominalFrequency	  "50"
-	  ActivePower		  "1e3"
-	  InductivePower	  "0"
-	  CapacitivePower	  "0"
-	  Measurements		  "Branch voltages and currents"
-	  LoadType		  "constant Z"
 	}
 	Block {
 	  BlockType		  PMIOPort
@@ -2126,70 +1750,22 @@ Model {
 	  LineType		  "Connection"
 	  SrcBlock		  "A"
 	  SrcPort		  RConn1
-	  Points		  [105, 0]
-	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "Load Measurements"
-	    DstPort		    LConn1
-	  }
-	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "Load Measurements1"
-	    DstPort		    LConn1
-	  }
+	  DstBlock		  "Load Measurements"
+	  DstPort		  LConn1
 	}
 	Line {
 	  LineType		  "Connection"
 	  SrcBlock		  "Load Measurements"
 	  SrcPort		  LConn2
-	  Points		  [-150, 0]
-	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "B"
-	    DstPort		    RConn1
-	  }
-	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "Load Measurements1"
-	    DstPort		    LConn2
-	  }
+	  DstBlock		  "B"
+	  DstPort		  RConn1
 	}
 	Line {
 	  LineType		  "Connection"
 	  SrcBlock		  "Load Measurements"
 	  SrcPort		  LConn3
-	  Points		  [-105, 0]
-	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "C"
-	    DstPort		    RConn1
-	  }
-	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "Load Measurements1"
-	    DstPort		    LConn3
-	  }
-	}
-	Line {
-	  LineType		  "Connection"
-	  SrcBlock		  "Load Measurements1"
-	  SrcPort		  RConn1
-	  DstBlock		  "Three-Phase\nParallel RLC Load1"
-	  DstPort		  LConn1
-	}
-	Line {
-	  LineType		  "Connection"
-	  SrcBlock		  "Load Measurements1"
-	  SrcPort		  RConn2
-	  DstBlock		  "Three-Phase\nParallel RLC Load1"
-	  DstPort		  LConn2
-	}
-	Line {
-	  LineType		  "Connection"
-	  SrcBlock		  "Load Measurements1"
-	  SrcPort		  RConn3
-	  DstBlock		  "Three-Phase\nParallel RLC Load1"
-	  DstPort		  LConn3
+	  DstBlock		  "C"
+	  DstPort		  RConn1
 	}
 	Line {
 	  LineType		  "Connection"
@@ -8591,7 +8167,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"125"
+	ZoomFactor		"80"
 	Block {
 	  BlockType		  Scope
 	  Name			  "AC Load Measurements"
