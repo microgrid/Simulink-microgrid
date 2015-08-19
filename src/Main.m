@@ -678,10 +678,13 @@ fid7 = fopen('dataBase/chargecontroltxt.txt','w');
 fprintf(fid7,' %i\n',chargecontrol);
 fclose(fid7)
 
-% Run the GUI
- run('Supervision'); 
+% % Run the GUI% 
+%  run('Supervision'); 
+ 
+VARins = [xdiscretized;Ins_Monsoon];
+VARTemp = [xdiscretized;Temp1];
+VARPA= [xdiscretized;newyfitdiscretized4*100];
+VARPQ= [xdiscretized;newyfitdiscretized4];
 
-% VARins = [xdiscretized;Ins_Monsoon];
-% VARTemp = [xdiscretized;Temp1];
-% VARPA= [xdiscretized;newyfitdiscretized4*100];
-% VARPQ= [xdiscretized;newyfitdiscretized4];
+
+

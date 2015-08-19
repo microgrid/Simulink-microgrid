@@ -267,7 +267,7 @@ Av =[0;0;0]
 assignin('base','Av', Av);
 Bv =[0;0;0];
 assignin('base','Bv', Bv);
-H4=plot(h4,Av,Bv);
+H4=plot(h4,Av,Bv,'ro');
 % xlim(h4,[0 25]);
 ylim(h4,[-1000 1000]);
 set(H4,'XDataSource','Av')
@@ -312,7 +312,7 @@ Acurrent = [0;0;0];
 assignin('base','Acurrent', Acurrent);
 Bcurrent = [0;0;0];
 assignin('base','Bcurrent', Bcurrent);
-H8=plot(h8,Acurrent,Bcurrent,'y');
+H8=plot(h8,Acurrent,Bcurrent,'ro');
 % xlim(h8,[0 25]);
 set(H8,'XDataSource','Acurrent')
 set(H8,'YDataSource','Bcurrent')

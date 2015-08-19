@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.213"
+    ComputedModelVersion    "1.215"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -35,7 +35,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 1616.0, 916.0]
+      Location		      [-8.0, -8.0, 1616.0, 916.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Aug 18 10:21:42 2015"
-  RTWModifiedTimeStamp	  361794076
-  ModelVersionFormat	  "1.%<AutoIncrement:213>"
+  LastModifiedDate	  "Tue Aug 18 14:05:34 2015"
+  RTWModifiedTimeStamp	  361807521
+  ModelVersionFormat	  "1.%<AutoIncrement:215>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1095,7 +1095,7 @@ Model {
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1608, 916]
+	Location		[-8, -8, 1608, 908]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1155,7 +1155,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Measurements"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [-8, 0, 1608, 916]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2098,7 +2098,7 @@ Model {
 	  Configuration		  "Y (grounded)"
 	  NominalVoltage	  "400"
 	  NominalFrequency	  "50"
-	  ActivePower		  "1e3"
+	  ActivePower		  "100"
 	  InductivePower	  "0"
 	  CapacitivePower	  "0"
 	  Measurements		  "Branch voltages and currents"
@@ -5065,7 +5065,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "DC / AC Inverter"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [-8, 0, 1608, 916]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -14232,7 +14232,7 @@ Model {
       Position		      [45, 30, 136, 81]
       ZOrder		      -38
       Priority		      "1"
-      LibraryVersion	      "1.2191"
+      LibraryVersion	      "*1.2191"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
