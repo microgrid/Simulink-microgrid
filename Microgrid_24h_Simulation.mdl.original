@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.238"
+    ComputedModelVersion    "1.233"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -54,10 +54,10 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		3
+	Dimension		2
 	Object {
 	  $ObjectID		  5
-	  IsActive		  [0]
+	  IsActive		  [1]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2981"
 	  Extents		  [1566.0, 769.0]
@@ -66,20 +66,11 @@ Model {
 	}
 	Object {
 	  $ObjectID		  6
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1362"
-	  Extents		  [1566.0, 769.0]
-	  ZoomFactor		  [0.5]
-	  Offset		  [0.0, -30.5]
-	}
-	Object {
-	  $ObjectID		  7
 	  IsActive		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "2165"
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
 	  Extents		  [1566.0, 769.0]
-	  ZoomFactor		  [1.0]
+	  ZoomFactor		  [0.6]
 	  Offset		  [0.0, 0.0]
 	}
 	PropName		"EditorsInfo"
@@ -95,9 +86,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Aug 24 12:53:43 2015"
-  RTWModifiedTimeStamp	  362318367
-  ModelVersionFormat	  "1.%<AutoIncrement:238>"
+  LastModifiedDate	  "Sat Aug 22 18:25:58 2015"
+  RTWModifiedTimeStamp	  362168733
+  ModelVersionFormat	  "1.%<AutoIncrement:233>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -132,7 +123,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    8
+    $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Dena_batea"
     signals_		    []
@@ -193,13 +184,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      9
+      $ObjectID		      8
       Version		      "1.13.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  10
+	  $ObjectID		  9
 	  Version		  "1.13.0"
 	  StartTime		  "0.0"
 	  StopTime		  "2.4"
@@ -234,7 +225,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  11
+	  $ObjectID		  10
 	  Version		  "1.13.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -266,7 +257,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  12
+	  $ObjectID		  11
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -322,7 +313,7 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  13
+	  $ObjectID		  12
 	  Version		  "1.13.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -412,7 +403,7 @@ Model {
 	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  14
+	  $ObjectID		  13
 	  Version		  "1.13.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -453,7 +444,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  15
+	  $ObjectID		  14
 	  Version		  "1.13.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -468,7 +459,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  16
+	  $ObjectID		  15
 	  Version		  "1.13.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -483,7 +474,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  17
+	  $ObjectID		  16
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -546,7 +537,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      18
+	      $ObjectID		      17
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -613,7 +604,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      19
+	      $ObjectID		      18
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -696,7 +687,7 @@ Model {
 	  }
 	}
 	SSC.SimscapeCC {
-	  $ObjectID		  20
+	  $ObjectID		  19
 	  Version		  "1.0"
 	  Array {
 	    Type		    "Cell"
@@ -725,11 +716,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    9
+    $ObjectID		    8
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    20
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -1051,7 +1042,7 @@ Model {
   System {
     Name		    "Microgrid_24h_Simulation"
     Location		    [-8, -8, 1608, 908]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1081,14 +1072,14 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		21
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/Plug.bmp'))"
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1608, 916]
-	Open			on
+	Location		[-8, -8, 1608, 908]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2254,7 +2245,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		23
+	$ObjectID		22
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/Battery.bmp'))"
       }
@@ -2289,19 +2280,19 @@ Model {
 	  BatType		  "Lead-Acid"
 	  ShowDetailedParameters  off
 	  NomV			  "1000"
-	  NomQ			  "20"
-	  SOC			  "80"
+	  NomQ			  "100"
+	  SOC			  "50"
 	  PresetModel		  on
-	  MaxQ			  "114.5833"
+	  MaxQ			  "1.0417"
 	  FullV			  "1088.8158"
-	  Dis_rate		  "22"
-	  R			  "0.090909"
-	  Normal_OP		  "34.1306"
-	  expZone		  "[1018.0921     0.36666667]"
+	  Dis_rate		  "0.2"
+	  R			  "10"
+	  Normal_OP		  "0.31028"
+	  expZone		  "[1018.0921   0.0033333333]"
 	  Dis_Char		  off
 	  current		  "[20 50 100]"
 	  Units			  "Time"
-	  Batt_Tr		  "2.7e-10"
+	  Batt_Tr		  "2.7e-5"
 	}
 	Block {
 	  BlockType		  BusSelector
@@ -2718,7 +2709,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		24
+	$ObjectID		23
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Bidirectional Converter') \n"
       }
@@ -3527,7 +3518,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		25
+	$ObjectID		24
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Boost Converter')"
       }
@@ -5021,7 +5012,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		26
+	$ObjectID		25
 	$ClassName		"Simulink.Mask"
 	Display			"disp('DC/AC Inverter')"
       }
@@ -7263,7 +7254,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		27
+	$ObjectID		26
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/photo.bmp'))"
       }
@@ -8500,14 +8491,14 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		28
+	$ObjectID		27
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Measurements')"
       }
       System {
 	Name			"Subsystem"
 	Location		[-8, -8, 1608, 908]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -9057,7 +9048,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    29
+	    $ObjectID		    28
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Boost Converter Control')"
 	  }
@@ -9171,7 +9162,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    30
+	    $ObjectID		    29
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Bidirectional Converter Control')"
 	  }
@@ -9404,7 +9395,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    31
+	    $ObjectID		    30
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Frequency Measurement')"
 	  }
@@ -11252,7 +11243,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    32
+	    $ObjectID		    31
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Additional Load Meas.')"
 	  }
@@ -14177,8 +14168,8 @@ Model {
       variable		      "ZData"
       structure		      "Vab_st"
       ZoomFFT		      off
-      StartTime		      "0"
-      cycles		      "60"
+      StartTime		      "7.5"
+      cycles		      "4"
       DisplayStyle	      "1"
       fundamental	      "50"
       FreqAxis		      off
@@ -14297,17 +14288,17 @@ MatData {
   NumRecords		  1
   DataRecord {
     Tag			    DataTag0
-    Data		    "  %)30     .    < ,   8    (     @         %    \"     $    !     0         %  0 #     $   \"0    <&]W9"
+    Data		    "  %)30     .    : ,   8    (     @         %    \"     $    !     0         %  0 #     $   \"0    <&]W9"
     "7)G=6D     <W1E861Y<W1A=&4 :6YI='-T871E<P  ;&]A9&9L;W<     ;&]A9&9L;W=N97< ;'1I=FEE=P      >FUE=&5R        9F9T=&]"
     "O;       <F5P;W)T        :'ES=&5R97-I<P  ;&EN97!A<F%M    5',             #@   #     &    \"     8         !0    @ "
     "              $         \"0         .    ,     8    (    !@         %    \"                0         )          X "
     "   P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @  "
     "             $         \"0         .    ,     8    (    !@         %    \"                0         )          X  "
     "  P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @   "
-    "            $         \"0         .    .     8    (    !@         %    \"     $    !     0         )    \"        "
-    "!Q >-E #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@       "
-    "  %    \"                0         )          X    P    !@    @    &          4    (               !          D   "
-    "      #@   #     &    \"     8         !0    @               $         \"0         "
+    "            $         \"0         .    ,     8    (    !@         %    \"                0         )          X   "
+    " P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @    "
+    "           $         \"0         .    ,     8    (    !@         %    \"                0         )          X    "
+    "P    !@    @    &          4    (               !          D         "
   }
 }
 # Finite State Machines
@@ -14372,35 +14363,35 @@ Stateflow {
       "ion at nominal operation [kW/m^2]\n\nnum_it=5;           % Number of iterations done with Newton-Raphson's metho"
       "d\n\n%% Module specifications: THIS IS WHERE TO CHANGE INPUT VALUES\n\nV_oc= 63.2;     % Open circuit voltage pe"
       "r module at Standard operating Contidiont (STC)[V]\nI_sc=7.0;       % Short circuit current per module at STC [A"
-      "]\nV_MPP=50;       % Voltage at MPPT\nI_MPP=6.4;      % Current at MPPT\nP_mod=320;      % Maximum module power "
-      "(equals V_mpp*I_mpp) [W]\n\na_V=-0.004;  % Decrease in voltage per degree C increased from STC (source: fig 5.22"
-      " in Design of Smart prower grid, A.Keyhani)in p.u.\na_I=0.0004;  % Increase in current per degree C increased fr"
-      "om STC (in p.u.)\n\nP_syst=1000e3;    % System power [W]\nV_string_des=400;               % Desired string volta"
-      "ge (inout value)\n\nn_s=36;                         % Number of cells in a module (needed for voltage-calculatio"
-      "n) typically 36, according to www.pveducation.org/pvcdrom/modules/module-circuit-design\n\n\n\n%% Cell specifica"
-      "tions \n\nNM=round(V_string_des/V_oc);    % Number of modules in a string\nV_string=NM*V_oc;               % Rea"
-      "l string voltage, will be used for furhter calculations [V]\nP_string=P_mod*NM;              % Power in a string"
-      " equals number of modules times rated module power [W]\nP_array=P_syst;                 % Assuming that we only "
-      "have one array, thus array power and system power is the same [W]\nNS=round(P_array/P_string);     % Find number"
-      " of strings in an array\nP_array=NS*P_string;            % Find real value of array power, as a multiplier of P_"
-      "string [W]\n\n\n%% Calculation of the photocurrent Iph\n\nT_cell=T_amb + Irr*(T_nom-T_ref)/irr_nom;   % Cell tem"
-      "perature as function of ambient temperature\n\nK0 = a_I*I_sc;             % Temperature koefficient for I_sc (EQ"
-      " 5, Eleder)\nIph_stc = I_sc * Irr;         % (ECUATION 4) photon current Iph at standard conditions with given i"
-      "rraidiance\nIph = Iph_stc + K0*(T_cell-T_ref);    % Photocurrent at current cell operating temperature (ECUATION"
-      " 3)\n\n%% Calculation of saturation current of the diode I0\n\n\nI0_stc = I_sc/(exp(q*V_oc/(n*k*T_ref))-1);    %"
-      " Saturation current of the diode at STC(ECUATION 7)\n\n% \n% I0 = I0_stc*(T_cell/T_ref).^(3/n).*exp(-q*Vg/(n*k)."
-      "*((1./T_cell)-(1/T_ref))); % Diode sat. current\nI0=Iph*exp(((-q*V_oc)/n_s)/((n*k*T_ref)));\n\n%% Fit parameter "
-      "for temperature-dependence of saturation current C_0\n\n\n%% Calculation of the series resistance Rs, represents"
-      " the resistance inside\n%  its cell in the connection between cells\nbeta=q/n_s*n*k*T_cell;\n\nXv = I0_stc*q/(n*"
-      "k*T_ref)*exp(q*V_oc/(n*k*T_ref)); % (ECUATION 8)\ndVdI_Voc = -1.15/NS /2;                       % dV/dI at Vco p"
-      "er cell, from manufacturers graph\n\n\n% Rs = (beta*(log(1-(I_MPP/Iph))+(V_oc-V_MPP))/I_MPP); % Resistance per c"
-      "ell (eq 5.19)\nRs=n_s*(((((n*k*T_ref)/q)*log(complex((1-(I_MPP/Iph))+(V_oc-V_MPP)/n_s)))/I_MPP));\n\n%% Calculat"
-      "ion of the PV array current, Ipv\nVt_Ta = n*k*T_cell/q;                            % = nkT/q\nVc = Vpv/NS;\nIpv "
-      "= zeros(size(Vc));\n\n% Ipv = Iph - I0*( exp(q*((Vc+Ipv*Rs)/ns)/nkT) -1) (ECUATION 5.15, Eicker 2001);\n\n% sett"
-      "ing beta=q/ns*nkT\n% Solve for Ipv: f(Ipv) = Iph - Ipv - I_0*(exp((Vc+Ipv*Rs)*beta) -1) = 0;\n% f'(Ipv)=0-1-I_0*"
-      "beta*Rs(exp((Vc+Ipv*Rs)*beta)\n% Newton-Raphson method: Ipv2 = Ipv1 - f(Ipv1)/f?(Ipv1)\n\nfor j=1:num_it;\n  Ipv"
-      " = abs(Ipv - ...\n  (Iph - Ipv - I0* (exp((Vc+Ipv*Rs)*beta) -1))...\n  / (-1 -(I0* (exp((Vc+Ipv*Rs)*beta))*Rs*be"
-      "ta)));\nend"
+      "]\nV_MPP=50;       % Voltage at MPPT\nI_MPP=6.4;      % Current at MPPT\n\na_V=-0.004;  % Decrease in voltage pe"
+      "r degree C increased from STC (source: fig 5.22 in Design of Smart prower grid, A.Keyhani)in p.u.\na_I=0.0004;  "
+      "% Increase in current per degree C increased from STC (in p.u.)\n\nP_mod=320;      % Maximum module power (equal"
+      "s V_mpp*I_mpp) [W]\nP_syst=115e3;    % System power [W]\n\nn_s=36;                         % Number of cells in "
+      "a module (needed for voltage-calculation) typically 36, according to www.pveducation.org/pvcdrom/modules/module-"
+      "circuit-design\n\nV_string_des=400;               % Desired string voltage (inout value)\n\n\n%% Cell specificat"
+      "ions \n\nNM=round(V_string_des/V_oc);    % Number of modules in a string\nV_string=NM*V_oc;               % Real"
+      " string voltage, will be used for furhter calculations [V]\nP_string=P_mod*NM;              % Power in a string "
+      "equals number of modules times rated module power [W]\nP_array=P_syst;                 % Assuming that we only h"
+      "ave one array, thus array power and system power is the same [W]\nNS=round(P_array/P_string);     % Find number "
+      "of strings in an array\nP_array=NS*P_string;            % Find real value of array power, as a multiplier of P_s"
+      "tring [W]\n\n\n%% Calculation of the photocurrent Iph\n\nT_cell=T_amb + Irr*(T_nom-T_ref)/irr_nom;   % Cell temp"
+      "erature as function of ambient temperature\n\nK0 = a_I*I_sc;             % Temperature koefficient for I_sc (EQ "
+      "5, Eleder)\nIph_stc = I_sc * Irr;         % (ECUATION 4) photon current Iph at standard conditions with given ir"
+      "raidiance\nIph = Iph_stc + K0*(T_cell-T_ref);    % Photocurrent at current cell operating temperature (ECUATION "
+      "3)\n\n%% Calculation of saturation current of the diode I0\n\n\nI0_stc = I_sc/(exp(q*V_oc/(n*k*T_ref))-1);    % "
+      "Saturation current of the diode at STC(ECUATION 7)\n\n% \n% I0 = I0_stc*(T_cell/T_ref).^(3/n).*exp(-q*Vg/(n*k).*"
+      "((1./T_cell)-(1/T_ref))); % Diode sat. current\nI0=Iph*exp(((-q*V_oc)/n_s)/((n*k*T_ref)));\n\n%% Fit parameter f"
+      "or temperature-dependence of saturation current C_0\n\n\n%% Calculation of the series resistance Rs, represents "
+      "the resistance inside\n%  its cell in the connection between cells\nbeta=q/n_s*n*k*T_cell;\n\nXv = I0_stc*q/(n*k"
+      "*T_ref)*exp(q*V_oc/(n*k*T_ref)); % (ECUATION 8)\ndVdI_Voc = -1.15/NS /2;                       % dV/dI at Vco pe"
+      "r cell, from manufacturers graph\n\n\n% Rs = (beta*(log(1-(I_MPP/Iph))+(V_oc-V_MPP))/I_MPP); % Resistance per ce"
+      "ll (eq 5.19)\nRs=n_s*(((((n*k*T_ref)/q)*log(complex((1-(I_MPP/Iph))+(V_oc-V_MPP)/n_s)))/I_MPP));\n\n%% Calculati"
+      "on of the PV array current, Ipv\nVt_Ta = n*k*T_cell/q;                            % = nkT/q\nVc = Vpv/NS;\nIpv ="
+      " zeros(size(Vc));\n\n% Ipv = Iph - I0*( exp(q*((Vc+Ipv*Rs)/ns)/nkT) -1) (ECUATION 5.15, Eicker 2001);\n\n% setti"
+      "ng beta=q/ns*nkT\n% Solve for Ipv: f(Ipv) = Iph - Ipv - I_0*(exp((Vc+Ipv*Rs)*beta) -1) = 0;\n% f'(Ipv)=0-1-I_0*b"
+      "eta*Rs(exp((Vc+Ipv*Rs)*beta)\n% Newton-Raphson method: Ipv2 = Ipv1 - f(Ipv1)/f?(Ipv1)\n\nfor j=1:num_it;\n  Ipv "
+      "= abs(Ipv - ...\n  (Iph - Ipv - I0* (exp((Vc+Ipv*Rs)*beta) -1))...\n  / (-1 -(I0* (exp((Vc+Ipv*Rs)*beta))*Rs*bet"
+      "a)));\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

@@ -23,10 +23,10 @@ end
 % Create the data insolation to plot from excel
 SampleTime=0.1;
 xdiscretized=0.1:SampleTime:2.4;
-Insolation_data = normpdf(xdiscretized,1.2,0.17); % Normal law
-Ins_Monsoon=Insolation_data*3990;
-Ins_Intermediate=Insolation_data*4583;
-Ins_Winter=Insolation_data*4888;
+% Insolation_data = normpdf(xdiscretized,1.2,0.17); % Normal law
+% Ins_Monsoon=Insolation_data*3990;
+% Ins_Intermediate=Insolation_data*4583;
+% Ins_Winter=Insolation_data*4888;
 
 % Path choise according the OS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -69,6 +69,11 @@ customerRHWinter=importdata('dataBase/PowerRHWinter.mat'); %  Data from excel Bl
 Time1=importdata('dataBase/SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img/bhutan.jpg');
 
+Ins_Monsoon=importdata('dataBase/Insolation1.mat');
+Ins_Intermediate=importdata('dataBase/Insolation2.mat');
+Ins_Winter=importdata('dataBase/Insolation3.mat');
+pow=importdata('pow.mat'); 
+
 elseif os==2
 
 % Import data from the files for Window % 
@@ -107,6 +112,11 @@ customerRHWinter=importdata('dataBase\PowerRHWinter.mat'); %  Data from excel Bl
 
 Time1=importdata('dataBase\SampleT.mat');     % SampleT.mat Data from excel 
 jpg=imread('img\bhutan.jpg');
+  
+Ins_Monsoon=importdata('dataBase/Insolation1.mat');
+Ins_Intermediate=importdata('dataBase/Insolation2.mat');
+Ins_Winter=importdata('dataBase/Insolation3.mat');
+pow=importdata('pow.mat');
 
 end
 
@@ -680,11 +690,12 @@ fclose(fid7)
 
 % % Run the GUI% 
 %  run('Supervision'); 
- 
-VARins = [xdiscretized;Ins_Monsoon];
-VARTemp = [xdiscretized;Temp1];
-VARPA= [xdiscretized;newyfitdiscretized4*100];
-VARPQ= [xdiscretized;newyfitdiscretized4];
+
+Ins_Monsoon1=Ins_Monsoon'/1000; % Irradiation [kW/m^2]
+VARins = [xdiscretized;Ins_Monsoon1]; % Time and Irradiation input [kW/m^2]
+VARTemp = [xdiscretized;Temp1]; % Time and Temperature input [°C]
+VARPA= [xdiscretized;pow]; % Active power input [W]
+VARPQ= [xdiscretized;pow/10]; % Reactive power input [W]
 
 
 
