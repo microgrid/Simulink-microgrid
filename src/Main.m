@@ -688,9 +688,10 @@ fid7 = fopen('dataBase/chargecontroltxt.txt','w');
 fprintf(fid7,' %i\n',chargecontrol);
 fclose(fid7)
 
-% % Run the GUI% 
+% % Run the simulation through the GUI% 
 %  run('Supervision'); 
 
+% Run the simulation without the GUI
 Ins_Monsoon1=Ins_Monsoon'/1000; % Irradiation [kW/m^2]
 VARins = [xdiscretized;Ins_Monsoon1]; % Time and Irradiation input [kW/m^2]
 VARTemp = [xdiscretized;Temp1]; % Time and Temperature input [°C]

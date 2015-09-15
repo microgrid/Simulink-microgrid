@@ -190,14 +190,14 @@ h10 = axes('Parent', f, ...
     'Units','Pixels','Position',[350,20,95,60],'Tag','newdata10');
 
 % Add text to window
-htexttxtbox1 = uicontrol('Style','text','String','Enter the number of pannel',...
+htexttxtbox1 = uicontrol('Style','text','String','Enter the number of solar pannels',...
   'Position',[15,165,50,5]);
 % Add Text box to window 
 txtbox1 = uicontrol(f,'Style','edit',...
   'String','',...
   'Position',[15 160 15 5]);
 % Add text to window
-htexttxtbox2 = uicontrol('Style','text','String','Enter the number of battery',...
+htexttxtbox2 = uicontrol('Style','text','String','Enter the power of your battery (W)',...
   'Position',[15,150,50,5]);
 % Add Text box to window
 txtbox2 = uicontrol(f,'Style','edit',...
@@ -241,7 +241,7 @@ grid(h1,'on');
 set(htext1, 'String', 'Temperature outside = 26.8°C');
 set(htext3, 'String', 'Temperature pannel = 46°C');
 % Vector Data for the Simulink (Insolation)
-VARins = [xdiscretized;Ins_M];
+VARins = [xdiscretized;Ins_M'/1000];
 % Vector Data for the Simulink (Temperature)
 VARTemp = [xdiscretized;Temp1];
 % Vector Data for the Simulink (Power)
@@ -267,7 +267,7 @@ Av =[0;0;0]
 assignin('base','Av', Av);
 Bv =[0;0;0];
 assignin('base','Bv', Bv);
-H4=plot(h4,Av,Bv,'ro');
+H4=plot(h4,Av,Bv);
 % xlim(h4,[0 25]);
 ylim(h4,[-1000 1000]);
 set(H4,'XDataSource','Av')
@@ -312,7 +312,7 @@ Acurrent = [0;0;0];
 assignin('base','Acurrent', Acurrent);
 Bcurrent = [0;0;0];
 assignin('base','Bcurrent', Bcurrent);
-H8=plot(h8,Acurrent,Bcurrent,'ro');
+H8=plot(h8,Acurrent,Bcurrent);
 % xlim(h8,[0 25]);
 set(H8,'XDataSource','Acurrent')
 set(H8,'YDataSource','Bcurrent')
@@ -350,13 +350,13 @@ title(h10,'Load Reactive Power');
 grid(h10,'on');
 
 % Initialize plot h2 for the Active power with dataBase/PowerAllMonsoon.mat
-plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
+plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon*10);
 xlabel(h2,'Time (Hours)');
 ylabel(h2,'Active Power (kW)');
 title(h2,'Active Power All Blocks during Monsoon');
 
 % Initialize plote h3 for the Reactive power (In our case we make an assumption, it is just the Active power divided by 10).
-plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
+plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon,'r');
 xlabel(h3,'Time (Hours)');
 ylabel(h3,'Reactive Power (kVAR)');
 title(h3,'Reactive Power All Blocks during Monsoon')
@@ -391,23 +391,23 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects All Blocks %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'All Blocks Monsoon'  
- plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataALLMonsoon*10);
  title(h2,'Active Power All Blocks during the Monsoon');
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataALLMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Monsoon')
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataALLMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataALLMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataALLMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataALLMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -415,23 +415,23 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'All Blocks Intermediate'  
- plot(h2,xdiscretized*10,ActivePower_dataALLIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataALLIntermediate*10);
  title(h2,'Active Power All Blocks during the Intermediate Season');
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataALLIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataALLIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Intermediate Season')
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataALLIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataALLIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataALLIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataALLIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -439,23 +439,23 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'All Blocks Winter'  
- plot(h2,xdiscretized*10,ActivePower_dataALLWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataALLWinter*10);
  title(h2,'Active Power All Blocks during the Winter');
  xlabel(h2,'Time (Hours)');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataALLWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataALLWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power All Blocks during the Winter')
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataALLWinter];
- VARPQ= [xdiscretized;ActivePower_dataALLWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataALLWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataALLWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -465,22 +465,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block D %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block D Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataDMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataDMonsoon*10);
  title(h2,'Active Power Block D during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataDMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataDMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataDMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataDMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataDMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataDMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -488,22 +488,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block D Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataDIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataDIntermediate*10);
  title(h2,'Active Power Block D during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataDIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataDIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Intermediate Season');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataDIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataDIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataDIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataDIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -511,22 +511,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block D Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataDWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataDWinter*10);
  title(h2,'Active Power Block D during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataDWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataDWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block D during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataDWinter];
- VARPQ= [xdiscretized;ActivePower_dataDWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataDWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataDWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -536,22 +536,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block E %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block E Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataEMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataEMonsoon*10);
  title(h2,'Active Power Block E during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataEMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataEMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp= [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataEMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataEMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataEMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataEMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -559,22 +559,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block E Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataEIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataEIntermediate*10);
  title(h2,'Active Power Block E during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataEIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataEIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Intermediate Season')
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataEIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataEIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataEIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataEIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -582,22 +582,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block E Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataEWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataEWinter*10);
  title(h2,'Active Power Block E during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataEWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataEWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block E during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataEWinter];
- VARPQ= [xdiscretized;ActivePower_dataEWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataEWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataEWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -607,22 +607,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block C %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block C Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataCMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataCMonsoon*10);
  title(h2,'Active Power Block C during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataCMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataCMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataCMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataCMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataCMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataCMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -630,22 +630,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block C Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataCIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataCIntermediate*10);
  title(h2,'Active Power Block C during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataCIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataCIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Intermediate Season');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataCIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataCIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataCIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataCIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -653,22 +653,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block C Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataCWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataCWinter*10);
  title(h2,'Active Power Block C during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataCWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataCWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block C during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataCWinter];
- VARPQ= [xdiscretized;ActivePower_dataCWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataCWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataCWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -678,22 +678,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block A %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block A Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataAMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataAMonsoon*10);
  title(h2,'Active Power Block A during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataAMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataAMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataAMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataAMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataAMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataAMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -701,22 +701,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block A Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataAIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataAIntermediate*10);
  title(h2,'Active Power Block A during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataAIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataAIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Intermediate Season');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataAIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataAIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataAIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataAIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -724,22 +724,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block A Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataAWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataAWinter*10);
  title(h2,'Active Power Block A during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataAWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataAWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block A during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataAWinter];
- VARPQ= [xdiscretized;ActivePower_dataAWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataAWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataAWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -749,22 +749,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block B %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block B Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataBMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataBMonsoon*10);
  title(h2,'Active Power Block B during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataBMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataBMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataBMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataBMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataBMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataBMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -772,22 +772,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block B Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataBIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataBIntermediate*10);
  title(h2,'Active Power Block B during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataBIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataBIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Intermediate Season');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataBIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataBIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataBIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataBIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -795,22 +795,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block B Winter'
- plot(h2,xdiscretized*10,ActivePower_dataBWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataBWinter*10);
  title(h2,'Active Power Block B during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataBWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataBWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block B during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataBWinter];
- VARPQ= [xdiscretized;ActivePower_dataBWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataBWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataBWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -820,22 +820,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block LH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block LH Monsoon' 
- plot(h2,xdiscretized*10,ActivePower_dataLHMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataLHMonsoon*10);
  title(h2,'Active Power Block LH during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataLHMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataLHMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataLHMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataLHMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataLHMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataLHMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -843,22 +843,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block LH Intermediate' 
- plot(h2,xdiscretized*10,ActivePower_dataLHIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataLHIntermediate*10);
  title(h2,'Active Power Block LH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataLHIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataLHIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Intermediate Season');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataLHIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataLHIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataLHIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataLHIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -866,22 +866,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block LH Winter' 
- plot(h2,xdiscretized*10,ActivePower_dataLHWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataLHWinter*10);
  title(h2,'Active Power Block LH during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataLHWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataLHWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block LH during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataLHWinter];
- VARPQ= [xdiscretized;ActivePower_dataLHWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataLHWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataLHWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -891,22 +891,22 @@ function popup_menu_Callback(source, eventdata, handles)
  % User selects Block RH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  case 'Block RH Monsoon'
- plot(h2,xdiscretized*10,ActivePower_dataRHMonsoon);
+ plot(h2,xdiscretized*10,ActivePower_dataRHMonsoon*10);
  title(h2,'Active Power Block RH during the Monsoon');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataRHMonsoon/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataRHMonsoon,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Monsoon');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_M];
+ VARins = [xdiscretized;Ins_M'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp1];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataRHMonsoon];
- VARPQ= [xdiscretized;ActivePower_dataRHMonsoon/10];
+ VARPA= [xdiscretized;ActivePower_dataRHMonsoon*10];
+ VARPQ= [xdiscretized;ActivePower_dataRHMonsoon];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -914,22 +914,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block RH Intermediate'
- plot(h2,xdiscretized*10,ActivePower_dataRHIntermediate);
+ plot(h2,xdiscretized*10,ActivePower_dataRHIntermediate*10);
  title(h2,'Active Power Block RH during the Intermediate Season');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataRHIntermediate/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataRHIntermediate,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Intermediate Season');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_I];
+ VARins = [xdiscretized;Ins_I'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp2];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataRHIntermediate];
- VARPQ= [xdiscretized;ActivePower_dataRHIntermediate/10];
+ VARPA= [xdiscretized;ActivePower_dataRHIntermediate*10];
+ VARPQ= [xdiscretized;ActivePower_dataRHIntermediate];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);
@@ -937,22 +937,22 @@ function popup_menu_Callback(source, eventdata, handles)
  assignin('base', 'VARPQ', VARPQ);
 
  case 'Block RH Winter'
- plot(h2,xdiscretized*10,ActivePower_dataRHWinter);
+ plot(h2,xdiscretized*10,ActivePower_dataRHWinter*10);
  title(h2,'Active Power Block RH during the Winter');
  ylabel(h2,'Active Power (kW)');
  grid(h2,'on');
- plot(h3,xdiscretized*10,ActivePower_dataRHWinter/10,'r');
+ plot(h3,xdiscretized*10,ActivePower_dataRHWinter,'r');
  xlabel(h3,'Time (Hours)');
  ylabel(h3,'Reactive Power (kVAR)');
  title(h3,'Reactive Power Block RH during the Winter');
  grid(h3,'on');
  % Vector Data for the Simulink (Insolation)
- VARins = [xdiscretized;Ins_W];
+ VARins = [xdiscretized;Ins_W'/1000];
  % Vector Data for the Simulink (Temperature)
  VARTemp = [xdiscretized;Temp3];
  % Vector Data for the Simulink (Power)
- VARPA= [xdiscretized;ActivePower_dataRHWinter];
- VARPQ= [xdiscretized;ActivePower_dataRHWinter/10];
+ VARPA= [xdiscretized;ActivePower_dataRHWinter*10];
+ VARPQ= [xdiscretized;ActivePower_dataRHWinter];
  % Write Data vectors in the workspace for the Simulink 
  assignin('base', 'VARins', VARins);
  assignin('base', 'VARTemp', VARTemp);

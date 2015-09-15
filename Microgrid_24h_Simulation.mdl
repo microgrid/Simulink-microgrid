@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.238"
+    ComputedModelVersion    "1.270"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -54,27 +54,45 @@ Model {
       }
       Array {
 	Type			"Simulink.EditorInfo"
-	Dimension		3
+	Dimension		5
 	Object {
 	  $ObjectID		  5
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "2800"
+	  Extents		  [1566.0, 769.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1566.0, 769.0]
+	  ZoomFactor		  [0.8]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "3018"
+	  Extents		  [1566.0, 769.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [0.0, 0.0]
+	}
+	Object {
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2981"
 	  Extents		  [1566.0, 769.0]
 	  ZoomFactor		  [0.8]
-	  Offset		  [-75.333333333333485, -120.16666666666634]
+	  Offset		  [0.0, 0.0]
 	}
 	Object {
-	  $ObjectID		  6
-	  IsActive		  [1]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "1362"
-	  Extents		  [1566.0, 769.0]
-	  ZoomFactor		  [0.5]
-	  Offset		  [0.0, -30.5]
-	}
-	Object {
-	  $ObjectID		  7
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "2165"
@@ -95,9 +113,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Honorat"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Aug 24 12:53:43 2015"
-  RTWModifiedTimeStamp	  362318367
-  ModelVersionFormat	  "1.%<AutoIncrement:238>"
+  LastModifiedDate	  "Tue Sep 15 17:06:25 2015"
+  RTWModifiedTimeStamp	  364235536
+  ModelVersionFormat	  "1.%<AutoIncrement:270>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -132,7 +150,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    8
+    $ObjectID		    10
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "Dena_batea"
     signals_		    []
@@ -193,13 +211,13 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      9
+      $ObjectID		      11
       Version		      "1.13.0"
       Array {
 	Type			"Handle"
 	Dimension		9
 	Simulink.SolverCC {
-	  $ObjectID		  10
+	  $ObjectID		  12
 	  Version		  "1.13.0"
 	  StartTime		  "0.0"
 	  StopTime		  "2.4"
@@ -234,7 +252,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  11
+	  $ObjectID		  13
 	  Version		  "1.13.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -266,7 +284,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  12
+	  $ObjectID		  14
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -322,7 +340,7 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  13
+	  $ObjectID		  15
 	  Version		  "1.13.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -412,7 +430,7 @@ Model {
 	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  14
+	  $ObjectID		  16
 	  Version		  "1.13.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -453,7 +471,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  15
+	  $ObjectID		  17
 	  Version		  "1.13.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -468,7 +486,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  16
+	  $ObjectID		  18
 	  Version		  "1.13.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -483,7 +501,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  17
+	  $ObjectID		  19
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -546,7 +564,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      18
+	      $ObjectID		      20
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -613,7 +631,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      19
+	      $ObjectID		      21
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -696,7 +714,7 @@ Model {
 	  }
 	}
 	SSC.SimscapeCC {
-	  $ObjectID		  20
+	  $ObjectID		  22
 	  Version		  "1.0"
 	  Array {
 	    Type		    "Cell"
@@ -725,11 +743,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    9
+    $ObjectID		    11
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    21
+    $ObjectID		    23
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -817,6 +835,15 @@ Model {
       SampleTime	      "inf"
       FramePeriod	      "inf"
       PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      DeadZone
+      LowerValue	      "-0.5"
+      UpperValue	      "0.5"
+      SaturateOnIntegerOverflow	on
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      Demux
@@ -951,6 +978,14 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      RateLimiter
+      RisingSlewLimit	      "1"
+      FallingSlewLimit	      "-1"
+      SampleTimeMode	      "continuous"
+      InitialCondition	      "0"
+      LinearizeAsGain	      on
+    }
+    Block {
       BlockType		      S-Function
       FunctionName	      "system"
       SFunctionModules	      "''"
@@ -1051,7 +1086,7 @@ Model {
   System {
     Name		    "Microgrid_24h_Simulation"
     Location		    [-8, -8, 1608, 908]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1062,9 +1097,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "60"
+    ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "3068"
+    SIDHighWatermark	    "3076"
     Block {
       BlockType		      SubSystem
       Name		      "AC Load"
@@ -1081,13 +1116,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		22
+	$ObjectID		24
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/Plug.bmp'))"
       }
       System {
 	Name			"AC Load"
-	Location		[-8, 0, 1608, 916]
+	Location		[-8, -8, 1608, 908]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1147,7 +1182,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Measurements"
-	    Location		    [-8, 0, 1608, 916]
+	    Location		    [-8, -8, 1608, 908]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1161,10 +1196,39 @@ Model {
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
 	    Block {
+	      BlockType		      DeadZone
+	      Name		      "Dead Zone"
+	      SID		      "3071"
+	      Position		      [880, 280, 910, 310]
+	      ZOrder		      33
+	      LowerValue	      "-10000"
+	      UpperValue	      "0"
+	    }
+	    Block {
+	      BlockType		      DeadZone
+	      Name		      "Dead Zone1"
+	      SID		      "3072"
+	      Position		      [880, 355, 910, 385]
+	      ZOrder		      34
+	      LowerValue	      "-10000"
+	      UpperValue	      "0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "3074"
+	      Position		      [960, 355, 990, 385]
+	      ZOrder		      35
+	      Gain		      "0.1"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
 	      BlockType		      Goto
 	      Name		      "Goto"
 	      SID		      "3035"
-	      Position		      [900, 355, 960, 385]
+	      Position		      [1025, 355, 1085, 385]
 	      ZOrder		      30
 	      ShowName		      off
 	      GotoTag		      "RPower"
@@ -1174,7 +1238,7 @@ Model {
 	      BlockType		      Goto
 	      Name		      "Goto1"
 	      SID		      "3041"
-	      Position		      [900, 280, 960, 310]
+	      Position		      [1025, 280, 1085, 310]
 	      ZOrder		      29
 	      ShowName		      off
 	      GotoTag		      "APower"
@@ -1553,14 +1617,32 @@ Model {
 	    Line {
 	      SrcBlock		      "Power\n(3ph, Instantaneous)"
 	      SrcPort		      1
-	      Points		      [57, 0; 0, -30]
-	      DstBlock		      "Goto1"
+	      Points		      [44, 0; 0, -30]
+	      DstBlock		      "Dead Zone"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Power\n(3ph, Instantaneous)"
 	      SrcPort		      2
-	      Points		      [57, 0; 0, 25]
+	      Points		      [55, 0; 0, 25]
+	      DstBlock		      "Dead Zone1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Dead Zone"
+	      SrcPort		      1
+	      DstBlock		      "Goto1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Dead Zone1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
 	      DstBlock		      "Goto"
 	      DstPort		      1
 	    }
@@ -1586,7 +1668,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Load Measurements1"
-	    Location		    [-8, 0, 1608, 916]
+	    Location		    [-8, -8, 1608, 908]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2254,7 +2336,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		23
+	$ObjectID		25
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/Battery.bmp'))"
       }
@@ -2288,16 +2370,16 @@ Model {
 	  SourceType		  "Battery"
 	  BatType		  "Lead-Acid"
 	  ShowDetailedParameters  off
-	  NomV			  "1000"
-	  NomQ			  "20"
-	  SOC			  "80"
+	  NomV			  "1800"
+	  NomQ			  "3"
+	  SOC			  "50"
 	  PresetModel		  on
-	  MaxQ			  "114.5833"
-	  FullV			  "1088.8158"
-	  Dis_rate		  "22"
-	  R			  "0.090909"
-	  Normal_OP		  "34.1306"
-	  expZone		  "[1018.0921     0.36666667]"
+	  MaxQ			  "10.4167"
+	  FullV			  "1959.8684"
+	  Dis_rate		  "2"
+	  R			  "1.8"
+	  Normal_OP		  "3.1028"
+	  expZone		  "[1832.5658    0.033333333]"
 	  Dis_Char		  off
 	  current		  "[20 50 100]"
 	  Units			  "Time"
@@ -2718,7 +2800,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		24
+	$ObjectID		26
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Bidirectional Converter') \n"
       }
@@ -3527,14 +3609,14 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		25
+	$ObjectID		27
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Boost Converter')"
       }
       System {
 	Name			"Boost"
 	Location		[-8, -8, 1608, 908]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -4101,7 +4183,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Subsystem1"
-		Location		[982, 630, 1295, 932]
+		Location		[-8, -8, 1608, 908]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4821,29 +4903,28 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  Points		  [605, 200; -70, 0]
-	  DstBlock		  "Diode"
-	  DstPort		  RConn1
+	  Points		  [670, 200; -60, 0]
 	  Branch {
 	    ConnectType		    "SRC_DEST"
-	    Points		    [670, 200; -65, 0]
-	    Branch {
-	      ConnectType	      "SRC_DEST"
-	      SrcBlock		      "Voltage Measurement"
-	      SrcPort		      LConn1
-	      Points		      [-15, 0; 0, -85]
-	    }
-	    Branch {
-	      ConnectType	      "SRC_SRC"
-	      DstBlock		      "Current Measurement1"
-	      DstPort		      LConn1
-	    }
+	    SrcBlock		    "Voltage Measurement"
+	    SrcPort		    LConn1
+	    Points		    [-15, 0; 0, -85]
 	  }
 	  Branch {
-	    ConnectType		    "SRC_DEST"
+	    ConnectType		    "SRC_SRC"
+	    DstBlock		    "Current Measurement1"
+	    DstPort		    LConn1
+	  }
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Diode"
+	    DstPort		    RConn1
+	  }
+	  Branch {
+	    ConnectType		    "DEST_DEST"
 	    SrcBlock		    "Cdc"
 	    SrcPort		    LConn1
-	    Points		    [0, -40; -5, 0]
+	    Points		    [0, -40]
 	  }
 	}
 	Line {
@@ -5021,13 +5102,13 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		26
+	$ObjectID		28
 	$ClassName		"Simulink.Mask"
 	Display			"disp('DC/AC Inverter')"
       }
       System {
 	Name			"Inverter"
-	Location		[-8, -8, 1608, 908]
+	Location		[-8, 0, 1608, 916]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -5057,7 +5138,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "DC / AC Inverter"
-	    Location		    [-8, -8, 1608, 908]
+	    Location		    [-8, 0, 1608, 916]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -5096,7 +5177,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"AC Load Measurements"
-		Location		[0, 0, 1600, 876]
+		Location		[-8, 0, 1608, 916]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -5114,7 +5195,7 @@ Model {
 		  Name			  "Current Measurement1"
 		  SID			  "1701"
 		  Ports			  [0, 1, 0, 0, 0, 1, 1]
-		  Position		  [270, 63, 295, 87]
+		  Position		  [270, 93, 295, 117]
 		  ZOrder		  -1
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -5131,7 +5212,7 @@ Model {
 		  Name			  "Current Measurement2"
 		  SID			  "1702"
 		  Ports			  [0, 1, 0, 0, 0, 1, 1]
-		  Position		  [270, 93, 295, 117]
+		  Position		  [270, 123, 295, 147]
 		  ZOrder		  -2
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -5148,7 +5229,7 @@ Model {
 		  Name			  "Current Measurement3"
 		  SID			  "1703"
 		  Ports			  [0, 1, 0, 0, 0, 1, 1]
-		  Position		  [270, 123, 295, 147]
+		  Position		  [270, 153, 295, 177]
 		  ZOrder		  -3
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -5164,7 +5245,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto1"
 		  SID			  "860"
-		  Position		  [880, 25, 940, 55]
+		  Position		  [880, 55, 940, 85]
 		  ZOrder		  -10
 		  ShowName		  off
 		  GotoTag		  "Vload_a"
@@ -5174,7 +5255,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto5"
 		  SID			  "863"
-		  Position		  [795, 175, 855, 205]
+		  Position		  [975, 210, 1035, 240]
 		  ZOrder		  -10
 		  ShowName		  off
 		  GotoTag		  "Vload_ab"
@@ -5184,7 +5265,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto7"
 		  SID			  "864"
-		  Position		  [795, 225, 855, 255]
+		  Position		  [975, 260, 1035, 290]
 		  ZOrder		  -10
 		  ShowName		  off
 		  GotoTag		  "Vload_bc"
@@ -5194,7 +5275,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto8"
 		  SID			  "865"
-		  Position		  [795, 270, 855, 300]
+		  Position		  [975, 305, 1035, 335]
 		  ZOrder		  -10
 		  ShowName		  off
 		  GotoTag		  "Vload_ca"
@@ -5204,7 +5285,7 @@ Model {
 		  BlockType		  Goto
 		  Name			  "Goto9"
 		  SID			  "866"
-		  Position		  [950, 250, 1010, 280]
+		  Position		  [1130, 285, 1190, 315]
 		  ZOrder		  -10
 		  ShowName		  off
 		  GotoTag		  "Vload_pp"
@@ -5215,7 +5296,7 @@ Model {
 		  Name			  "Ground"
 		  SID			  "867"
 		  Ports			  [0, 0, 0, 0, 0, 1]
-		  Position		  [779, 65, 801, 90]
+		  Position		  [779, 95, 801, 120]
 		  ZOrder		  -15
 		  BlockRotation		  270
 		  BlockMirror		  on
@@ -5232,7 +5313,7 @@ Model {
 		  Name			  "Mux2"
 		  SID			  "868"
 		  Ports			  [3, 1]
-		  Position		  [910, 188, 915, 342]
+		  Position		  [1090, 223, 1095, 377]
 		  ZOrder		  -16
 		  ShowName		  off
 		  Inputs		  "3"
@@ -5243,7 +5324,7 @@ Model {
 		  Name			  "Subsystem1"
 		  SID			  "1158"
 		  Ports			  [1]
-		  Position		  [570, 41, 605, 79]
+		  Position		  [570, 16, 605, 54]
 		  ZOrder		  -17
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5320,7 +5401,7 @@ Model {
 		  Name			  "Subsystem2"
 		  SID			  "1154"
 		  Ports			  [1]
-		  Position		  [195, 26, 230, 64]
+		  Position		  [195, 56, 230, 94]
 		  ZOrder		  -18
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5397,7 +5478,7 @@ Model {
 		  Name			  "Subsystem3"
 		  SID			  "1181"
 		  Ports			  [1]
-		  Position		  [810, 331, 845, 369]
+		  Position		  [990, 366, 1025, 404]
 		  ZOrder		  -19
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5514,7 +5595,7 @@ Model {
 		  Name			  "Subsystem4"
 		  SID			  "1185"
 		  Ports			  [1]
-		  Position		  [810, 376, 845, 414]
+		  Position		  [990, 411, 1025, 449]
 		  ZOrder		  -20
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5591,7 +5672,7 @@ Model {
 		  Name			  "Subsystem5"
 		  SID			  "1189"
 		  Ports			  [1]
-		  Position		  [810, 421, 845, 459]
+		  Position		  [990, 456, 1025, 494]
 		  ZOrder		  -21
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5668,7 +5749,7 @@ Model {
 		  Name			  "Subsystem6"
 		  SID			  "1704"
 		  Ports			  [1]
-		  Position		  [365, 186, 400, 224]
+		  Position		  [365, 216, 400, 254]
 		  ZOrder		  -22
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5745,7 +5826,7 @@ Model {
 		  Name			  "Subsystem7"
 		  SID			  "1708"
 		  Ports			  [1]
-		  Position		  [365, 226, 400, 264]
+		  Position		  [365, 256, 400, 294]
 		  ZOrder		  -23
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5822,7 +5903,7 @@ Model {
 		  Name			  "Subsystem8"
 		  SID			  "1712"
 		  Ports			  [1]
-		  Position		  [365, 266, 400, 304]
+		  Position		  [365, 296, 400, 334]
 		  ZOrder		  -24
 		  ShowName		  off
 		  MinAlgLoopOccurrences	  off
@@ -5899,7 +5980,7 @@ Model {
 		  Name			  "Three-Phase\nV Measurement"
 		  SID			  "869"
 		  Ports			  [0, 1, 0, 0, 0, 3, 3]
-		  Position		  [450, 40, 535, 170]
+		  Position		  [450, 70, 535, 200]
 		  ZOrder		  -25
 		  LibraryVersion	  "1.2191"
 		  FontName		  "Verdana"
@@ -5926,7 +6007,7 @@ Model {
 		  Name			  "Three-Phase \nI Measurement"
 		  SID			  "870"
 		  Ports			  [0, 1, 0, 0, 0, 3, 3]
-		  Position		  [80, 25, 165, 155]
+		  Position		  [80, 55, 165, 185]
 		  ZOrder		  -26
 		  LibraryVersion	  "1.2191"
 		  FontName		  "Verdana"
@@ -5953,7 +6034,7 @@ Model {
 		  Name			  "Voltage Measurement1"
 		  SID			  "871"
 		  Ports			  [0, 1, 0, 0, 0, 2]
-		  Position		  [695, 178, 720, 202]
+		  Position		  [875, 213, 900, 237]
 		  ZOrder		  -27
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -5970,7 +6051,7 @@ Model {
 		  Name			  "Voltage Measurement2"
 		  SID			  "872"
 		  Ports			  [0, 1, 0, 0, 0, 2]
-		  Position		  [810, 28, 835, 52]
+		  Position		  [810, 58, 835, 82]
 		  ZOrder		  -28
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -5987,7 +6068,7 @@ Model {
 		  Name			  "Voltage Measurement6"
 		  SID			  "873"
 		  Ports			  [0, 1, 0, 0, 0, 2]
-		  Position		  [695, 228, 720, 252]
+		  Position		  [875, 263, 900, 287]
 		  ZOrder		  -29
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -6004,7 +6085,7 @@ Model {
 		  Name			  "Voltage Measurement7"
 		  SID			  "874"
 		  Ports			  [0, 1, 0, 0, 0, 2]
-		  Position		  [695, 273, 720, 297]
+		  Position		  [875, 308, 900, 332]
 		  ZOrder		  -30
 		  ShowName		  off
 		  LibraryVersion	  "1.2191"
@@ -6020,7 +6101,7 @@ Model {
 		  BlockType		  PMIOPort
 		  Name			  "A"
 		  SID			  "875"
-		  Position		  [25, 38, 55, 52]
+		  Position		  [25, 68, 55, 82]
 		  ZOrder		  -31
 		  Port			  "1"
 		  Side			  "Left"
@@ -6029,7 +6110,7 @@ Model {
 		  BlockType		  PMIOPort
 		  Name			  "A "
 		  SID			  "876"
-		  Position		  [1340, 83, 1370, 97]
+		  Position		  [1340, 113, 1370, 127]
 		  ZOrder		  -32
 		  BlockMirror		  on
 		  Port			  "2"
@@ -6039,7 +6120,7 @@ Model {
 		  BlockType		  PMIOPort
 		  Name			  "B"
 		  SID			  "877"
-		  Position		  [25, 83, 55, 97]
+		  Position		  [25, 113, 55, 127]
 		  ZOrder		  -33
 		  Port			  "3"
 		  Side			  "Left"
@@ -6048,7 +6129,7 @@ Model {
 		  BlockType		  PMIOPort
 		  Name			  "B "
 		  SID			  "878"
-		  Position		  [1340, 113, 1370, 127]
+		  Position		  [1340, 143, 1370, 157]
 		  ZOrder		  -34
 		  BlockMirror		  on
 		  Port			  "4"
@@ -6058,7 +6139,7 @@ Model {
 		  BlockType		  PMIOPort
 		  Name			  "C"
 		  SID			  "879"
-		  Position		  [25, 128, 55, 142]
+		  Position		  [25, 158, 55, 172]
 		  ZOrder		  -35
 		  Port			  "5"
 		  Side			  "Left"
@@ -6067,7 +6148,7 @@ Model {
 		  BlockType		  PMIOPort
 		  Name			  "C "
 		  SID			  "880"
-		  Position		  [1340, 143, 1370, 157]
+		  Position		  [1340, 173, 1370, 187]
 		  ZOrder		  -36
 		  BlockMirror		  on
 		  Port			  "6"
@@ -6151,6 +6232,7 @@ Model {
 		Line {
 		  SrcBlock		  "Three-Phase\nV Measurement"
 		  SrcPort		  1
+		  Points		  [12, 0; 0, -55]
 		  DstBlock		  "Subsystem1"
 		  DstPort		  1
 		}
@@ -6163,20 +6245,15 @@ Model {
 		}
 		Line {
 		  LineType		  "Connection"
-		  Points		  [765, 90; 560, 0]
+		  Points		  [765, 120; 560, 0]
 		  DstBlock		  "A "
 		  DstPort		  RConn1
 		  Branch {
 		    ConnectType		    "SRC_SRC"
-		    Points		    [-85, 0]
+		    Points		    [-33, 0]
 		    Branch {
 		    ConnectType		    "DEST_SRC"
-		    DstBlock		    "Voltage Measurement1"
-		    DstPort		    LConn1
-		    }
-		    Branch {
-		    ConnectType		    "DEST_SRC"
-		    Points		    [-60, 0]
+		    Points		    [-52, 0]
 		    Branch {
 		    ConnectType		    "DEST_SRC"
 		    DstBlock		    "Three-Phase\nV Measurement"
@@ -6184,10 +6261,16 @@ Model {
 		    }
 		    Branch {
 		    ConnectType		    "DEST_SRC"
-		    Points		    [0, 200]
+		    Points		    [0, 205]
 		    DstBlock		    "Voltage Measurement7"
 		    DstPort		    LConn2
 		    }
+		    }
+		    Branch {
+		    ConnectType		    "DEST_SRC"
+		    Points		    [0, 100]
+		    DstBlock		    "Voltage Measurement1"
+		    DstPort		    LConn1
 		    }
 		  }
 		  Branch {
@@ -6208,16 +6291,10 @@ Model {
 		  LineType		  "Connection"
 		  SrcBlock		  "B "
 		  SrcPort		  RConn1
-		  Points		  [-655, 0]
+		  Points		  [-605, 0]
 		  Branch {
 		    ConnectType		    "DEST_SRC"
-		    Points		    [0, 75]
-		    DstBlock		    "Voltage Measurement1"
-		    DstPort		    LConn2
-		  }
-		  Branch {
-		    ConnectType		    "DEST_SRC"
-		    Points		    [-15, 0]
+		    Points		    [-12, 0]
 		    Branch {
 		    ConnectType		    "DEST_SRC"
 		    DstBlock		    "Three-Phase\nV Measurement"
@@ -6225,10 +6302,16 @@ Model {
 		    }
 		    Branch {
 		    ConnectType		    "DEST_SRC"
-		    Points		    [0, 115]
+		    Points		    [0, 120]
 		    DstBlock		    "Voltage Measurement6"
 		    DstPort		    LConn1
 		    }
+		  }
+		  Branch {
+		    ConnectType		    "DEST_SRC"
+		    Points		    [0, 80]
+		    DstBlock		    "Voltage Measurement1"
+		    DstPort		    LConn2
 		  }
 		}
 		Line {
@@ -6242,16 +6325,10 @@ Model {
 		  LineType		  "Connection"
 		  SrcBlock		  "C "
 		  SrcPort		  RConn1
-		  Points		  [-680, 0]
+		  Points		  [-627, 0]
 		  Branch {
 		    ConnectType		    "DEST_SRC"
-		    Points		    [0, 95]
-		    DstBlock		    "Voltage Measurement6"
-		    DstPort		    LConn2
-		  }
-		  Branch {
-		    ConnectType		    "DEST_SRC"
-		    Points		    [-15, 0]
+		    Points		    [-9, 0]
 		    Branch {
 		    ConnectType		    "DEST_SRC"
 		    DstBlock		    "Three-Phase\nV Measurement"
@@ -6259,10 +6336,16 @@ Model {
 		    }
 		    Branch {
 		    ConnectType		    "DEST_SRC"
-		    Points		    [0, 130]
+		    Points		    [0, 135]
 		    DstBlock		    "Voltage Measurement7"
 		    DstPort		    LConn1
 		    }
+		  }
+		  Branch {
+		    ConnectType		    "DEST_SRC"
+		    Points		    [0, 100]
+		    DstBlock		    "Voltage Measurement6"
+		    DstPort		    LConn2
 		  }
 		}
 		Line {
@@ -6584,17 +6667,9 @@ Model {
 	      LineType		      "Connection"
 	      SrcBlock		      "Series RLC Branch1"
 	      SrcPort		      LConn1
-	      Points		      [-50, 0; 0, -15]
+	      Points		      [-100, 0]
 	      DstBlock		      "Three-Level Bridge"
 	      DstPort		      LConn2
-	    }
-	    Line {
-	      LineType		      "Connection"
-	      SrcBlock		      "Series RLC Branch3"
-	      SrcPort		      LConn1
-	      Points		      [-18, 0; 0, -40]
-	      DstBlock		      "Three-Level Bridge"
-	      DstPort		      LConn3
 	    }
 	    Line {
 	      LineType		      "Connection"
@@ -6602,6 +6677,14 @@ Model {
 	      SrcPort		      RConn2
 	      Points		      [-30, 0]
 	      DstBlock		      "Neutral"
+	      DstPort		      LConn1
+	    }
+	    Line {
+	      LineType		      "Connection"
+	      SrcBlock		      "Three-Level Bridge"
+	      SrcPort		      LConn3
+	      Points		      [57, 0; 0, 40]
+	      DstBlock		      "Series RLC Branch3"
 	      DstPort		      LConn1
 	    }
 	  }
@@ -7263,7 +7346,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		27
+	$ObjectID		29
 	$ClassName		"Simulink.Mask"
 	Display			"image(imread('img/photo.bmp'))"
       }
@@ -7793,6 +7876,16 @@ Model {
 	      DstPort		      1
 	    }
 	  }
+	}
+	Block {
+	  BlockType		  RateLimiter
+	  Name			  "Rate Limiter"
+	  SID			  "3076"
+	  Position		  [210, 670, 240, 700]
+	  ZOrder		  52
+	  BlockRotation		  270
+	  RisingSlewLimit	  "2.5"
+	  FallingSlewLimit	  "-2.5"
 	}
 	Block {
 	  BlockType		  FromWorkspace
@@ -8457,9 +8550,22 @@ Model {
 	  }
 	}
 	Line {
+	  SrcBlock		  "Ambient Temperature [C] from workspace"
+	  SrcPort		  1
+	  Points		  [208, 0; 0, -75]
+	  DstBlock		  "MATLAB Function1"
+	  DstPort		  3
+	}
+	Line {
 	  SrcBlock		  "Solar Irradiance [kW] from workspace"
 	  SrcPort		  1
-	  Points		  [137, 0; 0, -75; 37, 0]
+	  DstBlock		  "Rate Limiter"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Rate Limiter"
+	  SrcPort		  1
+	  Points		  [0, -25; 13, 0]
 	  Branch {
 	    Points		    [0, -140]
 	    DstBlock		    "Goto1"
@@ -8469,13 +8575,6 @@ Model {
 	    DstBlock		    "MATLAB Function1"
 	    DstPort		    2
 	  }
-	}
-	Line {
-	  SrcBlock		  "Ambient Temperature [C] from workspace"
-	  SrcPort		  1
-	  Points		  [208, 0; 0, -75]
-	  DstBlock		  "MATLAB Function1"
-	  DstPort		  3
 	}
       }
     }
@@ -8500,14 +8599,14 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		28
+	$ObjectID		30
 	$ClassName		"Simulink.Mask"
 	Display			"disp('Measurements')"
       }
       System {
 	Name			"Subsystem"
 	Location		[-8, -8, 1608, 908]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -8518,7 +8617,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"50"
+	ZoomFactor		"60"
 	Block {
 	  BlockType		  Scope
 	  Name			  "AC Load Measurements"
@@ -9057,7 +9156,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    29
+	    $ObjectID		    31
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Boost Converter Control')"
 	  }
@@ -9171,7 +9270,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    30
+	    $ObjectID		    32
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Bidirectional Converter Control')"
 	  }
@@ -9404,7 +9503,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    31
+	    $ObjectID		    33
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Frequency Measurement')"
 	  }
@@ -10594,8 +10693,8 @@ Model {
 	  }
 	  ShowLegends		  off
 	  TimeRange		  "1"
-	  YMin			  "-2000~-1500"
-	  YMax			  "10000~1000"
+	  YMin			  "4~0"
+	  YMax			  "13~6.5"
 	  SaveToWorkspace	  on
 	  SaveName		  "ScopeLoadPower"
 	  DataFormat		  "StructureWithTime"
@@ -11252,7 +11351,7 @@ Model {
 	  MaskHideContents	  off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    32
+	    $ObjectID		    34
 	    $ClassName		    "Simulink.Mask"
 	    Display		    "disp('Additional Load Meas.')"
 	  }
@@ -14139,7 +14238,7 @@ Model {
       Position		      [45, 30, 136, 81]
       ZOrder		      -38
       Priority		      "1"
-      LibraryVersion	      "*1.2191"
+      LibraryVersion	      "1.2191"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
@@ -14178,7 +14277,7 @@ Model {
       structure		      "Vab_st"
       ZoomFFT		      off
       StartTime		      "0"
-      cycles		      "60"
+      cycles		      "15"
       DisplayStyle	      "1"
       fundamental	      "50"
       FreqAxis		      off
@@ -14285,7 +14384,7 @@ Model {
     }
     Annotation {
       SID		      "2564"
-      Name		      "Author: Eleder Araneta Estala\nRevision: Honorat Quinard"
+      Name		      "Author: Eleder Araneta Estala\nRevision: Håkon Duus /Honorat Quinard"
       Position		      [864, 156]
       ZOrder		      -2
       FontName		      "Arial Narrow"
@@ -14305,7 +14404,7 @@ MatData {
     "             $         \"0         .    ,     8    (    !@         %    \"                0         )          X  "
     "  P    !@    @    &          4    (               !          D         #@   #     &    \"     8         !0    @   "
     "            $         \"0         .    .     8    (    !@         %    \"     $    !     0         )    \"        "
-    "!Q >-E #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@       "
+    "$K ,]M #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@       "
     "  %    \"                0         )          X    P    !@    @    &          4    (               !          D   "
     "      #@   #     &    \"     8         !0    @               $         \"0         "
   }
@@ -14363,44 +14462,44 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "\nfunction Ipv = Photovoltaic(Vpv,Irr,T_amb)\n\n% Made by Hakon\n\n\n%% Constants\n\nk = 1.38e-23"
-      ";        % Boltzman?s const\nq = 1.60e-19;        % charge on an electron\nn = 2;               % Diode quality "
-      "factor (=2 for crystaline, <2 for amorphous)\nVg = 1.12;           % Band gap voltage, 1.12V for xtal Si, 1.75 f"
-      "or amorphous Si\nT_ref_C=25;            % Nominal ambient test-temperature of the panels Standard Operating Temp"
-      "erature [C]\nT_ref=T_ref_C+273;      % Nominal temp in Kelvin\nT_nom_C=47;            % Nominal operation temper"
-      "ature in [C]\nT_nom=T_nom_C+273;       % Nominal operation temperatire in Kelvin\nirr_nom=0.8;        % Irradiat"
-      "ion at nominal operation [kW/m^2]\n\nnum_it=5;           % Number of iterations done with Newton-Raphson's metho"
-      "d\n\n%% Module specifications: THIS IS WHERE TO CHANGE INPUT VALUES\n\nV_oc= 63.2;     % Open circuit voltage pe"
-      "r module at Standard operating Contidiont (STC)[V]\nI_sc=7.0;       % Short circuit current per module at STC [A"
-      "]\nV_MPP=50;       % Voltage at MPPT\nI_MPP=6.4;      % Current at MPPT\nP_mod=320;      % Maximum module power "
-      "(equals V_mpp*I_mpp) [W]\n\na_V=-0.004;  % Decrease in voltage per degree C increased from STC (source: fig 5.22"
-      " in Design of Smart prower grid, A.Keyhani)in p.u.\na_I=0.0004;  % Increase in current per degree C increased fr"
-      "om STC (in p.u.)\n\nP_syst=1000e3;    % System power [W]\nV_string_des=400;               % Desired string volta"
-      "ge (inout value)\n\nn_s=36;                         % Number of cells in a module (needed for voltage-calculatio"
-      "n) typically 36, according to www.pveducation.org/pvcdrom/modules/module-circuit-design\n\n\n\n%% Cell specifica"
-      "tions \n\nNM=round(V_string_des/V_oc);    % Number of modules in a string\nV_string=NM*V_oc;               % Rea"
-      "l string voltage, will be used for furhter calculations [V]\nP_string=P_mod*NM;              % Power in a string"
-      " equals number of modules times rated module power [W]\nP_array=P_syst;                 % Assuming that we only "
-      "have one array, thus array power and system power is the same [W]\nNS=round(P_array/P_string);     % Find number"
-      " of strings in an array\nP_array=NS*P_string;            % Find real value of array power, as a multiplier of P_"
-      "string [W]\n\n\n%% Calculation of the photocurrent Iph\n\nT_cell=T_amb + Irr*(T_nom-T_ref)/irr_nom;   % Cell tem"
-      "perature as function of ambient temperature\n\nK0 = a_I*I_sc;             % Temperature koefficient for I_sc (EQ"
-      " 5, Eleder)\nIph_stc = I_sc * Irr;         % (ECUATION 4) photon current Iph at standard conditions with given i"
-      "rraidiance\nIph = Iph_stc + K0*(T_cell-T_ref);    % Photocurrent at current cell operating temperature (ECUATION"
-      " 3)\n\n%% Calculation of saturation current of the diode I0\n\n\nI0_stc = I_sc/(exp(q*V_oc/(n*k*T_ref))-1);    %"
-      " Saturation current of the diode at STC(ECUATION 7)\n\n% \n% I0 = I0_stc*(T_cell/T_ref).^(3/n).*exp(-q*Vg/(n*k)."
-      "*((1./T_cell)-(1/T_ref))); % Diode sat. current\nI0=Iph*exp(((-q*V_oc)/n_s)/((n*k*T_ref)));\n\n%% Fit parameter "
-      "for temperature-dependence of saturation current C_0\n\n\n%% Calculation of the series resistance Rs, represents"
-      " the resistance inside\n%  its cell in the connection between cells\nbeta=q/n_s*n*k*T_cell;\n\nXv = I0_stc*q/(n*"
-      "k*T_ref)*exp(q*V_oc/(n*k*T_ref)); % (ECUATION 8)\ndVdI_Voc = -1.15/NS /2;                       % dV/dI at Vco p"
-      "er cell, from manufacturers graph\n\n\n% Rs = (beta*(log(1-(I_MPP/Iph))+(V_oc-V_MPP))/I_MPP); % Resistance per c"
-      "ell (eq 5.19)\nRs=n_s*(((((n*k*T_ref)/q)*log(complex((1-(I_MPP/Iph))+(V_oc-V_MPP)/n_s)))/I_MPP));\n\n%% Calculat"
-      "ion of the PV array current, Ipv\nVt_Ta = n*k*T_cell/q;                            % = nkT/q\nVc = Vpv/NS;\nIpv "
-      "= zeros(size(Vc));\n\n% Ipv = Iph - I0*( exp(q*((Vc+Ipv*Rs)/ns)/nkT) -1) (ECUATION 5.15, Eicker 2001);\n\n% sett"
-      "ing beta=q/ns*nkT\n% Solve for Ipv: f(Ipv) = Iph - Ipv - I_0*(exp((Vc+Ipv*Rs)*beta) -1) = 0;\n% f'(Ipv)=0-1-I_0*"
-      "beta*Rs(exp((Vc+Ipv*Rs)*beta)\n% Newton-Raphson method: Ipv2 = Ipv1 - f(Ipv1)/f?(Ipv1)\n\nfor j=1:num_it;\n  Ipv"
-      " = abs(Ipv - ...\n  (Iph - Ipv - I0* (exp((Vc+Ipv*Rs)*beta) -1))...\n  / (-1 -(I0* (exp((Vc+Ipv*Rs)*beta))*Rs*be"
-      "ta)));\nend"
+      script		      "\nfunction Ipv = Photovoltaic(Vpv,Irr,T_amb)\n\n% Made by Hakon and Honorat\n% To do:\n% -choice "
+      "of the power in the system\n% -battery management\n% -\n\n%% Constants\n\nk = 1.38e-23;        % Boltzman?s cons"
+      "t\nq = 1.60e-19;        % charge on an electron\nn = 2;               % Diode quality factor (=2 for crystaline,"
+      " <2 for amorphous)\nVg = 1.12;           % Band gap voltage, 1.12V for xtal Si, 1.75 for amorphous Si\nT_ref_C=2"
+      "5;            % Nominal ambient test-temperature of the panels Standard Operating Temperature [C]\nT_ref=T_ref_C"
+      "+273;      % Nominal temp in Kelvin\nT_nom_C=47;            % Nominal operation temperature in [C]\nT_nom=T_nom_"
+      "C+273;       % Nominal operation temperatire in Kelvin\nirr_nom=0.8;        % Irradiation at nominal operation ["
+      "kW/m^2]\n\nnum_it=5;           % Number of iterations done with Newton-Raphson's method\n\n%% Module specificati"
+      "ons: THIS IS WHERE TO CHANGE INPUT VALUES\n\nV_oc= 63.2;     % Open circuit voltage per module at Standard opera"
+      "ting Contidiont (STC)[V]\nI_sc=7.0;       % Short circuit current per module at STC [A]\nV_MPP=50;       % Volta"
+      "ge at MPPT\nI_MPP=6.4;      % Current at MPPT\nP_mod=320;      % Maximum module power (equals V_mpp*I_mpp) [W]\n"
+      "\na_V=-0.004;  % Decrease in voltage per degree C increased from STC (source: fig 5.22 in Design of Smart prower"
+      " grid, A.Keyhani)in p.u.\na_I=0.0004;  % Increase in current per degree C increased from STC (in p.u.)\n\n% P_sy"
+      "st=1000e3;    % System power [W]\nV_string_des=400;               % Desired string voltage (inout value)\n\nn_s="
+      "36;                         % Number of cells in a module (needed for voltage-calculation) typically 36, accordi"
+      "ng to www.pveducation.org/pvcdrom/modules/module-circuit-design\n\n\n\n%% Cell specifications \n\nNM=round(V_str"
+      "ing_des/V_oc);    % Number of modules in a string\n\nV_string=NM*V_oc;               % Real string voltage, will"
+      " be used for furhter calculations [V]\nP_string=P_mod*NM;              % Power in a string equals number of modu"
+      "les times rated module power [W]\nP_array=P_syst;                 % Assuming that we only have one array, thus a"
+      "rray power and system power is the same [W]\nNS=round(P_array/P_string);     % Find number of strings in an arra"
+      "y\nP_array=NS*P_string;            % Find real value of array power, as a multiplier of P_string [W]\n\n\n%% Cal"
+      "culation of the photocurrent Iph\n\nT_cell=T_amb + Irr*(T_nom-T_ref)/irr_nom;   % Cell temperature as function o"
+      "f ambient temperature\n\nK0 = a_I*I_sc;             % Temperature koefficient for I_sc (EQ 5, Eleder)\nIph_stc ="
+      " I_sc * Irr;         % (ECUATION 4) photon current Iph at standard conditions with given irraidiance\nIph = Iph_"
+      "stc + K0*(T_cell-T_ref);    % Photocurrent at current cell operating temperature (ECUATION 3)\n\n%% Calculation "
+      "of saturation current of the diode I0\n\n\nI0_stc = I_sc/(exp(q*V_oc/(n*k*T_ref))-1);    % Saturation current of"
+      " the diode at STC(ECUATION 7)\n\n% \n% I0 = I0_stc*(T_cell/T_ref).^(3/n).*exp(-q*Vg/(n*k).*((1./T_cell)-(1/T_ref"
+      "))); % Diode sat. current\nI0=Iph*exp(((-q*V_oc)/n_s)/((n*k*T_ref)));\n\n%% Fit parameter for temperature-depend"
+      "ence of saturation current C_0\n\n\n%% Calculation of the series resistance Rs, represents the resistance inside"
+      "\n%  its cell in the connection between cells\nbeta=q/n_s*n*k*T_cell;\n\nXv = I0_stc*q/(n*k*T_ref)*exp(q*V_oc/(n"
+      "*k*T_ref)); % (ECUATION 8)\ndVdI_Voc = -1.15/NS /2;                       % dV/dI at Vco per cell, from manufact"
+      "urers graph\n\n\n% Rs = (beta*(log(1-(I_MPP/Iph))+(V_oc-V_MPP))/I_MPP); % Resistance per cell (eq 5.19)\nRs=n_s*"
+      "(((((n*k*T_ref)/q)*log(complex((1-(I_MPP/Iph))+(V_oc-V_MPP)/n_s)))/I_MPP));\n\n%% Calculation of the PV array cu"
+      "rrent, Ipv\nVt_Ta = n*k*T_cell/q;                            % = nkT/q\nVc = Vpv/NS;\nIpv = zeros(size(Vc));\n\n"
+      "% Ipv = Iph - I0*( exp(q*((Vc+Ipv*Rs)/ns)/nkT) -1) (ECUATION 5.15, Eicker 2001);\n\n% setting beta=q/ns*nkT\n% S"
+      "olve for Ipv: f(Ipv) = Iph - Ipv - I_0*(exp((Vc+Ipv*Rs)*beta) -1) = 0;\n% f'(Ipv)=0-1-I_0*beta*Rs(exp((Vc+Ipv*Rs"
+      ")*beta)\n% Newton-Raphson method: Ipv2 = Ipv1 - f(Ipv1)/f?(Ipv1)\n\nfor j=1:num_it;\n  Ipv = abs(Ipv - ...\n  (I"
+      "ph - Ipv - I0* (exp((Vc+Ipv*Rs)*beta) -1))...\n  / (-1 -(I0* (exp((Vc+Ipv*Rs)*beta))*Rs*beta)));\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -14730,10 +14829,10 @@ Stateflow {
       "anadham, K. Vijaya Bhaskar, \"Incremental Conductance Based Maximum\n% Power Point Tracking (MPPT) for Photovolt"
       "aic System\" International\n% Journal of Engineering Research and Applications (IJERA), vol. 2, issue\n% 2, Marc"
       "h-April 2012.\n\n\n% The followoing code is an algorithm for a Maximum Power Point Tracking\n% (MPPT) technique "
-      "Incremental COnductance\n\nVbus = 600;\n\ndI=Ipv-Iprevious;\ndV=Vpv-Vprevious;\n\nif (dV==0)\n    if (dI==0)\n  "
-      "      Vref=Vref_previous;\n    else\n        if (Ipv>0)\n            Vref= Vpv+dV;\n        else\n            Vr"
-      "ef= Vpv-dV;\n        end\n    end\nelse\n    if ((dI/dV)==(-Ipv/Vpv))\n        Vref=Vref_previous;\n    else\n  "
-      "      if ((dI/dV)>(-Ipv/Vpv))\n            Vref= Vpv+dV;\n        else\n            Vref= Vpv-dV;\n        end\n"
+      "Incremental COnductance\n\nVbus = 1000;\n\ndI=Ipv-Iprevious;\ndV=Vpv-Vprevious;\n\nif (dV==0)\n    if (dI==0)\n "
+      "       Vref=Vref_previous;\n    else\n        if (Ipv>0)\n            Vref= Vpv+dV;\n        else\n            V"
+      "ref= Vpv-dV;\n        end\n    end\nelse\n    if ((dI/dV)==(-Ipv/Vpv))\n        Vref=Vref_previous;\n    else\n "
+      "       if ((dI/dV)>(-Ipv/Vpv))\n            Vref= Vpv+dV;\n        else\n            Vref= Vpv-dV;\n        end\n"
       "    end\nend\nIpv_prev_out=Ipv;\nVpv_prev_out=Vpv;\n\ndelta=1-Vref/Vbus;\n\nend\n\n"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
